@@ -8,7 +8,14 @@ module.exports = merge(webpackConfig, {
 		poll: 1000 // Check for changes every second
 	},
 
-	devtool: false,
+
+	devServer: {
+		contentBase: './dist',
+		port: 9000,
+		hot: true,
+	},
+
+	devtool: "source-map",
 
 	mode: "development",
 

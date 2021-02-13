@@ -1,7 +1,7 @@
 import React from "react";
 import { render } from "react-dom";
 import Router from "./router";
-import './styles/styles.scss';
+// import './styles/styles.scss';
 
 const target = document.createElement("div");
 document.body.appendChild(target);

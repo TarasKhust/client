@@ -1,12 +1,11 @@
 const path = require("path");
-const fs = require("fs");
 const vendor = require("./vendor");
 const babel = require("./babel.config");
-const { ProvidePlugin } = require("webpack");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const cssUrl = require("postcss-url");
 const getFile = require("postcss-url/src/lib/get-file");
 const calcHash = require("postcss-url/src/lib/hash");
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const VENDOR_REGEXP = new RegExp(`[\/]node_modules[\/](${ [].concat(vendor).join("|") })[\/]`);
 
@@ -33,11 +32,11 @@ return;
 module.exports = {
 	entry: {
 		"master": `${__dirname}/src/@master/app.js`,
-		"members": `${__dirname}/src/@members/app.js`,
+		"members": `${__dirname}/src/@members/app.js`
 	},
 
 	output: {
-		path: path.resolve(__dirname, 'dist'),
+		path: path.join(__dirname, 'dist'),
 		filename: "[name].bundle.js",
 		chunkFilename: "[name].bundle.js?[contenthash]",
 	},
@@ -78,13 +77,14 @@ module.exports = {
 			filename: "[name].css?[contenthash:6]",
 			chunkFilename: "[id].css?[contenthash:6]",
 		}),
-		new ProvidePlugin({
-			$: "jquery",
-		}),
+		new HtmlWebpackPlugin(), // Generates default index.html
+		new HtmlWebpackPlugin({  // Also generate a test.html
+			filename: 'test.html',
+			template: 'src/user.html'
+		})
 	],
 
 	resolveLoader: {
-		moduleExtensions: ["-loader"],
 		extensions: [".js", ".jsx", ".json"],
 	},
 
@@ -250,7 +250,7 @@ module.exports = {
 	},
 
 	optimization: {
-		moduleIds: "hashed",
+		moduleIds: "deterministic",
 		chunkIds: "named",
 		runtimeChunk: "single",
 		splitChunks: {
