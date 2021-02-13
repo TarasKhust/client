@@ -1,0 +1,75 @@
+@import "_str_replace.scss";
+
+//---------------------------------------------------------------------------------------
+//	Function to create an optimized svg url
+//---------------------------------------------------------------------------------------
+@function svg-url($svg, $data: ()){
+	//
+	//  Add missing namespace
+	//
+	@if not str-index($svg,xmlns) {
+		$svg: str-replace($svg, '<svg','<svg xmlns="http://www.w3.org/2000/svg"');
+	}
+
+	$encoding_map: (
+		'"':'\'',
+		'%':'%25',
+		'&':'%26',
+		'#':'%23',
+		'{':'%7B',
+		'}':'%7D',
+		'<':'%3C',
+		'>':'%3E',
+		'\a':'',
+		//
+		//    The maybe list 
+		//
+		//    Keep size and compile time down
+		//    ... only add on documented fail 
+		// 
+		//'|':'%7C',
+		//'[':'%5B',
+		//']':'%5D',
+		//'^':'%5E',
+		//'`':'%60',
+		//';':'%3B',
+		//?':'%3F',
+		//':':'%3A',
+		//@':'%40',
+		//'=':'%3D'
+	);
+
+	//
+	//  Chunk up string in order to avoid 
+	//  "stack level too deep" error
+	//     
+	$encoded:'';
+	$slice: 2000;
+	$index: 0;
+	$loops: ceil(str-length($svg)/$slice);
+	@for $i from 1 through $loops {
+		$chunk: str-slice($svg, $index, $index + $slice - 1);
+
+		@if (type-of($data) == 'map') {
+			@each $key, $value in $data {
+				$chunk: str-replace($chunk, '%#{$key}%', $value);
+			}
+		}
+
+		//
+		//   Encode 
+		//
+		@each $char, $char_encoded in $encoding_map {
+			$chunk: str-replace($chunk, $char, $char_encoded);
+		}
+
+		$encoded: #{$encoded}#{$chunk};
+		$index: $index + $slice;
+	}
+	@return url("data:image/svg+xml,#{$encoded}");
+}
+
+//  Background svg mixin
+@mixin background_svg($svg, $data: ()){
+	background-image: svg-url($svg, $data);
+}

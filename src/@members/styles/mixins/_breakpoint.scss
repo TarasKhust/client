@@ -1,0 +1,23 @@
+@mixin breakpoint($value) {
+	$value: if(unitless($value), $value * 1px, $value);
+
+	@media screen and (max-width: $value) { @content; }
+
+}
+
+@mixin minBreakpoint($value) {
+	$value: if(unitless($value), $value * 1px, $value);
+
+	@media screen and (min-width: $value) { @content; }
+
+}
+
+@mixin wide_screen {
+	@include minBreakpoint(2000px) { @content; }
+}
+
+@mixin resize_screen($screenSize, $screenSizeTo: 0) {
+	@media screen and (max-width: $screenSize) and  (min-width: $screenSizeTo) {
+		@content;
+	}
+}

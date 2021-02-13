@@ -1,0 +1,422 @@
+@import "../variables/_general.scss";
+
+//---------------------------------------------------------------------------------------
+//	Buttons Styles: @include cf;
+//--------------------------------------------------------------------------------------- 
+
+@mixin cf { zoom:1; &:before,&:after{content:"";display:table;} &:after{clear:both;} }
+
+
+//---------------------------------------------------------------------------------------
+//	Buttons Styles: @include transition(all 150ms ease-in-out)
+//--------------------------------------------------------------------------------------- 
+
+@mixin transition($arguments...) 
+{
+	-webkit-transition: #{$arguments};//for safari iOS; 7.0 is not listed
+	//-moz-transition: #{$arguments};
+	//-o-transition:  #{$arguments} ;
+	transition: #{$arguments};
+}
+
+@mixin keyframes($name) {
+	@keyframes #{$name} { @content; }
+	@-webkit-keyframes #{$name} { @content; }
+	//@-moz-keyframes #{$name} { @content; }
+}
+
+@mixin animation($value){ animation: #{$value}; -webkit-animation: #{$value}; /*-moz-animation: #{$value};*/ }
+
+@mixin transform($value){ transform: #{$value}; -webkit-transform: #{$value}; /*-moz-transform: #{$value};*/ -ms-transform: #{$value}; }
+
+
+//---------------------------------------------------------------------------------------
+//	rotate -  @include rotate;
+//--------------------------------------------------------------------------------------- 
+@mixin rotate ($deg) {
+  @include transform(rotate(#{$deg}deg));
+}
+
+
+//---------------------------------------------------------------------------------------
+//	Arrow @include caret(down,#fff,10px)
+//--------------------------------------------------------------------------------------- 
+
+@mixin caret($direction, $color, $size){
+	display: inline-block;  
+	width: 0; 
+	height: 0;
+	border-style: solid;
+	border-color: transparent;
+	border-width: #{$size};
+	content: "";
+	
+	$side: "";
+	@if $direction == "down" 	{ $side: top; }
+	@if $direction == "up" 		{ $side: bottom; }
+	@if $direction == "left" 	{ $side: right; }
+	@if $direction == "right" 	{ $side: left; }
+
+	border-#{$side}-color: #{$color}; 
+}
+
+
+//---------------------------------------------------------------------------------------
+//	Box Sizing: Border Box -  @include border_box;
+//--------------------------------------------------------------------------------------- 
+
+@mixin border_box { box-sizing: border-box; }
+
+
+//---------------------------------------------------------------------------------------
+//	INPUT PLACEHOLDERS
+//--------------------------------------------------------------------------------------- 
+
+@mixin input_placeholder { 
+	
+	&:placeholder { @content; }
+
+	&::placeholder { @content; }
+
+	//&:-moz-placeholder { @content; } - deprecated in FF 19
+
+	&::-moz-placeholder { @content; }
+
+	&::-webkit-input-placeholder { @content; }
+
+	&:-ms-input-placeholder { @content; }
+
+	&.placeholder { @content; }
+}
+
+
+//---------------------------------------------------------------------------------------
+//	Buttons Styles: @include iconFont
+//--------------------------------------------------------------------------------------- 
+
+@mixin icon_font { font-family: $font_family_icon; font-style: normal; line-height: 1; font-weight: normal; }
+
+@function image($filename){
+	@return unquote("url(//#{$framework_hostname}/design_framework/images/#{$filename}#{$cache_buster})");
+}
+
+
+@mixin small_screen {
+	@if $enabled_breakpoint {
+		@media screen and (max-width: $normal_screen_breakpoint) {
+			@content;
+		}
+	}
+	@else {
+		@content;
+	}
+}
+
+@mixin resize_screen($screenSize, $screenSizeTo: 0) {
+	@media screen and (max-width: $screenSize) and  (min-width: $screenSizeTo) {
+		@content;
+	}
+}
+
+//@mixin laptop_screen {
+@mixin screen_1040 {
+	@if $enabled_responsive {
+		@media screen and (max-width: $screen_1040_breakpoint)  {
+			@content;
+		}
+	}
+}
+
+@mixin screen_1000 {
+	@if $enabled_responsive {
+		@media only screen and (max-width: $screen_1000_breakpoint)  {
+			@content;
+		}
+	}
+}
+
+@mixin screen_768 {
+	@if $enabled_responsive {
+		@media only screen and (max-width: $screen_768_breakpoint)  {
+			@content;
+		}
+	}
+}
+
+@mixin screen_480 {
+	@if $enabled_responsive {
+		@media only screen and (max-width: $screen_480_breakpoint)  {
+			@content;
+		}
+	}
+}
+
+@mixin screen_320 {
+	@if $enabled_responsive {
+		@media  only screen and (max-width: $screen_320_breakpoint) {
+			@content;
+		}
+	}
+}
+
+
+//extra  media  queries
+
+@mixin screen_940 {
+	@if $enabled_responsive {
+		@media screen and (max-width: 940px ) {
+			@content;
+		}
+	}
+}
+
+@mixin screen_720 {
+	@if $enabled_responsive {
+		@media screen and (max-width: 720px ) {
+			@content;
+		}
+	}
+}
+
+@mixin screen_680 {
+	@if $enabled_responsive {
+		@media screen and (max-width: 680px ) {
+			@content;
+		}
+	}
+}
+
+@mixin screen_570 {
+	@if $enabled_responsive {
+		@media screen and (max-width: 570px ) {
+			@content;
+		}
+	}
+}
+
+@mixin screen_400 {
+	@if $enabled_responsive {
+		@media screen and (max-width: 400px ) {
+			@content;
+		}
+	}
+}
+
+@mixin breakpoint($value) {
+	@if $enabled_responsive and not unitless($value)  {
+
+		@media screen and (max-width: $value) { @content; }
+
+	} @else {
+
+		@if $value == 320 {
+
+			@media (max-width: 320px) { @content; }
+
+		} @else if $value == 480 {
+
+			@media (max-width: 480px) { @content; }
+
+		} @else if $value == 768 {
+
+			@media (max-width: 768px) { @content; }
+
+		} @else if $value == 1024 {
+
+			@media (max-width: 1024px) { @content; }
+
+		} @else if $value == 1200 {
+
+			@media (max-width: 1200px) { @content; }
+
+		} @else if $value == 1280 {
+
+			@media (max-width: 1280px) { @content; }
+
+		} @else if $value == 1440 {
+
+			@media (max-width: 1440px) { @content; }
+
+		} @else if $value == 1680 {
+
+			@media (max-width: 1680px) { @content; }
+
+		} @else {
+
+			@warn "Breakpoint mixin supports: 320, 480, 768, 1024, 1200, 1280, 1440, 1680; breakpoint was "+$value;
+
+		}
+
+	}
+}
+
+@mixin onlyBreakpoint($value) {
+	@if $enabled_responsive {
+		@media screen and (width: $value) {
+			@content;
+		}
+	}
+}
+
+@mixin minBreakpoint($value) {
+	@media screen and (min-width: $value) {
+		@content;
+	}
+}
+
+@mixin wide_screen($top_class_name: false) {
+
+	@media screen and (min-width: 2000px) {
+
+		@if ($top_class_name) {
+			$selector: unquote($top_class_name);
+			@if (&) {
+				.#{$selector} & { @content; }
+			} @else {
+				.#{$selector} { @content; }
+			}
+		} @else {
+			@content;
+		}
+
+	}
+
+}
+
+
+@mixin only_webkit {
+	@media (-webkit-min-device-pixel-ratio: 0) {
+		@content;
+	}
+}
+
+@mixin only_firefox {
+	@media (min--moz-device-pixel-ratio: 0) {
+		@content;
+	}
+}
+
+@mixin only_ie {
+	@media screen and (min-width:0\0) {
+		@content;
+	}
+}
+
+@mixin only_safari {
+	@supports (overflow:-webkit-marquee) and (justify-content:inherit) {
+		@content;
+	}
+}
+
+@mixin only_reseller($which) {
+	@if $which == $reseller {
+		@content;
+	}
+}
+
+@mixin retina {
+	@media (-webkit-min-device-pixel-ratio: 2) { @content; }
+}
+
+@mixin user_select_none {
+	-moz-user-select: none; 
+	-khtml-user-select: none; //probably unnecessary
+	user-select: none; 
+	-webkit-user-select: none; 
+	-ms-user-select: none;
+}
+
+ // FLEX Box
+
+@mixin flexbox() {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin prefix($declarations, $prefixes: ()) {
+    @each $property, $value in $declarations {
+        @each $prefix in $prefixes {
+            #{'-' + $prefix + '-' + $property}: $value;
+        }
+
+        #{$property}: $value;
+    }
+}
+
+
+
+//mixin for resolving min-height and flex align-items properties IE problem
+//if box-sizing border-box used we need to consider vertical paddings
+//if you have different top and bottom paddings you can add it like list - 10px 20px
+@mixin min_height($min_height, $vertical_padding: 0){
+	min-height: $min_height;
+	$top_padding: $vertical_padding;
+	$bottom_padding: $vertical_padding;
+	@if (type-of($vertical_padding) == list){
+		$top_padding: nth($vertical_padding, 1);
+		$bottom_padding: nth($vertical_padding, 2);
+	}
+	
+	@include only_ie {
+		@if ($min_height == 0){
+			&:after { content: none; }
+		} @else {
+			&:after { content: ''; display: inline-block; width: 0; height: $min_height - $top_padding - $bottom_padding; float: right; }
+		}
+	}
+}
+
+
+
+//mixin for imitating dashed (dotted) bottom borders with custom space between dashes (dotes)
+@mixin dashed_border_bottom($color, $dash_width: 2px, $width: 4px, $height: 1px, $hover_color: '') {
+	$default_values: 2px 4px 1px;
+	$args_values: $dash_width $width $height;
+	//combined values list - if used $hover_color need restore default value
+	$values: ();
+
+	@each $val in $args_values {
+		@if (type-of($val) == color) {
+			$hover_color: $val;
+			$values: append($values, nth($default_values, index($args_values, $val)));
+		} @else {
+			$values: append($values, $val);
+		}
+	}
+
+	@if (type-of($hover_color) == color) {
+		&:hover {
+			background-image: -webkit-linear-gradient(right, $hover_color nth($values, 1), transparent nth($values, 1));
+			background-image: linear-gradient(to right, $hover_color  nth($values, 1), transparent  nth($values, 1));
+			background-image: -ms-linear-gradient(right, $hover_color nth($values, 1), transparent nth($values, 1));
+		}
+	}
+
+	background-repeat: repeat-x;
+	background-position: bottom left;
+	background-size: nth($values, 2) nth($values, 3);
+	background-image: -webkit-linear-gradient(right, $color nth($values, 1), transparent nth($values, 1));
+	background-image: linear-gradient(to right, $color nth($values, 1), transparent nth($values, 1));
+	background-image: -ms-linear-gradient(right, $color nth($values, 1), transparent nth($values, 1));
+}
+
+//--------------------------------------------------------------------
+//  REM FUNCTION - made for checking if to-rem* function exist
+//  *to-rem function should be defined locally
+//	if to-rem function is not defined then it will return value in px
+//---------------------------------------------------------------------
+@function rem($px, $base: false) {
+	@if function-exists(to-rem){
+		@if($base) {
+			@return to-rem($px, $base);
+		} @else {
+			@return to-rem($px);
+		}
+
+	} @else {
+		@return $px;
+	}
+}

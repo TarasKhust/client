@@ -1,4 +1,4 @@
-const merge = require("webpack-merge");
+const { merge } = require('webpack-merge');
 const { HotModuleReplacementPlugin } = require("webpack");
 const webpackConfig = require("./webpack.config");
 
@@ -12,16 +12,14 @@ module.exports = merge(webpackConfig, {
 		return acc;
 	}, {}),
 
-	watch: true,
-
 	watchOptions: {
 		ignored: /node_modules/,
 		poll: 1000, // Check for changes every second
 	},
 
-	output: {
-		publicPath: `https://${HOST}:${PORT}/dist/vodien`,
-	},
+	// output: {
+	// 	publicPath: `https://${HOST}:${PORT}/dist/vodien`,
+	// },
 
 	resolve: {
 		alias: {
@@ -38,7 +36,7 @@ module.exports = merge(webpackConfig, {
 	],
 
 	devServer: {
-		contentBase: webpackConfig.resolve.alias.framework,
+		contentBase: "./dist",
 		https: true,
 		port: 443,
 		hot: true,
@@ -55,9 +53,9 @@ module.exports = merge(webpackConfig, {
 		disableHostCheck: true,
 		headers: { "Access-Control-Allow-Origin": "*" },
 
-		proxy: {
-			"/dist/vodien": `https://${HOST}:${PORT}`,
-		},
+		// proxy: {
+		// 	"/dist/vodien": `https://${HOST}:${PORT}`,
+		// },
 	},
 
 });

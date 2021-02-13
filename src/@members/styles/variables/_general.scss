@@ -1,0 +1,12 @@
+//--------------------------------------------------------
+// CONTENT VARS
+//--------------------------------------------------------
+$content_padding: 25px;
+$content_padding_xxl: 30px;
+$content_padding_s: 17px;
+
+$content_width: 1160px + 2 * $content_padding;
+$content_width_xxl: 1360px + 2 * $content_padding_xxl;
+
+$enabled_responsive: true;
+$breakpoints_map: (ml: 1280, l: 1024, ls: 1023, m: 768, ms: 767, s: 480, t: 320); 

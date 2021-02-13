@@ -1,9 +1,7 @@
 const webpackConfig = require("./webpack.config");
-const merge = require("webpack-merge");
+const { merge } = require('webpack-merge');
 
 module.exports = merge(webpackConfig, {
-
-	watch: true,
 
 	watchOptions: {
 		ignored: /node_modules/,

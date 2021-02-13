@@ -1,0 +1,62 @@
+@import "breakpoint";
+
+//--------------------------------------------------------
+// FLUID PROPERTY MIXIN (based on vw units)
+//--------------------------------------------------------
+@function strip-unit($number) {
+	@if type-of($number) == 'number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+	
+	@return $number;
+}
+
+//$map_bp_value - map where breakpoint as key and property size as value
+@mixin fluid_type($property, $map_bp_value) {
+	$pairs: ();
+	$pair: ();
+	@for $i from 1 through length($map_bp_value) {
+		$pair: join($pair, nth($map_bp_value, $i));
+		@if ($i > 1) {
+			$pairs: append($pairs, $pair, comma);
+			$pair: nth($map_bp_value, $i);
+		}
+	}
+	
+	@for $index from 1 through length($pairs) {
+		$current: nth($pairs, $index);
+		
+		//convert values without unit to pixels
+		$converted: ();
+		@each $value in $current {
+			$converted: append($converted, if(unitless($value), $value * 1px, $value));
+		}
+		
+		$max_bp: nth($converted, 1);
+		$max_value: nth($converted, 2);
+		$min_bp:  nth($converted, 3);
+		$min_value:  nth($converted, 4);
+		
+		@include breakpoint($max_bp) {
+			
+			#{$property}: calc(#{$min_value} + (#{strip-unit($max_value)} - #{strip-unit($min_value)}) * (100vw - #{$min_bp})/(#{strip-unit($max_bp)} - #{strip-unit($min_bp)}));
+			
+		}
+		
+		@if ($index == length($pairs)) {
+			
+			@include breakpoint($min_bp) {
+				
+				#{$property}: $min_value;
+				
+			}
+			
+		}
+		
+	}
+	
+}
+
+@mixin fluid_fz($map){
+	@include fluid_type(font-size, $map);
+}
