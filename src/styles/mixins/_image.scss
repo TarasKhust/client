@@ -1,0 +1,3 @@
+@function image($url) {
+	@return unquote('url(/design_framework/images/#{$url})');
+}

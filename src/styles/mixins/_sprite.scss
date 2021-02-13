@@ -1,0 +1,20 @@
+$sprite_base_fz: 20px;
+
+@mixin sprite_base($base_fz: $sprite_base_fz) {
+
+	& { position: relative; font-size: $base_fz;
+
+		&:before { content: ''; display: block; }
+
+		svg { position: absolute; width: 100%; height: 100%; top: 0; left: 0; }
+
+		use { pointer-events: none; }
+
+	}
+
+}
+
+
+@mixin sprite_scale($value, $base_fz: $sprite_base_fz) {
+	font-size: $value * $base_fz;
+}
