@@ -52,6 +52,7 @@ module.exports = {
 			"@members": `${__dirname}/src/@members`,
 			"actions": `${__dirname}/src/actions`,
 			"components": `${__dirname}/src/components`,
+			"container": `${__dirname}/src/container`,
 			"reducers": `${__dirname}/src/reducers`,
 			"selectors": `${__dirname}/src/selectors`,
 			"classes": `${__dirname}/src/classes`,
@@ -79,8 +80,12 @@ module.exports = {
 		}),
 		new HtmlWebpackPlugin(), // Generates default index.html
 		new HtmlWebpackPlugin({  // Also generate a test.html
-			filename: 'test.html',
-			template: 'src/user.html'
+			filename: 'user',
+			template: 'src/assets/user.html'
+		}),
+		new HtmlWebpackPlugin({  // Also generate a test.html
+			filename: 'contact',
+			template: 'src/assets/contact.html'
 		})
 	],
 

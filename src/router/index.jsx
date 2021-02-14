@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { store } from "../store";
-import Button from '../component/Button'
-import Users from '../container/Users'
+import Button from '../components/Button'
+import Users from 'container/User/Users'
 
 export const history = createBrowserHistory();
 
