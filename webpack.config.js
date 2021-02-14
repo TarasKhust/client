@@ -52,7 +52,7 @@ module.exports = {
 			"@members": `${__dirname}/src/@members`,
 			"actions": `${__dirname}/src/actions`,
 			"components": `${__dirname}/src/components`,
-			"container": `${__dirname}/src/container`,
+			"containers": `${__dirname}/src/containers`,
 			"reducers": `${__dirname}/src/reducers`,
 			"selectors": `${__dirname}/src/selectors`,
 			"classes": `${__dirname}/src/classes`,
@@ -79,11 +79,11 @@ module.exports = {
 			chunkFilename: "[id].css?[contenthash:6]",
 		}),
 		new HtmlWebpackPlugin(), // Generates default index.html
-		new HtmlWebpackPlugin({  // Also generate a test.html
+		new HtmlWebpackPlugin({
 			filename: 'user',
 			template: 'src/assets/user.html'
 		}),
-		new HtmlWebpackPlugin({  // Also generate a test.html
+		new HtmlWebpackPlugin({
 			filename: 'contact',
 			template: 'src/assets/contact.html'
 		})

@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { store } from "../store";
-import Contact from 'container/Contact/Contact'
+import Contact from '../../containers/Contact/Contact'
 
 export const history = createBrowserHistory();
 

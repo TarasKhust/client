@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Route } from "react-router-dom";
 import { Portal } from "react-portal";
 
-const Contact = lazy(() => import(/* webpackChunkName: "ConatctButton" */ "container/Contact"));
+const Contact = lazy(() => import(/* webpackChunkName: "ConatctButton" */ "../Contact"));
 
 const container = document.querySelector("#contact");
 
