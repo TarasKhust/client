@@ -1,10 +1,10 @@
-import React, { Suspense } from "react";
+import React, { Suspense, lazy } from "react";
 import { Route } from "react-router-dom";
 import { Portal } from "react-portal";
 
-const Button = React.lazy(() => import(/* webpackChunkName: "User" */ "container/User"));
+const Contact = lazy(() => import(/* webpackChunkName: "ConatctButton" */ "../Contact"));
 
-const container = document.querySelector("#user");
+const container = document.querySelector("#contact");
 
 if (container) {
 	if (!container.getAttribute("root")) {
@@ -17,10 +17,11 @@ const router = () => {
 	return (
 			<Portal node={container}>
 				<Suspense fallback={null}>
-					<Route exact path="/user/">
-						<Button />
+					<Route exact path="/contact/">
+						<Contact />
 					</Route>
 				</Suspense>
+
 			</Portal>
 	);
 };
