@@ -86,6 +86,10 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			filename: 'contact',
 			template: 'src/assets/contact.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'main',
+			template: 'src/assets/main.html'
 		})
 	],
 
@@ -123,21 +127,6 @@ module.exports = {
 					},
 					{
 						loader: "postcss-loader",
-						options: {
-							plugins: (loader) => {
-								const plugins = [
-									require("autoprefixer"),
-									cssUrl(cssUrlOptions),
-								];
-
-								if (loader.mode === "production") {
-									plugins.push(require("cssnano"));
-								}
-
-								return plugins;
-							},
-							sourceMap: true,
-						},
 					},
 					{
 						loader: "resolve-url-loader",
@@ -170,30 +159,11 @@ module.exports = {
 					},
 					{
 						loader: "postcss-loader",
-						options: {
-							plugins: () => [
-								require("autoprefixer"),
-							],
-							sourceMap: true,
-						},
+
 					},
 					{
 						loader: "postcss-loader",
-						options: {
-							plugins: (loader) => {
-								const plugins = [
-									require("autoprefixer"),
-									cssUrl(cssUrlOptions),
-								];
 
-								if (loader.mode === "production") {
-									plugins.push(require("cssnano"));
-								}
-
-								return plugins;
-							},
-							sourceMap: true,
-						},
 					},
 					{
 						loader: "resolve-url-loader",
@@ -221,7 +191,6 @@ module.exports = {
 						loader: "babel-loader",
 						options: babel,
 					},
-					"@ds/svg-sprite-loader",
 				],
 			},
 			{
@@ -240,12 +209,6 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.sprite\.json$/,
-				type: "javascript/auto",
-				use: "@ds/svg-static-sprite-loader",
-			},
-			{
-
 				//...
 				parser: {
 					amd: false, // disable AMD

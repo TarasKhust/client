@@ -1,0 +1,30 @@
+.header_container{
+  display: flex;
+  align-items: center;
+  .header_inner{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 18px 190px 25px 190px;
+    width: 100%;
+    .header-inner_top{
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 0 0 20px 0;
+      .inner_top-l{
+        width: 40%;
+      }
+      .inner_top-r{
+        width: 40%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+      }
+    }
+    .header-inner_bottom{
+
+    }
+  }
+}

@@ -5,6 +5,7 @@ import { createBrowserHistory } from 'history'
 import Contact from 'containers/Contact/Contact'
 import { store } from 'store'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
+import MainPage from "@master/containers/MainPage/MainPage";
 
 export const history = createBrowserHistory();
 
@@ -17,8 +18,11 @@ const client = new ApolloClient({
 export default () => (
 		<ApolloProvider client={client}>
 			<Provider store={store}>
+				{/*<Router history={history}>*/}
+				{/*	<Contact/>*/}
+				{/*</Router>*/}
 				<Router history={history}>
-					<Contact/>
+					<MainPage />
 				</Router>
 			</Provider>
 		</ApolloProvider>
