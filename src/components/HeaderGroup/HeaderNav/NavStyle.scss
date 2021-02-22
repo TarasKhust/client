@@ -1,9 +1,30 @@
 .navigation_list{
   display: flex;
   align-items: center;
+  margin: 0;
+  padding: 0;
   .list_item{
     list-style: none;
     margin: 0 72px 0 0;
+    overflow: hidden;
+    position: relative;
+    padding: 0 0 2px 0;
+    &:before{
+      content: '';
+      position: absolute;
+      transition: transform .5s ease;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: #97999B;
+      transform: scaleX(0);
+    }
+    &:hover{
+      &:before{
+        transform: scaleX(1);
+      }
+    }
     &:last-child{
       margin: 0;
     }
