@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import XHR from '../classes/XHR'
+import XHR from 'classes/XHR'
 import Loader from './Loader'
 
 const Button = () => {

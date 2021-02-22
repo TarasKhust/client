@@ -1,0 +1,17 @@
+
+.btn{
+  font-family: 'Montserrat', 'sans-serif';
+  border: none;
+  outline: none;
+  &.btn_yellow{
+    color: #595959;
+    background: #F9E547;
+  }
+  &.btn_normal{
+    height: 65px;
+    padding: 0 73px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
