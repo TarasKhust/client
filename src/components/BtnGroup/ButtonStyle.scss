@@ -1,11 +1,16 @@
-
 .btn{
   font-family: 'Montserrat', 'sans-serif';
   border: none;
   outline: none;
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
   &.btn_yellow{
     color: #595959;
     background: #F9E547;
+    transition: border-color 0.35s ease-in-out;
+    border: 2px solid transparent;
+
   }
   &.btn_normal{
     height: 65px;
@@ -13,5 +18,132 @@
     font-weight: 600;
     font-size: 18px;
     line-height: 22px;
+  }
+  &.draw-outline{
+    transition: border-color 0.35s ease-in-out;
+    box-sizing: border-box;
+    &:hover{
+      color: #F9E547;
+      transition: color 0.35s ease-in-out, background 0.35s ease-in-out, border-color 0.35s ease-in-out;
+      border-color: #F9E547;
+      -webkit-animation: outline-reset 0.35s 1 forwards;
+      animation: outline-reset 0.35s 1 forwards;
+      background: #FFFFFF;
+      &:before{
+        -webkit-animation: top-right-border 0.75s 1 0.35s forwards;
+        animation: top-right-border 0.75s 1 0.35s forwards;
+      }
+      &::after {
+        -webkit-animation: bottom-left-border 0.75s 1 0.35s forwards;
+        animation: bottom-left-border 0.75s 1 0.35s forwards;
+      }
+    }
+    &:before, &:after{
+      content: "";
+      position: absolute;
+      width: 0px;
+      height: 0px;
+      box-sizing: content-box;
+      z-index: -1;
+      transition: transform 0.25s ease-in-out;
+      padding-left: 2px;
+    }
+    &:before{
+      top: -2px;
+      left: -2px;
+      border-top: 2px transparent solid;
+      border-right: 2px transparent solid;
+    }
+    &:after{
+      bottom: -2px;
+      right: -2px;
+      border-bottom: 2px transparent solid;
+      border-left: 2px transparent solid;
+    }
+    &:active{
+      &:before, &:after{
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+@-webkit-keyframes outline-reset {
+  0% {
+    border-color: #F9E547;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+@keyframes outline-reset {
+  0% {
+    border-color: #F9E547;
+  }
+  100% {
+    border-color: transparent;
+  }
+}
+@-webkit-keyframes top-right-border {
+  0% {
+    border-color: #F9E547;
+    width: 0px;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    border-color: #F9E547;
+    width: 100%;
+    height: 100%;
+  }
+}
+@keyframes top-right-border {
+  0% {
+    border-color: #F9E547;
+    width: 0px;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    border-color: #F9E547;
+    width: 100%;
+    height: 100%;
+  }
+}
+@-webkit-keyframes bottom-left-border {
+  0% {
+    border-color: #F9E547;
+    width: 0px;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    border-color: #F9E547;
+    width: 100%;
+    height: 100%;
+  }
+}
+@keyframes bottom-left-border {
+  0% {
+    border-color: #F9E547;
+    width: 0px;
+    height: 0;
+  }
+  50% {
+    width: 100%;
+    height: 0;
+  }
+  100% {
+    border-color: #F9E547;
+    width: 100%;
+    height: 100%;
   }
 }

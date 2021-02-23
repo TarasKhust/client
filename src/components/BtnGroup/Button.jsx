@@ -5,13 +5,14 @@ import './ButtonStyle.scss'
 
 
 
-const Button = ({text, mode, size, className, disabled, onClick, ...props}) => {
+const Button = ({animation, text, mode, size, className, disabled, onClick, ...props}) => {
 
     const classNames = classnames(
         'btn',
         {
             [`btn_${mode}`]: Boolean(mode),
-            [`btn_${size}`]: Boolean(size)
+            [`btn_${size}`]: Boolean(size),
+            [`${animation}`]: Boolean(animation)
         },
         className
     )
@@ -31,12 +32,14 @@ Button.defaultProps = {
     mode: 'yellow',
     size: 'normal',
     className: '',
+    animation: '',
     disabled: false
 }
 
 Button.propTypes = {
     mode: PropTypes.oneOf(['yellow',]),
     size: PropTypes.oneOf(['normal',]),
+    animation: PropTypes.oneOf(['draw-outline',]),
     className: PropTypes.string,
     onClick: PropTypes.func,
     disabled: PropTypes.bool
@@ -52,6 +55,7 @@ Button.propTypes = {
  * @param disabled
  * @param onClick
  * @param props
+ * @param animation
  * @returns {JSX.Element}
  * @constructor
  */

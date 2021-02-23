@@ -7,7 +7,7 @@ import Button from "components/BtnGroup/Button";
     return(
         <div>
             <Header />
-            <Button text={'Магазин'} />
+            <Button text={'Магазин'}  animation={'draw-outline'}/>
         </div>
     )
 }
