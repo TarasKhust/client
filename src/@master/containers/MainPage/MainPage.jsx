@@ -1,13 +1,17 @@
 import React from "react";
 import './MainStyle.scss'
 import Header from "components/HeaderGroup/Header";
-import Button from "components/BtnGroup/Button";
+import Slider from "components/Slider/Slider";
+import Catalog from "components/Catalog/Catalog";
+import Privilege from "components/Privilege/Privilege";
 
  const MainPage = () => {
     return(
         <div>
             <Header />
-            <Button text={'Магазин'}  animation={'draw-outline'}/>
+            <Slider  />
+            <Catalog />
+            <Privilege />
         </div>
     )
 }

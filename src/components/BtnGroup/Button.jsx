@@ -6,7 +6,6 @@ import './ButtonStyle.scss'
 
 
 const Button = ({animation, text, mode, size, className, disabled, onClick, ...props}) => {
-
     const classNames = classnames(
         'btn',
         {
