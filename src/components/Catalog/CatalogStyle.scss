@@ -14,14 +14,16 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
+    width: 80%;
+    margin: 0 auto;
     .catalog_list{
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 80%;
-      margin: 0 auto 60px auto;
+      width: 100%;
+      margin: 0 0 60px 0;
       &:first-child{
-        margin: 0 auto 20px auto;
+        margin: 0 0 20px 0;
       }
       &:nth-child(2){
         .catalog_list-item{

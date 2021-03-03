@@ -4,6 +4,7 @@ import Header from "components/HeaderGroup/Header";
 import Slider from "components/Slider/Slider";
 import Catalog from "components/Catalog/Catalog";
 import Privilege from "components/Privilege/Privilege";
+import Arrivals from "components/NewArrivals/Arrivals";
 
  const MainPage = () => {
     return(
@@ -12,6 +13,7 @@ import Privilege from "components/Privilege/Privilege";
             <Slider  />
             <Catalog />
             <Privilege />
+            <Arrivals />
         </div>
     )
 }
