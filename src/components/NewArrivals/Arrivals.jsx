@@ -1,6 +1,7 @@
 import React, {useState} from "react";
-import { Swiper, SwiperSlide } from 'swiper/react';
-// import 'swiper/swiper.scss';
+import { Swiper as Slider, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper.scss';
+import 'swiper/components/navigation/navigation.scss';
 import './ArrivalsStyle.scss'
 
 // install Swiper's Controller component
@@ -10,7 +11,7 @@ const Arrivals = () => {
         <section className='arrivals_content' >
             <h2 className='arrivals_title'>Новые поступления</h2>
             <div className="content_inner">
-                <Swiper
+                <Slider
                     slidesPerView={3}
                     loop={true}
                     navigation={true}
@@ -79,7 +80,7 @@ const Arrivals = () => {
                             </div>
                         </div>
                     </SwiperSlide>
-                </Swiper>
+                </Slider>
             </div>
         </section>
     )
