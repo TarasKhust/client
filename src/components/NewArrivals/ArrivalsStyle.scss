@@ -1,4 +1,5 @@
 .arrivals_content{
+  margin: 0 0 80px 0;
   .arrivals_title{
     text-align: center;
     margin: 0 0 50px 0;
@@ -12,15 +13,81 @@
   .content_inner{
     width: 80%;
     margin: 0 auto;
+    position: relative;
     .swiper-container{
+      position: initial;
+      padding: 10px 20px;
+      .swiper-button-prev, .swiper-button-next{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 50%;
+        position: absolute;
+        padding: 5px;
+        background: #F9E547;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        z-index: 999;
+        transition: all 0.2s linear;
+        &:after{
+          content: "";
+          position: absolute;
+          left: 20px;
+          z-index: 999;
+          display: block;
+          width: 25px;
+          height: 25px;
+          border-top: 2px solid #97999B;
+          border-left: 2px solid #97999B;
+        }
+        &:before{
+          content: "";
+          display: block;
+          background-color: #97999B;
+          opacity: 0.4;
+          border-radius: 50%;
+          width: 80px;
+          height: 80px;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%) scale(1);
+          z-index: -1;
+          pointer-events: none;
+          transition: .3s all;
+        }
+        &:hover{
+          &:before{
+            transform: translate(-50%, -50%) scale(0);
+          }
+        }
+      }
+      .swiper-button-next{
+        right: -5%;
+        &:after{
+          transform: rotate(-225deg);
+          left: 10px;
+        }
+        &:hover{
+        }
+      }
+      .swiper-button-prev{
+        left: -5%;
+        &:after{
+          transform: rotate(-45deg);
+        }
+        &:hover{
+        }
+      }
       .swiper-wrapper{
         .swiper-slide{
           .arrival_item{
             width: 100%;
             display: flex;
-            align-items: center;
-            justify-content: center;
             flex-direction: column;
+            background: #FFFFFF;
+            box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.13);
             .arrival_image{
               margin: 0;
               display: flex;
@@ -41,7 +108,7 @@
                 font-size: 15px;
                 line-height: 18px;
                 color: #595959;
-                margin: 0 0 10px 0;
+                margin: 0 0 15px 0;
               }
               .arrival_desc{
                 font-family: 'Montserrat', 'sans-serif';
@@ -70,4 +137,11 @@
       }
     }
   }
+  .arrivals_link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0 0 0;
+  }
 }
+

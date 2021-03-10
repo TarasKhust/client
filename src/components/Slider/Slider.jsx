@@ -22,8 +22,8 @@ const Slider = () => {
                 autoplay={{
                     delay: 3000,
                 }}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
+                // onSlideChange={() => }
+                // onSwiper={(swiper) => }
             >
                 <SwiperSlide>
                     <figure className='slide-image'>

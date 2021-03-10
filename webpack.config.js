@@ -193,6 +193,14 @@ module.exports = {
 					},
 				],
 			},
+			// {
+			// 	test: /\.svg$/,
+			// 	use: [
+			// 		{ loader: 'svg-sprite-loader', options: { ... } },
+			// 		'svg-transform-loader',
+			// 		'svgo-loader'
+			// 	]
+			// },
 			{
 				test: /\.(jpe?g|png|gif|svg)$/i,
 				exclude: /sprite_src/,

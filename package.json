@@ -50,6 +50,9 @@
     "semantic-ui-react": "2.0.1",
     "store": "2.0.12",
     "superagent": "6.1.0",
+    "svg-sprite-loader": "^5.2.1",
+    "svg-transform-loader": "^2.0.13",
+    "svgo-loader": "^3.0.0",
     "swiper": "^6.4.15"
   },
   "devDependencies": {
