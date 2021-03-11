@@ -213,37 +213,12 @@ module.exports = {
 					},
 				],
 			},
-			{
-				test: /\.svg$/,
-				include: /sprite_src/,
-				use: [
-					{
-						loader: "babel-loader",
-						options: babel,
-					},
-					"@ds/svg-sprite-loader",
-				],
-			},
-			{
-				test: /\.(jpe?g|png|gif|svg)$/i,
-				exclude: /sprite_src/,
-				use: [
-					{
-						loader: "file-loader",
-						options: {
-							name: function () {
-
-								return "[path][name].[ext]?[contenthash:6]";
-							},
-						},
-					},
-				],
-			},
-			{
-				test: /\.sprite\.json$/,
-				type: "javascript/auto",
-				use: "@ds/svg-static-sprite-loader",
-			},
+		  {
+			test: /\.svg$/,
+			use: [
+			  '@svgr/webpack',
+			 ]
+		  },
 			{
 
 				//...

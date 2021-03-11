@@ -1,5 +1,6 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
+import UserIcon from './user.svg'
 
 const Contact = () => {
 
@@ -16,6 +17,7 @@ const Contact = () => {
 	if (error) return <p>Error :(</p>;
 	return (
 			<div>
+			  <UserIcon/>
 				{data.rates.map(({ currency, rate }) => (
 						<div key={currency}>
 							<p>
