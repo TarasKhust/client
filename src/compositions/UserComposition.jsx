@@ -38,6 +38,7 @@ const Users = ({ children }) => {
 
 	useEffect(() => {
 		// getData()
+	  console.log('dsada');
 
 	}, [])
 

@@ -127,6 +127,21 @@ module.exports = {
 					},
 					{
 						loader: "postcss-loader",
+						options: {
+							plugins: (loader) => {
+								const plugins = [
+									require("autoprefixer"),
+									cssUrl(cssUrlOptions),
+								];
+
+								if (loader.mode === "production") {
+									plugins.push(require("cssnano"));
+								}
+
+								return plugins;
+							},
+							sourceMap: true,
+						},
 					},
 					{
 						loader: "resolve-url-loader",
@@ -159,11 +174,30 @@ module.exports = {
 					},
 					{
 						loader: "postcss-loader",
-
+						options: {
+							plugins: () => [
+								require("autoprefixer"),
+							],
+							sourceMap: true,
+						},
 					},
 					{
 						loader: "postcss-loader",
+						options: {
+							plugins: (loader) => {
+								const plugins = [
+									require("autoprefixer"),
+									cssUrl(cssUrlOptions),
+								];
 
+								if (loader.mode === "production") {
+									plugins.push(require("cssnano"));
+								}
+
+								return plugins;
+							},
+							sourceMap: true,
+						},
 					},
 					{
 						loader: "resolve-url-loader",
@@ -191,16 +225,9 @@ module.exports = {
 						loader: "babel-loader",
 						options: babel,
 					},
+					"@ds/svg-sprite-loader",
 				],
 			},
-			// {
-			// 	test: /\.svg$/,
-			// 	use: [
-			// 		{ loader: 'svg-sprite-loader', options: { ... } },
-			// 		'svg-transform-loader',
-			// 		'svgo-loader'
-			// 	]
-			// },
 			{
 				test: /\.(jpe?g|png|gif|svg)$/i,
 				exclude: /sprite_src/,
@@ -217,6 +244,12 @@ module.exports = {
 				],
 			},
 			{
+				test: /\.sprite\.json$/,
+				type: "javascript/auto",
+				use: "@ds/svg-static-sprite-loader",
+			},
+			{
+
 				//...
 				parser: {
 					amd: false, // disable AMD
