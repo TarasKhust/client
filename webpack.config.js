@@ -1,33 +1,10 @@
 const path = require("path");
 const vendor = require("./vendor");
 const babel = require("./babel.config");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const cssUrl = require("postcss-url");
-const getFile = require("postcss-url/src/lib/get-file");
-const calcHash = require("postcss-url/src/lib/hash");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const VENDOR_REGEXP = new RegExp(`[\/]node_modules[\/](${ [].concat(vendor).join("|") })[\/]`);
 
-const cssUrlOptions = {
-	filter: (asset) => {
-		if (asset.pathname && asset.pathname[0] === "/") {
-			return !(/^\/font\//.test(asset.pathname));
-		}
-
-		return false;
-	},
-	url: function (asset, dir, options, decl, warn) {
-		return getFile(asset, options, dir, warn)
-			.then(file => {
-				if (!file) {
-return;
-}
-
-				return `${asset.pathname}?${calcHash(file.contents)}`;
-			});
-	},
-};
 
 module.exports = {
 	entry: {
@@ -74,10 +51,6 @@ module.exports = {
 	externals: {},
 
 	plugins: [
-		new MiniCssExtractPlugin({
-			filename: "[name].css?[contenthash:6]",
-			chunkFilename: "[id].css?[contenthash:6]",
-		}),
 		new HtmlWebpackPlugin(), // Generates default index.html
 		new HtmlWebpackPlugin({
 			filename: 'user',
@@ -111,122 +84,8 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.module\.s?css$/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: "css-loader",
-						options: {
-							sourceMap: true,
-							importLoaders: 1,
-							localsConvention: "dashes",
-							modules: {
-								localIdentName: "[local]___[hash:base64:6]",
-							},
-						},
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: (loader) => {
-								const plugins = [
-									require("autoprefixer"),
-									cssUrl(cssUrlOptions),
-								];
-
-								if (loader.mode === "production") {
-									plugins.push(require("cssnano"));
-								}
-
-								return plugins;
-							},
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "resolve-url-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "sass-loader",
-						options: {
-							implementation: require("sass"),
-							sassOptions: {
-								outputStyle: "expanded",
-							},
-							sourceMap: true,
-						},
-					},
-				],
-			},
-			{
-				test: /\.s?css$/,
-				exclude: /\.module\.s?css$/,
-				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: "css-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: () => [
-								require("autoprefixer"),
-							],
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: (loader) => {
-								const plugins = [
-									require("autoprefixer"),
-									cssUrl(cssUrlOptions),
-								];
-
-								if (loader.mode === "production") {
-									plugins.push(require("cssnano"));
-								}
-
-								return plugins;
-							},
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "resolve-url-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "sass-loader",
-						options: {
-							implementation: require("sass"),
-							sassOptions: {
-								outputStyle: "expanded",
-							},
-							sourceMap: true,
-						},
-					},
-				],
-			},
-			{
-				test: /\.svg$/,
-				include: /sprite_src/,
-				use: [
-					{
-						loader: "babel-loader",
-						options: babel,
-					},
-					"@ds/svg-sprite-loader",
-				],
+				test: /\.(scss|css)$/,
+				use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
 			},
 			{
 				test: /\.(jpe?g|png|gif|svg)$/i,
@@ -236,7 +95,6 @@ module.exports = {
 						loader: "file-loader",
 						options: {
 							name: function () {
-
 								return "[path][name].[ext]?[contenthash:6]";
 							},
 						},

@@ -1,5 +1,5 @@
 import React from "react";
-import  'MainStyle.scss'
+import  './MainStyle.scss'
 import Header from "components/HeaderGroup/Header";
 import Slider from "components/Slider/Slider";
 import Catalog from "components/Catalog/Catalog";
