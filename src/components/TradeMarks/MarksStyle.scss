@@ -19,17 +19,56 @@
     flex-wrap: wrap;
     width: 80%;
     margin: 0 auto;
-    .mark_list-item{
-      img{
-        position: relative;
-        -moz-filter: grayscale(100%);
-        -o-filter: grayscale(100%);
-        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-        filter: grayscale(100%);
-        &:hover{
-          filter: none;
+    position: relative;
+    .swiper-container{
+      width: 90%;
+      margin: 0 auto;
+      position: initial;
+      .swiper-button-next,.swiper-button-prev{
+        display: block;
+        //margin: 30px auto;
+        top: 50%;
+        width: 45px;
+        height: 45px;
+        border-top: 2px solid #F9E547;
+        border-left: 2px solid #F9E547;
+        position: absolute;
+        z-index: 2;
+      }
+      .swiper-button-prev{
+        transform: rotate(-45deg);
+        left: 10px;
+      }
+      .swiper-button-next{
+        transform: rotate(135deg);
+        right: 10px;
+      }
+      .swiper-wrapper{
+        .swiper-slide{
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
       }
     }
+    .marks_list-item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+        svg{
+          width: 100%;
+          position: relative;
+          -moz-filter: grayscale(100%);
+          -o-filter: grayscale(100%);
+          -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          filter: grayscale(100%);
+          transition: all 1s;
+          &:hover{
+            filter: none;
+          }
+        }
+    }
   }
 }
+

@@ -88,18 +88,24 @@ module.exports = {
 				use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
 			},
 			{
-				test: /\.(jpe?g|png|gif|svg)$/i,
+				test: /\.(jpe?g|png|gif)$/i,
 				exclude: /sprite_src/,
 				use: [
 					{
 						loader: "file-loader",
-						options: {
-							name: function () {
-								return "[path][name].[ext]?[contenthash:6]";
-							},
-						},
+						// options: {
+						// 	name: function () {
+						// 		return "[path][name].[ext]?[contenthash:6]";
+						// 	},
+						// },
 					},
 				],
+			},
+			{
+				test: /\.svg$/,
+				use: [
+					'@svgr/webpack',
+				]
 			},
 			{
 				test: /\.sprite\.json$/,

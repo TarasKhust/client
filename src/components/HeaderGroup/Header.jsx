@@ -1,7 +1,7 @@
 import React from "react";
 import './HeaderStyle.scss'
 import LangSwitcher from "components/HeaderGroup/LangSwitcher/LangSwitcher";
-import logo from './img/logo.svg'
+import Logo from './img/logo.svg'
 import ChipBasket from "components/HeaderGroup/ChipBasket/СhipBasket";
 import SearchInput from "components/HeaderGroup/SearchInput/SearchInput";
 import HeaderNav from "components/HeaderGroup/HeaderNav/HeaderNav";
@@ -15,7 +15,7 @@ const Header = () => {
                         <LangSwitcher />
                     </div>
                     <a href="#" className="header_logo">
-                        <img src={logo} alt="logo tut_posuda"/>
+                        <Logo />
                     </a>
                     <div className="inner_top-r">
                         <SearchInput />
