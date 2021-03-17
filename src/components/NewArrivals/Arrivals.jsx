@@ -5,6 +5,7 @@ import 'swiper/swiper.scss';
 import 'swiper/components/navigation/navigation.scss';
 import './ArrivalsStyle.scss'
 import Button from "components/BtnGroup/Button";
+import Chip from "components/Chip/Chip";
 
 // install Swiper's Controller component
 SwiperCore.use([Navigation])
@@ -33,7 +34,7 @@ const Arrivals = () => {
                                 <h2 className='arrival_desc'>Стопка для водки набор 6Х60мл</h2>
                                 <div className="desc_row">
                                     <span className="price">65,00 грн</span>
-
+                                    <Chip />
                                 </div>
                             </div>
                         </div>
@@ -48,7 +49,7 @@ const Arrivals = () => {
                                 <h2 className='arrival_desc'>Стопка для водки набор 6Х60мл</h2>
                                 <div className="desc_row">
                                     <span className="price">65,00 грн</span>
-
+                                    <Chip />
                                 </div>
                             </div>
                         </div>
@@ -63,7 +64,7 @@ const Arrivals = () => {
                                 <h2 className='arrival_desc'>Стопка для водки набор 6Х60мл</h2>
                                 <div className="desc_row">
                                     <span className="price">65,00 грн</span>
-
+                                    <Chip />
                                 </div>
                             </div>
                         </div>
@@ -78,6 +79,7 @@ const Arrivals = () => {
                                 <h2 className='arrival_desc'>Стопка для водки набор 6Х60мл</h2>
                                 <div className="desc_row">
                                     <span className="price">65,00 грн</span>
+                                    <Chip />
                                 </div>
                             </div>
                         </div>

@@ -1,0 +1,29 @@
+.shopping_bag{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  &.is_active-bag{
+    background: #F9E547;
+  }
+  svg{
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media only screen and (max-width: 1600px){
+    .shopping_bag{
+      width: 45px;
+      height: 45px;
+      svg{
+        width: 25px;
+        height: 25px;
+      }
+    }
+}

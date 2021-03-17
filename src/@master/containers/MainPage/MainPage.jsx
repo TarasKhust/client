@@ -6,7 +6,7 @@ import Catalog from "components/Catalog/Catalog";
 import Privilege from "components/Privilege/Privilege";
 import Arrivals from "components/NewArrivals/Arrivals";
 import TradeMarks from "components/TradeMarks/TradeMarks";
-
+import Footer from "components/Footer/Footer"
  const MainPage = () => {
     return(
         <div>
@@ -16,6 +16,7 @@ import TradeMarks from "components/TradeMarks/TradeMarks";
             <Privilege />
             <Arrivals />
             <TradeMarks />
+            <Footer />
         </div>
     )
 }

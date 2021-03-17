@@ -8,7 +8,7 @@ import HeaderNav from "components/HeaderGroup/HeaderNav/HeaderNav";
 
 const Header = () => {
     return(
-        <header className={'header_container'}>
+        <header className='header_container'>
             <div className="header_inner">
                 <div className="header-inner_top">
                     <div className="inner_top-l">

@@ -86,8 +86,8 @@ const TradeMarks = () => {
                 >
                 {item.map(({title, url}) => {
                     return (
-                        <SwiperSlide>
-                            <a className="marks_list-item" href={url} key={title}>
+                        <SwiperSlide key={title}>
+                            <a className="marks_list-item" href={url} >
                                 {config.get(title)}
                             </a>
                         </SwiperSlide>

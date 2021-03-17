@@ -165,3 +165,39 @@
     -webkit-mask-position: -50%;
   }
 }
+
+@media only screen and (max-width: 1600px){
+  .catalog_list-container{
+    .catalog_title{
+      font-size: 42px;
+      line-height: 51px;
+      margin: 0 0 40px 0;
+    }
+    .catalog_wrapper{
+      .catalog_list{
+        .catalog_list-item{
+          .cat_item{
+            .cat_image{
+              height: 200px;
+            }
+            .cat_title{
+              font-size: 28px;
+              line-height: 39px;
+            }
+          }
+          &.row_large{
+            .cat_item{
+              .cat_image{
+                height: 200px;
+              }
+              .cat_title{
+                font-size: 28px;
+                line-height: 39px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

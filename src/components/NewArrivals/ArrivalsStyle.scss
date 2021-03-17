@@ -30,6 +30,7 @@
         border-radius: 50%;
         z-index: 999;
         transition: all 0.2s linear;
+        cursor: pointer;
         &:after{
           content: "";
           position: absolute;
@@ -144,4 +145,43 @@
     margin: 50px 0 0 0;
   }
 }
-
+@media only screen and (max-width: 1600px){
+  .arrivals_content{
+    .arrivals_title{
+      font-size: 42px;
+      line-height: 51px;
+      margin: 0 0 40px 0;
+    }
+    .content_inner{
+      width: 85%;
+      .swiper-container{
+        padding: 10px 40px;
+        .swiper-wrapper{
+          .swiper-slide{
+            .arrival_item{
+              .arrival_image{
+                height: 280px;
+              }
+              .arrival_description{
+                .arrival_name{
+                  font-size: 12px;
+                }
+                .arrival_desc{
+                  font-size: 18px;
+                  line-height: 23px;
+                  margin: 0 0 15px 0;
+                }
+                .desc_row{
+                  .price{
+                    font-size: 28px;
+                    line-height: 39px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

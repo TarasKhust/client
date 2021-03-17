@@ -45,3 +45,17 @@
     }
   }
 }
+
+@media only screen and (max-width: 1600px){
+  .slider_container{
+    .swiper-container{
+        .swiper-wrapper{
+          .swiper-slide{
+            .slide-image{
+              height: 450px;
+            }
+          }
+        }
+    }
+  }
+}
