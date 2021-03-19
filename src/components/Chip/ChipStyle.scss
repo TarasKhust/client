@@ -27,3 +27,14 @@
       }
     }
 }
+
+@media only screen and (max-width: 1280px){
+  .shopping_bag{
+    width: 40px;
+    height: 40px;
+    svg{
+      width: 20px;
+      height: 20px;
+    }
+  }
+}

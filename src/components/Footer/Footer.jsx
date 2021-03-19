@@ -29,11 +29,11 @@ const Footer = () => {
                     </div>
                     <ul className="contacts_links">
                         <li className="link_item">
-                            <span className="link_title">Телефон</span>
+                            <span className="link_title">Телефон:</span>
                             <a className="link" href="tel:+ 38 (068) 675 89 87">+ 38 (068) 675 89 87</a>
                         </li>
                         <li className="link_item">
-                            <span className="link_title">Email</span>
+                            <span className="link_title">Email:</span>
                             <a className="link" href="mailto:tut_posuda@gmail.com" >tut_posuda@gmail.com</a>
                         </li>
                     </ul>

@@ -13,8 +13,14 @@
         align-items: center;
         a{
           margin: 0 25px 0 0;
+          width: 25px;
+          height: 25px;
           &:last-child{
             margin: 0;
+          }
+          svg{
+            width: 100%;
+            height: 100%;
           }
         }
       }
@@ -90,18 +96,20 @@
 @media only screen and (max-width: 1600px){
     .footer_content{
       .footer_inner-row{
-        width: 85%;
+        //width: 85%;
         padding: 70px 0 35px 0;
         .inner_vis-l{
           .contacts_links{
             margin: 0 0 15px 0;
             .link_item{
+              margin: 0 0 10px 0;
               .link_title{
                 font-size: 15px;
+                line-height: 19px;
               }
               .link{
                 font-size: 18px;
-                line-height: 26px;
+                line-height: 21px;
               }
             }
           }
@@ -125,4 +133,47 @@
         }
       }
     }
+}
+
+@media only screen and (max-width: 1280px){
+  .footer_content{
+    .footer_inner-row{
+      width: 90%;
+      padding: 50px 0 15px 0;
+      margin: 60px auto 0 auto;
+      .inner_vis-l{
+        .social_links{
+          margin: 0 0 15px 0;
+          a{
+            width: 20px;
+            height: 20px;
+          }
+        }
+        .contacts_links{
+          .link_item{
+            .link_title{
+              font-size: 14px;
+              line-height: 17px;
+            }
+            .link{
+              font-size: 16px;
+              line-height: 19px;
+            }
+          }
+        }
+      }
+      .inner_logo{
+        a{
+          width: 80px;
+          height: 80px;
+        }
+      }
+      .inner_vis-r{
+        a{
+          font-size: 16px;
+          line-height: 19px;
+        }
+      }
+    }
+  }
 }

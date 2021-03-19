@@ -21,7 +21,8 @@
           overflow: hidden;
           img{
             width: 100%;
-            object-fit: cover;
+            height: 100%;
+            //object-fit: cover;
             transform: scale3d(1.3, 1.3, 1); // 3d to hardware accelerate
             backface-visibility: hidden;
             will-change: transform;
@@ -56,6 +57,33 @@
             }
           }
         }
+    }
+  }
+}
+@media only screen and (max-width: 1440px){
+  .slider_container{
+    .swiper-container{
+      .swiper-wrapper{
+        .swiper-slide{
+          .slide-image{
+            height: 400px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px){
+  .slider_container{
+    .swiper-container{
+      margin: 0 0 60px 0;
+      .swiper-wrapper{
+        .swiper-slide{
+          .slide-image{
+            height: 320px;
+          }
+        }
+      }
     }
   }
 }

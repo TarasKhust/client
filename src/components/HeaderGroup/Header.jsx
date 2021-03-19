@@ -5,6 +5,7 @@ import Logo from './img/logo.svg'
 import ChipBasket from "components/HeaderGroup/ChipBasket/СhipBasket";
 import SearchInput from "components/HeaderGroup/SearchInput/SearchInput";
 import HeaderNav from "components/HeaderGroup/HeaderNav/HeaderNav";
+import Burger from "components/HeaderGroup/Burger/Burger";
 
 const Header = () => {
     return(
@@ -12,6 +13,7 @@ const Header = () => {
             <div className="header_inner">
                 <div className="header-inner_top">
                     <div className="inner_top-l">
+                        <Burger />
                         <LangSwitcher />
                     </div>
                     <a href="#" className="header_logo">

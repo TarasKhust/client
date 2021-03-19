@@ -22,3 +22,19 @@
     }
   }
 }
+
+@media only screen and (max-width: 1280px){
+  .switcher_container{
+    .switcher_item{
+      font-size: 16px;
+    }
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .switcher_container{
+    display: none;
+    .switcher_item{
+    }
+  }
+}

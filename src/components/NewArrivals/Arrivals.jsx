@@ -19,10 +19,15 @@ const Arrivals = () => {
                     slidesPerView={3}
                     loop={true}
                     navigation={true}
-                    autoHeight={true}
                     spaceBetween={20}
-                    onSlideChange={() => console.log('slide change')}
-                    onSwiper={(swiper) => console.log(swiper)}
+                    breakpoints={{
+                        1024: {
+                            slidesPerView: 3
+                        },
+                        600: {
+                            slidesPerView: 2
+                        },
+                    }}
                 >
                     <SwiperSlide>
                         <div className='arrival_item'>

@@ -4,6 +4,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  padding: 0 0 8px 0;
   .counter{
     display: flex;
     align-items: center;
@@ -40,6 +41,32 @@
     svg{
       width: 50px;
       height: 40px;
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px){
+  .basket_container{
+    .counter{
+      font-size: 12px;
+      line-height: 15px;
+      width: 20px;
+      height: 20px;
+      top: -10px;
+      right: -12px;
+    }
+    svg{
+      width: 40px;
+      height: 30px;
+    }
+  }
+}
+@media only screen and (max-width: 945px){
+  .basket_container{
+    padding: 0 0 5px 0;
+    svg{
+      width: 30px;
+      height: 25px;
     }
   }
 }

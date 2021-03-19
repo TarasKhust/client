@@ -81,6 +81,13 @@
           display: flex;
           align-items: center;
           justify-content: center;
+          &.swiper-slide-active{
+            .marks_list-item{
+              svg{
+                filter: none;
+              }
+            }
+          }
         }
       }
     }
@@ -90,7 +97,8 @@
       justify-content: center;
       height: 200px;
         svg{
-          width: 100%;
+          width: 85%;
+          height: 100%;
           position: relative;
           -moz-filter: grayscale(100%);
           -o-filter: grayscale(100%);
@@ -114,7 +122,81 @@
       margin: 0 0 40px 0;
     }
     .trade_marks-list{
-      width: 85%;
+      //width: 85%;
+    }
+  }
+}
+@media only screen and (max-width: 1440px){
+  .trade_marks-container{
+    .marks_title{
+      font-size: 38px;
+      line-height: 49px;
+      margin: 0 0 30px 0;
+    }
+    .trade_marks-list{
+      .marks_list-item{
+        height: 160px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px){
+  .trade_marks-container{
+    .trade_marks-list{
+      .swiper-container{
+        .swiper-button-prev, .swiper-button-next{
+          top: 20%;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .marks_list-item{
+        height: 130px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px){
+  .trade_marks-container{
+    .trade_marks-list{
+      width: 90%;
+      .swiper-container{
+        .swiper-pagination{
+          bottom: 10px;
+          .swiper-pagination-bullet{
+            width: 8px;
+            height: 8px;
+            &.swiper-pagination-bullet-active{
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 945px){
+  .trade_marks-container{
+    .marks_title{
+      font-size: 36px;
+      line-height: 41px;
+    }
+    .trade_marks-list{
+      padding: 0 0 60px 0;
+      .marks_list-item{
+        height: 90px;
+        svg{
+          width: 65%;
+        }
+      }
+      .swiper-container{
+        .swiper-button-prev, .swiper-button-next{
+          width: 30px;
+          height: 30px;
+        }
+      }
     }
   }
 }

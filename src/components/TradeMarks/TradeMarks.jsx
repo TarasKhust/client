@@ -83,6 +83,14 @@ const TradeMarks = () => {
                     spaceBetween={0}
                     autoplay={true}
                     delay={2500}
+                    breakpoints={{
+                        1024: {
+                            spaceBetween: 15
+                        },
+                        945: {
+                            spaceBetween: 20
+                        },
+                    }}
                 >
                 {item.map(({title, url}) => {
                     return (

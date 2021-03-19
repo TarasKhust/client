@@ -1,5 +1,7 @@
 .search_container{
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   margin: 0 36px 0 0;
   padding: 0 20px 8px 15px;
   box-sizing: border-box;
@@ -48,3 +50,29 @@
     }
   }
 }
+@media only screen and (max-width: 1280px){
+  .search_container{
+    margin: 0 25px 0 0;
+    width: 70%;
+    input{
+      font-size: 12px;
+      line-height: 17px;
+    }
+    .search_icon{
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+@media only screen and (max-width: 945px){
+  .search_container{
+    width: 80%;
+    margin: 0 20px 0 0;
+    padding: 0 10px 5px 5px;
+    .search_icon{
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
