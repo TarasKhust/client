@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import './HeaderStyle.scss'
 import LangSwitcher from "components/HeaderGroup/LangSwitcher/LangSwitcher";
 import Logo from './img/logo.svg'
@@ -8,13 +8,19 @@ import HeaderNav from "components/HeaderGroup/HeaderNav/HeaderNav";
 import Burger from "components/HeaderGroup/Burger/Burger";
 
 const Header = () => {
+    const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        document.body.classList.toggle('nav_open', open)
+    },[open])
+
     return(
         <header className='header_container'>
             <div className="header_inner">
                 <div className="header-inner_top">
                     <div className="inner_top-l">
-                        <Burger />
-                        <LangSwitcher />
+                        <Burger open={open} setOpen={setOpen}  />
+                        <LangSwitcher open={open} />
                     </div>
                     <a href="#" className="header_logo">
                         <Logo />
@@ -24,7 +30,7 @@ const Header = () => {
                         <ChipBasket />
                     </div>
                 </div>
-                <div className="header-inner_bottom">
+                <div className={`header-inner_nav ${!open ? '' : 'open_nav'}`}>
                     <HeaderNav />
                 </div>
             </div>

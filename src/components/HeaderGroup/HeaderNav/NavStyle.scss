@@ -48,3 +48,23 @@
     }
   }
 }
+@media only screen and (max-width: 768px){
+  .navigation_list{
+    flex-direction: column;
+    padding: 0 80px;
+    .list_item{
+      margin: 0;
+      padding: 20px 0;
+      //border-bottom: 1px solid #F9E547;
+      width: 100%;
+      text-align: start;
+      &:before{
+        display: none;
+      }
+      &:last-child{
+      }
+      a{
+      }
+    }
+  }
+}
