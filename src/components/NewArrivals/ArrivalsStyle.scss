@@ -327,3 +327,119 @@
     }
   }
 }
+@media only screen and (max-width: 768px){
+  .arrivals_content{
+    .arrivals_title{
+      font-size: 34px;
+      line-height: 39px;
+    }
+    .content_inner{
+      width: 78%;
+      .swiper-container{
+        .swiper-button-prev{
+          left: -8%;
+        }
+        .swiper-button-next{
+          right: -8%;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px){
+  .arrivals_content{
+    .content_inner{
+      .swiper-container{
+        .swiper-wrapper{
+          .swiper-slide{
+            .arrival_item{
+              .arrival_description{
+                padding: 15px;
+                .arrival_name{
+                  margin: 0 0 10px 0;
+                }
+                .arrival_desc{
+
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 530px){
+  .arrivals_content{
+    .content_inner{
+      width: 70%;
+      .swiper-container{
+        .swiper-button-prev{
+            left: -14% ;
+        }
+        .swiper-button-next{
+          right: -14%;
+        }
+        .swiper-wrapper{
+          .swiper-slide{
+            .arrival_item{
+              .arrival_description{
+                .arrival_name{
+                }
+                .arrival_desc{
+                  font-size: 18px;
+                  line-height: 21px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 480px){
+  .arrivals_content{
+    .arrivals_title{
+      font-size: 32px;
+      margin: 0 0 15px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .arrivals_content{
+  padding: 0 15px;
+    .content_inner{
+      width: 100%;
+      padding: 60px 0 0 0;
+      .swiper-container{
+        //padding: 0;
+        .swiper-button-next, .swiper-button-prev{
+          top: 0;
+        }
+        .swiper-button-prev{
+          right: 50px;
+          left: auto;
+        }
+        .swiper-button-next{
+          right: 0;
+        }
+        .swiper-wrapper{
+          .swiper-slide{
+            .arrival_item{
+              .arrival_description{
+                .arrival_name{
+                }
+                .arrival_desc{
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

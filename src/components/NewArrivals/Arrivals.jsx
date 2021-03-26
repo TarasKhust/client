@@ -27,6 +27,9 @@ const Arrivals = () => {
                         600: {
                             slidesPerView: 2
                         },
+                        320: {
+                            slidesPerView: 1
+                        },
                     }}
                 >
                     <SwiperSlide>

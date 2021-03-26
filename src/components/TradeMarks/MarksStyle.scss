@@ -200,3 +200,32 @@
     }
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .trade_marks-container {
+    .marks_title {
+      font-size: 34px;
+      line-height: 39px;
+    }
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .trade_marks-container {
+    .marks_title {
+    }
+     .trade_marks-list{
+       width: 80%;
+     }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .trade_marks-container {
+    .marks_title {
+      font-size: 32px;
+      margin: 0 0 20px 0;
+    }
+    .trade_marks-list{
+    }
+  }
+}

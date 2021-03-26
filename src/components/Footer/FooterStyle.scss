@@ -177,3 +177,66 @@
     }
   }
 }
+
+@media only screen and (max-width: 530px){
+  .footer_content{
+    .footer_inner-row{
+      margin: 30px auto 0 auto;
+      flex-direction: column;
+      padding: 25px 0 15px 0;
+      .inner_vis-l{
+        .social_links{
+          justify-content: center;
+          margin: 0 0 25px 0;
+        }
+        .contacts_links{
+          text-align: center;
+          .link_item{
+            margin: 0 0 20px 0;
+          }
+        }
+      }
+      .inner_logo{
+        margin: 10px 0 0 0;
+        a{
+          width: 60px;
+          height: 60px;
+        }
+        .brand_title{
+          font-size: 12px;
+          line-height: 15px;
+          margin: 5px 0 0 0;
+        }
+      }
+      .inner_vis-r{
+        flex-direction: initial;
+        width: 100%;
+        justify-content: space-between;
+        margin: 25px 0 10px 0;
+        a{
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 375px){
+    .footer_content{
+      .footer_inner-row{
+        padding: 25px 0 25px 0;
+        .inner_vis-r{
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          a{
+            margin: 0 0 15px 0;
+            &:last-child{
+              margin: 0;
+            }
+          }
+        }
+      }
+    }
+}
+

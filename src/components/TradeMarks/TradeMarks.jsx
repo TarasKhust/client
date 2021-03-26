@@ -90,6 +90,15 @@ const TradeMarks = () => {
                         945: {
                             spaceBetween: 20
                         },
+                        650: {
+                            slidesPerView: 3
+                        },
+                        540: {
+                            slidesPerView: 2
+                        },
+                        320: {
+                            slidesPerView: 1
+                        },
                     }}
                 >
                 {item.map(({title, url}) => {

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import './HeaderStyle.scss'
 import LangSwitcher from "components/HeaderGroup/LangSwitcher/LangSwitcher";
 import Logo from './img/logo.svg'
@@ -8,10 +8,28 @@ import HeaderNav from "components/HeaderGroup/HeaderNav/HeaderNav";
 import Burger from "components/HeaderGroup/Burger/Burger";
 
 const Header = () => {
+    const node = useRef();
     const [open, setOpen] = useState(false)
 
+    const handleClickOutside = e => {
+        console.log("clicking anywhere");
+        if (node.current.contains(e.target)) {
+            return;
+        }
+        setOpen(false);
+    };
+
     useEffect(() => {
-        document.body.classList.toggle('nav_open', open)
+        document.body.classList.toggle('nav_open', open) ///toggle class to overflow: hidden
+
+        if (open) {
+            document.addEventListener("mousedown", handleClickOutside);
+        } else {
+            document.removeEventListener("mousedown", handleClickOutside);
+        }
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
     },[open])
 
     return(
@@ -20,7 +38,7 @@ const Header = () => {
                 <div className="header-inner_top">
                     <div className="inner_top-l">
                         <Burger open={open} setOpen={setOpen}  />
-                        <LangSwitcher open={open} />
+                        <LangSwitcher />
                     </div>
                     <a href="#" className="header_logo">
                         <Logo />
@@ -30,7 +48,8 @@ const Header = () => {
                         <ChipBasket />
                     </div>
                 </div>
-                <div className={`header-inner_nav ${!open ? '' : 'open_nav'}`}>
+                <div ref={node} className={`header-inner_nav ${!open ? '' : 'open_nav'}`}>
+                    <LangSwitcher />
                     <HeaderNav />
                 </div>
             </div>

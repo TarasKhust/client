@@ -76,3 +76,49 @@
   }
 }
 
+@media only screen and (max-width: 530px){
+  .search_container{
+    position: initial;
+    justify-content: flex-end;
+    width: fit-content;
+    transition: all 0.5s linear;
+    &.is_open{
+      border-bottom: none;
+      input{
+        border-top: 1px solid #97999B;
+        transform: scale(1);
+      }
+    }
+    .search_icon{
+
+    }
+    input{
+      transform: scale(0);
+      position: absolute;
+      top: 94px;
+      width: 100%;
+      left: 0;
+      background: white;
+      height: 50px;
+      z-index: 2;
+      padding: 0 30px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .search_container{
+    &.is_open{
+      input{
+      }
+    }
+    .search_icon{
+
+    }
+    input{
+      top: 84px;
+    }
+  }
+}
+

@@ -70,3 +70,11 @@
     }
   }
 }
+@media only screen and (max-width: 320px) {
+  .basket_container {
+    .counter {
+      right: auto;
+      left: -10px;
+    }
+  }
+}

@@ -67,7 +67,9 @@ const Catalog = () => {
                         </div>
                     </a>
                 </div>
-                <Button text={'Магазин'} animation={'draw-outline'} />
+                <div className="catalog_link">
+                    <Button text={'Магазин'} animation={'draw-outline'} />
+                </div>
             </div>
         </section>
     )
