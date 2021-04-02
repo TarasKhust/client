@@ -19,10 +19,10 @@ export default () => (
 		<ApolloProvider client={client}>
 			<Provider store={store}>
 				<Router history={history}>
-					<CardProduct/>
+					{/*<CardProduct/>*/}
 				</Router>
 				<Router history={history}>
-					{/*<MainPage />*/}
+					<MainPage />
 				</Router>
 			</Provider>
 		</ApolloProvider>
