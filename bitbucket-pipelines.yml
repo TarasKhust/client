@@ -21,7 +21,7 @@
              - npm run build
              - git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_STAGING.git staging:master
      # When code is pushed to the production branch it is deployed automatically to the production environment.
-     production:
+     master:
        - step:
            caches:
              - node
