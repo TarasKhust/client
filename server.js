@@ -1,7 +1,11 @@
+const path = require('path');
 const express = require('express');
-const os = require('os');
+
 const app = express();
-const port = process.env.PORT || 8081
-app.use(express.static('dist'));
-app.get('/api/getUsername', (req, res) => res.send({ username: os.userInfo().username }));
-app.listen(port, () => console.log(`Listening on port ${port}!`));
+
+app.use(express.static(path.join(__dirname, 'dist')));
+app.set('port', process.env.PORT || 8080);
+
+const server = app.listen(app.get('port'), function() {
+  console.log('listening on port ', server.address().port);
+});
