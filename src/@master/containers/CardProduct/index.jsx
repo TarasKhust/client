@@ -2,9 +2,9 @@ import React, { Suspense, lazy } from "react";
 import { Route } from "react-router-dom";
 import { Portal } from "react-portal";
 
-const Main = lazy(() => import(/* webpackChunkName: "MainPage" */ "../MainPage"));
+const Product = lazy(() => import(/* webpackChunkName: "CardProduct" */ "../CardProduct"));
 
-const container = document.querySelector("#main");
+const container = document.querySelector("#product");
 
 if (container) {
     if (!container.getAttribute("root")) {
@@ -17,8 +17,8 @@ const router = () => {
     return (
         <Portal node={container}>
             <Suspense fallback={null}>
-                <Route exact path="/main/">
-                    <Main />
+                <Route exact path="/product/">
+                    <Product />
                 </Route>
             </Suspense>
 
