@@ -28,4 +28,4 @@
            script:
              - npm install
              - npm run build:prod
-             - git push -f https://heroku:21f2724b-c9bb-4a12-827a-bba820ed73c8@git.heroku.com/clientfront.git master
+             - git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_PRODUCTION.git master
