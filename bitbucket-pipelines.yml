@@ -3,7 +3,7 @@
 # 2. $HEROKU_STAGING - Local environment var that contains your staging app name in Heroku
 # 3. $HEROKU_PRODUCTION - Local environment var that contains your production app name in Heroku
 
- image: node:12.13.1
+ image: node:14.16.1
 
  # Doing a full clone to be able to push back to Heroku.
  clone:
