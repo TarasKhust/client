@@ -6,6 +6,10 @@ const app = express();
 app.use(express.static('dist/index.html'));
 app.set('port', process.env.PORT || 8080);
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
 console.log(path.join(__dirname, 'dist/index.html'));
 
 const server = app.listen(app.get('port'), function() {
