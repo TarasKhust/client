@@ -1,0 +1,28 @@
+pipelines:
+  default:
+    - step:
+        name: Test
+        script:
+          - cd sample-python-app
+          - pip install -r requirements.txt
+          - ./manage.py test
+          
+    - step:
+        name: Build
+        script:
+          - cd sample-python-app
+          - git archive --format=tar.gz master -o sample-app.tar.gz
+        artifacts:
+          - sample-python-app/sample-app.tar.gz
+      
+    - step:
+        name: Deploy to production
+        deployment: production
+        caches:
+          - pip
+        script:
+          - pipe: atlassian/heroku-deploy:0.1.1
+            variables:
+              HEROKU_API_KEY: $HEROKU_API_KEY
+              HEROKU_APP_NAME: $HEROKU_APP_NAME
+              ZIP_FILE: sample-python-app/sample-app.tar.gz
