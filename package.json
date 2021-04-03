@@ -21,7 +21,7 @@
     "start:dev": "npm run setup && npm run build:dev",
     "start:prod": "npm run setup && npm run build:prod",
     "start:server": "npm run setup && npm run build:server",
-    "start": "node server.js",
+    "start": "npm run build:prod && node server.js",
     "dev": "webpack serve"
   },
   "dependencies": {
