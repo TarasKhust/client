@@ -30,7 +30,6 @@ pipelines:
             - rm -rf package-lock.json
             - rm -rf node_modules
             - npm install
-            - npm run build:prod
       - step:
           name: Deploy to heroku
           script:
