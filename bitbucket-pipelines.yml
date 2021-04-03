@@ -34,8 +34,7 @@ pipelines:
       - step:
           name: Deploy to heroku
           script:
-            - git remote set-url origin https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git
-            - git push origin `git subtree split --prefix backend master`:master --force
+            - git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_APP_NAME.git master
 
 
 
