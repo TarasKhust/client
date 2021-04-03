@@ -1,31 +1,54 @@
-  image: node:10.15.3
-  pipelines:
-         branches:
-           master:
-             - step:
-                 name: Test App
-                 caches:
-                   - node
-                 script:
-                   - rm -rf package-lock.json
-                   - rm -rf node_modules
-                   - npm install
-                   - npm run test
-             - step:
-                 name: Create artifact
-                 script:
-                   - git archive --format=tar.gz master -o application.tar.gz
-                 artifacts:
-                   - application.tar.gz
-             - step:
-                 name: Deploy to heroku
-                 deployment: production
-                 caches:
-                   - node
-                 script:
-                   - pipe: atlassian/heroku-deploy:1.1.4
-                     variables:
-                       HEROKU_API_KEY: $HEROKU_API_KEY
-                       HEROKU_APP_NAME: $HEROKU_PRODUCTION
-                       ZIP_FILE: "application.tar.gz"
-                       WAIT: 'true'
+# This script depends on two environment variables to be set in Bitbucket Pipelines
+# 1. $HEROKU_API_KEY - Local environment var that contains your Heroku account's API key
+# 2. $HEROKU_STAGING - Local environment var that contains your staging app name in Heroku
+# 3. $HEROKU_PRODUCTION - Local environment var that contains your production app name in Heroku
+
+image: node:10.14.1
+
+# Doing a full clone to be able to push back to Heroku.
+clone:
+  depth: full
+
+pipelines:
+  branches:
+    # When code is pushed to the staging branch it is deployed automatically to the staging environment.
+    staging:
+      - step:
+          caches:
+            - node
+          script:
+            - npm install
+            - npm run build
+            - git push -f https://heroku:$HEROKU_API_KEY@git.heroku.com/$HEROKU_STAGING.git staging:master
+    # When code is pushed to the production branch it is deployed automatically to the production environment.
+    master:
+      - step:
+          name: Run Start Project setup
+          caches:
+            - node
+          script:
+            - rm -rf package-lock.json
+            - rm -rf node_modules
+            - npm install
+            - npm run build:prod
+      - step:
+          name: Create artifact
+          script:
+            - git archive --format=tar.gz master -o application.tar.gz
+          artifacts:
+            - application.tar.gz
+     - step:
+          name: Deploy to heroku
+          deployment: production
+          caches:
+            - node
+          script:
+            - pipe: atlassian/heroku-deploy:1.1.4
+              variables:
+                HEROKU_API_KEY: $HEROKU_API_KEY
+                HEROKU_APP_NAME: $HEROKU_PRODUCTION
+                ZIP_FILE: "application.tar.gz"
+                WAIT: 'true'
+
+
+
