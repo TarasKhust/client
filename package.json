@@ -1,5 +1,5 @@
 {
-  "name": "crm",
+  "name": "client",
   "version": "1.0.0",
   "main": "index.js",
   "engines": {
@@ -11,7 +11,7 @@
     "IE 11",
     "not OperaMini all"
   ],
-  "author": "JS Team",
+  "author": "Taras Rushchak",
   "license": "CRM. All rights reserved",
   "scripts": {
     "clean": "rm dist/bundle.js",
@@ -22,7 +22,6 @@
     "start:prod": "npm run setup && npm run build:prod",
     "start:server": "npm run setup && npm run build:server",
     "start": "node server.js",
-    "dev": "webpack serve",
     "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
