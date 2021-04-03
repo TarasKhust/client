@@ -11,6 +11,14 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath, 'index.html'));
 });
 
+app.get('/user', (req, res) => {
+  res.sendFile(path.join(publicPath, 'user.html'));
+});
+
+app.get('/contact', (req, res) => {
+  res.sendFile(path.join(publicPath, 'contact.html'));
+});
+
 app.listen(port, () => {
   console.log('Hello World I run on PORT ' + port);
 });
