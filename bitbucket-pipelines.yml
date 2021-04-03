@@ -39,7 +39,6 @@ pipelines:
             - application.tar.gz
       - step:
           name: Deploy to heroku
-          deployment: production
           caches:
             - node
           script:
