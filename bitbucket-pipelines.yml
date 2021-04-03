@@ -27,9 +27,27 @@ pipelines:
           caches:
             - node
           script:
+            - rm -rf package-lock.json
+            - rm -rf node_modules
             - npm install
             - npm run build:prod
-            - git push -f https://heroku:21f2724b-c9bb-4a12-827a-bba820ed73c8@git.heroku.com/clientfront.git master
+      - step:
+          name: Create artifact
+          script:
+            - git archive --format=tar.gz master -o application.tar.gz
+          artifacts:
+            - application.tar.gz
+      - step:
+          name: Deploy to heroku
+          caches:
+            - node
+          script:
+            - pipe: atlassian/heroku-deploy:1.1.4
+              variables:
+                HEROKU_API_KEY: $HEROKU_API_KEY
+                HEROKU_APP_NAME: $HEROKU_PRODUCTION
+                ZIP_FILE: "application.tar.gz"
+                WAIT: 'true'
 
 
 
