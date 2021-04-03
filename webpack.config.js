@@ -53,11 +53,11 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin(), // Generates default index.html
 		new HtmlWebpackPlugin({
-			filename: 'user',
+			filename: 'user.html',
 			template: 'src/assets/user.html'
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'contact',
+			filename: 'contact.html',
 			template: 'src/assets/contact.html'
 		}),
 		new HtmlWebpackPlugin({
