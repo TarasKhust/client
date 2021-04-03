@@ -27,8 +27,6 @@ pipelines:
           caches:
             - node
           script:
-            - rm -rf package-lock.json
-            - rm -rf node_modules
             - npm install
             - npm run build:prod
       - step:
@@ -47,7 +45,6 @@ pipelines:
                 HEROKU_API_KEY: $HEROKU_API_KEY
                 HEROKU_APP_NAME: $HEROKU_PRODUCTION
                 ZIP_FILE: "application.tar.gz"
-                WAIT: 'true'
 
 
 
