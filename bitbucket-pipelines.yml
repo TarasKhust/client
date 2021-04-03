@@ -37,7 +37,7 @@ pipelines:
             - git archive --format=tar.gz master -o application.tar.gz
           artifacts:
             - application.tar.gz
-     - step:
+      - step:
           name: Deploy to heroku
           deployment: production
           caches:
