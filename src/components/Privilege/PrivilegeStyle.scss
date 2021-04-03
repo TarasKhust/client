@@ -1,0 +1,219 @@
+.privilege_container{
+    background: #97999B;
+    padding: 55px 0;
+    margin: 0 0 80px 0;
+  .inner_list-privilege{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    li{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      border-right: 1px solid #F9E547;
+      list-style: none;
+      padding: 0 80px;
+      &:last-child{
+        border-right:none;
+      }
+
+      .image{
+        width: 120px;
+        height: 90px;
+        margin: 0 0 25px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        svg{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .title{
+        font-family: 'Montserrat', 'sans-serif';
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 29px;
+        text-align: center;
+        color: #FFFFFF;
+        margin: 0;
+      }
+      .desc{
+        font-family: 'Montserrat', 'sans-serif';
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 27px;
+        text-align: center;
+        color: #FFFFFF;
+        margin: 10px 0 0 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1600px){
+  .privilege_container{
+    padding: 40px 0;
+    .inner_list-privilege{
+      li{
+        .image{
+          width: 100px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1440px){
+  .privilege_container{
+    padding: 30px 0;
+    .inner_list-privilege{
+      li{
+        padding: 0 50px;
+        .image{
+          width: 80px;
+          height: 80px;
+          margin: 0 0 20px 0;
+        }
+        .title{
+          font-size: 22px;
+          line-height: 27px;
+        }
+        .desc{
+          font-size: 16px;
+          line-height: 21px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1280px){
+  .privilege_container{
+    padding: 30px 0;
+    .inner_list-privilege{
+      li{
+        padding: 0 35px;
+        .image{
+          width: 60px;
+          height: 60px;
+        }
+        .title{
+          font-size: 20px;
+          line-height: 25px;
+        }
+        .desc{
+          font-size: 15px;
+          line-height: 19px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 945px){
+  .privilege_container{
+    margin: 0 0 60px 0;
+    .inner_list-privilege{
+      li{
+        .image{
+          width: 50px;
+          height: 50px;
+          margin: 0 0 10px 0;
+        }
+        .title{
+          font-size: 18px;
+          line-height: 21px;
+        }
+        .desc{
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px){
+  .privilege_container{
+    .inner_list-privilege{
+      li{
+        padding: 0 25px;
+        .desc{
+          font-size: 12px;
+          line-height: 15px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:530px){
+  .privilege_container{
+    .inner_list-privilege{
+      li{
+        padding: 0 20px;
+        .image{
+          width: 45px;
+          height: 45px;
+        }
+        .title{
+          font-size: 15px;
+          line-height: 19px;
+        }
+        .desc{
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:480px){
+  .privilege_container{
+    .inner_list-privilege{
+      flex-wrap: wrap;
+      li{
+        margin: 0 20px;
+        padding: 0 0 10px 0;
+        border-bottom: 1px solid #F9E547;
+        border-right: none;
+        &:last-child{
+          margin: 20px 0 0 0;
+        }
+        .image{
+        }
+        .title{
+          font-size: 18px;
+          line-height: 21px;
+        }
+        .desc{
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:375px){
+  .privilege_container{
+    .inner_list-privilege{
+      flex-direction: column;
+      li{
+        width: 100%;
+        margin: 0 0 20px 0;
+        &:last-child{
+          margin: 0;
+        }
+        &:first-child{
+        }
+        .image{
+        }
+        .title{
+        }
+        .desc{
+        }
+      }
+    }
+  }
+}

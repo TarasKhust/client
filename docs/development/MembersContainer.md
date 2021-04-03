@@ -6,7 +6,7 @@ Members Container setup
 ```
   containers/
       [contaner name]/
-          index.js      - main export file
+          index.jsx      - main export file
           styles/       - common styles directory
           store/        - context provider/consumer components
           api/          - specific product requests

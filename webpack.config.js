@@ -1,33 +1,10 @@
 const path = require("path");
 const vendor = require("./vendor");
 const babel = require("./babel.config");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const cssUrl = require("postcss-url");
-const getFile = require("postcss-url/src/lib/get-file");
-const calcHash = require("postcss-url/src/lib/hash");
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const VENDOR_REGEXP = new RegExp(`[\/]node_modules[\/](${ [].concat(vendor).join("|") })[\/]`);
 
-const cssUrlOptions = {
-	filter: (asset) => {
-		if (asset.pathname && asset.pathname[0] === "/") {
-			return !(/^\/font\//.test(asset.pathname));
-		}
-
-		return false;
-	},
-	url: function (asset, dir, options, decl, warn) {
-		return getFile(asset, options, dir, warn)
-			.then(file => {
-				if (!file) {
-return;
-}
-
-				return `${asset.pathname}?${calcHash(file.contents)}`;
-			});
-	},
-};
 
 module.exports = {
 	entry: {
@@ -74,10 +51,6 @@ module.exports = {
 	externals: {},
 
 	plugins: [
-		new MiniCssExtractPlugin({
-			filename: "[name].css?[contenthash:6]",
-			chunkFilename: "[id].css?[contenthash:6]",
-		}),
 		new HtmlWebpackPlugin(), // Generates default index.html
 		new HtmlWebpackPlugin({
 			filename: 'user.html',
@@ -86,6 +59,14 @@ module.exports = {
 		new HtmlWebpackPlugin({
 			filename: 'contact.html',
 			template: 'src/assets/contact.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'main',
+			template: 'src/assets/main.html'
+		}),
+		new HtmlWebpackPlugin({
+			filename: 'product',
+			template: 'src/assets/product.html'
 		})
 	],
 
@@ -107,118 +88,34 @@ module.exports = {
 				},
 			},
 			{
-				test: /\.module\.s?css$/,
+				test: /\.(scss|css)$/,
+				use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+			},
+			{
+				test: /\.(jpe?g|png|gif)$/i,
+				exclude: /sprite_src/,
 				use: [
-					MiniCssExtractPlugin.loader,
 					{
-						loader: "css-loader",
-						options: {
-							sourceMap: true,
-							importLoaders: 1,
-							localsConvention: "dashes",
-							modules: {
-								localIdentName: "[local]___[hash:base64:6]",
-							},
-						},
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: (loader) => {
-								const plugins = [
-									require("autoprefixer"),
-									cssUrl(cssUrlOptions),
-								];
-
-								if (loader.mode === "production") {
-									plugins.push(require("cssnano"));
-								}
-
-								return plugins;
-							},
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "resolve-url-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "sass-loader",
-						options: {
-							implementation: require("sass"),
-							sassOptions: {
-								outputStyle: "expanded",
-							},
-							sourceMap: true,
-						},
+						loader: "file-loader",
+						// options: {
+						// 	name: function () {
+						// 		return "[path][name].[ext]?[contenthash:6]";
+						// 	},
+						// },
 					},
 				],
 			},
 			{
-				test: /\.s?css$/,
-				exclude: /\.module\.s?css$/,
+				test: /\.svg$/,
 				use: [
-					MiniCssExtractPlugin.loader,
-					{
-						loader: "css-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: () => [
-								require("autoprefixer"),
-							],
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "postcss-loader",
-						options: {
-							plugins: (loader) => {
-								const plugins = [
-									require("autoprefixer"),
-									cssUrl(cssUrlOptions),
-								];
-
-								if (loader.mode === "production") {
-									plugins.push(require("cssnano"));
-								}
-
-								return plugins;
-							},
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "resolve-url-loader",
-						options: {
-							sourceMap: true,
-						},
-					},
-					{
-						loader: "sass-loader",
-						options: {
-							implementation: require("sass"),
-							sassOptions: {
-								outputStyle: "expanded",
-							},
-							sourceMap: true,
-						},
-					},
-				],
+					'@svgr/webpack',
+				]
 			},
-		  {
-			test: /\.svg$/,
-			use: [
-			  '@svgr/webpack',
-			 ]
-		  },
+			{
+				test: /\.sprite\.json$/,
+				type: "javascript/auto",
+				use: "@ds/svg-static-sprite-loader",
+			},
 			{
 
 				//...

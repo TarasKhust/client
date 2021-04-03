@@ -1,6 +1,6 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
-import UserIcon from './user.svg'
+import UserIcon from 'components/TradeMarks/img/user.svg'
 
 const Contact = () => {
 

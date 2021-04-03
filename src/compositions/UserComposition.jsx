@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import XHR from '../classes/XHR'
 import Loader from '../components/Loader'
-import Button from '../components/Button'
+import Button from 'components/Button'
 
 const Users = ({ children }) => {
 

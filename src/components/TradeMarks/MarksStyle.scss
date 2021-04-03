@@ -1,0 +1,231 @@
+.trade_marks-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+    .marks_title{
+      font-family: 'Montserrat', 'sans-serif';
+      font-weight: normal;
+      font-size: 48px;
+      line-height: 59px;
+      color: #222223;
+      text-align: center;
+      margin: 0 0 50px 0;
+    }
+  .trade_marks-list{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 0 80px 0;
+    .swiper-container{
+      width: 90%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: initial;
+      .swiper-button-next,.swiper-button-prev{
+        display: block;
+        top: 30%;
+        width: 45px;
+        height: 45px;
+        border-top: 2px solid #F9E547;
+        border-left: 2px solid #F9E547;
+        position: absolute;
+        z-index: 2;
+        cursor: pointer;
+      }
+      .swiper-button-prev{
+        transform: rotate(-45deg);
+        left: 10px;
+      }
+      .swiper-button-next{
+        transform: rotate(135deg);
+        right: 10px;
+      }
+      .swiper-pagination{
+        position: absolute;
+        bottom: 0px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 2;
+        .swiper-pagination-bullet{
+          width: 10px;
+          height: 10px;
+          margin: 8px 12px;
+          width: 11px;
+          height: 11px;
+          display: block;
+          border-radius: 10px;
+          background: #97999B;
+          box-shadow: 10px 12px 13px rgba(0, 0, 0, 0.22);
+          opacity: 1;
+          -webkit-transition: all .3s;
+          transition: all .3s;
+          &.swiper-pagination-bullet-active{
+            opacity: 1;
+            background: #F9E547;
+            height: 30px;
+            -webkit-box-shadow: 0px 0px 20px rgb(252 56 56 / 30%);
+            box-shadow: 0px 0px 20px rgb(252 56 56 / 30%);
+          }
+        }
+      }
+      .swiper-wrapper{
+        .swiper-slide{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          &.swiper-slide-active{
+            .marks_list-item{
+              svg{
+                filter: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .marks_list-item{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 200px;
+        svg{
+          width: 85%;
+          height: 100%;
+          position: relative;
+          -moz-filter: grayscale(100%);
+          -o-filter: grayscale(100%);
+          -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+          filter: grayscale(100%);
+          transition: all 1s;
+          &:hover{
+            filter: none;
+          }
+        }
+    }
+  }
+}
+
+
+@media only screen and (max-width: 1600px){
+  .trade_marks-container{
+    .marks_title{
+      font-size: 42px;
+      line-height: 51px;
+      margin: 0 0 40px 0;
+    }
+    .trade_marks-list{
+      //width: 85%;
+    }
+  }
+}
+@media only screen and (max-width: 1440px){
+  .trade_marks-container{
+    .marks_title{
+      font-size: 38px;
+      line-height: 49px;
+      margin: 0 0 30px 0;
+    }
+    .trade_marks-list{
+      .marks_list-item{
+        height: 160px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px){
+  .trade_marks-container{
+    .trade_marks-list{
+      .swiper-container{
+        .swiper-button-prev, .swiper-button-next{
+          top: 20%;
+          width: 40px;
+          height: 40px;
+        }
+      }
+      .marks_list-item{
+        height: 130px;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px){
+  .trade_marks-container{
+    .trade_marks-list{
+      width: 90%;
+      .swiper-container{
+        .swiper-pagination{
+          bottom: 10px;
+          .swiper-pagination-bullet{
+            width: 8px;
+            height: 8px;
+            &.swiper-pagination-bullet-active{
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 945px){
+  .trade_marks-container{
+    .marks_title{
+      font-size: 36px;
+      line-height: 41px;
+    }
+    .trade_marks-list{
+      padding: 0 0 60px 0;
+      .marks_list-item{
+        height: 90px;
+        svg{
+          width: 65%;
+        }
+      }
+      .swiper-container{
+        .swiper-button-prev, .swiper-button-next{
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .trade_marks-container {
+    .marks_title {
+      font-size: 34px;
+      line-height: 39px;
+    }
+  }
+}
+
+@media only screen and (max-width: 530px) {
+  .trade_marks-container {
+    .marks_title {
+    }
+     .trade_marks-list{
+       width: 80%;
+     }
+  }
+}
+@media only screen and (max-width: 480px) {
+  .trade_marks-container {
+    .marks_title {
+      font-size: 32px;
+      margin: 0 0 20px 0;
+    }
+    .trade_marks-list{
+    }
+  }
+}

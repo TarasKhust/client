@@ -1,0 +1,124 @@
+.search_container{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 36px 0 0;
+  padding: 0 20px 8px 15px;
+  box-sizing: border-box;
+  position: relative;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: border 500ms ease-in;
+  &.is_open{
+    border-bottom: 2px solid #97999B;
+    input{
+      opacity: 1;
+    }
+  }
+  input{
+    opacity: 0;
+    border: none;
+    outline: none;
+    transition: opacity 600ms ease-in;
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+
+    color: #424242;
+  }
+  .search_icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 35px;
+    height: 35px;
+    svg{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1600px){
+  .search_container{
+    .search_icon{
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+@media only screen and (max-width: 1280px){
+  .search_container{
+    margin: 0 25px 0 0;
+    width: 70%;
+    input{
+      font-size: 12px;
+      line-height: 17px;
+    }
+    .search_icon{
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
+@media only screen and (max-width: 945px){
+  .search_container{
+    width: 80%;
+    margin: 0 20px 0 0;
+    padding: 0 10px 5px 5px;
+    .search_icon{
+      width: 18px;
+      height: 18px;
+    }
+  }
+}
+
+@media only screen and (max-width: 530px){
+  .search_container{
+    position: initial;
+    justify-content: flex-end;
+    width: fit-content;
+    transition: all 0.5s linear;
+    &.is_open{
+      border-bottom: none;
+      input{
+        border-top: 1px solid #97999B;
+        transform: scale(1);
+      }
+    }
+    .search_icon{
+
+    }
+    input{
+      transform: scale(0);
+      position: absolute;
+      top: 94px;
+      width: 100%;
+      left: 0;
+      background: white;
+      height: 50px;
+      z-index: 2;
+      padding: 0 30px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px){
+  .search_container{
+    &.is_open{
+      input{
+      }
+    }
+    .search_icon{
+
+    }
+    input{
+      top: 84px;
+    }
+  }
+}
+
