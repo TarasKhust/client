@@ -21,8 +21,9 @@
     "start:dev": "npm run setup && npm run build:dev",
     "start:prod": "npm run setup && npm run build:prod",
     "start:server": "npm run setup && npm run build:server",
-    "start": "npm run build:prod",
-    "dev": "webpack serve"
+    "start": "node server.js",
+    "dev": "webpack serve",
+    "heroku-postbuild": "npm run build:prod"
   },
   "dependencies": {
     "@apollo/client": "3.3.10",
