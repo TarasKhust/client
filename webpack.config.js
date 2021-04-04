@@ -53,7 +53,7 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin(), // Generates default index.html
 		new HtmlWebpackPlugin({
-			filename: 'user.html',
+			filename: process.env.NODE_ENV === "development" ? 'user' : 'user.html',
 			template: 'src/assets/user.html'
 		}),
 		new HtmlWebpackPlugin({
