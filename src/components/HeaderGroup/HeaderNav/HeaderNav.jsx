@@ -8,19 +8,19 @@ const HeaderNav = () => {
     return(
         <ul className='navigation_list'>
             <li className='list_item'>
-                <Link to='/main'>Главная</Link>
+                <Link to='/main'>Головна</Link>
             </li>
-            <li className='list_item'>
-                <Link to='/main'>О нас</Link>
-            </li>
+            {/*<li className='list_item'>*/}
+            {/*    <Link to='/main'>О нас</Link>*/}
+            {/*</li>*/}
             <li className='list_item'>
                 <Link to='/main'>Каталог</Link>
             </li>
             <li className='list_item'>
-                <Link to='/main'>Доставка и оплата</Link>
+                <Link to='/main'>Доставка та оплата</Link>
             </li>
             <li className='list_item'>
-                <Link to='/main'>Контакты</Link>
+                <Link to='/main'>Контакти</Link>
             </li>
         </ul>
     )

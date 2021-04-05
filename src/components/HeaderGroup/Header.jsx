@@ -38,18 +38,18 @@ const Header = () => {
                 <div className="header-inner_top">
                     <div className="inner_top-l">
                         <Burger open={open} setOpen={setOpen}  />
-                        <LangSwitcher />
+                        {/*<LangSwitcher />*/}
                     </div>
                     <a href="#" className="header_logo">
                         <Logo />
                     </a>
                     <div className="inner_top-r">
-                        <SearchInput />
+                        {/*<SearchInput />*/}
                         <ChipBasket />
                     </div>
                 </div>
                 <div ref={node} className={`header-inner_nav ${!open ? '' : 'open_nav'}`}>
-                    <LangSwitcher />
+                    {/*<LangSwitcher />*/}
                     <HeaderNav />
                 </div>
             </div>

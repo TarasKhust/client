@@ -1,0 +1,298 @@
+.tut_posuda-contacts{
+  margin: 60px 0 150px 0;
+  position: relative;
+  .contacts_inner{
+    padding: 0 160px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    .contacts_title{
+      font-family: "Montserrat", "sans-serif";
+      font-weight: normal;
+      font-size: 48px;
+      line-height: 59px;
+      color: #222223;
+      text-align: center;
+      margin: 0 0 80px 0;
+    }
+    .view_contacts{
+      background: #595959;
+      padding: 60px 170px 60px 60px ;
+      position: relative;
+      li{
+        display: flex;
+        align-items: center;
+        margin: 0 0 40px 0 ;
+        &:last-child{
+          margin: 0;
+        }
+        svg{
+          margin: 0 34px 0 0;
+          width: 35px;
+          height: 35px;
+        }
+        span, a{
+          font-weight: normal;
+          font-size: 22px;
+          line-height: 27px;
+          color: #FFFFFF;
+          text-decoration: none;
+        }
+      }
+      .social_contacts{
+        padding: 0 0 25px 0;
+        position: absolute;
+        background: #F9E547;
+        height: calc(100% /5*7);
+        top: -70px;
+        right: -80px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        width: 30%;
+        z-index: -1;
+        a{
+          width: 25px;
+          height:25px;
+          svg{
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+@media only screen and (max-width: 1440px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      .contacts_title{
+        font-size: 38px;
+        line-height: 49px;
+      }
+      .view_contacts{
+        li{
+          margin: 0 0 25px 0;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1280px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      .view_contacts{
+        padding: 50px 150px 50px 50px;
+        li{
+          svg{
+            width: 30px;
+            height: 30px;
+          }
+          a, span{
+            font-size: 18px;
+            line-height: 21px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1024px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      width: 85%;
+      margin: 0 auto;
+      padding: 0;
+      .view_contacts{
+        li{
+          svg{
+          }
+          a, span{
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 945px) {
+  .tut_posuda-contacts {
+    .contacts_inner {
+      .contacts_title {
+        font-size: 36px;
+        line-height: 41px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 830px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      width: 90%;
+      .contacts_title{
+        font-size: 34px;
+        line-height: 39px;
+      }
+      .view_contacts{
+        padding: 35px 95px 35px 45px;
+        li{
+          svg{
+            width: 25px;
+            height: 25px;
+          }
+          a, span{
+            font-size: 16px;
+          }
+        }
+        .social_contacts{
+          top: -55px;
+          a{
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 650px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      .view_contacts{
+        padding: 35px 45px 35px 45px;
+        li{
+          margin: 0 0 20px 0;
+          svg{
+            width: 25px;
+            height: 25px;
+          }
+          a, span{
+            font-size: 16px;
+          }
+        }
+        .social_contacts{
+          right: -35px;
+          a{
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 530px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      width: 95%;
+      .contacts_title{
+        font-size: 32px;
+      }
+      .view_contacts{
+        padding: 25px 35px 25px 35px;
+        li{
+          //margin: 0 0 15px 0;
+          svg{
+            width: 20px;
+            height: 20px;
+            margin: 0 15px 0 0;
+          }
+          a, span{
+            font-size: 16px;
+          }
+        }
+        .social_contacts{
+          width: 50%;
+          top: -45px;
+          a{
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 435px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      width: 95%;
+      .view_contacts{
+        //padding: 25px 35px 25px 35px;
+        li{
+          flex-direction: column;
+          margin: 0 0 15px 0;
+          svg{
+            margin: 0 0 15px 0;
+          }
+          a, span{
+            font-size: 15px;
+          }
+        }
+        .social_contacts{
+          top: -60px;
+          a{
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 375px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      .contacts_title{
+        font-size: 28px;
+      }
+      .view_contacts{
+        padding: 20px;
+        li{
+          flex-direction: column;
+          margin: 0 0 15px 0;
+          svg{
+            margin: 0 0 15px 0;
+          }
+          a, span{
+            font-size: 15px;
+          }
+        }
+        .social_contacts{
+          right: -40px;
+          width: 70%;
+          a{
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 335px){
+  .tut_posuda-contacts{
+    .contacts_inner{
+      .contacts_title{
+      }
+      .view_contacts{
+        padding: 20px;
+        li{
+          margin: 0 0 10px 0;
+          svg{
+          }
+          a, span{
+          }
+        }
+        .social_contacts{
+          right: -15px;
+          width: 70%;
+          a{
+          }
+        }
+      }
+    }
+  }
+}

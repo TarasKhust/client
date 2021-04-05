@@ -7,6 +7,7 @@ import Privilege from "components/Privilege/Privilege";
 import Arrivals from "components/NewArrivals/Arrivals";
 import TradeMarks from "components/TradeMarks/TradeMarks";
 import Footer from "components/Footer/Footer"
+import Contacts from "components/Contacts/Contacts";
 
 
 
@@ -16,9 +17,10 @@ import Footer from "components/Footer/Footer"
             <Header />
             <Slider  />
             <Catalog />
-            <Privilege />
+            {/*<Privilege />*/}
             <Arrivals />
-            <TradeMarks />
+            {/*<TradeMarks />*/}
+            <Contacts />
             <Footer />
         </div>
     )
