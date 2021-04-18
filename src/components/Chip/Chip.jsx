@@ -8,7 +8,7 @@ import { Input } from "semantic-ui-react";
 
 const Chip = ({ item }) => {
     const dispatch = useDispatch();
-
+    const count = 1
     const [isCount, setCount] = useState(false);
 
     const addToCart = (evt) => {
@@ -28,22 +28,23 @@ const Chip = ({ item }) => {
 
     if (isCount) {
       return (
-	<Fragment>
-		<span className="shopping_bag is_active-bag"
+        <div className='bag_counter-row' >
+		<span className=""
 			onClick={removeFromCart}
 		>
 			-
 		</span>
-
-		<Input onChange={(evt) => addToCart(evt)} type="number" defaultValue={1} />
-
-		<span className="shopping_bag is_active-bag"
+        <input
+            onChange={(evt) => addToCart(evt)}
+            type="number"
+            className="bag_counter"
+        />
+		<span className=""
 			onClick={addToCart}
 		>
 			+
 		</span>
-
-	</Fragment>
+        </div>
       );
     }
 
