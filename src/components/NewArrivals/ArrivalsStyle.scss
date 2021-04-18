@@ -409,6 +409,14 @@
   }
 }
 
+@media only screen and (max-width: 475px){
+  .arrivals_content{
+    .arrivals_title{
+      font-size: 28px;
+    }
+  }
+}
+
 @media only screen and (max-width: 320px){
   .arrivals_content{
   padding: 0 15px;
