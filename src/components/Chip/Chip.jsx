@@ -17,6 +17,17 @@ const Chip = ({ item }) => {
         return evt.currentTarget.value;
     };
 
+  const updateCart = (evt) => {
+    const count = evt.currentTarget.value;
+	dispatch(actions.updateCart(item._id, count));
+  };
+
+  const onBlur = (evt) => {
+	setCount(false);
+
+	return evt.currentTarget.value;
+  };
+
   const removeFromCart = () => {
 	dispatch(actions.removeFromCart(item._id));
   };
@@ -35,7 +46,7 @@ const Chip = ({ item }) => {
 			-
 		</span>
 
-		<Input onChange={(evt) => addToCart(evt)} type="number" defaultValue={1} />
+		<Input onChange={(evt) => updateCart(evt)} type="number" defaultValue={1} onBlur={onBlur} />
 
 		<span className="shopping_bag is_active-bag"
 			onClick={addToCart}

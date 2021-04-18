@@ -75,19 +75,27 @@ export const initState = fromJS({
  *
  */
 function reducer(state = initState, action) {
+  console.log(state.toJS());
+
 	switch (action.type) {
 		case types.TO_DEFAULT:
 			return initState;
 
 		case types.ADD_TO_CART:
-			return state
-				.set("cartItems", fromJS({ ...action.cartItems, count: 1 }))
-				.set("isEmpty", action.isEmpty);
+			return (
+				state
+				.merge("cartItems", fromJS({ ...action.cartItems, count: 1 }))
+				.set("isEmpty", action.isEmpty));
+
+	  case types.UPDATE_CART:
+		return (
+			state
+			.updateIn(["cartItems", "_id"], genres => genres.push("Wizards"))
+		);
 
 	  case types.REMOVE_FROM_CART:
 		return state
-		.set("cartItems", fromJS({ ...action.cartItems, count: 1 }))
-		.set("isEmpty", action.isEmpty);
+		.set("cartItems", fromJS({ ...action.cartItems, count: 1 }));
 
 		default:
 			return state;
