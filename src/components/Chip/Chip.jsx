@@ -2,22 +2,47 @@ import React, { useState } from "react";
 import "./ChipStyle.scss";
 import Bag from "./img/shopping_bag.svg";
 import PropTypes from "prop-types";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import * as actions from "actions/shoppingCart.actions";
+import * as selectors from "selectors/shoppingCart.selectors";
 
 const Chip = ({ item }) => {
     const dispatch = useDispatch();
+    const inputValue = useSelector(selectors.getCurrentValue(item._id));
     const [isCount, setCount] = useState(false);
 
-    const addToCart = (evt) => {
+    const addToCart = () => {
         dispatch(actions.addToCart(item));
-
-        return evt.currentTarget.value;
+        setCount(true);
     };
 
   const updateCart = (evt) => {
-    const count = evt.currentTarget.value;
-	dispatch(actions.updateCart(item._id, count));
+    const value = evt.currentTarget.value;
+    const name = evt.currentTarget.name;
+
+    console.log(value);
+
+    if (value.length > 3) {
+      return;
+    }
+
+    if (Number.isNaN(parseInt(value))) {
+      return dispatch(actions.updateCart(name, ""));
+    }
+
+	dispatch(actions.updateCart(name, parseInt(value)));
+  };
+
+  const increment = () => {
+    dispatch(actions.increment(item._id));
+  };
+
+  const decrement = () => {
+    if (inputValue === 0) {
+	  return;
+    }
+
+    dispatch(actions.decrement(item._id));
   };
 
   const onBlur = (evt) => {
@@ -26,31 +51,33 @@ const Chip = ({ item }) => {
 	return evt.currentTarget.value;
   };
 
-  const removeFromCart = () => {
-	dispatch(actions.removeFromCart(item._id));
+  const onFocus = (evt) => {
+
   };
 
-    const inputCount = () => {
-      dispatch(actions.addToCart(item));
-      setCount(true);
-    };
+  const onMouseLeave = () => {
+	setCount(false);
+  };
 
     if (isCount) {
       return (
 	<div className="bag_counter-row" >
 		<span className=""
-			onClick={removeFromCart}
+			onClick={decrement}
 		>
 			-
 		</span>
 		<input
-			onChange={(evt) => updateCart(evt)}
+			id={item._id}
+			name={item._id}
+			onChange={updateCart}
+			value={inputValue}
 			type="number"
 			className="bag_counter"
-			defaultValue={1}
+			maxLength={3}
 		/>
 		<span className=""
-			onClick={addToCart}
+			onClick={increment}
 		>
 			+
 		</span>
@@ -60,7 +87,7 @@ const Chip = ({ item }) => {
 
     return (
 	<button className="shopping_bag is_active-bag"
-		onClick={inputCount}
+		onClick={addToCart}
 	>
 		<Bag />
 	</button>

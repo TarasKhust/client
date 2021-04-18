@@ -41,6 +41,21 @@ export const getShoppingCartCount = createSelector(
 );
 
 /**
+ * Get current status of cart requests
+ * @memberOf shoppingCartSelectors
+ * @returns {OutputSelector<unknown, *, (res: (List|*)) => *>}
+ * @param id
+ */
+export const getCurrentValue = (id) => createSelector(
+	[getShoppingCart],
+	(items) => {
+	  const value = items.find(item => item._id === id);
+	  return value?.count;
+	}
+
+);
+
+/**
  * Get status of empty cart state
  * @memberOf shoppingCartSelectors
  * @returns {boolean}

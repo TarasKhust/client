@@ -75,8 +75,6 @@ export const initState = fromJS({
  *
  */
 function reducer(state = initState, action) {
-  console.log(state.toJS());
-
 	switch (action.type) {
 		case types.TO_DEFAULT:
 			return initState;
@@ -85,16 +83,40 @@ function reducer(state = initState, action) {
 			return (
 				state
 		         .set("cartItems", state.get("cartItems").push(fromJS({ ...action.cartItems, count: 1 })))
-				 .set("isEmpty", action.isEmpty));
+				 .set("isEmpty", true)
+
+		);
 
 	  case types.UPDATE_CART:
 		return (
-			state
-			.updateIn(["cartItems", "_id"], genres => genres.push("Wizards"))
+	    state.setIn(["cartItems", state.get("cartItems")
+		    .findIndex(id => id === action.cartItems._id), "count"],
+		    action.cartItems.count
+			)
+		);
+
+	  case types.INCREMENT:
+		return (
+			state.setIn(["cartItems", state.get("cartItems")
+				.findIndex(item => item._id === action.cartItems._id), "count"],
+				state.get("cartItems").toJS()
+				.find((item) => item._id === action.cartItems._id)["count"] + 1
+			)
+		);
+
+	  case types.DECREMENT:
+		return (
+			state.setIn(["cartItems", state.get("cartItems")
+				.findIndex(item => item._id === action.cartItems._id), "count"],
+				state.get("cartItems").toJS()
+				.find((item) => item._id === action.cartItems._id)["count"] - 1
+			)
 		);
 
 	  case types.REMOVE_FROM_CART:
-		return state.set("cartItems", state.get("cartItems").remove(state.get("cartItems").findIndex(id => id !== action.id)));
+		return state.set("cartItems", state.get("cartItems")
+		.remove(state.get("cartItems")
+		.findIndex(id => id !== action.id)));
 
 		default:
 			return state;
