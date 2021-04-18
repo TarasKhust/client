@@ -16,7 +16,7 @@ const Catalog = () => {
 		<h2 className="catalog_title">Каталог</h2>
 		<div className="catalog_wrapper">
 			<div className="catalog_list">
-				<a href="#" className="catalog_list-item row_large">
+				<a onClick={() => location.href = "pasabahce"} className="catalog_list-item row_large">
 					<div className="cat_item">
 						<figure className="cat_image">
 							<img src={services} alt="" />

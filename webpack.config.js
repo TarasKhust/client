@@ -1,19 +1,18 @@
 const path = require("path");
 const vendor = require("./vendor");
 const babel = require("./babel.config");
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const VENDOR_REGEXP = new RegExp(`[\/]node_modules[\/](${ [].concat(vendor).join("|") })[\/]`);
-
 
 module.exports = {
 	entry: {
 		"master": `${__dirname}/src/@master/app.js`,
-		"members": `${__dirname}/src/@members/app.js`
+		"members": `${__dirname}/src/@members/app.js`,
 	},
 
 	output: {
-		path: path.join(__dirname, 'dist'),
+		path: path.join(__dirname, "dist"),
 		filename: "[name].bundle.js",
 		chunkFilename: "[name].bundle.js?[contenthash]",
 	},
@@ -53,21 +52,25 @@ module.exports = {
 	plugins: [
 		new HtmlWebpackPlugin(), // Generates default index.html
 		new HtmlWebpackPlugin({
-			filename: process.env.NODE_ENV === "development" ? 'user' : 'user.html',
-			template: 'src/assets/user.html'
+			filename: process.env.NODE_ENV === "development" ? "user" : "user.html",
+			template: "src/assets/user.html",
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'contact.html',
-			template: 'src/assets/contact.html'
+			filename: "contact.html",
+			template: "src/assets/contact.html",
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'main',
-			template: 'src/assets/main.html'
+			filename: "main",
+			template: "src/assets/main.html",
 		}),
 		new HtmlWebpackPlugin({
-			filename: 'product',
-			template: 'src/assets/product.html'
-		})
+			filename: "product",
+			template: "src/assets/product.html",
+		}),
+	    new HtmlWebpackPlugin({
+		  filename: process.env.NODE_ENV === "development" ? "pasabahce" : "pasabahce.html",
+		  template: "src/assets/pasabahce.html",
+	    }),
 	],
 
 	resolveLoader: {
@@ -97,19 +100,22 @@ module.exports = {
 				use: [
 					{
 						loader: "file-loader",
-						// options: {
-						// 	name: function () {
-						// 		return "[path][name].[ext]?[contenthash:6]";
-						// 	},
-						// },
+
+						/*
+						 * options: {
+						 * 	name: function () {
+						 * 		return "[path][name].[ext]?[contenthash:6]";
+						 * 	},
+						 * },
+						 */
 					},
 				],
 			},
 			{
 				test: /\.svg$/,
 				use: [
-					'@svgr/webpack',
-				]
+					"@svgr/webpack",
+				],
 			},
 			{
 				test: /\.sprite\.json$/,
