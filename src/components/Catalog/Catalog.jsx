@@ -12,7 +12,7 @@ import Button from "components/BtnGroup/Button";
 
 const Catalog = () => {
     return(
-        <section className='catalog_list-container'>
+        <section className='catalog_list-container' id='catalog'>
             <h2 className='catalog_title'>Каталог</h2>
             <div className="catalog_wrapper">
                 <div className='catalog_list'>

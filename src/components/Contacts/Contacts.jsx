@@ -10,7 +10,7 @@ import Pinterest from './img/pinterest.svg'
 import Location from './img/location.svg'
 const Contacts = () => {
     return (
-        <div className='tut_posuda-contacts'>
+        <div className='tut_posuda-contacts' id='contacts'>
             <div className="contacts_inner">
                 <h2 className="contacts_title">Контакти</h2>
                 <ul className="view_contacts">

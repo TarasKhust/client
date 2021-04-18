@@ -8,6 +8,7 @@ import Arrivals from "components/NewArrivals/Arrivals";
 import TradeMarks from "components/TradeMarks/TradeMarks";
 import Footer from "components/Footer/Footer"
 import Contacts from "components/Contacts/Contacts";
+import Delivery from "components/Delivery/Delivery";
 
 
 
@@ -16,11 +17,12 @@ import Contacts from "components/Contacts/Contacts";
         <div className="tut-posuda_content">
             <Header />
             <Slider  />
-            <Catalog />
+            <Catalog  />
             {/*<Privilege />*/}
             <Arrivals />
             {/*<TradeMarks />*/}
-            <Contacts />
+            <Delivery />
+            <Contacts  />
             <Footer />
         </div>
     )

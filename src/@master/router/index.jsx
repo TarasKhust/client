@@ -2,7 +2,7 @@ import React from "react";
 import { Provider } from "react-redux";
 import { Router } from "react-router-dom";
 import { createBrowserHistory } from 'history'
-import CardProduct from "@master/containers/CardProduct/CardProduct";
+import ListProduct from "@master/containers/ListProduct/ListProduct";
 import { store } from 'store'
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client'
 import MainPage from "@master/containers/MainPage/MainPage";
@@ -19,7 +19,7 @@ export default () => (
 		<ApolloProvider client={client}>
 			<Provider store={store}>
 				<Router history={history}>
-					{/*<CardProduct/>*/}
+					{/*<ListProduct/>*/}
 				</Router>
 				<Router history={history}>
 					<MainPage />
