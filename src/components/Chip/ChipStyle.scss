@@ -17,7 +17,48 @@
     height: 30px;
   }
 }
-
+.bag_counter-row{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  //border: 1px solid #97999B;
+  width: 50%;
+  padding: 5px 10px;
+  span{
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 29px;
+    color: #97999B;
+    width: 35px;
+    height: 35px;
+    background: yellow;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  input{
+    width: 35%;
+    height: 25px;
+    font-family: 'Montserrat', 'sans-serif';
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #5A5C5E;
+    //border: none;
+    outline: none;
+    text-align: center;
+    border: 1px solid #97999B;
+    border-radius: 8px;
+    margin: 0 5px;
+    padding: 0;
+    &::-webkit-inner-spin-button, -webkit-outer-spin-button{
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}
 @media only screen and (max-width: 1600px){
     .shopping_bag{
       width: 45px;
@@ -37,5 +78,27 @@
       width: 20px;
       height: 20px;
     }
+  }
+  .bag_counter-row{
+    padding: 5px 0px;
+    span{
+      font-size: 18px;
+      line-height: 21px;
+      height: 30px;
+      width: 30px;
+    }
+    input{
+
+    }
+  }
+}
+@media only screen and (max-width: 600px){
+  .bag_counter-row{
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 530px){
+  .bag_counter-row{
+    width: 50%;
   }
 }

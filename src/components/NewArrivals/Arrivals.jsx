@@ -54,7 +54,7 @@ const Arrivals = () => {
       spaceBetween: 20,
       breakpoints: {
         "1024": { slidesPerView: 3 },
-        "600": { slidesPerView: 2 },
+        "601": { slidesPerView: 2 },
         "320": { slidesPerView: 1 },
       },
 };

@@ -23,6 +23,10 @@ app.get("/pasabahce", (req, res) => {
   res.sendFile(path.join(publicPath, "pasabahce.html"));
 });
 
+app.get("/delivery", (req, res) => {
+  res.sendFile(path.join(publicPath, "delivery.html"));
+});
+
 app.listen(port, () => {
   console.log(`Hello World I run on PORT ${ port}`);
 });
