@@ -72,11 +72,11 @@ export const updateCart = (_id, count) => (dispatch, getState) => {
 /**
  * @name shoppingCartActions#removeFromCart
  * @param productId
- * @return {{productId: number, type: string}}
+ * @return {{id, type: string}}
  */
 export const removeFromCart = (productId) => ({
   type: REMOVE_FROM_CART,
-  productId,
+  id: productId,
 });
 
 /**

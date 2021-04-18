@@ -1,14 +1,12 @@
-import React, { useState, Fragment } from "react";
+import React, { useState } from "react";
 import "./ChipStyle.scss";
 import Bag from "./img/shopping_bag.svg";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import * as actions from "actions/shoppingCart.actions";
-import { Input } from "semantic-ui-react";
 
 const Chip = ({ item }) => {
     const dispatch = useDispatch();
-    const count = 1
     const [isCount, setCount] = useState(false);
 
     const addToCart = (evt) => {
@@ -39,23 +37,24 @@ const Chip = ({ item }) => {
 
     if (isCount) {
       return (
-        <div className='bag_counter-row' >
+	<div className="bag_counter-row" >
 		<span className=""
 			onClick={removeFromCart}
 		>
 			-
 		</span>
-        <input
-            onChange={(evt) => addToCart(evt)}
-            type="number"
-            className="bag_counter"
-        />
+		<input
+			onChange={(evt) => updateCart(evt)}
+			type="number"
+			className="bag_counter"
+			defaultValue={1}
+		/>
 		<span className=""
 			onClick={addToCart}
 		>
 			+
 		</span>
-        </div>
+	</div>
       );
     }
 

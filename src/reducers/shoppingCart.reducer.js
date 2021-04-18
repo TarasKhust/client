@@ -84,8 +84,8 @@ function reducer(state = initState, action) {
 		case types.ADD_TO_CART:
 			return (
 				state
-				.merge("cartItems", fromJS({ ...action.cartItems, count: 1 }))
-				.set("isEmpty", action.isEmpty));
+		         .set("cartItems", state.get("cartItems").push(fromJS({ ...action.cartItems, count: 1 })))
+				 .set("isEmpty", action.isEmpty));
 
 	  case types.UPDATE_CART:
 		return (
@@ -94,8 +94,7 @@ function reducer(state = initState, action) {
 		);
 
 	  case types.REMOVE_FROM_CART:
-		return state
-		.set("cartItems", fromJS({ ...action.cartItems, count: 1 }));
+		return state.set("cartItems", state.get("cartItems").remove(state.get("cartItems").findIndex(id => id !== action.id)));
 
 		default:
 			return state;
