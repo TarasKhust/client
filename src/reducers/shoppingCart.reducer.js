@@ -84,6 +84,11 @@ function reducer(state = initState, action) {
 				.set("cartItems", fromJS({ ...action.cartItems, count: 1 }))
 				.set("isEmpty", action.isEmpty);
 
+	  case types.REMOVE_FROM_CART:
+		return state
+		.set("cartItems", fromJS({ ...action.cartItems, count: 1 }))
+		.set("isEmpty", action.isEmpty);
+
 		default:
 			return state;
 	}

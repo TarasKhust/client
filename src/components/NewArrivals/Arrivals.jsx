@@ -14,6 +14,7 @@ const Arrivals = () => {
     const items = [
       {
 	    _id: "1",
+        vendor: "AA111BB",
 	    name: "Paşabahçe Aquatic",
 	    description: "Стопка для водки набор 6Х60мл",
 	    image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
@@ -21,6 +22,7 @@ const Arrivals = () => {
       },
       {
 	    _id: "2",
+        vendor: "AA111BB",
 	    name: "Paşabahçe",
 	    description: "Стопка для водки набор 6Х60мл",
 	    image: "https://images.ua.prom.st/1064918125_w640_h640_nabor-bokalov-dlya.jpg",
@@ -28,6 +30,7 @@ const Arrivals = () => {
       },
       {
 	    _id: "3",
+        vendor: "AA111BB",
 	    name: "Paşabahçe Aquatic",
 	    description: "Стопка для водки набор 6Х60мл",
 	    image: "https://i1.rozetka.ua/goods/1682570/pasabahce_44819_set_barocco_images_1682570621.jpg",
@@ -35,6 +38,7 @@ const Arrivals = () => {
       },
       {
 	    _id: "4",
+        vendor: "AA111BB",
 	    name: "Paşabahçe Aquatic",
 	    description: "Стопка для водки набор 6Х60мл",
 	    image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
@@ -63,7 +67,7 @@ const Arrivals = () => {
 				{...swiperConfig}
 			>
 
-				{items.map(({ _id, name, image, description, price }) => {
+				{items.map(({ _id, name, image, description, price, vendor }) => {
 			    return (
 				    <SwiperSlide key={_id}>
 					<div className="arrival_item">
@@ -75,7 +79,7 @@ const Arrivals = () => {
 							<h2 className="arrival_desc">{description}</h2>
 							<div className="desc_row">
 								<span className="price">{`${price} грн`}</span>
-								<Chip item={{ _id, name, image, description, price }} />
+								<Chip item={{ _id, name, image, description, price, vendor }} />
 							</div>
 						</div>
 					</div>

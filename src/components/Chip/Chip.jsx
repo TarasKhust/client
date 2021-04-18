@@ -1,20 +1,55 @@
-import React from "react";
+import React, { useState, Fragment } from "react";
 import "./ChipStyle.scss";
 import Bag from "./img/shopping_bag.svg";
 import PropTypes from "prop-types";
 import { useDispatch } from "react-redux";
 import * as actions from "actions/shoppingCart.actions";
+import { Input } from "semantic-ui-react";
 
 const Chip = ({ item }) => {
     const dispatch = useDispatch();
 
-    const addToCart = () => {
+    const [isCount, setCount] = useState(false);
+
+    const addToCart = (evt) => {
         dispatch(actions.addToCart(item));
+
+        return evt.currentTarget.value;
     };
+
+  const removeFromCart = () => {
+	dispatch(actions.removeFromCart(item._id));
+  };
+
+    const inputCount = () => {
+      dispatch(actions.addToCart(item));
+      setCount(true);
+    };
+
+    if (isCount) {
+      return (
+	<Fragment>
+		<span className="shopping_bag is_active-bag"
+			onClick={removeFromCart}
+		>
+			-
+		</span>
+
+		<Input onChange={(evt) => addToCart(evt)} type="number" defaultValue={1} />
+
+		<span className="shopping_bag is_active-bag"
+			onClick={addToCart}
+		>
+			+
+		</span>
+
+	</Fragment>
+      );
+    }
 
     return (
 	<button className="shopping_bag is_active-bag"
-		onClick={() => addToCart()}
+		onClick={inputCount}
 	>
 		<Bag />
 	</button>
@@ -22,10 +57,7 @@ const Chip = ({ item }) => {
 };
 
 Chip.propTypes = {
-    onClick: PropTypes.func,
+    item: PropTypes.object,
 };
 
-/**
- * @param onClick
- */
 export default Chip;

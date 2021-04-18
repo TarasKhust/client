@@ -19,7 +19,7 @@ export const getState = (state) => state.toJS();
  * @returns {boolean}
  * @param state
  */
-export const getShoppingCart = (state) => getState(state).cart;
+export const getShoppingCart = (state) => getState(state).cartItems;
 
 /**
  * Get status of empty cart state
