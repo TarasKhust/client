@@ -1,11 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./СhipStyle.scss";
 import Chip from "./chip.svg";
-import { useSelector } from "react-redux";
-import { getShoppingCartCount } from "selectors/shoppingCart.selectors";
+import { ShoppingCardContext } from "store/ShoppingCard";
 
 const ChipBasket = () => {
-  const counter = useSelector(getShoppingCartCount);
+  const { selectors } = useContext(ShoppingCardContext);
+  const counter = selectors.getShoppingCartCount();
     return (
 	<div className="basket_container">
 		<div className="counter">{counter}</div>

@@ -30,16 +30,15 @@ export const toDefault = () => ({
  * @return {{type: string, cartItems}}
  */
 export const addToCart = (product) => (dispatch, getState) => {
-  /*
-   * const state = getState()[section];
-   *
-   * const items = state.getIn(["cartItems"]).toJS();
-   *
-   * if (items.length > 0) {
-   *   const result = items.find(({ _id }) => _id === product._id);
-   *   console.log(result);
-   * }
-   */
+  const state = getState.toJS();
+
+  const index = state.cartItems.findIndex((item) => item._id === product._id);
+
+  console.log(index);
+
+  if (index >= 0) {
+    return;
+  }
 
   dispatch({
     type: ADD_TO_CART,
@@ -53,10 +52,16 @@ export const addToCart = (product) => (dispatch, getState) => {
  * @param _id
  * @param count
  */
-export const updateCart = (_id, count = 1) => ({
+export const updateCart = (_id, count = 1) => (dispatch, getState) => {
+  const state = getState.toJS();
+
+  const index = state.cartItems.findIndex((item) => item._id === _id);
+
+  dispatch({
       type: UPDATE_CART,
-      cartItems: { _id, count },
-});
+      cartItems: { count, index },
+  });
+};
 
 /**
  * @memberOf shoppingCartActions
@@ -83,17 +88,29 @@ export const editCart = (productId) => ({
  * @param _id
  * @return {{cartItems: {count, _id}, type: string}}
  */
-export const incrementAddToCart = (_id) => ({
-  type: INCREMENT,
-  cartItems: { _id },
+export const incrementAddToCart = (_id) => (dispatch, getState) => {
+  const state = getState.toJS();
+
+  const index = state.cartItems.findIndex((item) => item._id === _id);
+
+  dispatch({
+    type: INCREMENT,
+    cartItems: { _id, index },
 });
+};
 
 /**
  * @memberOf shoppingCartActions
  * @param _id
  * @return {{cartItems: {count: number, _id}, type: string}}
  */
-export const decrementAddToCart = (_id) => ({
-  type: DECREMENT,
-  cartItems: { _id },
-});
+export const decrementAddToCart = (_id) => (dispatch, getState) => {
+  const state = getState.toJS();
+
+  const index = state.cartItems.findIndex((item) => item._id === _id);
+
+  dispatch({
+    type: DECREMENT,
+    cartItems: { _id, index },
+  });
+};

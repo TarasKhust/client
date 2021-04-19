@@ -1,58 +1,46 @@
-import React, { useState } from "react";
+import PropTypes from "prop-types";
+import React, { useContext, useState } from "react";
 import "./ChipStyle.scss";
 import Bag from "./img/shopping_bag.svg";
-import PropTypes from "prop-types";
-import { useDispatch, useSelector } from "react-redux";
-import * as actions from "actions/shoppingCart.actions";
-import * as selectors from "selectors/shoppingCart.selectors";
+import { ShoppingCardContext } from "store/ShoppingCard";
 
 const Chip = ({ item }) => {
-    const dispatch = useDispatch();
-    const inputValue = useSelector(selectors.getCurrentValue(item._id));
+    const { actions, selectors } = useContext(ShoppingCardContext);
 
+	const { cartItems } = selectors.getState();
+    const value = cartItems.find(items => items._id === item._id)?.count;
     const [isCount, setCount] = useState(false);
 
-    const addToCart = (evt) => {
-      evt.preventDefault();
-      evt.stopPropagation();
-        dispatch(actions.addToCart(item));
+    const addToCart = () => {
+        actions.addToCart(item);
         setCount(true);
     };
 
   const updateCart = (evt) => {
-    evt.preventDefault();
-    evt.stopPropagation();
     const value = evt.currentTarget.value;
     const name = evt.currentTarget.name;
-
-    console.log(value);
 
     if (value.length > 3) {
       return;
     }
 
     if (Number.isNaN(parseInt(value))) {
-      return dispatch(actions.updateCart(name, ""));
+      return actions.updateCart(name, "");
     }
 
-	dispatch(actions.updateCart(name, parseInt(value)));
+	actions.updateCart(name, parseInt(value));
   };
 
-  const increment = (evt) => {
-    evt.preventDefault();
-    evt.stopPropagation();
-    dispatch(actions.incrementAddToCart(item._id));
+  const increment = () => {
+    actions.incrementAddToCart(item._id);
   };
 
-  const decrement = (evt) => {
-    evt.preventDefault();
-    evt.stopPropagation();
-
-    if (inputValue === 0) {
+  const decrement = () => {
+    if (value === 0) {
 	  return;
     }
 
-    dispatch(actions.decrementAddToCart(item._id));
+    actions.decrementAddToCart(item._id);
   };
 
   const onBlur = (evt) => {
@@ -82,7 +70,7 @@ const Chip = ({ item }) => {
 			key={item._id}
 			name={item._id}
 			onChange={updateCart}
-			value={inputValue}
+			value={value}
 			type="number"
 			className="bag_counter"
 			maxLength={3}
