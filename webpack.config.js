@@ -67,14 +67,14 @@ module.exports = {
 			filename: "product",
 			template: "src/assets/product.html",
 		}),
-	    // new HtmlWebpackPlugin({
-		//   filename: process.env.NODE_ENV === "development" ? "pasabahce" : "pasabahce.html",
-		//   template: "src/assets/pasabahce.html",
-	    // }),
-		// new HtmlWebpackPlugin({
-		// 	filename: process.env.NODE_ENV === "development" ? "delivery" : "delivery.html",
-		// 	template: "src/assets/delivery.html",
-		// }),
+	     new HtmlWebpackPlugin({
+		   filename: process.env.NODE_ENV === "development" ? "pasabahce" : "pasabahce.html",
+		   template: "src/assets/pasabahce.html",
+	     }),
+		 new HtmlWebpackPlugin({
+		 	filename: process.env.NODE_ENV === "development" ? "delivery" : "delivery.html",
+		 	template: "src/assets/delivery.html",
+		 }),
 	],
 
 	resolveLoader: {
