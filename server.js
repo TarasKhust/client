@@ -15,8 +15,8 @@ app.get("/user", (req, res) => {
   res.sendFile(path.join(publicPath, "user.html"));
 });
 
-app.get("/contact", (req, res) => {
-  res.sendFile(path.join(publicPath, "contact.html"));
+app.get("/contacts", (req, res) => {
+  res.sendFile(path.join(publicPath, "contacts.html"));
 });
 
 app.get("/pasabahce", (req, res) => {

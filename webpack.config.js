@@ -56,10 +56,6 @@ module.exports = {
 			template: "src/assets/user.html",
 		}),
 		new HtmlWebpackPlugin({
-			filename: "contact.html",
-			template: "src/assets/contact.html",
-		}),
-		new HtmlWebpackPlugin({
 			filename: "main",
 			template: "src/assets/main.html",
 		}),
@@ -67,14 +63,18 @@ module.exports = {
 			filename: "product",
 			template: "src/assets/product.html",
 		}),
-	    // new HtmlWebpackPlugin({
-		//   filename: process.env.NODE_ENV === "development" ? "pasabahce" : "pasabahce.html",
-		//   template: "src/assets/pasabahce.html",
-	    // }),
-		// new HtmlWebpackPlugin({
-		// 	filename: process.env.NODE_ENV === "development" ? "delivery" : "delivery.html",
-		// 	template: "src/assets/delivery.html",
-		// }),
+	    new HtmlWebpackPlugin({
+		  filename: process.env.NODE_ENV === "development" ? "pasabahce" : "pasabahce.html",
+		  template: "src/assets/pasabahce.html",
+	    }),
+		new HtmlWebpackPlugin({
+			filename: process.env.NODE_ENV === "development" ? "delivery" : "delivery.html",
+			template: "src/assets/delivery.html",
+		}),
+		new HtmlWebpackPlugin({
+			filename: process.env.NODE_ENV === "development" ? "contacts" : "contacts.html",
+			template: "src/assets/contacts.html",
+		}),
 	],
 
 	resolveLoader: {

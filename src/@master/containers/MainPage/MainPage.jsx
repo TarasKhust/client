@@ -8,7 +8,6 @@ import Arrivals from "components/NewArrivals/Arrivals";
 import TradeMarks from "components/TradeMarks/TradeMarks";
 import Footer from "components/Footer/Footer";
 import Contacts from "components/Contacts/Contacts";
-import Delivery from "components/Delivery/Delivery";
 
 import { init } from "reducers/shoppingCart.reducer";
 
@@ -23,7 +22,6 @@ init();
 		{/*<Privilege />*/}
 		{/*<TradeMarks />*/}
 		<Arrivals />
-		<Delivery />
 		<Contacts />
 		<Footer />
 	</div>
