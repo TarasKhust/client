@@ -9,14 +9,19 @@ import * as selectors from "selectors/shoppingCart.selectors";
 const Chip = ({ item }) => {
     const dispatch = useDispatch();
     const inputValue = useSelector(selectors.getCurrentValue(item._id));
+
     const [isCount, setCount] = useState(false);
 
-    const addToCart = () => {
+    const addToCart = (evt) => {
+      evt.preventDefault();
+      evt.stopPropagation();
         dispatch(actions.addToCart(item));
         setCount(true);
     };
 
   const updateCart = (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
     const value = evt.currentTarget.value;
     const name = evt.currentTarget.name;
 
@@ -33,16 +38,21 @@ const Chip = ({ item }) => {
 	dispatch(actions.updateCart(name, parseInt(value)));
   };
 
-  const increment = () => {
-    dispatch(actions.increment(item._id));
+  const increment = (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+    dispatch(actions.incrementAddToCart(item._id));
   };
 
-  const decrement = () => {
+  const decrement = (evt) => {
+    evt.preventDefault();
+    evt.stopPropagation();
+
     if (inputValue === 0) {
 	  return;
     }
 
-    dispatch(actions.decrement(item._id));
+    dispatch(actions.decrementAddToCart(item._id));
   };
 
   const onBlur = (evt) => {
@@ -62,13 +72,14 @@ const Chip = ({ item }) => {
     if (isCount) {
       return (
 	<div className="bag_counter-row" >
-		<span className=""
+		<span
+			className=""
 			onClick={decrement}
 		>
 			-
 		</span>
 		<input
-			id={item._id}
+			key={item._id}
 			name={item._id}
 			onChange={updateCart}
 			value={inputValue}

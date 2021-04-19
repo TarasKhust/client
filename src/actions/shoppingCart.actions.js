@@ -83,7 +83,7 @@ export const editCart = (productId) => ({
  * @param _id
  * @return {{cartItems: {count, _id}, type: string}}
  */
-export const increment = (_id) => ({
+export const incrementAddToCart = (_id) => ({
   type: INCREMENT,
   cartItems: { _id },
 });
@@ -93,7 +93,7 @@ export const increment = (_id) => ({
  * @param _id
  * @return {{cartItems: {count: number, _id}, type: string}}
  */
-export const decrement = (_id) => ({
+export const decrementAddToCart = (_id) => ({
   type: DECREMENT,
   cartItems: { _id },
 });

@@ -36,9 +36,9 @@ export const initState = fromJS({
 
 	/**
 	 * Full Cart data
-	 * @type {List}
+	 * @type {Array}
 	 */
-	cartItems: List(),
+	cartItems: [],
 
 	/**
 	 * Currency data for cart prices
