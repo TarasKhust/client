@@ -26,7 +26,7 @@ export const getShoppingCart = (state) => getState(state).cartItems;
 /**
  * Get current status of cart requests
  * @memberOf shoppingCartSelectors
- * @returns {boolean}
+ * @returns {number}
  * @param state
  */
 export const getShoppingCartCount = createSelector(
@@ -35,6 +35,23 @@ export const getShoppingCartCount = createSelector(
 	  return items.reduce((prev, cur) => {
 	   return prev + cur.count;
 	 }, 0);
+	}
+
+);
+
+/**
+ * Get current status of cart requests
+ * @memberOf shoppingCartSelectors
+ * @returns {number}
+ * @param state
+ */
+export const getShoppingCartPrice = createSelector(
+	[getShoppingCart],
+	(items) => {
+	  console.log(items);
+	  return items.reduce((prev, cur) => {
+		return prev + cur.price * cur.count;
+	  }, 0);
 	}
 
 );

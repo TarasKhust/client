@@ -44,39 +44,27 @@ const Chip = ({ item, inputShow }) => {
     actions.decrementAddToCart(item._id);
   };
 
-  const onBlur = (evt) => {
-	setCount(false);
-
-	return evt.currentTarget.value;
-  };
-
-  const onFocus = (evt) => {
-
-  };
-
-  const onMouseLeave = () => {
-	setCount(false);
-  };
-
     if (isCount || inputShow) {
       return (
-          <InputChip
-              decrement={decrement}
-              increment={increment}
-              item={item}
-              value={value}
-              updateCart={updateCart}
-              inputShow={inputShow}
-          />
+	<InputChip
+		decrement={decrement}
+		increment={increment}
+		item={item}
+		value={value}
+		updateCart={updateCart}
+		inputShow={inputShow}
+	/>
       );
     }
+
     return (
-        <ChipButton addToCart={addToCart}/>
+	<ChipButton addToCart={addToCart} />
     );
 };
 
 Chip.propTypes = {
     item: PropTypes.object,
+    inputShow: PropTypes.bool,
 };
 
 export default Chip;

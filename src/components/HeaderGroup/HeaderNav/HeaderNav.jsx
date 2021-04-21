@@ -6,7 +6,7 @@ const HeaderNav = () => {
     return (
 	<ul className="navigation_list">
 		<li className="list_item">
-			<Link to="/main">Головна</Link>
+			<Link to="/">Головна</Link>
 		</li>
 		<li className="list_item">
 			<Link to="/about">Про нас</Link>

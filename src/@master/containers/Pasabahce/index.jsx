@@ -18,7 +18,7 @@ const router = () => {
   return (
 	  <Portal node={container}>
 		<Suspense fallback={null}>
-			<Route path="/pasabahce/">
+			<Route path="/pasabahce">
 				<Pasabahce>
 					<Content />
 				</Pasabahce>
