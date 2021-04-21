@@ -7,6 +7,7 @@ import MainPage from "@master/containers/MainPage/MainPage";
 import Pasabahce from "@master/containers/Pasabahce";
 import Delivery from "@master/containers/Delivery";
 import Contacts from '@master/containers/Contacts'
+import ChipBasket from "@master/containers/ChipBasket";
 
 export const history = createBrowserHistory();
 
@@ -15,9 +16,10 @@ export default () => (
 		<Router history={history}>
 			<Switch>
 				{/*<MainPage />*/}
-				<Pasabahce />
+				{/*<Pasabahce />*/}
 				{/*<Delivery />*/}
 				{/*<Contacts />*/}
+				<ChipBasket />
 			</Switch>
 		</Router>
 	</Provider>

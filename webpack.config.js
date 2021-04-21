@@ -75,6 +75,10 @@ module.exports = {
 			filename: process.env.NODE_ENV === "development" ? "contacts" : "contacts.html",
 			template: "src/assets/contacts.html",
 		}),
+		new HtmlWebpackPlugin({
+			filename: process.env.NODE_ENV === "development" ? "chip_basket" : "chip_basket.html",
+			template: "src/assets/chip_basket.html",
+		}),
 	],
 
 	resolveLoader: {
