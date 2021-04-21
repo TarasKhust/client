@@ -56,10 +56,6 @@ module.exports = {
 			template: "src/assets/user.html",
 		}),
 		new HtmlWebpackPlugin({
-			filename: "contact.html",
-			template: "src/assets/contact.html",
-		}),
-		new HtmlWebpackPlugin({
 			filename: "main",
 			template: "src/assets/main.html",
 		}),
