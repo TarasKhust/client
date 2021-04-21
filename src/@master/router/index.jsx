@@ -5,6 +5,7 @@ import { createBrowserHistory } from "history";
 import { store } from "store";
 import MainPage from "@master/containers/MainPage/MainPage";
 import Pasabahce from "@master/containers/Pasabahce";
+import { ShoppingCardProvider } from "store/ShoppingCard";
 import Delivery from "@master/containers/Delivery";
 import Contacts from '@master/containers/Contacts'
 import ChipBasket from "@master/containers/ChipBasket";
@@ -13,14 +14,16 @@ export const history = createBrowserHistory();
 
 export default () => (
 	<Provider store={store}>
-		<Router history={history}>
-			<Switch>
-				{/*<MainPage />*/}
-				{/*<Pasabahce />*/}
-				{/*<Delivery />*/}
-				{/*<Contacts />*/}
-				<ChipBasket />
-			</Switch>
-		</Router>
+		<ShoppingCardProvider>
+			<Router history={history}>
+				<Switch>
+					{/*<MainPage />*/}
+					{/*<Pasabahce />*/}
+					{/*<Delivery />*/}
+					{/*<Contacts />*/}
+					<ChipBasket />
+				</Switch>
+			</Router>
+		</ShoppingCardProvider>
 	</Provider>
 );

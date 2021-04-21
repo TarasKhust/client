@@ -1,23 +1,5 @@
-import { fromJS, List } from "immutable";
-import { store } from "store";
+import { fromJS } from "immutable";
 import * as types from "actions/shoppingCart.actions";
-
-/**
- * Reducer access key
- * @type {string}
- * @memberOf shoppingCartReducer
- * @access protected
- * @exports
- */
-export const key = types.section;
-
-/**
- *
- * @returns {*}
- */
-export const init = () => {
-	return store.injectReducer(types.section, reducer);
-};
 
 /**
  * Reducer default state
@@ -74,53 +56,48 @@ export const initState = fromJS({
  * 		store.injectReducer(shoppingCartKey, shoppingCartReducer);
  *
  */
-function reducer(state = initState, action) {
-	switch (action.type) {
+export default (state = initState, { type, ...props } = {}) => {
+	switch (type) {
 		case types.TO_DEFAULT:
 			return initState;
 
 		case types.ADD_TO_CART:
 			return (
 				state
-		         .set("cartItems", state.get("cartItems").push(fromJS({ ...action.cartItems, count: 1 })))
+		         .set("cartItems", state.get("cartItems").push(fromJS({ ...props.cartItems, count: 1 })))
 				 .set("isEmpty", true)
 
 		);
 
 	  case types.UPDATE_CART:
 		return (
-	    state.setIn(["cartItems", state.get("cartItems")
-		    .findIndex(id => id === action.cartItems._id), "count"],
-		    action.cartItems.count
+	    state.setIn(["cartItems", props.cartItems.index, "count"],
+		    props.cartItems.count
 			)
 		);
 
 	  case types.INCREMENT:
 		return (
-			state.setIn(["cartItems", state.get("cartItems")
-				.findIndex(item => item._id === action.cartItems._id), "count"],
+			state.setIn(["cartItems", props.cartItems.index, "count"],
 				state.get("cartItems").toJS()
-				.find((item) => item._id === action.cartItems._id)["count"] + 1
+				.find((item) => item._id === props.cartItems._id)["count"] + 1
 			)
 		);
 
 	  case types.DECREMENT:
 		return (
-			state.setIn(["cartItems", state.get("cartItems")
-				.findIndex(item => item._id === action.cartItems._id), "count"],
+			state.setIn(["cartItems", props.cartItems.index, "count"],
 				state.get("cartItems").toJS()
-				.find((item) => item._id === action.cartItems._id)["count"] - 1
+				.find((item) => item._id === props.cartItems._id)["count"] - 1
 			)
 		);
 
 	  case types.REMOVE_FROM_CART:
 		return state.set("cartItems", state.get("cartItems")
 		.remove(state.get("cartItems")
-		.findIndex(id => id !== action.id)));
+		.findIndex(id => id !== props.id)));
 
 		default:
 			return state;
 	}
-}
-
-export default reducer;
+};

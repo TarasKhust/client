@@ -5,7 +5,6 @@
  */
 
 import { createSelector } from "reselect";
-import { key } from "reducers/shoppingCart.reducer";
 
 /**
  * Get full state of shopping cart
@@ -14,7 +13,7 @@ import { key } from "reducers/shoppingCart.reducer";
  * @param state
  */
 
-export const getState = ({ [key]: e }) => e.toJS();
+export const getState = (state) => state.toJS();
 
 /**
  * Get current status of cart requests

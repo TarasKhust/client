@@ -9,10 +9,6 @@ import TradeMarks from "components/TradeMarks/TradeMarks";
 import Footer from "components/Footer/Footer";
 import Contacts from "components/Contacts/Contacts";
 
-import { init } from "reducers/shoppingCart.reducer";
-
-init();
-
  const MainPage = () => {
     return (
 	<div className="tut-posuda_content">
