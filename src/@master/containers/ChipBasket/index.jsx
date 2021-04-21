@@ -16,16 +16,16 @@ if (container) {
 
 const router = () => {
     return (
-        <Portal node={container}>
-            <Suspense fallback={null}>
-                <Route path="/chip_basket/">
-                    <СhipBasket>
-                        <Content />
-                    </СhipBasket>
-                </Route>
-            </Suspense>
+	<Portal node={container}>
+		<Suspense fallback={null}>
+			<Route path="/chip_basket/">
+				<СhipBasket>
+					<Content />
+				</СhipBasket>
+			</Route>
+		</Suspense>
 
-        </Portal>
+	</Portal>
     );
 };
 
