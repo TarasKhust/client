@@ -85,20 +85,25 @@
               align-items: center;
               justify-content: space-between;
               border: 1px solid #97999B;
-              font-family: "Montserrat", "sans-serif";
-              font-weight: 500;
-              font-size: 22px;
-              line-height: 27px;
-              color: #5A5C5E;
+
               padding: 15px;
               width: 120px;
               margin: 0 auto;
               span{
+                background: transparent;
                 font-weight: normal;
                 font-size: 24px;
                 line-height: 29px;
                 color: #97999B;
                 cursor: pointer;
+              }
+              input{
+                font-family: "Montserrat", "sans-serif";
+                font-weight: 500;
+                font-size: 22px;
+                line-height: 27px;
+                color: #5A5C5E;
+                border: none;
               }
             }
           }
@@ -202,8 +207,10 @@
               .quantity_inner{
                 width: 100px;
                 padding: 12px;
-                font-size: 16px;
-                line-height: 19px;
+                input{
+                  font-size: 16px;
+                  line-height: 19px;
+                }
               }
             }
             .chip_item-desc{
@@ -266,7 +273,9 @@
               .quantity_inner{
                 width: 75px;
                 padding: 10px;
-                font-size: 15px;
+                input{
+                  font-size: 15px;
+                }
                 span{
                   font-size: 18px;
                   line-height: 21px;
@@ -325,9 +334,10 @@
             }
             .quantity{
               .quantity_inner{
-                font-size: 14px;
                 span{
                   font-size: 14px;
+                }
+                input{
                 }
               }
             }
@@ -385,9 +395,12 @@
               .quantity_inner{
                 width: 70px;
                 padding: 0;
-                font-size: 12px;
+                input{
+                  font-size: 12px;
+                  margin: 0;
+                }
                 span{
-                  padding: 8px;
+                  padding: 4px;
                 }
               }
             }

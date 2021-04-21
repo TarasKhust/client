@@ -1,10 +1,11 @@
 import PropTypes from "prop-types";
 import React, { useContext, useState } from "react";
 import "./ChipStyle.scss";
-import Bag from "./img/shopping_bag.svg";
 import { ShoppingCardContext } from "store/ShoppingCard";
+import InputChip from "components/Chip/InputChip";
+import ChipButton from "components/Chip/ChipButton";
 
-const Chip = ({ item }) => {
+const Chip = ({ item, inputShow }) => {
     const { actions, selectors } = useContext(ShoppingCardContext);
 
 	const { cartItems } = selectors.getState();
@@ -57,39 +58,20 @@ const Chip = ({ item }) => {
 	setCount(false);
   };
 
-    if (isCount) {
+    if (isCount || inputShow) {
       return (
-	<div className="bag_counter-row" >
-		<span
-			className=""
-			onClick={decrement}
-		>
-			-
-		</span>
-		<input
-			key={item._id}
-			name={item._id}
-			onChange={updateCart}
-			value={value}
-			type="number"
-			className="bag_counter"
-			maxLength={3}
-		/>
-		<span className=""
-			onClick={increment}
-		>
-			+
-		</span>
-	</div>
+          <InputChip
+              decrement={decrement}
+              increment={increment}
+              item={item}
+              value={value}
+              updateCart={updateCart}
+              inputShow={inputShow}
+          />
       );
     }
-
     return (
-	<button className="shopping_bag is_active-bag"
-		onClick={addToCart}
-	>
-		<Bag />
-	</button>
+        <ChipButton addToCart={addToCart}/>
     );
 };
 

@@ -7,8 +7,8 @@ import MainPage from "@master/containers/MainPage";
 import Pasabahce from "@master/containers/Pasabahce";
 import { ShoppingCardProvider } from "store/ShoppingCard";
 import Delivery from "@master/containers/Delivery";
-import Contacts from "@master/containers/Contacts";
-import ChipBasket from "@master/containers/ChipBasket";
+import Contacts from '@master/containers/Contacts'
+import ShoppingCard from "@master/containers/ShoppingCardPage";
 
 export const history = createBrowserHistory();
 
@@ -21,7 +21,7 @@ export default () => (
 				<Pasabahce />
 				<Delivery />
 				<Contacts />
-				<ChipBasket />
+			  <ShoppingCard />
 
 			</Router>
 		</ShoppingCardProvider>
