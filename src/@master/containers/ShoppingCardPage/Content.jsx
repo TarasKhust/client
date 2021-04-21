@@ -1,6 +1,7 @@
 import React from "react";
-import './ChipBasketStyle.scss'
+import './ShoppingCardPage.scss'
 import Remove from './img/cancel.svg'
+import Chip from "components/Chip/Chip";
 
 const Content = () => {
     const items = [
@@ -98,11 +99,10 @@ const Content = () => {
                                     <td className='chip_item-desc vendor'>{vendor} </td>
                                     <td className='chip_item-desc'>{`${price} грн`}</td>
                                     <td className='chip_item-desc quantity'>
-                                        <div className="quantity_inner">
-                                            <span>-</span>
-                                            {count}
-                                            <span>+</span>
-                                        </div>
+                                            <Chip
+                                                inputShow={true}
+                                                item={{ _id, name, image, description, price, vendor }}
+                                            />
                                     </td>
                                     <td className='chip_item-desc desc-gr'>1 490.00 грн</td>
                                     <td className="remove">

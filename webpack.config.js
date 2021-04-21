@@ -56,11 +56,12 @@ module.exports = {
 			template: "src/assets/user.html",
 		}),
 		new HtmlWebpackPlugin({
-			filename: "contact.html",
-			template: "src/assets/contact.html",
+			filename: "contacts.html",
+			template: "src/assets/contacts.html",
 		}),
 		new HtmlWebpackPlugin({
 			filename: "main",
+
 			template: "src/assets/main.html",
 		}),
 		new HtmlWebpackPlugin({

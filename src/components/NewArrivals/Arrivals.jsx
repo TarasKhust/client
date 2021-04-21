@@ -79,7 +79,7 @@ const Arrivals = () => {
 							<h2 className="arrival_desc">{description}</h2>
 							<div className="desc_row">
 								<span className="price">{`${price} грн`}</span>
-								<Chip item={{ _id, name, image, description, price, vendor }} />
+								<Chip inputShow={false} item={{ _id, name, image, description, price, vendor }} />
 							</div>
 						</div>
 					</div>

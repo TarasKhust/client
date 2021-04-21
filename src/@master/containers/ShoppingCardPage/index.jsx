@@ -2,7 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { Route } from "react-router-dom";
 import { Portal } from "react-portal";
 
-const СhipBasket = lazy(() => import(/* webpackChunkName: "СhipBasket" */ "../ChipBasket/ChipBasket"));
+const ShoppingCardPage = lazy(() => import(/* webpackChunkName: "ShoppingCardPage" */ "./ShoppingCardPage"));
 const Content = lazy(() => import(/* webpackChunkName: "Content" */ "./Content"));
 
 const container = document.querySelector("#chip_basket");
@@ -19,9 +19,9 @@ const router = () => {
         <Portal node={container}>
             <Suspense fallback={null}>
                 <Route path="/chip_basket/">
-                    <СhipBasket>
+                    <ShoppingCardPage>
                         <Content />
-                    </СhipBasket>
+                    </ShoppingCardPage>
                 </Route>
             </Suspense>
 
