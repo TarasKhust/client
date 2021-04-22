@@ -34,8 +34,6 @@ export const addToCart = (product) => (dispatch, getState) => {
 
   const index = state.cartItems.findIndex((item) => item._id === product._id);
 
-  console.log(index);
-
   if (index >= 0) {
     return;
   }
