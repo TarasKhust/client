@@ -13,8 +13,14 @@ const Content = () => {
 
     const isEmpty = selectors.getIsEmpty();
 
+    if(!isEmpty || !items){
+    	return (
+    		<h2>Корзина пустая</h2>
+		)
+	}
+
     return (
-	<div className="tut-posuda_chip">
+		<div className="tut-posuda_chip">
 		<div className="chip_inner">
 			<h2 className="chip_title">
 				Корзина

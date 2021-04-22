@@ -11,9 +11,9 @@ const HeaderNav = () => {
 		<li className="list_item">
 			<Link to="/about">Про нас</Link>
 		</li>
-		{/*<li className='list_item'>*/}
-		{/*    <Link>Каталог</Link>*/}
-		{/*</li>*/}
+		<li className='list_item'>
+		    <Link to="/catalog">Каталог</Link>
+		</li>
 		<li className="list_item">
 			<Link to="/delivery">Доставка та оплата</Link>
 		</li>

@@ -2,10 +2,10 @@ import React, { Suspense, lazy } from "react";
 import { Route } from "react-router-dom";
 import { Portal } from "react-portal";
 
-const ShoppingCardPage = lazy(() => import(/* webpackChunkName: "ShoppingCardPage" */ "./ShoppingCardPage"));
+const Catalog = lazy(() => import(/* webpackChunkName: "Catalog" */ "../CatalogPage/CatalogPage"));
 const Content = lazy(() => import(/* webpackChunkName: "Content" */ "./Content"));
 
-const container = document.querySelector("#shopping_card");
+const container = document.querySelector("#catalog");
 
 if (container) {
     if (!container.getAttribute("root")) {
@@ -18,10 +18,10 @@ const router = () => {
     return (
         <Portal node={container}>
             <Suspense fallback={null}>
-                <Route path="/shopping_card">
-                    <ShoppingCardPage>
+                <Route path="/catalog">
+                    <Catalog>
                         <Content />
-                    </ShoppingCardPage>
+                    </Catalog>
                 </Route>
             </Suspense>
 

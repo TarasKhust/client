@@ -8,7 +8,7 @@ const ChipBasket = () => {
   const { selectors } = useContext(ShoppingCardContext);
   const counter = selectors.getShoppingCartCount();
     return (
-	<Link to='/chip_basket' className="basket_container">
+	<Link to='/shopping_card' className="basket_container">
 		<div className="counter">{counter}</div>
 		<Chip />
 		{/*<img src={<Chip/>} alt=""/>*/}

@@ -72,8 +72,12 @@ module.exports = {
 			template: "src/assets/contacts.html",
 		}),
 		new HtmlWebpackPlugin({
-			filename: process.env.NODE_ENV === "development" ? "chip_basket" : "chip_basket.html",
-			template: "src/assets/chip_basket.html",
+			filename: process.env.NODE_ENV === "development" ? "shopping_card" : "shopping_card.html",
+			template: "src/assets/shopping_card.html",
+		}),
+		new HtmlWebpackPlugin({
+			filename: process.env.NODE_ENV === "development" ? "catalog" : "catalog.html",
+			template: "src/assets/catalog.html",
 		}),
 	],
 
