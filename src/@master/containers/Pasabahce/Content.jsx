@@ -1,5 +1,6 @@
 import React from "react";
 import ListProduct from "@master/containers/ListProduct/ListProduct";
+import "./Pasabahce.scss";
 
 const Content = () => {
 	const items = [
@@ -11,14 +12,14 @@ const Content = () => {
 			packaging: "6 х 170мл",
 			image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
 			price: 440,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для шампанського високий',
-					material: 'Скло ударостійке',
-					size: '170 мл',
-					features: ''
-				}
-			]
+					title: "Келих для шампанського високий",
+					material: "Скло ударостійке",
+					size: "170 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "2",
@@ -28,14 +29,14 @@ const Content = () => {
 			packaging: "6 х 420мл",
 			image: "https://images.ua.prom.st/1064918125_w640_h640_nabor-bokalov-dlya.jpg",
 			price: 471,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для вина',
-					material: 'Скло ударостійке',
-					size: '420 мл',
-					features: ''
-				}
-			]
+					title: "Келих для вина",
+					material: "Скло ударостійке",
+					size: "420 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "3",
@@ -45,14 +46,14 @@ const Content = () => {
 			packaging: "6 х 545мл",
 			image: "https://i1.rozetka.ua/goods/1682570/pasabahce_44819_set_barocco_images_1682570621.jpg",
 			price: 536,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для вина',
-					material: 'Скло ударостійке',
-					size: '545 мл',
-					features: ''
-				}
-			]
+					title: "Келих для вина",
+					material: "Скло ударостійке",
+					size: "545 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "4",
@@ -62,14 +63,14 @@ const Content = () => {
 			packaging: "6 x 615мл",
 			image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
 			price: 529,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для вина',
-					material: 'Скло ударостійке',
-					size: '615 мл',
-					features: ''
-				}
-			]
+					title: "Келих для вина",
+					material: "Скло ударостійке",
+					size: "615 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "5",
@@ -79,14 +80,14 @@ const Content = () => {
 			packaging: "6 x 630мл",
 			image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
 			price: 577,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для вина',
-					material: 'Скло ударостійке',
-					size: '630 мл',
-					features: ''
-				}
-			]
+					title: "Келих для вина",
+					material: "Скло ударостійке",
+					size: "630 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "6",
@@ -96,14 +97,14 @@ const Content = () => {
 			packaging: "6 x 780мл",
 			image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
 			price: 577,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для вина',
-					material: 'Скло ударостійке',
-					size: '780 мл',
-					features: ''
-				}
-			]
+					title: "Келих для вина",
+					material: "Скло ударостійке",
+					size: "780 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "7",
@@ -113,14 +114,14 @@ const Content = () => {
 			packaging: "6 x 215мл",
 			image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
 			price: 490,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для мартіні',
-					material: 'Скло ударостійке',
-					size: '215 мл',
-					features: ''
-				}
-			]
+					title: "Келих для мартіні",
+					material: "Скло ударостійке",
+					size: "215 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "8",
@@ -130,14 +131,14 @@ const Content = () => {
 			packaging: "2 x 210мл ",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 207,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для  шампанського',
-					material: 'Скло ударостійке',
-					size: '215 мл',
-					features: ''
-				}
-			]
+					title: "Келих для  шампанського",
+					material: "Скло ударостійке",
+					size: "215 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "9",
@@ -147,14 +148,14 @@ const Content = () => {
 			packaging: "1 шт / 245 мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 140,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для  вина',
-					material: 'Скло ударостійке',
-					size: '245 мл',
-					features: ''
-				}
-			]
+					title: "Келих для  вина",
+					material: "Скло ударостійке",
+					size: "245 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "10",
@@ -164,14 +165,14 @@ const Content = () => {
 			packaging: "1 шт / 615 мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 164,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для  вина',
-					material: 'Скло ударостійке',
-					size: '615 мл',
-					features: ''
-				}
-			]
+					title: "Келих для  вина",
+					material: "Скло ударостійке",
+					size: "615 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "11",
@@ -181,14 +182,14 @@ const Content = () => {
 			packaging: "4 х 320мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 886,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для  вина',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '320 мл',
-					features: ''
-				}
-			]
+					title: "Келих для  вина",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "320 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "12",
@@ -198,14 +199,14 @@ const Content = () => {
 			packaging: "6 х 330мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 733,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для води та коктейлів',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '330 мл',
-					features: ''
-				}
-			]
+					title: "Келих для води та коктейлів",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "330 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "13",
@@ -215,14 +216,14 @@ const Content = () => {
 			packaging: "6 х 295мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 475,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для води та коктейлів',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '295 мл',
-					features: ''
-				}
-			]
+					title: "Келих для води та коктейлів",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "295 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "14",
@@ -232,14 +233,14 @@ const Content = () => {
 			packaging: "4 х 205мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 381,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для води та коктейлів',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '205 мл',
-					features: ''
-				}
-			]
+					title: "Келих для води та коктейлів",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "205 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "15",
@@ -249,14 +250,14 @@ const Content = () => {
 			packaging: "4 х 450мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 594,
-			overview:[
+			overview: [
 				{
-					title: 'Склянка висока для води і коктейлів',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '450 мл',
-					features: ''
-				}
-			]
+					title: "Склянка висока для води і коктейлів",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "450 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "16",
@@ -266,14 +267,14 @@ const Content = () => {
 			packaging: "4 х 345мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 504,
-			overview:[
+			overview: [
 				{
-					title: 'Склянка низька для води і коктейлів',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '345 мл',
-					features: ''
-				}
-			]
+					title: "Склянка низька для води і коктейлів",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "345 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "17",
@@ -283,14 +284,14 @@ const Content = () => {
 			packaging: "6 х 175мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 916,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для шампанського',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '175 мл',
-					features: ''
-				}
-			]
+					title: "Келих для шампанського",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "175 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "18",
@@ -300,14 +301,14 @@ const Content = () => {
 			packaging: "6 х 230мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 748,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для мартіні',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '230 мл',
-					features: ''
-				}
-			]
+					title: "Келих для мартіні",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "230 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "19",
@@ -317,14 +318,14 @@ const Content = () => {
 			packaging: "1шт / 500мл",
 			image: "https://images.ua.prom.st/2298824450_w500_h500_kelih-dlya-koktejlyu.jpg",
 			price: 158,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для коктейлів',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '500 мл',
-					features: ''
-				}
-			]
+					title: "Келих для коктейлів",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "500 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "20",
@@ -334,14 +335,14 @@ const Content = () => {
 			packaging: "4 х 355 мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 404,
-			overview:[
+			overview: [
 				{
-					title: 'Склянка низька для води і коктейлів',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '355 мл',
-					features: ''
-				}
-			]
+					title: "Склянка низька для води і коктейлів",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "355 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "21",
@@ -351,14 +352,14 @@ const Content = () => {
 			packaging: "4 х 445мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 478,
-			overview:[
+			overview: [
 				{
-					title: 'Склянка висока для води і коктейлів',
-					material: 'Скло ударостійке з рельєфним малюнком',
-					size: '445 мл',
-					features: ''
-				}
-			]
+					title: "Склянка висока для води і коктейлів",
+					material: "Скло ударостійке з рельєфним малюнком",
+					size: "445 мл",
+					features: "",
+				},
+			],
 		},
 		{
 			_id: "22",
@@ -368,25 +369,26 @@ const Content = () => {
 			packaging: "6 х 280мл",
 			image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
 			price: 653,
-			overview:[
+			overview: [
 				{
-					title: 'Келих для шампанського',
-					material: 'Надтонкий хрусталь',
-					size: '280 мл',
-					features: ''
-				}
-			]
+					title: "Келих для шампанського",
+					material: "Надтонкий хрусталь",
+					size: "280 мл",
+					features: "",
+				},
+			],
 		},
 	];
+
   return (
 	  <div className="tut-posuda_content">
 		  <div className="product_inner-content">
 			  <h2 className="product_title">Pasabahce</h2>
 			  <ul className="products_list">
-				  {items.map(({_id,packaging, image, description,vendor, name, price, overview}) => {
-					  return(
-						  <ListProduct overview={overview} packaging={packaging} key={_id} _id={_id} image={image} description={description} vendor={vendor} name={name} price={price}  />
-					  )
+				  {items.map(({ _id, packaging, image, description, vendor, name, price, overview }) => {
+					  return (
+						  <ListProduct overview={overview} packaging={packaging} key={_id} _id={_id} image={image} description={description} vendor={vendor} name={name} price={price} />
+					  );
 				  })}
 			  </ul>
 		  </div>

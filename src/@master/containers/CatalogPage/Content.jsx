@@ -1,14 +1,17 @@
-import React, {useState, useEffect} from "react";
-import './CatalogStyle.scss'
-import ListProduct from "@master/containers/ListProduct/ListProduct";
+import React, { useState } from "react";
+import "./CatalogStyle.scss";
 import Accordion from "components/AccordeonGroup";
 import Card from "components/AccordeonGroup/Card";
 import Checkbox from "components/Checkbox/Checkbox";
-import Arrow from './img/arrow.svg'
+import Arrow from "./img/arrow.svg";
 import RangeSlider from "components/RangeSlider/RangeSlider";
+import ListProduct from "@master/containers/ListProduct/ListProduct";
+
 const Content = () => {
     const [activeEventKey, setActiveEventKey] = useState(0);
-    const [checkedItems, setCheckedItems] = useState({})
+    const [checkedItems, setCheckedItems] = useState({});
+    const [sorted, setSorted] = useState([]);
+
     const items = [
         {
             _id: "1",
@@ -18,14 +21,14 @@ const Content = () => {
             packaging: "6 х 170мл",
             image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
             price: 440,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для шампанського високий',
-                    material: 'Скло ударостійке',
-                    size: '170 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для шампанського високий",
+                    material: "Скло ударостійке",
+                    size: "170 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "2",
@@ -35,14 +38,14 @@ const Content = () => {
             packaging: "6 х 420мл",
             image: "https://images.ua.prom.st/1064918125_w640_h640_nabor-bokalov-dlya.jpg",
             price: 471,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для вина',
-                    material: 'Скло ударостійке',
-                    size: '420 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для вина",
+                    material: "Скло ударостійке",
+                    size: "420 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "3",
@@ -52,14 +55,14 @@ const Content = () => {
             packaging: "6 х 545мл",
             image: "https://i1.rozetka.ua/goods/1682570/pasabahce_44819_set_barocco_images_1682570621.jpg",
             price: 536,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для вина',
-                    material: 'Скло ударостійке',
-                    size: '545 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для вина",
+                    material: "Скло ударостійке",
+                    size: "545 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "4",
@@ -69,14 +72,14 @@ const Content = () => {
             packaging: "6 x 615мл",
             image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
             price: 529,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для вина',
-                    material: 'Скло ударостійке',
-                    size: '615 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для вина",
+                    material: "Скло ударостійке",
+                    size: "615 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "5",
@@ -86,14 +89,14 @@ const Content = () => {
             packaging: "6 x 630мл",
             image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
             price: 577,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для вина',
-                    material: 'Скло ударостійке',
-                    size: '630 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для вина",
+                    material: "Скло ударостійке",
+                    size: "630 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "6",
@@ -103,14 +106,14 @@ const Content = () => {
             packaging: "6 x 780мл",
             image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
             price: 577,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для вина',
-                    material: 'Скло ударостійке',
-                    size: '780 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для вина",
+                    material: "Скло ударостійке",
+                    size: "780 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "7",
@@ -120,14 +123,14 @@ const Content = () => {
             packaging: "6 x 215мл",
             image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
             price: 490,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для мартіні',
-                    material: 'Скло ударостійке',
-                    size: '215 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для мартіні",
+                    material: "Скло ударостійке",
+                    size: "215 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "8",
@@ -137,14 +140,14 @@ const Content = () => {
             packaging: "2 x 210мл ",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 207,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для  шампанського',
-                    material: 'Скло ударостійке',
-                    size: '215 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для  шампанського",
+                    material: "Скло ударостійке",
+                    size: "215 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "9",
@@ -154,14 +157,14 @@ const Content = () => {
             packaging: "1 шт / 245 мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 140,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для  вина',
-                    material: 'Скло ударостійке',
-                    size: '245 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для  вина",
+                    material: "Скло ударостійке",
+                    size: "245 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "10",
@@ -171,14 +174,14 @@ const Content = () => {
             packaging: "1 шт / 615 мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 164,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для  вина',
-                    material: 'Скло ударостійке',
-                    size: '615 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для  вина",
+                    material: "Скло ударостійке",
+                    size: "615 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "11",
@@ -188,14 +191,14 @@ const Content = () => {
             packaging: "4 х 320мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 886,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для  вина',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '320 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для  вина",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "320 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "12",
@@ -205,14 +208,14 @@ const Content = () => {
             packaging: "6 х 330мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 733,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для води та коктейлів',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '330 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для води та коктейлів",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "330 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "13",
@@ -222,14 +225,14 @@ const Content = () => {
             packaging: "6 х 295мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 475,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для води та коктейлів',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '295 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для води та коктейлів",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "295 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "14",
@@ -239,14 +242,14 @@ const Content = () => {
             packaging: "4 х 205мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 381,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для води та коктейлів',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '205 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для води та коктейлів",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "205 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "15",
@@ -256,14 +259,14 @@ const Content = () => {
             packaging: "4 х 450мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 594,
-            overview:[
+            overview: [
                 {
-                    title: 'Склянка висока для води і коктейлів',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '450 мл',
-                    features: ''
-                }
-            ]
+                    title: "Склянка висока для води і коктейлів",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "450 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "16",
@@ -273,14 +276,14 @@ const Content = () => {
             packaging: "4 х 345мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 504,
-            overview:[
+            overview: [
                 {
-                    title: 'Склянка низька для води і коктейлів',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '345 мл',
-                    features: ''
-                }
-            ]
+                    title: "Склянка низька для води і коктейлів",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "345 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "17",
@@ -290,14 +293,14 @@ const Content = () => {
             packaging: "6 х 175мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 916,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для шампанського',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '175 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для шампанського",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "175 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "18",
@@ -307,14 +310,14 @@ const Content = () => {
             packaging: "6 х 230мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 748,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для мартіні',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '230 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для мартіні",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "230 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "19",
@@ -324,14 +327,14 @@ const Content = () => {
             packaging: "1шт / 500мл",
             image: "https://images.ua.prom.st/2298824450_w500_h500_kelih-dlya-koktejlyu.jpg",
             price: 158,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для коктейлів',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '500 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для коктейлів",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "500 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "20",
@@ -341,14 +344,14 @@ const Content = () => {
             packaging: "4 х 355 мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 404,
-            overview:[
+            overview: [
                 {
-                    title: 'Склянка низька для води і коктейлів',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '355 мл',
-                    features: ''
-                }
-            ]
+                    title: "Склянка низька для води і коктейлів",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "355 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "21",
@@ -358,14 +361,14 @@ const Content = () => {
             packaging: "4 х 445мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 478,
-            overview:[
+            overview: [
                 {
-                    title: 'Склянка висока для води і коктейлів',
-                    material: 'Скло ударостійке з рельєфним малюнком',
-                    size: '445 мл',
-                    features: ''
-                }
-            ]
+                    title: "Склянка висока для води і коктейлів",
+                    material: "Скло ударостійке з рельєфним малюнком",
+                    size: "445 мл",
+                    features: "",
+                },
+            ],
         },
         {
             _id: "22",
@@ -375,160 +378,188 @@ const Content = () => {
             packaging: "6 х 280мл",
             image: "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
             price: 653,
-            overview:[
+            overview: [
                 {
-                    title: 'Келих для шампанського',
-                    material: 'Надтонкий хрусталь',
-                    size: '280 мл',
-                    features: ''
-                }
-            ]
+                    title: "Келих для шампанського",
+                    material: "Надтонкий хрусталь",
+                    size: "280 мл",
+                    features: "",
+                },
+            ],
         },
     ];
+
+    const sortedBy = [
+        "По умолчанию",
+        "От дешевых к дорогим",
+        "От дорогих к дешевым",
+    ];
+
     const content = [
         {
-            category: 'Столовая посуда',
-            categoryItems:[
-                    'Столовые сервизы',
-                    'Тарелки',
-                    'Блюда',
-                    'Салатники',
-                    'Бокалы',
-                    'Стаканы'
-            ]
+            category: "Столовая посуда",
+            categoryItems: [
+                    "Столовые сервизы",
+                    "Тарелки",
+                    "Блюда",
+                    "Салатники",
+                    "Бокалы",
+                    "Стаканы",
+            ],
         },
         {
-            category: 'Кухонная Посуда',
-            categoryItems:[
-                'Столовые сервизы',
-                'Тарелки',
-                'Блюда',
-                'Салатники',
-                'Бокалы',
-                'Стаканы'
-            ]
+            category: "Кухонная Посуда",
+            categoryItems: [
+                "Столовые сервизы",
+                "Тарелки",
+                "Блюда",
+                "Салатники",
+                "Бокалы",
+                "Стаканы",
+            ],
         },
         {
-            category: 'Кухонная техника',
-            categoryItems:[
-                'Столовые сервизы',
-                'Тарелки',
-                'Блюда',
-                'Салатники',
-                'Бокалы',
-                'Стаканы'
-            ]
+            category: "Кухонная техника",
+            categoryItems: [
+                "Столовые сервизы",
+                "Тарелки",
+                "Блюда",
+                "Салатники",
+                "Бокалы",
+                "Стаканы",
+            ],
         },
         {
-            category: 'Хозяйственные товары',
-            categoryItems:[
-                'Столовые сервизы',
-                'Тарелки',
-                'Блюда',
-                'Салатники',
-                'Бокалы',
-                'Стаканы'
-            ]
-        }
+            category: "Хозяйственные товары",
+            categoryItems: [
+                "Столовые сервизы",
+                "Тарелки",
+                "Блюда",
+                "Салатники",
+                "Бокалы",
+                "Стаканы",
+            ],
+        },
     ];
 
-   const handleCheckboxChange = () => {
-        isChecked(!checked)
-    }
-    const handleChange = event => {
+    const handleCheckedChange = event => {
+        event.preventDefault();
+
         setCheckedItems({
             ...checkedItems,
-            [event.target.name]: event.target.checked
+            [event.target.name]: event.target.checked,
         });
-        console.log("checkedItems: ", checkedItems);
-        console.log(event.target.name)
     };
-    return (
-        <div className='tut_posuda-catalog'>
-            <div className="catalog_inner">
-                <div className="catalog_filter">
-                    <div className="filter_inner">
-                        <div className="category_filter">
-                            <h2 className="title">Категории</h2>
-                            <Accordion activeEventKey={activeEventKey} onToggle={setActiveEventKey}>
-                                {content.map(({ category, categoryItems }, index) => (
-                                    <Card key={index}>
-                                        <Accordion.Toggle element={Card.Header} eventKey={index}>
-                                             {category}
-                                            {activeEventKey !== index && <div className='arrow arrow_down'><Arrow /></div>}
-                                            {activeEventKey === index && <div className='arrow arrow_up'><Arrow /></div>}
-                                        </Accordion.Toggle>
-                                        <Accordion.Collapse eventKey={index} element={Card.Body}>
-                                            {categoryItems.map((item, index) => {
-                                                return(
-                                                    <label htmlFor={item}  key={index}  className='label_container'>
-                                                        <Checkbox
-                                                            mode={'yellow'}
-                                                            name={item}
-                                                            checked={checkedItems[item]}
-                                                            onChange={handleChange}
-                                                        />
-                                                        <span>{item}</span>
-                                                    </label>
-                                                )
-                                            })}
-                                            <div className="more_row">
-                                                <span className="btn_more" >
-                                                    Дивитись більше
-                                                </span>
-                                            </div>
-                                        </Accordion.Collapse>
-                                    </Card>
-                                ))}
-                            </Accordion>
-                            <div className="in_stock">
-                                <label  className='label_container'>
-                                    <Checkbox  mode={'green'}  />
-                                    <span>Тільки в наявності</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div className="price_filter">
-                            <h2 className="price_title">Фильтр</h2>
-                            <RangeSlider />
-                        </div>
-                        <div className="manufacture_filter">
-                            <h2 className="manufacture_title">
-                                Производители:
-                            </h2>
-                            <ul className="manufacture_list">
-                                <li>
-                                    <label  className='label_container'>
-                                        <Checkbox mode={'yellow'}  />
-                                        <span>Bormioli Rocco</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label  className='label_container'>
-                                        <Checkbox mode={'yellow'}   />
-                                        <span>Luminarc</span>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label  className='label_container'>
-                                        <Checkbox mode={'yellow'}   />
-                                        <span>Peterhof</span>
-                                    </label>
-                                </li>
-                            </ul>
-                            <div className="more_row">
-                                <span className="btn_more" >
-                                    Дивитись більше
-                                </span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="catalog_products-list">
 
-                </div>
-            </div>
-        </div>
+    const handleChange = (event) => {
+        const ID = event.target.value;
+        setSorted(ID);
+    };
+
+    return (
+	<div className="tut_posuda-catalog">
+		<div className="catalog_inner">
+			<div className="catalog_filter">
+				<div className="filter_inner">
+					<div className="category_filter">
+						<h2 className="title">Категории</h2>
+						<Accordion activeEventKey={activeEventKey} onToggle={setActiveEventKey}>
+							{content.map(({ category, categoryItems }, index) => (
+								<Card key={index}>
+									<Accordion.Toggle element={Card.Header} eventKey={index}>
+										{category}
+										{activeEventKey !== index && <div className="arrow arrow_down"><Arrow /></div>}
+										{activeEventKey === index && <div className="arrow arrow_up"><Arrow /></div>}
+									</Accordion.Toggle>
+									<Accordion.Collapse eventKey={index} element={Card.Body}>
+										{categoryItems.map((item, index) => {
+                                                return (
+	<label htmlFor={item} key={index} className="label_container">
+		<Checkbox
+			mode="yellow"
+			name={item}
+			checked={checkedItems[item]}
+			onChange={handleCheckedChange}
+		/>
+		<span>{item}</span>
+	</label>
+                                                );
+                                            })}
+										<div className="more_row">
+											<span className="btn_more" >Дивитись більше</span>
+										</div>
+									</Accordion.Collapse>
+								</Card>
+                                ))}
+						</Accordion>
+						<div className="in_stock">
+							<label className="label_container">
+								<Checkbox mode="green" />
+								<span>Тільки в наявності</span>
+							</label>
+						</div>
+					</div>
+					<div className="price_filter">
+						<h2 className="price_title">Фильтр</h2>
+						<RangeSlider />
+					</div>
+					<div className="manufacture_filter">
+						<h2 className="manufacture_title">
+							Производители:
+						</h2>
+						<ul className="manufacture_list">
+							<li>
+								<label className="label_container">
+									<Checkbox mode="yellow" />
+									<span>Bormioli Rocco</span>
+								</label>
+							</li>
+							<li>
+								<label className="label_container">
+									<Checkbox mode="yellow" />
+									<span>Luminarc</span>
+								</label>
+							</li>
+							<li>
+								<label className="label_container">
+									<Checkbox mode="yellow" />
+									<span>Peterhof</span>
+								</label>
+							</li>
+						</ul>
+						<div className="more_row">
+							<span className="btn_more" >
+								Дивитись більше
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div className="catalog_products-list">
+				<div className="products_list-inner">
+					<div className="products_sort-row">
+						<div className="sort_inner">
+							<span>Сортировать:</span>
+							<select onChange={handleChange} className="select-sort">
+								{sortedBy.map((sortBy, index) => {
+                                    return (
+	                                    <option key={index}>{sortBy}</option>
+                                    );
+                                })}
+							</select>
+						</div>
+					</div>
+					<ul className="products_list">
+						{items.map(({ _id, packaging, image, description, vendor, name, price, overview }) => {
+                            return (
+	                            <ListProduct overview={overview} packaging={packaging} key={_id} _id={_id} image={image} description={description} vendor={vendor} name={name} price={price} />
+                            );
+                        })}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
     );
 };
 

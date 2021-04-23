@@ -7,7 +7,7 @@ const Pasabahce = ({ children }) => {
   return (
 	<Fragment>
 		<Header />
-			{children}
+		{children}
 		<Footer />
 	</Fragment>
   );
