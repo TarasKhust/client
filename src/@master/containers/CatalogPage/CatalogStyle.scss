@@ -586,7 +586,11 @@
       .catalog_products-list{
         .products_list-inner{
           .products_sort-row{
+            .show_filter-btn{
+              width: 40%;
+            }
             .sort_inner{
+              width: 60%;
               .select-sort{
               }
             }

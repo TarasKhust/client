@@ -26,11 +26,17 @@ app.get("/pasabahce", (req, res) => {
 app.get("/delivery", (req, res) => {
   res.sendFile(path.join(publicPath, "delivery.html"));
 });
+
 app.get("/catalog", (req, res) => {
   res.sendFile(path.join(publicPath, "catalog.html"));
 });
+
 app.get("/shopping_card", (req, res) => {
   res.sendFile(path.join(publicPath, "shopping_card.html"));
+});
+
+app.get("/order", (req, res) => {
+  res.sendFile(path.join(publicPath, "order.html"));
 });
 
 app.listen(port, () => {

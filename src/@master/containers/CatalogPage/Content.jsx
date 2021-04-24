@@ -580,7 +580,17 @@ const Content = () => {
 					<ul className="products_list">
 						{items.map(({ _id, packaging, image, description, vendor, name, price, overview }) => {
                             return (
-	                            <ListProduct overview={overview} packaging={packaging} key={_id} _id={_id} image={image} description={description} vendor={vendor} name={name} price={price} />
+	                            <ListProduct
+		overview={overview}
+		packaging={packaging}
+		key={_id}
+		_id={_id}
+		image={image}
+		description={description}
+		vendor={vendor}
+		name={name}
+		price={price}
+	                            />
                             );
                         })}
 					</ul>

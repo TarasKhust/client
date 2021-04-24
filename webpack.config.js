@@ -79,6 +79,10 @@ module.exports = {
 			filename: process.env.NODE_ENV === "development" ? "catalog" : "catalog.html",
 			template: "src/assets/catalog.html",
 		}),
+		new HtmlWebpackPlugin({
+			filename: process.env.NODE_ENV === "development" ? "order" : "order.html",
+			template: "src/assets/order.html",
+		}),
 	],
 
 	resolveLoader: {
