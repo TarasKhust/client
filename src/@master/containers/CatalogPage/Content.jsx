@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./CatalogStyle.scss";
 import Accordion from "components/AccordeonGroup";
 import Card from "components/AccordeonGroup/Card";
@@ -6,11 +6,15 @@ import Checkbox from "components/Checkbox/Checkbox";
 import Arrow from "./img/arrow.svg";
 import RangeSlider from "components/RangeSlider/RangeSlider";
 import ListProduct from "@master/containers/ListProduct/ListProduct";
+import Filter from "./img/filter.svg";
+
+import useVisible from "modules/useVisible";
 
 const Content = () => {
     const [activeEventKey, setActiveEventKey] = useState(0);
     const [checkedItems, setCheckedItems] = useState({});
     const [sorted, setSorted] = useState([]);
+    const { ref, isVisible, setIsVisible } = useVisible(false);
 
     const items = [
         {
@@ -390,9 +394,9 @@ const Content = () => {
     ];
 
     const sortedBy = [
-        "По умолчанию",
-        "От дешевых к дорогим",
-        "От дорогих к дешевым",
+        "За замовчуванням",
+        "Від дешевих до дорогих",
+        "Від дорогих до дешевих",
     ];
 
     const content = [
@@ -456,10 +460,14 @@ const Content = () => {
         setSorted(ID);
     };
 
+    useEffect(() => {
+        document.body.classList.toggle("nav_open", isVisible);
+    });
+
     return (
-	<div className="tut_posuda-catalog">
+	<div className="tut_posuda-catalog" ref={ref}>
 		<div className="catalog_inner">
-			<div className="catalog_filter">
+			<div className={`catalog_filter ${!isVisible ? "" : "show_filter"}`}>
 				<div className="filter_inner">
 					<div className="category_filter">
 						<h2 className="title">Категории</h2>
@@ -500,7 +508,7 @@ const Content = () => {
 						</div>
 					</div>
 					<div className="price_filter">
-						<h2 className="price_title">Фильтр</h2>
+						<h2 className="price_title">Фільтр</h2>
 						<RangeSlider />
 					</div>
 					<div className="manufacture_filter">
@@ -533,13 +541,33 @@ const Content = () => {
 							</span>
 						</div>
 					</div>
+
 				</div>
+			</div>
+			<div className={`close_filter-row ${!isVisible ? "" : "show_filter-row"}`}>
+				<button
+					onClick={() => setIsVisible(!isVisible)}
+					className="close_filter"
+				>
+					Назад
+				</button>
 			</div>
 			<div className="catalog_products-list">
 				<div className="products_list-inner">
-					<div className="products_sort-row">
+					<div
+						className={`products_sort-row ${!isVisible ? "" : "hide_sort"}`}
+					>
+						<div
+							className="show_filter-btn"
+							onClick={() => setIsVisible(!isVisible)}
+						>
+							<button className="show_filter">
+								Фільтр
+								<Filter />
+							</button>
+						</div>
 						<div className="sort_inner">
-							<span>Сортировать:</span>
+							<span>Сортувати:</span>
 							<select onChange={handleChange} className="select-sort">
 								{sortedBy.map((sortBy, index) => {
                                     return (

@@ -129,6 +129,11 @@ body{
           align-items: center;
           justify-content: space-between;
           position: relative;
+          .header-sidebar-btn{
+            &.sidebar_open{
+              z-index: 10001;
+            }
+          }
         }
         .header_logo{
         }
@@ -154,7 +159,7 @@ body{
         position: absolute;
         top: 0;
         left: 0;
-        z-index: 20;
+        z-index: 10000;
         transition: transform 0.3s ease-in-out;
         &.open_nav{
           transform:  translateX(0);
