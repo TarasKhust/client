@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "./ProductsOrderStyle.scss";
 import Checkbox from "components/Checkbox/Checkbox";
 import { Link } from "react-router-dom";
+import InputField from "components/InputField/InputField";
 
 const Content = () => {
     const items = [
@@ -58,6 +59,17 @@ const Content = () => {
         },
     ];
 
+	const [inputValue, setInputValue] = useState({
+		name: "",
+		phone: "",
+		email: "",
+		city: "",
+		post_office: "",
+		street: "",
+		house_number: "",
+		apartment_number: "",
+	});
+
     const deliveryType = [
         "Доставка у відділення НП",
         "Доставка кур'єром",
@@ -68,6 +80,17 @@ const Content = () => {
         "Накладеним платежем",
     ];
 
+	const handleChange = (e) => {
+		const { name, value } = e.target;
+
+		setInputValue((prev) => ({
+			...prev,
+			[name]: value,
+		}));
+
+		console.log(inputValue);
+	};
+
     return (
 	<div className="tut-posuda_order">
 		<div className="order_inner">
@@ -76,24 +99,27 @@ const Content = () => {
 				<div className="order_form-submit">
 					<h3 className="form_title">Адреса доставки</h3>
 					<form action="" className="submit_form">
-						<div className="input_group">
-							<input
-								type="text"
-								placeholder="ФИО*"
-							/>
-						</div>
-						<div className="input_group">
-							<input
-								type="phone"
-								placeholder="Телефон*"
-							/>
-						</div>
-						<div className="input_group">
-							<input
-								type="email"
-								placeholder="Email"
-							/>
-						</div>
+						<InputField
+							onChange={handleChange}
+							placeholder=" "
+							type="text"
+							name="name"
+							label="ФИО*"
+						/>
+						<InputField
+							onChange={handleChange}
+							placeholder=" "
+							type="phone"
+							name="phone"
+							label="Телефон*"
+						/>
+						<InputField
+							onChange={handleChange}
+							placeholder=" "
+							type="email"
+							name="email"
+							label="Email"
+						/>
 						<div className="flex_checked-list">
 							{deliveryType.map((item, index) => {
                                 return (
@@ -112,27 +138,51 @@ const Content = () => {
                             })}
 						</div>
 						<div className="checked_visible">
-							<div className="input_group">
-								<input type="text" placeholder="Город*" />
-							</div>
-							<div className="input_group">
-								<input type="text" placeholder="Отделение*" />
-							</div>
+							<InputField
+								onChange={handleChange}
+								placeholder=" "
+								type="text"
+								name="city"
+								label="Город*"
+							/>
+							<InputField
+								onChange={handleChange}
+								placeholder=" "
+								type="text"
+								name="post_office"
+								label="Відділення Нова Пошта №*"
+							/>
 						</div>
 						<div className="checked_visible">
-							<div className="input_group">
-								<input type="text" placeholder="Город*" />
-							</div>
-							<div className="input_group">
-								<input type="text" placeholder="Улица*" />
-							</div>
+							<InputField
+								onChange={handleChange}
+								placeholder=" "
+								type="text"
+								name="city"
+								label="Город*"
+							/>
+							<InputField
+								onChange={handleChange}
+								placeholder=" "
+								type="text"
+								name="street"
+								label="Вулиця*"
+							/>
 							<div className="checked_row">
-								<div className="input_group">
-									<input type="text" placeholder="№ дома*" />
-								</div>
-								<div className="input_group">
-									<input type="text" placeholder="№ квартиры" />
-								</div>
+								<InputField
+									onChange={handleChange}
+									placeholder=" "
+									type="text"
+									name="house_number"
+									label="№ дома*"
+								/>
+								<InputField
+									onChange={handleChange}
+									placeholder=" "
+									type="text"
+									name="apartment_number"
+									label="№ квартиры"
+								/>
 							</div>
 						</div>
 						<div className="checked_payment-type">
@@ -183,8 +233,10 @@ const Content = () => {
                         })}
 					</ul>
 					<div className="flex_count-order">
-						<h2>Всего:</h2>
-						<span>123123 грн</span>
+						<div>
+							<h2>Всього:</h2>
+							<span>123123 грн</span>
+						</div>
 					</div>
 				</div>
 			</div>

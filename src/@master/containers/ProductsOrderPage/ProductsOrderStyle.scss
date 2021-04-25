@@ -176,41 +176,283 @@
           }
         }
         .flex_count-order{
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          h2{
-            font-family: "Montserrat", "sans-serif";
-            font-weight: 500;
-            font-size: 36px;
-            line-height: 44px;
-            color: #4B4B44;
-          }
-          span{
-            font-family: "Montserrat", "sans-serif";
-            font-weight: 500;
-            font-size: 36px;
-            line-height: 44px;
-            color: #06813F;
+          div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h2{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 500;
+              font-size: 36px;
+              line-height: 44px;
+              color: #4B4B44;
+            }
+            span{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 500;
+              font-size: 36px;
+              line-height: 44px;
+              color: #06813F;
+            }
           }
         }
       }
     }
   }
-  input{
-    width: 100%;
-    background: #FFFFFF;
-    border: 1px solid #D8D8D8;
-    padding: 20px 30px;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 26px;
-    color: #707070;
-    &::placeholder{
-      font-weight: normal;
-      font-size: 24px;
-      line-height: 26px;
-      color: #707070;
+
+}
+
+@media only screen and (max-width: 1600px){
+  .tut-posuda_order{
+    .order_inner{
+      .order_title{
+        font-size: 32px;
+        line-height: 41px;
+        margin: 20px 0 50px 0;
+      }
+      .order_content{
+        .order_form-submit{
+          .form_title{
+            font-size: 28px;
+            line-height: 39px;
+          }
+          .submit_form{
+            .input_group{
+              margin: 0 0 15px 0;
+              label{
+                font-size: 18px;
+                line-height: 21px;
+                left: 20px;
+              }
+              input{
+                padding: 14px 20px;
+                font-size: 18px;
+                line-height: 21px;
+              }
+            }
+            .flex_checked-list{
+              margin: 25px 0;
+              .label_container{
+                .checkbox_container{
+                  width: 25px;
+                  height: 25px;
+                }
+                span{
+                  font-size: 18px;
+                  line-height: 21px;
+                  margin: 0 0 0 15px;
+                }
+              }
+            }
+            .checked_payment-type{
+              margin: 0 0 25px 0;
+              .payment_title{
+                font-size: 28px;
+                line-height: 39px;
+              }
+            }
+            .flex-row-submit{
+              a{
+                font-size: 14px;
+                line-height: 19px;
+              }
+              button{
+                padding: 14px 28px;
+                font-size: 15px;
+                line-height: 19px;
+              }
+            }
+          }
+        }
+        .order_repeat-list{
+          .repeat_items{
+            padding: 0 0 25px 0;
+            margin: 0 0 15px 0;
+            .repeat_item{
+              figure{
+                width: 90px;
+                height: 70px;
+                .count{
+                  font-size: 12px;
+                  line-height: 19px;
+                  width: 25px;
+                  height: 25px;
+                }
+              }
+              .description{
+                font-size: 12px;
+                line-height: 17px;
+              }
+              .price{
+                font-size: 16px;
+                line-height: 19px;
+              }
+            }
+          }
+          .flex_count-order{
+            div{
+              h2{
+                font-size: 22px;
+                line-height: 31px;
+              }
+              span{
+                font-size: 26px;
+                line-height: 41px;
+              }
+            }
+          }
+        }
+      }
     }
+    input{
+      padding: 14px 20px;
+      font-size: 18px;
+      line-height: 21px;
+      &::placeholder{
+        font-size: 18px;
+        line-height: 21px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px){
+  .tut-posuda_order{
+    .order_inner{
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+      .order_content{
+        .order_form-submit{
+          width: 55%;
+          .form_title{
+            margin: 0 0 25px 0;
+          }
+          .submit_form{
+            .flex_checked-list{
+              width: 90%;
+            }
+          }
+        }
+        .order_repeat-list{
+          width: 40%;
+          .repeat_items{
+            .repeat_item{
+              margin: 0 0 20px 0;
+              figure{
+                margin: 0 15px 0 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 945px){
+  .tut-posuda_order{
+    .order_inner{
+      width: 95%;
+      .order_content{
+        .order_form-submit{
+          width: 50%;
+          .form_title{
+          }
+          .submit_form{
+            .input_group{
+              input{
+                padding: 15px 20px 10px 20px;
+                font-size: 16px;
+                line-height: 19px;
+              }
+              label{
+                font-size: 15px;
+                line-height: 18px;
+                left: 15px;
+              }
+            }
+            .flex_checked-list{
+              width: 100%;
+              .label_container{
+                .checkbox_container{
+                  width: 22px;
+                  height: 22px;
+                }
+                span{
+                  font-size: 16px;
+                  line-height: 19px;
+                  margin: 0 0 0 10px;
+                }
+              }
+            }
+          }
+        }
+        .order_repeat-list{
+          width: 45%;
+          .repeat_items{
+            .repeat_item{
+              figure{
+                height: 65px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 830px){
+  .tut-posuda_order{
+   .order_inner{
+     .order_content{
+       flex-direction: column;
+       .order_form-submit{
+         width: 100%;
+         .form_title{
+           text-align: center;
+         }
+         .submit_form{
+           margin: 0 auto;
+           width: 80%;
+           .checked_payment-type{
+             .payment_title{
+               font-size: 22px;
+               line-height: 31px;
+               margin: 15px 0 20px 0;
+             }
+             .flex_checked-list{
+               margin: 20px 0;
+             }
+           }
+         }
+       }
+       .order_line{
+         display: none;
+       }
+       .order_repeat-list{
+         display: flex;
+         align-items: center;
+         width: 100%;
+         justify-content: space-between;
+         margin: 40px 0 0 0;
+         border-bottom: 1px solid rgba(75, 75, 68, 0.17);
+         .repeat_items{
+           width: 60%;
+           padding: 0 40px 0 0;
+           border-right: 1px solid rgba(75, 75, 68, 0.17);
+           border-bottom: none;
+           margin: 0;
+         }
+         .flex_count-order{
+           width: 40%;
+           div{
+
+             flex-direction: column;
+           }
+
+         }
+       }
+     }
+   }
   }
 }
