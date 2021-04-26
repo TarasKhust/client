@@ -22,7 +22,6 @@ InputField.defaultProps = {
 
 InputField.propTypes = {
     name: PropTypes.string.isRequired,
-    type: PropTypes.string,
     label: PropTypes.string,
     placeholder: PropTypes.string.isRequired,
     type: PropTypes.oneOf(["text", "number", "password", "email", "phone"]),
