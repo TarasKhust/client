@@ -61,27 +61,27 @@ module.exports = {
 		}),
 	    new HtmlWebpackPlugin({
 		  filename: process.env.NODE_ENV === "development" ? "pasabahce" : "pasabahce.html",
-		  template: "src/assets/pasabahce.html",
+		  template: path.resolve(__dirname, "./src/assets/pasabahce.html"),
 	    }),
 		new HtmlWebpackPlugin({
 			filename: process.env.NODE_ENV === "development" ? "delivery" : "delivery.html",
-			template: "src/assets/delivery.html",
+		  template: path.resolve(__dirname, "./src/assets/delivery.html"),
 		}),
 		new HtmlWebpackPlugin({
 			filename: process.env.NODE_ENV === "development" ? "contacts" : "contacts.html",
-			template: "src/assets/contacts.html",
+		  template: path.resolve(__dirname, "./src/assets/contacts.html"),
 		}),
 		new HtmlWebpackPlugin({
 			filename: process.env.NODE_ENV === "development" ? "shopping_card" : "shopping_card.html",
-			template: "src/assets/shopping_card.html",
+		  template: path.resolve(__dirname, "./src/assets/shopping_card.html"),
 		}),
 		new HtmlWebpackPlugin({
 			filename: process.env.NODE_ENV === "development" ? "catalog" : "catalog.html",
-			template: "src/assets/catalog.html",
+		  template: path.resolve(__dirname, "./src/assets/catalog.html"),
 		}),
 		new HtmlWebpackPlugin({
 			filename: process.env.NODE_ENV === "development" ? "order" : "order.html",
-			template: "src/assets/order.html",
+		  template: path.resolve(__dirname, "./src/assets/order.html"),
 		}),
 	],
 
