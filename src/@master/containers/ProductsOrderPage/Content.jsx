@@ -70,7 +70,20 @@ const Content = () => {
 		apartment_number: "",
 	});
 
-    const deliveryType = [
+	const [toggleSummary, setToggleSummary] = useState(false);
+	const [buttonText, setButtonText] = useState("Детальніше про замовлення");
+
+	const handleToggleSummary = () => {
+		setToggleSummary(!toggleSummary);
+
+		if (!toggleSummary){
+			setButtonText("Приховати деталі замовлення");
+		} else {
+			setButtonText("Детальніше про замовлення");
+		}
+	};
+
+	const deliveryType = [
         "Доставка у відділення НП",
         "Доставка кур'єром",
     ];
@@ -187,7 +200,7 @@ const Content = () => {
 						</div>
 						<div className="checked_payment-type">
 							<h3 className="payment_title">
-								Способ оплаты
+								Спосіб оплати
 							</h3>
 							<div className="flex_checked-list">
 								{paymentType.map((item, index) => {
@@ -215,7 +228,9 @@ const Content = () => {
 				</div>
 				<div className="order_line"></div>
 				<div className="order_repeat-list">
-					<ul className="repeat_items">
+					<ul
+						className={`repeat_items ${!toggleSummary ? "" : "set_toggle-repeat_items"}`}
+					>
 						{items.map(({ price, image, description, name, _id }) => {
                             return (
 	<li className="repeat_item" key={_id}>
@@ -233,7 +248,18 @@ const Content = () => {
                         })}
 					</ul>
 					<div className="flex_count-order">
-						<div>
+						<div className="order_summary-toggle">
+							<button
+								className={`toggle ${!toggleSummary ? "" : "set_toggle"}`}
+								onClick={handleToggleSummary}
+							>
+								{buttonText}
+								<svg width="70" height="55" viewBox="-2.5 -5 75 60" preserveAspectRatio="none">
+									<path d="M0,0 l35,50 l35,-50" fill="none" stroke="black" strokeLinecap="round" strokeWidth="5" />
+								</svg>
+							</button>
+						</div>
+						<div className="order_summary">
 							<h2>Всього:</h2>
 							<span>123123 грн</span>
 						</div>

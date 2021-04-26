@@ -176,7 +176,10 @@
           }
         }
         .flex_count-order{
-          div{
+          .order_summary-toggle{
+            display: none;
+          }
+          .order_summary{
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -290,7 +293,7 @@
             }
           }
           .flex_count-order{
-            div{
+            .order_summary{
               h2{
                 font-size: 22px;
                 line-height: 31px;
@@ -402,10 +405,26 @@
   }
 }
 @media only screen and (max-width: 830px){
+  body{
+    &.nav_open{
+      overflow-y: hidden;
+      &:before{
+        background-color: rgba(0,0,0,.5);
+        content: '';
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+      }
+    }
+    #catalog{
+      padding: 0 0 45px 0;
+    }
+  }
   .tut-posuda_order{
    .order_inner{
      .order_content{
-       flex-direction: column;
+       flex-direction: column-reverse;
        .order_form-submit{
          width: 100%;
          .form_title{
@@ -434,25 +453,300 @@
          align-items: center;
          width: 100%;
          justify-content: space-between;
-         margin: 40px 0 0 0;
-         border-bottom: 1px solid rgba(75, 75, 68, 0.17);
+         margin: 0 0 40px 0;
+         //border-bottom: 1px solid rgba(75, 75, 68, 0.17);
+         flex-direction: column-reverse;
          .repeat_items{
-           width: 60%;
-           padding: 0 40px 0 0;
-           border-right: 1px solid rgba(75, 75, 68, 0.17);
+           margin: 30px 0 0 0;
+           width: 100%;
+           position: absolute;
+           transform: translate3d(-100%,0,0);
+           transition: position .5s;
            border-bottom: none;
-           margin: 0;
+           .repeat_item{
+             border-bottom: 1px solid rgba(75, 75, 68, 0.17);
+             margin: 0;
+             padding: 20px 0;
+           }
+           &.set_toggle-repeat_items{
+             position: relative;
+             transform: translateZ(0);
+             -webkit-backface-visibility: hidden;
+             transition: all .5s;
+           }
          }
          .flex_count-order{
-           width: 40%;
-           div{
+           width: 100%;
+           display: flex;
+           align-items: center;
+           justify-content: space-between;
+           background: #F9E547;
+           padding: 10px;
+           .order_summary-toggle{
+             display: flex;
+             .toggle{
+               display: flex;
+               align-items: center;
+               font-family: "Montserrat", "sans-serif";
+               font-weight: 500;
+               font-size: 12px;
+               line-height: 19px;
+               color: #4B4B44;
+               background: transparent;
+               svg{
 
-             flex-direction: column;
+                 width: 15px;
+                 height: 8px;
+                 margin: 0 0 0 8px;
+
+                 path{
+                   stroke: #4B4B44;
+                 }
+               }
+               &.set_toggle{
+                svg{
+                  transform: rotate(
+                                  180deg
+                  );
+                }
+               }
+             }
            }
-
+           .order_summary{
+             h2{
+               font-size: 14px;
+               line-height: 19px;
+               margin: 0 10px 0 0;
+             }
+             span{
+               font-size: 20px;
+               line-height: 29px;
+             }
+           }
          }
        }
      }
    }
+  }
+}
+
+@media only screen and (max-width: 530px){
+  .tut-posuda_order{
+    .order_inner{
+      .order_title{
+        font-size: 26px;
+        line-height: 39px;
+        margin: 20px 0 30px 0;
+      }
+      .order_content{
+        .order_repeat-list{
+          .repeat_items{
+            .repeat_item{
+              padding: 15px 0;
+              figure{
+                .count{
+                  font-size: 10px;
+                  width: 20px;
+                  height: 20px;
+                }
+              }
+              .description{
+                font-size: 10px;
+              }
+            }
+          }
+          .flex_count-order{
+            .order_summary{
+              h2{
+                display: none;
+              }
+            }
+          }
+        }
+        .order_form-submit{
+          .form_title{
+            font-size: 22px;
+            line-height: 29px;
+          }
+          .submit_form{
+            width: 100%;
+            .checked_payment-type{
+              .payment_title{
+                font-size: 20px;
+                line-height: 25px;
+              }
+            }
+            .flex-row-submit{
+              a{
+                font-size: 12px;
+              }
+              button{
+                font-size: 12px;
+                padding: 12px 22px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 430px){
+  .tut-posuda_order{
+    .order_inner{
+      .order_title{
+        font-size: 22px;
+        line-height: 29px;
+        margin: 20px 0 25px 0;
+      }
+      .order_content{
+        .order_repeat-list{
+          .repeat_items{
+            .repeat_item{
+              figure{
+                .count{
+                }
+              }
+              .description{
+              }
+            }
+          }
+          .flex_count-order{
+            .order_summary{
+              h2{
+              }
+            }
+          }
+        }
+        .order_form-submit{
+          .form_title{
+          }
+          .submit_form{
+            .flex_checked-list{
+              flex-direction: column;
+              align-items: start;
+              .label_container{
+                margin: 0 0 10px 0;
+                &:last-child{
+                  margin: 0;
+                }
+              }
+            }
+            .checked_payment-type{
+              .payment_title{
+              }
+              .flex_checked-list{
+                flex-direction: column;
+                align-items: start;
+                .label_container{
+                  margin: 0 0 10px 0;
+                  &:last-child{
+                    margin: 0;
+                  }
+                }
+              }
+            }
+            .flex-row-submit{
+              flex-direction: column-reverse;
+              a{
+                margin: 20px 0 0 0;
+              }
+              button{
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 390px){
+  .tut-posuda_order{
+    .order_inner{
+      .order_content{
+        .order_repeat-list{
+          .repeat_items{
+            margin: 15px 0 0 0;
+            .repeat_item{
+              figure{
+                width: 70px;
+                .count{
+                }
+              }
+              .description{
+              }
+              .price{
+                font-size: 14px;
+              }
+            }
+          }
+          .flex_count-order{
+            .order_summary-toggle{
+              .toggle{
+                font-size: 10px;
+                line-height: 15px;
+              }
+            }
+            .order_summary{
+              span{
+                font-size: 14px;
+                line-height: 21px;
+              }
+            }
+          }
+        }
+        .order_form-submit{
+          .form_title{
+          }
+          .submit_form{
+            .flex_checked-list{
+              .label_container{
+                &:last-child{
+                }
+              }
+            }
+            .checked_payment-type{
+              .payment_title{
+              }
+              .flex_checked-list{
+                .label_container{
+                  &:last-child{
+                  }
+                }
+              }
+            }
+            .flex-row-submit{
+              a{
+              }
+              button{
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 320px){
+  .tut-posuda_order{
+    .order_inner{
+      .order_title{
+        font-size: 18px;
+        line-height: 25px;
+      }
+      .order_content{
+        .order_repeat-list{
+          margin: 0 0 20px 0;
+          .flex_count-order{
+            padding: 5px;
+            flex-flow: wrap;
+            .order_summary-toggle{
+
+            }
+          }
+        }
+      }
+    }
   }
 }

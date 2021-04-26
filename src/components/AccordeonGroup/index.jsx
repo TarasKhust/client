@@ -1,33 +1,34 @@
-import React, { useMemo } from 'react';
-import PropTypes from 'prop-types';
-import AccordionContext from './AccordionContext';
+import React, { useMemo } from "react";
+import PropTypes from "prop-types";
+import AccordionContext from "./AccordionContext";
 
-import Collapse from './Collapse';
-import Toggle from './Toggle';
+import Collapse from "./Collapse";
+import Toggle from "./Toggle";
 
-const Accordion = ({element: Component, activeEventKey, onToggle, children, ...otherProps}) => {
+const Accordion = ({ element: Component, activeEventKey, onToggle, children, ...otherProps }) => {
     const context = useMemo(() => {
         return {
             activeEventKey,
-            onToggle
+            onToggle,
         };
     }, [activeEventKey, onToggle]);
+
     return (
-        <AccordionContext.Provider value={context}>
-            <Component {...otherProps}>{children}</Component>
-        </AccordionContext.Provider>
+	<AccordionContext.Provider value={context}>
+		<Component {...otherProps}>{children}</Component>
+	</AccordionContext.Provider>
     );
 };
 
 Accordion.propTypes = {
     element: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     activeEventKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    onToggle: PropTypes.func
+    onToggle: PropTypes.func,
 };
 
 Accordion.defaultProps = {
-    element: 'div',
-    onToggle: () => {}
+    element: "div",
+    onToggle: () => {},
 };
 
 Accordion.Toggle = Toggle;
