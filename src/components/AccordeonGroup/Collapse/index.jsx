@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-import { useAccordionContext } from '../hooks';
+import { useAccordionContext } from "../hooks";
 
 const Collapse = ({
                       element: Component,
@@ -12,17 +12,17 @@ const Collapse = ({
     const { activeEventKey } = useAccordionContext();
 
     return activeEventKey === eventKey ? (
-        <Component {...otherProps}>{children}</Component>
+	<Component {...otherProps}>{children}</Component>
     ) : null;
 };
 
 Collapse.propTypes = {
     element: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
-    eventKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    eventKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 Collapse.defaultProps = {
-    element: 'div'
+    element: "div",
 };
 
 export default Collapse;

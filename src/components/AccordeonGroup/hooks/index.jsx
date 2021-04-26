@@ -1,3 +1,2 @@
-import useAccordionContext from './useAccordionContext';
 
-export { useAccordionContext };
+export useAccordionContext from "./useAccordionContext";
