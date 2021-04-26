@@ -169,3 +169,13 @@
     }
   }
 }
+@media only screen and (max-width: 768px){
+  .btn{
+    &.btn_normal{
+      padding: 0px 32px;
+      font-size: 14px;
+      line-height: 19px;
+      height: 38px;
+    }
+  }
+}

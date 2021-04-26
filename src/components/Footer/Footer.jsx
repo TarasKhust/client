@@ -16,17 +16,17 @@ const Footer = () => {
         <footer className="footer_content">
             <div className="footer_inner-row">
                 <div className="inner_vis-l">
-                    <div className="social_links">
-                        <a target='_blank' href="#">
-                            <Pint />
-                        </a>
-                        <a target='_blank' href="#">
-                            <Fb />
-                        </a>
-                        <a target='_blank' href="#">
-                            <Inst />
-                        </a>
-                    </div>
+                    {/*<div className="social_links">*/}
+                    {/*    <a target='_blank' href="#">*/}
+                    {/*        <Pint />*/}
+                    {/*    </a>*/}
+                    {/*    <a target='_blank' href="#">*/}
+                    {/*        <Fb />*/}
+                    {/*    </a>*/}
+                    {/*    <a target='_blank' href="#">*/}
+                    {/*        <Inst />*/}
+                    {/*    </a>*/}
+                    {/*</div>*/}
                     <ul className="contacts_links">
                         <li className="link_item">
                             <span className="link_title">Телефон:</span>
@@ -45,9 +45,20 @@ const Footer = () => {
                     <span className="brand_title">©tut_posuda</span>
                 </div>
                 <div className="inner_vis-r">
-                    <a href="#">Политика возврата</a>
-                    <a href="#">Доставка и оплата</a>
-                    <a href="#">Cookies</a>
+                    <div className="social_links">
+                        <a target='_blank' href="#">
+                            <Pint />
+                        </a>
+                        <a target='_blank' href="#">
+                            <Fb />
+                        </a>
+                        <a target='_blank' href="#">
+                            <Inst />
+                        </a>
+                    </div>
+                    {/*<a href="#">Политика возврата</a>*/}
+                    {/*<a href="#">Доставка и оплата</a>*/}
+                    {/*<a href="#">Cookies</a>*/}
                 </div>
             </div>
         </footer>

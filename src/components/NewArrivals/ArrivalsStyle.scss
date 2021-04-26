@@ -139,9 +139,8 @@
                   font-size: 41px;
                   line-height: 50px;
                   color: #06813F;
-                  width: 80%;
+                  width: 45%;
                   overflow: hidden;
-
                 }
               }
             }
@@ -374,7 +373,7 @@
 @media only screen and (max-width: 530px){
   .arrivals_content{
     .content_inner{
-      width: 70%;
+      width: 75%;
       .swiper-container{
         .swiper-button-prev{
             left: -14% ;
@@ -405,6 +404,14 @@
     .arrivals_title{
       font-size: 32px;
       margin: 0 0 15px 0;
+    }
+  }
+}
+
+@media only screen and (max-width: 475px){
+  .arrivals_content{
+    .arrivals_title{
+      font-size: 28px;
     }
   }
 }

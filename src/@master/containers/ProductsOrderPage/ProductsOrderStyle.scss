@@ -1,0 +1,458 @@
+@import "src/assets/css/clear";
+
+.tut-posuda_order{
+  font-family: "Forum", "sans-serif";
+  .order_inner{
+    padding: 0 160px;
+    .order_title{
+      font-family: "Montserrat", "sans-serif";
+      font-weight: normal;
+      font-size: 48px;
+      line-height: 59px;
+      color: #424242;
+      text-align: center;
+      margin: 40px 0 60px 0;
+    }
+    .order_content{
+      display: flex;
+      justify-content: space-between;
+      .order_form-submit{
+        width: 60%;
+        .form_title{
+          font-family: "Montserrat", "sans-serif";
+          font-weight: 500;
+          font-size: 36px;
+          line-height: 44px;
+          letter-spacing: -0.01em;
+          color: #424242;
+          margin: 0 0 35px 0;
+        }
+        .submit_form{
+          .input_group{
+            margin: 0 0 20px 0;
+          }
+          .flex_checked-list{
+            width: 80%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 35px 0;
+            .label_container{
+              display: flex;
+              align-items: center;
+              .checkbox_container{
+                width: 34px;
+                height: 34px;
+                input{
+
+                }
+              }
+              span{
+                font-weight: normal;
+                font-size: 30px;
+                line-height: 33px;
+                color: #4B4B44;
+                margin: 0 0 0 20px;
+              }
+            }
+          }
+          .checked_visible{
+            width: 100%;
+            .checked_row{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              .input_group{
+                width: 45%;
+              }
+            }
+          }
+          .checked_payment-type{
+            border-bottom: 1px solid rgba(75, 75, 68, 0.17);
+            margin: 0 0 44px 0;
+            .payment_title{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 500;
+              font-size: 36px;
+              line-height: 44px;
+              letter-spacing: -0.01em;
+              color: #424242;
+              margin: 25px 0 30px 0;
+            }
+          }
+          .flex-row-submit{
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            a{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 22px;
+              color: #595959;
+              margin: 0 32px 0 0;
+            }
+            button{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 600;
+              font-size: 18px;
+              line-height: 22px;
+              text-transform: uppercase;
+              color: #595959;
+              background: #F9E547;
+              padding: 20px 38px ;
+            }
+          }
+        }
+      }
+      .order_line{
+        width: 1px;
+        background: rgba(75, 75, 68, 0.17);
+      }
+      .order_repeat-list{
+        width: 35%;
+        .repeat_items{
+          width: 100%;
+          border-bottom: 1px solid rgba(75, 75, 68, 0.17);
+          padding: 0 0 40px 0;
+          margin: 0 0 25px 0;
+          .repeat_item{
+            width: 100%;
+            display: flex;
+            align-items: center;
+           margin:  0 0 38px 0;
+            justify-content: space-between;
+            &:last-child{
+              margin: 0;
+            }
+            figure{
+              position: relative;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 132px;
+              height: 105px;
+              margin: 0 28px 0 0;
+              .count{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: -10px;
+                right: -15px;
+                width: 32px;
+                height: 32px;
+                border-radius: 50%;
+                background: #F9E547;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+                font-family: "Montserrat", "sans-serif";
+                font-weight: 600;
+                font-size: 18px;
+                line-height: 22px;
+                color: #000000;
+              }
+              img{
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+              }
+            }
+            .description{
+              width: 40%;
+              display: inline-block;
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 600;
+              font-size: 15px;
+              line-height: 22px;
+              color: #221F1F;
+            }
+            .price{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 500;
+              font-size: 18px;
+              line-height: 22px;
+              color: #06813F;
+            }
+          }
+        }
+        .flex_count-order{
+          div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            h2{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 500;
+              font-size: 36px;
+              line-height: 44px;
+              color: #4B4B44;
+            }
+            span{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: 500;
+              font-size: 36px;
+              line-height: 44px;
+              color: #06813F;
+            }
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@media only screen and (max-width: 1600px){
+  .tut-posuda_order{
+    .order_inner{
+      .order_title{
+        font-size: 32px;
+        line-height: 41px;
+        margin: 20px 0 50px 0;
+      }
+      .order_content{
+        .order_form-submit{
+          .form_title{
+            font-size: 28px;
+            line-height: 39px;
+          }
+          .submit_form{
+            .input_group{
+              margin: 0 0 15px 0;
+              label{
+                font-size: 18px;
+                line-height: 21px;
+                left: 20px;
+              }
+              input{
+                padding: 14px 20px;
+                font-size: 18px;
+                line-height: 21px;
+              }
+            }
+            .flex_checked-list{
+              margin: 25px 0;
+              .label_container{
+                .checkbox_container{
+                  width: 25px;
+                  height: 25px;
+                }
+                span{
+                  font-size: 18px;
+                  line-height: 21px;
+                  margin: 0 0 0 15px;
+                }
+              }
+            }
+            .checked_payment-type{
+              margin: 0 0 25px 0;
+              .payment_title{
+                font-size: 28px;
+                line-height: 39px;
+              }
+            }
+            .flex-row-submit{
+              a{
+                font-size: 14px;
+                line-height: 19px;
+              }
+              button{
+                padding: 14px 28px;
+                font-size: 15px;
+                line-height: 19px;
+              }
+            }
+          }
+        }
+        .order_repeat-list{
+          .repeat_items{
+            padding: 0 0 25px 0;
+            margin: 0 0 15px 0;
+            .repeat_item{
+              figure{
+                width: 90px;
+                height: 70px;
+                .count{
+                  font-size: 12px;
+                  line-height: 19px;
+                  width: 25px;
+                  height: 25px;
+                }
+              }
+              .description{
+                font-size: 12px;
+                line-height: 17px;
+              }
+              .price{
+                font-size: 16px;
+                line-height: 19px;
+              }
+            }
+          }
+          .flex_count-order{
+            div{
+              h2{
+                font-size: 22px;
+                line-height: 31px;
+              }
+              span{
+                font-size: 26px;
+                line-height: 41px;
+              }
+            }
+          }
+        }
+      }
+    }
+    input{
+      padding: 14px 20px;
+      font-size: 18px;
+      line-height: 21px;
+      &::placeholder{
+        font-size: 18px;
+        line-height: 21px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px){
+  .tut-posuda_order{
+    .order_inner{
+      width: 90%;
+      margin: 0 auto;
+      padding: 0;
+      .order_content{
+        .order_form-submit{
+          width: 55%;
+          .form_title{
+            margin: 0 0 25px 0;
+          }
+          .submit_form{
+            .flex_checked-list{
+              width: 90%;
+            }
+          }
+        }
+        .order_repeat-list{
+          width: 40%;
+          .repeat_items{
+            .repeat_item{
+              margin: 0 0 20px 0;
+              figure{
+                margin: 0 15px 0 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 945px){
+  .tut-posuda_order{
+    .order_inner{
+      width: 95%;
+      .order_content{
+        .order_form-submit{
+          width: 50%;
+          .form_title{
+          }
+          .submit_form{
+            .input_group{
+              input{
+                padding: 15px 20px 10px 20px;
+                font-size: 16px;
+                line-height: 19px;
+              }
+              label{
+                font-size: 15px;
+                line-height: 18px;
+                left: 15px;
+              }
+            }
+            .flex_checked-list{
+              width: 100%;
+              .label_container{
+                .checkbox_container{
+                  width: 22px;
+                  height: 22px;
+                }
+                span{
+                  font-size: 16px;
+                  line-height: 19px;
+                  margin: 0 0 0 10px;
+                }
+              }
+            }
+          }
+        }
+        .order_repeat-list{
+          width: 45%;
+          .repeat_items{
+            .repeat_item{
+              figure{
+                height: 65px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 830px){
+  .tut-posuda_order{
+   .order_inner{
+     .order_content{
+       flex-direction: column;
+       .order_form-submit{
+         width: 100%;
+         .form_title{
+           text-align: center;
+         }
+         .submit_form{
+           margin: 0 auto;
+           width: 80%;
+           .checked_payment-type{
+             .payment_title{
+               font-size: 22px;
+               line-height: 31px;
+               margin: 15px 0 20px 0;
+             }
+             .flex_checked-list{
+               margin: 20px 0;
+             }
+           }
+         }
+       }
+       .order_line{
+         display: none;
+       }
+       .order_repeat-list{
+         display: flex;
+         align-items: center;
+         width: 100%;
+         justify-content: space-between;
+         margin: 40px 0 0 0;
+         border-bottom: 1px solid rgba(75, 75, 68, 0.17);
+         .repeat_items{
+           width: 60%;
+           padding: 0 40px 0 0;
+           border-right: 1px solid rgba(75, 75, 68, 0.17);
+           border-bottom: none;
+           margin: 0;
+         }
+         .flex_count-order{
+           width: 40%;
+           div{
+
+             flex-direction: column;
+           }
+
+         }
+       }
+     }
+   }
+  }
+}

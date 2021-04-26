@@ -1,15 +1,19 @@
-import React from "react";
-import './СhipStyle.scss'
-import Chip from './chip.svg'
+import React, { useContext } from "react";
+import "./СhipStyle.scss";
+import Chip from "./chip.svg";
+import { ShoppingCardContext } from "store/ShoppingCard";
+import {Link} from "react-router-dom";
 
 const ChipBasket = () => {
-    return(
-        <div className='basket_container'>
-            <div className="counter">1</div>
-            <Chip />
-            {/*<img src={<Chip/>} alt=""/>*/}
-        </div>
-    )
-}
+  const { selectors } = useContext(ShoppingCardContext);
+  const counter = selectors.getShoppingCartCount();
+    return (
+	<Link to='/shopping_card' className="basket_container">
+		<div className="counter">{counter}</div>
+		<Chip />
+		{/*<img src={<Chip/>} alt=""/>*/}
+	</Link>
+    );
+};
 
-export default ChipBasket
+export default ChipBasket;

@@ -13,7 +13,7 @@ SwiperCore.use([Autoplay]);
 const Slider = () => {
 
     return(
-        <section className="slider_container">
+        <section className="slider_container" id='home'>
             <Swiper
                 slidesPerView={1}
                 parallax={true}

@@ -12,8 +12,7 @@ const Header = () => {
     const [open, setOpen] = useState(false)
 
     const handleClickOutside = e => {
-        console.log("clicking anywhere");
-        if (node.current.contains(e.target)) {
+        if (node.current.contains(e.target)) { //// not working with React scrool library
             return;
         }
         setOpen(false);
@@ -22,6 +21,12 @@ const Header = () => {
     useEffect(() => {
         document.body.classList.toggle('nav_open', open) ///toggle class to overflow: hidden
 
+        // let navItem = document.querySelectorAll('.list_item a')
+        // navItem.forEach((e) => {
+        //     e.addEventListener('click', (event) => {
+        //         setOpen(false);
+        //     })
+        // })
         if (open) {
             document.addEventListener("mousedown", handleClickOutside);
         } else {
@@ -38,18 +43,18 @@ const Header = () => {
                 <div className="header-inner_top">
                     <div className="inner_top-l">
                         <Burger open={open} setOpen={setOpen}  />
-                        <LangSwitcher />
+                        {/*<LangSwitcher />*/}
                     </div>
                     <a href="#" className="header_logo">
                         <Logo />
                     </a>
                     <div className="inner_top-r">
-                        <SearchInput />
+                        {/*<SearchInput />*/}
                         <ChipBasket />
                     </div>
                 </div>
                 <div ref={node} className={`header-inner_nav ${!open ? '' : 'open_nav'}`}>
-                    <LangSwitcher />
+                    {/*<LangSwitcher />*/}
                     <HeaderNav />
                 </div>
             </div>

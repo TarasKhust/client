@@ -1,0 +1,471 @@
+.tut-posuda_chip{
+  .chip_inner{
+    padding: 0 160px;
+
+    .chip_title{
+      font-family: "Montserrat", "sans-serif";
+      font-weight: normal;
+      font-size: 48px;
+      line-height: 59px;
+      color: #424242;
+      text-align: center;
+      margin: 65px 0 70px 0;
+    }
+
+
+    .chip_basket-table{
+      width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0px;
+      tbody{
+        .chip_row-head{
+          border-bottom: 1px solid #4B4B442B;
+          padding: 0 0 12px 0;
+          .head_title{
+            font-family: "Montserrat", "sans-serif";
+            font-weight: 600;
+            color: #424242;
+            padding: 0 0 12px 0;
+            &.t-large{
+              font-size: 29px;
+              line-height: 35px;
+              text-align: start;
+            }
+            &.t-small{
+              font-size: 20px;
+              line-height: 24px;
+            }
+          }
+          .row_vis-l{
+            span{
+
+            }
+          }
+          .row_vis-r{
+
+          }
+        }
+        .chip_row-items{
+          .item_vis-l{
+            div{
+              margin: 20px 0;
+              display: flex;
+              align-items: center;
+              figure{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0;
+                width: 206px;
+                height: 163px;
+                img{
+                  width: 100%;
+                  object-fit: contain;
+                  height: 100%;
+                }
+              }
+            }
+          }
+          td{
+            .chip_item-title{
+              font-family: "Montserrat", "sans-serif";
+              font-weight: normal;
+              font-size: 18px;
+              line-height: 149.9%;
+              color: #4B4B44;
+              width: 65%;
+              text-align: start;
+              margin: 0;
+            }
+          }
+          .quantity{
+            padding: 0;
+            .quantity_inner{
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              border: 1px solid #97999B;
+
+              padding: 15px;
+              width: 120px;
+              margin: 0 auto;
+              span{
+                background: transparent;
+                font-weight: normal;
+                font-size: 24px;
+                line-height: 29px;
+                color: #97999B;
+                cursor: pointer;
+              }
+              input{
+                font-family: "Montserrat", "sans-serif";
+                font-weight: 500;
+                font-size: 22px;
+                line-height: 27px;
+                color: #5A5C5E;
+                border: none;
+              }
+            }
+          }
+          .chip_item-desc{
+            text-align: center;
+            font-family: "Montserrat", "sans-serif";
+            font-weight: normal;
+            font-size: 18px;
+            line-height: 22px;
+            letter-spacing: 0.035em;
+            color: #424242;
+            padding: 0 30px;
+            border-bottom: 1px solid #4B4B442B;
+            &.quantity{
+              padding: 0;
+            }
+            &.desc-gr{
+              color: #06813F;
+              font-weight: 500;
+            }
+          }
+          .remove{
+            cursor: pointer;
+            svg{
+              width: 15px;
+              height: 15px;
+            }
+          }
+        }
+      }
+    }
+    .chip_basket-row{
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .total_basket-price{
+        font-family: "Montserrat", "sans-serif";
+        font-weight: 500;
+        font-size: 48px;
+        line-height: 59px;
+        color: #06813F;
+        margin: 30px 0 0 0;
+      }
+      .submit_basket{
+        font-family: "Montserrat", "sans-serif";
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: #595959;
+        background: #F9E547;
+        border: none;
+        outline: none;
+        padding: 20px 32px;
+        margin: 60px 0 0 0;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1600px){
+  .tut-posuda_chip{
+    .chip_inner{
+      width: 85%;
+      margin: 0 auto;
+      padding: 0;
+      .chip_title{
+        margin: 35px 0 55px 0;
+      }
+      .chip_basket-table{
+        tbody{
+          .chip_row-head{
+            .head_title{
+              padding: 0 0 5px 0;
+              &.t-large{
+                font-size: 22px;
+                line-height: 29px;
+              }
+              &.t-small{
+                font-size: 15px;
+                line-height: 19px;
+              }
+            }
+          }
+          .chip_row-items{
+            .item_vis-l{
+              div{
+                figure{
+                  width: 160px;
+                  height: 130px;
+                }
+              }
+            }
+            td{
+              .chip_item-title{
+                font-size: 15px;
+                width: 90%;
+              }
+            }
+            .quantity{
+              .quantity_inner{
+                width: 100px;
+                padding: 12px;
+                input{
+                  font-size: 16px;
+                  line-height: 19px;
+                }
+              }
+            }
+            .chip_item-desc{
+              padding: 0 25px;
+              font-size: 16px;
+              line-height: 19px;
+            }
+          }
+        }
+      }
+      .chip_basket-row{
+        .total_basket-price{
+          font-size: 38px;
+          line-height: 43px;
+        }
+        .submit_basket{
+          font-size: 15px;
+          line-height: 19px;
+          margin: 40px 0 0 0;
+          padding: 15px 26px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1280px){
+  .tut-posuda_chip{
+    .chip_inner{
+        width: 90%;
+      .chip_title{
+        font-size: 36px;
+        line-height: 41px;
+        margin: 15px 0 45px 0;
+      }
+      .chip_basket-table{
+        tbody{
+          .chip_row-head{
+            padding: 0 0 5px 0;
+            .head_title{
+              &.t-large{
+                font-size: 18px;
+                line-height: 21px;
+              }
+            }
+          }
+          .chip_row-items{
+            .item_vis-l{
+              div{
+                figure{
+                  width: 140px;
+                  height: 110px;
+                }
+              }
+            }
+            .chip_item-desc{
+              padding: 0 20px;
+            }
+            .quantity{
+              .quantity_inner{
+                width: 75px;
+                padding: 10px;
+                input{
+                  font-size: 15px;
+                }
+                span{
+                  font-size: 18px;
+                  line-height: 21px;
+                }
+              }
+            }
+            td{
+              .chip_item-title{
+                font-size: 14px;
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 945px){
+  .tut-posuda_chip{
+    .chip_inner{
+      width:95%;
+      .chip_basket-table{
+        tbody{
+          .chip_row-head{
+            .head_title{
+              &.t-small{
+                font-size: 14px;
+                line-height: 17px;
+              }
+              &.t-large{
+                font-size: 16px;
+                line-height: 19px;
+              }
+            }
+          }
+          .chip_row-items{
+            .item_vis-l{
+              div{
+                margin: 15px 0;
+                figure{
+                  width: 100px;
+                  height: 100px;
+                }
+              }
+            }
+            .chip_item-desc{
+              padding: 0 10px;
+              font-size: 12px;
+            }
+            td{
+              .chip_item-title{
+                font-size: 12px;
+              }
+            }
+            .quantity{
+              .quantity_inner{
+                span{
+                  font-size: 14px;
+                }
+                input{
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 768px){
+  .tut-posuda_chip{
+    .chip_inner{
+      .chip_title{
+        font-size: 32px;
+        line-height: 39px;
+      }
+      .chip_basket-table{
+        tbody{
+          .chip_row-head{
+            .head_title{
+              &.vendor, &.in_all{
+                display: none;
+              }
+            }
+          }
+          .chip_row-items{
+            .item_vis-l{
+              div{
+                margin: 10px 0;
+                figure{
+                  width: 90px;
+                  height: 90px;
+                }
+              }
+            }
+            .chip_item-desc{
+              padding: 0 8px;
+              &.vendor, &.desc-gr{
+                display: none;
+              }
+            }
+            .remove{
+              svg{
+                width: 30px;
+                height: 10px;
+              }
+            }
+            td{
+              .chip_item-title{
+                //width: 60%;
+              }
+            }
+            .quantity{
+              .quantity_inner{
+                width: 70px;
+                padding: 0;
+                input{
+                  font-size: 12px;
+                  margin: 0;
+                }
+                span{
+                  padding: 4px;
+                }
+              }
+            }
+          }
+        }
+      }
+      .chip_basket-row{
+        .total_basket-price{
+          font-size: 32px;
+          line-height: 39px;
+
+        }
+        .submit_basket{
+          margin: 25px 0 0 0;
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 530px){
+  .tut-posuda_chip{
+    .chip_inner{
+      .chip_basket-table{
+        tbody{
+          .chip_row-items{
+            .item_vis-l{
+              div{
+                figure{
+                  width: 70px;
+                  height: 80px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 375px){
+  .tut-posuda_chip{
+    .chip_inner{
+      .chip_basket-table{
+        tbody{
+          .chip_row-items{
+            td{
+              .chip_item-title{
+                font-size: 10px;
+              }
+            }
+          }
+        }
+      }
+      .chip_basket-row{
+        .total_basket-price{
+          font-size: 26px;
+          line-height: 31px;
+          margin: 20px 0 0 0;
+        }
+        .submit_basket{
+          width: 100%;
+        }
+      }
+    }
+  }
+}

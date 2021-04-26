@@ -7,7 +7,7 @@ document.body.appendChild(target);
 
 function renderApp(Router) {
     render(
-        <Router />,
+	<Router />,
         target
     );
 }
