@@ -11,6 +11,7 @@ import Contacts from "@master/containers/Contacts";
 import ShoppingCard from "@master/containers/ShoppingCardPage";
 import CatalogPage from "@master/containers/CatalogPage";
 import ProductsOrderPage from "@master/containers/ProductsOrderPage";
+import CardProductPage from "@master/containers/CardProductPage";
 import { ApolloProvider } from "@apollo/client";
 import client from "@master/router/apolloClientConfig";
 
@@ -21,7 +22,6 @@ export default () => (
 		<Provider store={store}>
 			<ShoppingCardProvider>
 				<Router history={history}>
-
 					<MainPage />
 					<Pasabahce />
 					<Delivery />
@@ -29,6 +29,7 @@ export default () => (
 					<ShoppingCard />
 					<CatalogPage />
 					<ProductsOrderPage />
+					<CardProductPage />
 				</Router>
 			</ShoppingCardProvider>
 		</Provider>

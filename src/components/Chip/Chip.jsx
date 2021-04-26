@@ -5,7 +5,7 @@ import { ShoppingCardContext } from "store/ShoppingCard";
 import InputChip from "components/Chip/InputChip";
 import ChipButton from "components/Chip/ChipButton";
 
-const Chip = ({ item, inputShow }) => {
+const Chip = ({ item, inputShow, btn_text }) => {
     const { actions, selectors } = useContext(ShoppingCardContext);
 
 	const { cartItems } = selectors.getState();
@@ -58,7 +58,7 @@ const Chip = ({ item, inputShow }) => {
     }
 
     return (
-	<ChipButton addToCart={addToCart} />
+	<ChipButton text={btn_text} addToCart={addToCart} />
     );
 };
 

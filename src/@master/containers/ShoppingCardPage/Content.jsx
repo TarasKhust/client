@@ -3,6 +3,7 @@ import "./ShoppingCardPage.scss";
 import Remove from "./img/cancel.svg";
 import Chip from "components/Chip/Chip";
 import { ShoppingCardContext } from "store/ShoppingCard";
+import { Link } from "react-router-dom";
 
 const Content = () => {
     const { actions, selectors } = useContext(ShoppingCardContext);
@@ -13,14 +14,14 @@ const Content = () => {
 
     const isEmpty = selectors.getIsEmpty();
 
-    if(!isEmpty || !items){
+    if (!isEmpty || !items){
     	return (
-    		<h2>Корзина пустая</h2>
-		)
+	<h2>Корзина пустая</h2>
+		);
 	}
 
     return (
-		<div className="tut-posuda_chip">
+	<div className="tut-posuda_chip">
 		<div className="chip_inner">
 			<h2 className="chip_title">
 				Корзина
@@ -79,7 +80,7 @@ const Content = () => {
 			</div>
 			{sum > 0 && (
 				<div className="chip_basket-row">
-					<button className="submit_basket">оформити замовлення</button>
+					<Link to="/order" className="submit_basket">оформити замовлення</Link>
 				</div>)}
 		</div>
 	</div>

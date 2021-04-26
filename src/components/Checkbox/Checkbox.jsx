@@ -3,7 +3,7 @@ import "./CheckboxStyle.scss";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const Checkbox = ({ mode, checked, onChange, name }) => {
+const Checkbox = ({ mode, checked, onChange, name, disabled }) => {
     const classNames = classnames(
         "styled_checkbox",
         {
@@ -16,11 +16,13 @@ const Checkbox = ({ mode, checked, onChange, name }) => {
 
     return (
 	<div className="checkbox_container">
-		<input id={name}
+		<input
+			id={name}
 			type="checkbox"
 			name={name}
 			checked={checked}
 			onChange={onChange}
+			disabled={disabled}
 		/>
 		<div className={classNames}>
 			<svg viewBox="0 0 24 24" className={`visible ${checked ? "" : "not_visible"}`}>
@@ -34,6 +36,7 @@ const Checkbox = ({ mode, checked, onChange, name }) => {
 Checkbox.propTypes = {
     mode: PropTypes.oneOf(["yellow", "green"]),
     onChange: PropTypes.func,
+	disabled: PropTypes.bool,
 };
 
 export default Checkbox;
