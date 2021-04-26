@@ -1,11 +1,13 @@
 import React, { useMemo } from "react";
 import PropTypes from "prop-types";
-import AccordionContext from "./AccordionContext";
+import AccordionContext from "./accordionContext";
 
 import Collapse from "./Collapse";
 import Toggle from "./Toggle";
 
-const Accordion = ({ element: Component, activeEventKey, onToggle, children, ...otherProps }) => {
+const Accordion = (props) => {
+    const { element: Component, activeEventKey, onToggle, children, ...otherProps } = props;
+
     const context = useMemo(() => {
         return {
             activeEventKey,
@@ -24,6 +26,7 @@ Accordion.propTypes = {
     element: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     activeEventKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     onToggle: PropTypes.func,
+    children: PropTypes.node,
 };
 
 Accordion.defaultProps = {
