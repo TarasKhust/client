@@ -474,10 +474,7 @@ const Content = () => {
 			<h2 className="product_name">{description}</h2>
 			<div className="product_brand-name">{name}</div>
 			<div className="in_stock">
-				<label className="label_container">
-					<Checkbox mode="green" disabled />
-					<span>В наявності</span>
-				</label>
+				<Checkbox mode="green" disabled name="В наявності" />
 			</div>
 			<div className="price">{`${price} грн`}</div>
 			<div className="chopping_card-update">

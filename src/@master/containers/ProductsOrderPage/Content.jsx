@@ -136,17 +136,7 @@ const Content = () => {
 						<div className="flex_checked-list">
 							{deliveryType.map((item, index) => {
                                 return (
-	<label
-		key={index}
-		className="label_container"
-		htmlFor={item}
-	>
-		<Checkbox
-			mode="yellow"
-			name={item}
-		/>
-		<span>{item}</span>
-	</label>
+	<Checkbox key={index} mode="yellow" name={item} />
                                 );
                             })}
 						</div>
@@ -205,17 +195,11 @@ const Content = () => {
 							<div className="flex_checked-list">
 								{paymentType.map((item, index) => {
                                     return (
-	<label
+	<Checkbox
+		mode="yellow"
 		key={index}
-		className="label_container"
-		htmlFor={item}
-	>
-		<Checkbox
-			mode="yellow"
-			name={item}
-		/>
-		<span>{item}</span>
-	</label>
+		name={item}
+	/>
                                     );
                                 })}
 							</div>

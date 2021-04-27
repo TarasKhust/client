@@ -482,15 +482,13 @@ const Content = () => {
 									<Accordion.Collapse eventKey={index} element={Card.Body}>
 										{categoryItems.map((item, index) => {
                                                 return (
-	<label htmlFor={item} key={index} className="label_container">
-		<Checkbox
-			mode="yellow"
-			name={item}
-			checked={checkedItems[item]}
-			onChange={handleCheckedChange}
-		/>
-		<span>{item}</span>
-	</label>
+	<Checkbox
+		mode="yellow"
+		key={index}
+		name={item}
+		checked={checkedItems[item]}
+		onChange={handleCheckedChange}
+	/>
                                                 );
                                             })}
 										<div className="more_row">
@@ -501,10 +499,7 @@ const Content = () => {
                                 ))}
 						</Accordion>
 						<div className="in_stock">
-							<label className="label_container">
-								<Checkbox mode="green" />
-								<span>Тільки в наявності</span>
-							</label>
+							<Checkbox mode="green" name="Тільки в наявності" />
 						</div>
 					</div>
 					<div className="price_filter">
@@ -517,22 +512,13 @@ const Content = () => {
 						</h2>
 						<ul className="manufacture_list">
 							<li>
-								<label className="label_container">
-									<Checkbox mode="yellow" />
-									<span>Bormioli Rocco</span>
-								</label>
+								<Checkbox mode="yellow" name="Bormioli Rocco" />
 							</li>
 							<li>
-								<label className="label_container">
-									<Checkbox mode="yellow" />
-									<span>Luminarc</span>
-								</label>
+								<Checkbox mode="yellow" name="Luminarc" />
 							</li>
 							<li>
-								<label className="label_container">
-									<Checkbox mode="yellow" />
-									<span>Peterhof</span>
-								</label>
+								<Checkbox mode="yellow" name="Peterhof" />
 							</li>
 						</ul>
 						<div className="more_row">

@@ -15,24 +15,40 @@ const Checkbox = ({ mode, checked, onChange, name, disabled }) => {
     );
 
     return (
-	<div className="checkbox_container">
-		<input
-			id={name}
-			type="checkbox"
-			name={name}
-			checked={checked}
-			onChange={onChange}
-			disabled={disabled}
-		/>
-		<div className={classNames}>
-			<svg viewBox="0 0 24 24" className={`visible ${checked ? "" : "not_visible"}`}>
-				<polyline points="20 6 9 17 4 12" />
-			</svg>
+	<label htmlFor={name} className="label_container">
+		<div className="checkbox_container">
+			<input
+				id={name}
+				type="checkbox"
+				name={name}
+				checked={checked}
+				onChange={onChange}
+				disabled={disabled}
+			/>
+			<div className={classNames}>
+				<svg viewBox="0 0 24 24" className={`visible ${checked ? "" : "not_visible"}`}>
+					<polyline points="20 6 9 17 4 12" />
+				</svg>
+			</div>
 		</div>
-	</div>
+		<span className={`${!checked ? "" : "name_checked"}`}>{name}</span>
+	</label>
+
     );
 };
 
+/*
+ * <label
+ * 	className="label_container"
+ * 	htmlFor={item}
+ * >
+ * 	<Checkbox
+ * 		mode="yellow"
+ * 		name={item}
+ * 	/>
+ * 	<span>{item}</span>
+ * </label>
+ */
 Checkbox.propTypes = {
     mode: PropTypes.oneOf(["yellow", "green"]),
     onChange: PropTypes.func,

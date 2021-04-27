@@ -442,6 +442,31 @@
     }
   }
 }
+@media only screen and (max-width: 425px){
+  .tut-posuda_chip{
+    .chip_inner{
+      .chip_basket-table{
+        tbody{
+          .chip_row-items{
+            td{
+              .chip_item-title{
+              }
+            }
+          }
+        }
+      }
+      .chip_basket-row{
+        .total_basket-price{
+        }
+        .submit_basket{
+          width: 100%;
+          text-align: center;
+        }
+      }
+    }
+  }
+}
+
 @media only screen and (max-width: 375px){
   .tut-posuda_chip{
     .chip_inner{
@@ -463,7 +488,6 @@
           margin: 20px 0 0 0;
         }
         .submit_basket{
-          width: 100%;
         }
       }
     }

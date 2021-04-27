@@ -7,31 +7,6 @@ const ListProduct = ({ image, vendor, price, name, description, _id, overview, p
 	<li className="product_item">
 		<figure className="content_image">
 			<img src={image} alt="" />
-			<ul className="preview_hidden">
-				{overview.map(({ title, size, material, features }) => {
-                                return (
-	<Fragment key={size}>
-		<li>{title}</li>
-		<li>
-			Розмір:
-			<span>{size}</span>
-		</li>
-		<li>
-			Матеріал:
-			<span>{material}</span>
-		</li>
-		{features
-                                            ? <li>
-	Додатково:
-	<span>{features}</span>
-                                              </li>
-                                            : ""}
-
-	</Fragment>
-                                );
-                            })}
-
-			</ul>
 		</figure>
 		<div className="content_description">
 			<div className="article_row">

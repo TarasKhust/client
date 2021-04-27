@@ -378,3 +378,22 @@
   }
 }
 
+@media only screen and (max-width: 768px){
+  .tut_posuda-product{
+    .product_inner{
+      .product_visible{
+        .product_overview{
+          .product_name{
+            font-size: 22px;
+            line-height: 29px;
+          }
+          .product_brand-name{
+            font-size: 10px;
+            line-height: 15px;
+          }
+        }
+      }
+    }
+  }
+}
+
