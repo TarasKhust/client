@@ -10,7 +10,7 @@ import Chip from "components/Chip/Chip";
 // install Swiper's Controller component
 SwiperCore.use([Navigation]);
 
-const Arrivals = () => {
+const Arrivals = ({ title }) => {
     const items = [
       {
 	    _id: "1",
@@ -60,8 +60,8 @@ const Arrivals = () => {
 };
 
     return (
-	<section className="arrivals_content" >
-		<h2 className="arrivals_title">Новые поступления</h2>
+	<div className="arrivals_inner" >
+		<h2 className="arrivals_title">{title}</h2>
 		<div className="content_inner">
 			<Slider
 				{...swiperConfig}
@@ -91,7 +91,7 @@ const Arrivals = () => {
 		<div className="arrivals_link">
 			<Button text="Магазин" animation="draw-outline" />
 		</div>
-	</section>
+	</div>
     );
 };
 

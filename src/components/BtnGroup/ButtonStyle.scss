@@ -5,6 +5,10 @@
   position: relative;
   z-index: 1;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   &.btn_yellow{
     color: #595959;
     background: #F9E547;

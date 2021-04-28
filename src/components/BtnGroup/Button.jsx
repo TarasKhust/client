@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./ButtonStyle.scss";
+import { Link } from "react-router-dom";
 
 const Button = ({ animation, text, mode, size, className, disabled, onClick, ...props }) => {
     const classNames = classnames(
@@ -15,14 +16,14 @@ const Button = ({ animation, text, mode, size, className, disabled, onClick, ...
     );
 
     return (
-	<button
+	<Link to="/catalog"
 		className={classNames}
 		onClick={onClick}
 		disabled={disabled}
 		{...props}
 	>
 		{text}
-	</button>
+	</Link>
     );
 };
 

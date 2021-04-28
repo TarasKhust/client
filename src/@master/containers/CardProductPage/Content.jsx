@@ -6,6 +6,7 @@ import "./CardProductStyle.scss";
 import Checkbox from "components/Checkbox/Checkbox";
 import Chip from "components/Chip/Chip";
 import ListProduct from "@master/containers/ListProduct/ListProduct";
+import Arrivals from "components/NewArrivals/Arrivals";
 
 SwiperCore.use([Pagination, Navigation, Controller, Thumbs, Lazy]);
 
@@ -429,6 +430,8 @@ const Content = () => {
         thumbs: { swiper: thumbsSwiper },
         controller: { control: controlledSwiper },
         pagination: true,
+        navigation: true,
+
     };
 
     return (
@@ -527,26 +530,7 @@ const Content = () => {
             })}
 
 			<div className="products_choice-category">
-				<div className="choice_inner">
-					<h2 className="category_title">Товари з цієї категорії</h2>
-					<ul className="category_list">
-						{catagoryItems.slice(0, 3).map(({ _id, packaging, image, description, vendor, name, price, overview }) => {
-                            return (
-	<ListProduct
-		overview={overview}
-		packaging={packaging}
-		key={_id}
-		_id={_id}
-		image={image}
-		description={description}
-		vendor={vendor}
-		name={name}
-		price={price}
-	/>
-                            );
-                        })}
-					</ul>
-				</div>
+				<Arrivals title="Товари з цієї категорії" />
 			</div>
 		</div>
 
