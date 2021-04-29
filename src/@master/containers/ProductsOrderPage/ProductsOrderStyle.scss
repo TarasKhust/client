@@ -238,17 +238,19 @@
             line-height: 39px;
           }
           .submit_form{
-            .input_group{
-              margin: 0 0 15px 0;
-              label{
-                font-size: 18px;
-                line-height: 21px;
-                left: 20px;
-              }
-              input{
-                padding: 14px 20px;
-                font-size: 18px;
-                line-height: 21px;
+            .form_input-row{
+              .input_group{
+                margin: 0 0 15px 0;
+                label{
+                  font-size: 18px;
+                  line-height: 21px;
+                  left: 20px;
+                }
+                input{
+                  padding: 14px 20px;
+                  font-size: 18px;
+                  line-height: 21px;
+                }
               }
             }
             .flex_checked-list{
@@ -380,16 +382,18 @@
           .form_title{
           }
           .submit_form{
-            .input_group{
-              input{
-                padding: 15px 20px 10px 20px;
-                font-size: 16px;
-                line-height: 19px;
-              }
-              label{
-                font-size: 15px;
-                line-height: 18px;
-                left: 15px;
+            .form_input-row{
+              .input_group{
+                input{
+                  padding: 15px 20px 10px 20px;
+                  font-size: 16px;
+                  line-height: 19px;
+                }
+                label{
+                  font-size: 15px;
+                  line-height: 18px;
+                  left: 15px;
+                }
               }
             }
             .flex_checked-list{
@@ -754,6 +758,15 @@
         line-height: 25px;
       }
       .order_content{
+        .order_form-submit{
+          .submit_form{
+            .form_input-row{
+              p{
+                font-size: 9px;
+              }
+            }
+          }
+        }
         .order_repeat-list{
           margin: 0 0 20px 0;
           .flex_count-order{
