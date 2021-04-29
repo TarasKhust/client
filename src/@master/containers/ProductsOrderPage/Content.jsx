@@ -113,45 +113,60 @@ const Content = () => {
 				<div className="order_form-submit">
 					<h3 className="form_title">Адреса доставки</h3>
 					<form autoComplete="off" className="submit_form" onSubmit={handleSubmit(onSubmit)} >
-						<InputField
-							onChange={handleChange}
-							placeholder=" "
-							type="text"
-							name="name"
-							label="ФИО*"
-						/>
-						<InputField
-							onChange={handleChange}
-							placeholder=" "
-							type="text"
-							name="phone"
-							label="Телефон*"
-							errors={errors}
-							defaultValue="+380"
-							register={register("phone", {
-								required: "Поле Телефон обов'язкове  для заповнення",
-								pattern: {
-									message: "invalid phone",
-									value: /^([0-9\+]{0,3})\s?\(([0-9]{1,6})\)\s?([0-9\-]{1,9})$/,
-								},
-							})}
-						/>
-						{errors.phone && <p>{errors.phone.message}</p>}
-						<InputField
-							onChange={handleChange}
-							placeholder=" "
-							type="text"
-							label="Email"
-							name="email"
-							errors={errors}
-							register={register("email", {
-								pattern: {
-									value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-									message: "invalid email address",
-								},
-							})}
-						/>
-						{errors.email && <p>{errors.email.message}</p>}
+						<div className="form_input-row">
+							<InputField
+								onChange={handleChange}
+								placeholder=" "
+								type="text"
+								name="name"
+								label="ПІБ*"
+								errors={errors}
+								register={register("name", {
+									required: "Поле ПІБ обов'язкове  для заповнення",
+									pattern: {
+										message: "Ім'я та прізвище будьте ласкаві",
+										value: /^[A-Z][a-z]+\s[A-Z][a-z]+$/,
+									},
+								})}
+							/>
+							{errors.name && <p>{errors.name.message}</p>}
+						</div>
+						<div className="form_input-row">
+							<InputField
+								onChange={handleChange}
+								placeholder=" "
+								type="text"
+								name="phone"
+								label="Телефон*"
+								errors={errors}
+								defaultValue="+380"
+								register={register("phone", {
+									required: "Поле Телефон обов'язкове  для заповнення",
+									pattern: {
+										message: "Введіть коректний номер телефону",
+										value: /^[0-9]{10}$/,
+									},
+								})}
+							/>
+							{errors.phone && <p>{errors.phone.message}</p>}
+						</div>
+						<div className="form_input-row">
+							<InputField
+								onChange={handleChange}
+								placeholder=" "
+								type="text"
+								label="Email"
+								name="email"
+								errors={errors}
+								register={register("email", {
+									pattern: {
+										value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+										message: "Невірна адреса електронної пошти",
+									},
+								})}
+							/>
+							{errors.email && <p>{errors.email.message}</p>}
+						</div>
 						<div className="flex_checked-list">
 							{deliveryType.map((item, index) => {
                                 return (
@@ -160,51 +175,130 @@ const Content = () => {
                             })}
 						</div>
 						<div className="checked_visible">
-							<InputField
-								onChange={handleChange}
-								placeholder=" "
-								type="text"
-								name="city"
-								label="Город*"
-							/>
-							<InputField
-								onChange={handleChange}
-								placeholder=" "
-								type="text"
-								name="post_office"
-								label="Відділення Нова Пошта №*"
-							/>
+							<div className="form_input-row">
+								<InputField
+									onChange={handleChange}
+									placeholder=" "
+									type="text"
+									name="city"
+									label="Місто*"
+									errors={errors}
+									register={register("city", {
+										required: "Поле Місто обов'язкове  для заповнення",
+										minLength: {
+											value: 3,
+											message: "Це поле повинне містити більше 3 символів",
+										},
+									})}
+								/>
+								{errors.city && <p>{errors.city.message}</p>}
+							</div>
+
+							<div className="form_input-row">
+								<InputField
+									onChange={handleChange}
+									placeholder=" "
+									type="text"
+									name="post_office"
+									label="Відділення Нова Пошта №*"
+									errors={errors}
+									register={register("post_office", {
+										required: "Поле відділення Нова Пошта № обов'язкове  для заповнення",
+										pattern: {
+											value: /[1-9]+/,
+											message: "Це поле повинне містити тільки числа",
+										},
+										minLength: {
+											value: 1,
+											message: "Це поле повинне містити більше 1 символа",
+										},
+									})}
+								/>
+								{errors.post_office && <p>{errors.post_office.message}</p>}
+							</div>
+
 						</div>
 						<div className="checked_visible">
-							<InputField
-								onChange={handleChange}
-								placeholder=" "
-								type="text"
-								name="city"
-								label="Город*"
-							/>
-							<InputField
-								onChange={handleChange}
-								placeholder=" "
-								type="text"
-								name="street"
-								label="Вулиця*"
-							/>
+							<div className="form_input-row">
+								<InputField
+									onChange={handleChange}
+									placeholder=" "
+									type="text"
+									name="city"
+									label="Місто*"
+									errors={errors}
+									register={register("city", {
+										required: "Поле Місто обов'язкове  для заповнення",
+										minLength: {
+											value: 3,
+											message: "Це поле повинне містити більше 3 символів",
+										},
+									})}
+								/>
+								{errors.city && <p>{errors.city.message}</p>}
+							</div>
+							<div className="form_input-row">
+								<InputField
+									onChange={handleChange}
+									placeholder=" "
+									type="text"
+									name="street"
+									label="Вулиця*"
+									errors={errors}
+									register={register("street", {
+										required: "Поле Вулиця обов'язкове  для заповнення",
+										minLength: {
+											value: 3,
+											message: "Це поле повинне містити більше 3 символів",
+										},
+									})}
+								/>
+								{errors.street && <p>{errors.street.message}</p>}
+							</div>
 							<div className="checked_row">
-								<InputField
-									onChange={handleChange}
-									placeholder=" "
-									type="text"
-									name="house_number"
-									label="№ дома*"
-								/>
-								<InputField
-									onChange={handleChange}
-									placeholder=" "
-									type="text"
-									name="apartment_number"
-									label="№ квартиры"
-								/>
+								<div className="form_input-row">
+									<InputField
+										onChange={handleChange}
+										placeholder=" "
+										type="text"
+										name="house_number"
+										label="№ будинку*"
+										errors={errors}
+										register={register("house_number", {
+											required: "Поле № будинку обов'язкове  для заповнення",
+											pattern: {
+												value: /[1-9]+/,
+												message: "Це поле повинне містити тільки числа",
+											},
+											minLength: {
+												value: 1,
+												message: "Це поле повинне містити більше 1 символа",
+											},
+										})}
+									/>
+									{errors.house_number && <p>{errors.house_number.message}</p>}
+								</div>
+								<div className="form_input-row">
+									<InputField
+										onChange={handleChange}
+										placeholder=" "
+										type="text"
+										name="apartment_number"
+										label="№ квартири"
+										errors={errors}
+										register={register("apartment_number", {
+											pattern: {
+												value: /\d+/,
+												message: "Це поле повинне містити тільки числа",
+											},
+											minLength: {
+												value: 1,
+												message: "Це поле повинне містити більше 1 символа",
+											},
+										})}
+									/>
+									{errors.apartment_number && <p>{errors.apartment_number.message}</p>}
+								</div>
 							</div>
 						</div>
 						<div className="checked_payment-type">

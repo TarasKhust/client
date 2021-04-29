@@ -11,7 +11,7 @@ const InputField = ({ value, label, name, placeholder, type, onChange, register,
 				name={name}
 				className="form-control"
 
-				onFocus={(event) => event.target.value = defaultValue }
+				// onFocus={(event) => event.target.value = defaultValue }
 				placeholder={placeholder}
 				onChange={onChange}
 				{ ...register }
