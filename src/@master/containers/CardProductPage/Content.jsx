@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Controller, Thumbs, Navigation, Lazy } from "swiper";
 import "swiper/swiper-bundle.css";
 import "./CardProductStyle.scss";
 import Checkbox from "components/Checkbox/Checkbox";
 import Chip from "components/Chip/Chip";
-import ListProduct from "@master/containers/ListProduct/ListProduct";
 import Arrivals from "components/NewArrivals/Arrivals";
+import Button from "components/BtnGroup/Button";
 
 SwiperCore.use([Pagination, Navigation, Controller, Thumbs, Lazy]);
 
@@ -482,8 +482,13 @@ const Content = () => {
 			<div className="price">{`${price} грн`}</div>
 			<div className="chopping_card-update">
 				<Chip
-					btn_text="В кошик"
+					inputShow
 					item={{ _id, name, image, description, price, vendor }}
+				/>
+				<Button
+					item={{ _id, name, image, description, price, vendor }}
+					text="В кошик"
+					showSvg
 				/>
 			</div>
 			<div className="product_details-list">

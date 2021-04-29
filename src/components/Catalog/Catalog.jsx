@@ -8,7 +8,7 @@ import plates from "./img/plates.png";
 import cutlery from "./img/cutlery.png";
 
 import services from "./img/services.png";
-import Button from "components/BtnGroup/Button";
+import LinkBtn from "components/BtnGroup/LinkBtn";
 
 const Catalog = () => {
     return (
@@ -68,7 +68,7 @@ const Catalog = () => {
 				</a>
 			</div>
 			<div className="catalog_link">
-				<Button text="Магазин" animation="draw-outline" />
+				<LinkBtn text="Магазин" animation="draw-outline" />
 			</div>
 		</div>
 	</section>

@@ -4,7 +4,7 @@ import SwiperCore, { Navigation } from "swiper";
 import "swiper/swiper.scss";
 import "swiper/components/navigation/navigation.scss";
 import "./ArrivalsStyle.scss";
-import Button from "components/BtnGroup/Button";
+import LinkBtn from "components/BtnGroup/LinkBtn";
 import Chip from "components/Chip/Chip";
 
 // install Swiper's Controller component
@@ -89,7 +89,7 @@ const Arrivals = ({ title }) => {
 			</Slider>
 		</div>
 		<div className="arrivals_link">
-			<Button text="Магазин" animation="draw-outline" />
+			<LinkBtn text="Магазин" animation="draw-outline" />
 		</div>
 	</div>
     );

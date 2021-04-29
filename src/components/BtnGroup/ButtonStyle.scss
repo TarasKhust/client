@@ -9,6 +9,15 @@
   align-items: center;
   justify-content: center;
   text-decoration: none;
+  svg{
+    display: none;
+    &.visible{
+      display: flex;
+      margin: 0 0 0 30px;
+      width: 20px;
+      height: 20px;
+    }
+  }
   &.btn_yellow{
     color: #595959;
     background: #F9E547;

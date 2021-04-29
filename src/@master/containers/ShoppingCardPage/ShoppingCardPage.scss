@@ -11,7 +11,22 @@
       text-align: center;
       margin: 65px 0 70px 0;
     }
+    .shopping_cart-list{
+      display: table;
+      table-layout: auto;
+      border-spacing: 0 30px;
+      width: 100%;
+      .shopping_cart-head{
+        display: table-header-group;
+        .head_item{
+          display: table-cell;
+          padding-bottom: 10px;
+        }
+      }
+      .shopping_list{
 
+      }
+    }
 
     .chip_basket-table{
       width: 100%;
@@ -85,10 +100,9 @@
               align-items: center;
               justify-content: space-between;
               border: 1px solid #97999B;
-
               padding: 15px;
-              width: 120px;
               margin: 0 auto;
+              width: 110px;
               span{
                 background: transparent;
                 font-weight: normal;
@@ -123,6 +137,7 @@
             &.desc-gr{
               color: #06813F;
               font-weight: 500;
+              width: 110px;
             }
           }
           .remove{
@@ -205,7 +220,6 @@
             }
             .quantity{
               .quantity_inner{
-                width: 100px;
                 padding: 12px;
                 input{
                   font-size: 16px;
@@ -271,7 +285,6 @@
             }
             .quantity{
               .quantity_inner{
-                width: 75px;
                 padding: 10px;
                 input{
                   font-size: 15px;

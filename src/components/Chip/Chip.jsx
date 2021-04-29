@@ -6,6 +6,7 @@ import InputChip from "components/Chip/InputChip";
 import ChipButton from "components/Chip/ChipButton";
 
 const Chip = ({ item, inputShow, btn_text }) => {
+    console.log(item);
     const { actions, selectors } = useContext(ShoppingCardContext);
 
 	const { cartItems } = selectors.getState();
@@ -65,6 +66,7 @@ const Chip = ({ item, inputShow, btn_text }) => {
 Chip.propTypes = {
     item: PropTypes.object,
     inputShow: PropTypes.bool,
+    btn_text: PropTypes.string,
 };
 
 export default Chip;

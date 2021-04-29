@@ -2,9 +2,10 @@ import React from "react";
 import "./CheckboxStyle.scss";
 import classnames from "classnames";
 import PropTypes from "prop-types";
+import { ShoppingCardContext } from "store/ShoppingCard";
 
 const Checkbox = ({ mode, checked, onChange, name, disabled }) => {
-    const classNames = classnames(
+	const classNames = classnames(
         "styled_checkbox",
         {
             [`styled_${mode}`]: Boolean(mode),

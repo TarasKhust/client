@@ -26,6 +26,19 @@ const Content = () => {
 			<h2 className="chip_title">
 				Корзина
 			</h2>
+			<div className="shopping_cart-list">
+				<div className="shopping_cart-head">
+					<span className="head_item">Продукт</span>
+					<span className="head_item"></span>
+					<span className="head_item">Артикул</span>
+					<span className="head_item">Ціна</span>
+					<span className="head_item">Кількість</span>
+					<span className="head_item">Всього</span>
+				</div>
+				<div className="shopping_list">
+
+				</div>
+			</div>
 			<table className="chip_basket-table" cellPadding="0" cellSpacing="0">
 				<tbody>
 					<tr className="chip_row-head">

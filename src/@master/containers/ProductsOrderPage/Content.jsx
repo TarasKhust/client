@@ -3,6 +3,7 @@ import "./ProductsOrderStyle.scss";
 import Checkbox from "components/Checkbox/Checkbox";
 import { Link } from "react-router-dom";
 import InputField from "components/InputField/InputField";
+import { useForm } from "react-hook-form";
 
 const Content = () => {
     const items = [
@@ -72,6 +73,8 @@ const Content = () => {
 
 	const [toggleSummary, setToggleSummary] = useState(false);
 	const [buttonText, setButtonText] = useState("Детальніше про замовлення");
+	const { handleSubmit, setError, formState: { errors }, register } = useForm();
+	const onSubmit = data => console.log({ data }, "data");
 
 	const handleToggleSummary = () => {
 		setToggleSummary(!toggleSummary);
@@ -100,8 +103,6 @@ const Content = () => {
 			...prev,
 			[name]: value,
 		}));
-
-		console.log(inputValue);
 	};
 
     return (
@@ -111,7 +112,7 @@ const Content = () => {
 			<div className="order_content">
 				<div className="order_form-submit">
 					<h3 className="form_title">Адреса доставки</h3>
-					<form action="" className="submit_form">
+					<form autoComplete="off" className="submit_form" onSubmit={handleSubmit(onSubmit)} >
 						<InputField
 							onChange={handleChange}
 							placeholder=" "
@@ -122,17 +123,35 @@ const Content = () => {
 						<InputField
 							onChange={handleChange}
 							placeholder=" "
-							type="phone"
+							type="text"
 							name="phone"
 							label="Телефон*"
+							errors={errors}
+							defaultValue="+380"
+							register={register("phone", {
+								required: "Поле Телефон обов'язкове  для заповнення",
+								pattern: {
+									message: "invalid phone",
+									value: /^([0-9\+]{0,3})\s?\(([0-9]{1,6})\)\s?([0-9\-]{1,9})$/,
+								},
+							})}
 						/>
+						{errors.phone && <p>{errors.phone.message}</p>}
 						<InputField
 							onChange={handleChange}
 							placeholder=" "
-							type="email"
-							name="email"
+							type="text"
 							label="Email"
+							name="email"
+							errors={errors}
+							register={register("email", {
+								pattern: {
+									value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+									message: "invalid email address",
+								},
+							})}
 						/>
+						{errors.email && <p>{errors.email.message}</p>}
 						<div className="flex_checked-list">
 							{deliveryType.map((item, index) => {
                                 return (
@@ -208,6 +227,7 @@ const Content = () => {
 							<Link to="/catalog" >Продовжити покупки</Link>
 							<button type="submit">Оформити замовлення</button>
 						</div>
+
 					</form>
 				</div>
 				<div className="order_line"></div>
