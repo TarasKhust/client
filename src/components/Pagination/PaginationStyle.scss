@@ -4,7 +4,7 @@
   justify-content: center;
 }
 
-.paginationItem {
+.pagination_item {
   background: transparent;
   border-radius: 50%;
   width: 32px;
@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-.paginationItem span {
+.pagination_item span {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -37,7 +37,7 @@
   cursor: pointer;
 }
 
-.paginationItem.active {
+.pagination_item.active {
   background: #F9E547;
   span{
     font-weight: 600;

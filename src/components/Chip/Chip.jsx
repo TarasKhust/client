@@ -6,7 +6,6 @@ import InputChip from "components/Chip/InputChip";
 import ChipButton from "components/Chip/ChipButton";
 
 const Chip = ({ item, inputShow, btn_text }) => {
-    console.log(item);
     const { actions, selectors } = useContext(ShoppingCardContext);
 
 	const { cartItems } = selectors.getState();
