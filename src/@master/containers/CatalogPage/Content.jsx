@@ -9,6 +9,7 @@ import ListProduct from "@master/containers/ListProduct/ListProduct";
 import Filter from "./img/filter.svg";
 
 import useVisible from "modules/useVisible";
+import Pagination from "components/Pagination/Pagination";
 
 const Content = () => {
     const [activeEventKey, setActiveEventKey] = useState(0);
@@ -563,23 +564,12 @@ const Content = () => {
 							</select>
 						</div>
 					</div>
-					<ul className="products_list">
-						{items.map(({ _id, packaging, image, description, vendor, name, price, overview }) => {
-                            return (
-	                            <ListProduct
-		overview={overview}
-		packaging={packaging}
-		key={_id}
-		_id={_id}
-		image={image}
-		description={description}
-		vendor={vendor}
-		name={name}
-		price={price}
-	                            />
-                            );
-                        })}
-					</ul>
+					<Pagination
+						data={items}
+						RenderComponent={ListProduct}
+						pageLimit={5}
+						dataLimit={10}
+					/>
 				</div>
 			</div>
 		</div>
