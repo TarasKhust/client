@@ -51,7 +51,7 @@
           vertical-align: middle;
           width: 120px;
           height: 100px;
-          min-width: 90px;
+          min-width: 70px;
           text-align: center;
           img{
             height: 100%;
@@ -59,26 +59,7 @@
             object-fit: contain;
           }
         }
-        .list_item-info{
-          display: table-cell;
-          vertical-align: middle;
-          max-width: 300px;
-          width: 300px;
-          padding-left: 25px;
-          .info-title{
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            width: 100%;
-            font-family: "Montserrat", "sans-serif";
-            font-weight: normal;
-            font-size: 18px;
-            line-height: 149.9%;
-            color: #4B4B44;
-            text-align: start;
-            margin: 0;
-          }
-        }
+
         .list_item{
           font-family: "Montserrat", "sans-serif";
           font-weight: normal;
@@ -86,11 +67,31 @@
           line-height: 22px;
           letter-spacing: 0.035em;
           color: #424242;
-
+          border-bottom: 1px solid rgba(75, 75, 68, 0.17);
           display: table-cell;
           vertical-align: middle;
           width: 150px;
           text-align: center;
+          &.list_item-info{
+            display: table-cell;
+            vertical-align: middle;
+            max-width: 300px;
+            width: 300px;
+            padding-left: 25px;
+            .info-title{
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 100%;
+              font-family: "Montserrat", "sans-serif";
+              font-weight: normal;
+              font-size: 18px;
+              line-height: 149.9%;
+              color: #4B4B44;
+              text-align: start;
+              margin: 0;
+            }
+          }
           &.item_total-count{
             p{
               color: #06813F;
@@ -134,144 +135,22 @@
               text-align: end;
             }
           }
-        }
-        .list_item-remove{
-          display: table-cell;
-          vertical-align: middle;
-          padding: 0 0 0 25px;
-          width: 50px;
-          text-align: end;
-          cursor: pointer;
-          svg{
-            width: 15px;
-            height: 15px;
+          &.list_item-remove{
+            display: table-cell;
+            vertical-align: middle;
+            padding: 0 0 0 25px;
+            width: 50px;
+            text-align: end;
+            cursor: pointer;
+            svg{
+              width: 15px;
+              height: 15px;
+            }
           }
         }
+
       }
     }
-
-    //.chip_basket-table{
-    //  width: 100%;
-    //  border-collapse: collapse;
-    //  border-spacing: 0px;
-    //  tbody{
-    //    .chip_row-head{
-    //      border-bottom: 1px solid #4B4B442B;
-    //      padding: 0 0 12px 0;
-    //      .head_title{
-    //        font-family: "Montserrat", "sans-serif";
-    //        font-weight: 600;
-    //        color: #424242;
-    //        padding: 0 0 12px 0;
-    //        &.t-large{
-    //          font-size: 29px;
-    //          line-height: 35px;
-    //          text-align: start;
-    //        }
-    //        &.t-small{
-    //          font-size: 20px;
-    //          line-height: 24px;
-    //        }
-    //      }
-    //      .row_vis-l{
-    //        span{
-    //
-    //        }
-    //      }
-    //      .row_vis-r{
-    //
-    //      }
-    //    }
-    //    .chip_row-items{
-    //      .item_vis-l{
-    //        div{
-    //          margin: 20px 0;
-    //          display: flex;
-    //          align-items: center;
-    //          figure{
-    //            display: flex;
-    //            align-items: center;
-    //            justify-content: center;
-    //            margin: 0;
-    //            width: 206px;
-    //            height: 163px;
-    //            img{
-    //              width: 100%;
-    //              object-fit: contain;
-    //              height: 100%;
-    //            }
-    //          }
-    //        }
-    //      }
-    //      td{
-    //        .chip_item-title{
-    //          font-family: "Montserrat", "sans-serif";
-    //          font-weight: normal;
-    //          font-size: 18px;
-    //          line-height: 149.9%;
-    //          color: #4B4B44;
-    //          width: 65%;
-    //          text-align: start;
-    //          margin: 0;
-    //        }
-    //      }
-    //      .quantity{
-    //        padding: 0;
-    //        .quantity_inner{
-    //          display: flex;
-    //          align-items: center;
-    //          justify-content: space-between;
-    //          border: 1px solid #97999B;
-    //          padding: 15px;
-    //          margin: 0 auto;
-    //          width: 110px;
-    //          span{
-    //            background: transparent;
-    //            font-weight: normal;
-    //            font-size: 24px;
-    //            line-height: 29px;
-    //            color: #97999B;
-    //            cursor: pointer;
-    //          }
-    //          input{
-    //            font-family: "Montserrat", "sans-serif";
-    //            font-weight: 500;
-    //            font-size: 22px;
-    //            line-height: 27px;
-    //            color: #5A5C5E;
-    //            border: none;
-    //          }
-    //        }
-    //      }
-    //      .chip_item-desc{
-    //        text-align: center;
-    //        font-family: "Montserrat", "sans-serif";
-    //        font-weight: normal;
-    //        font-size: 18px;
-    //        line-height: 22px;
-    //        letter-spacing: 0.035em;
-    //        color: #424242;
-    //        padding: 0 30px;
-    //        border-bottom: 1px solid #4B4B442B;
-    //        &.quantity{
-    //          padding: 0;
-    //        }
-    //        &.desc-gr{
-    //          color: #06813F;
-    //          font-weight: 500;
-    //          width: 110px;
-    //        }
-    //      }
-    //      .remove{
-    //        cursor: pointer;
-    //        svg{
-    //          width: 15px;
-    //          height: 15px;
-    //        }
-    //      }
-    //    }
-    //  }
-    //}
     .chip_basket-row{
       display: flex;
       align-items: center;
@@ -310,49 +189,36 @@
       .chip_title{
         margin: 35px 0 55px 0;
       }
-      .chip_basket-table{
-        tbody{
-          .chip_row-head{
-            .head_title{
-              padding: 0 0 5px 0;
-              &.t-large{
-                font-size: 22px;
-                line-height: 29px;
-              }
-              &.t-small{
-                font-size: 15px;
+      .shopping_cart-list{
+        .shopping_cart-head{
+          .head_item{
+            &.t-large{
+              font-size: 22px;
+              line-height: 29px;
+            }
+            &.t-small{
+              font-size: 16px;
+              line-height: 19px;
+            }
+          }
+        }
+        .shopping_list{
+          .list_item{
+            font-size: 16px;
+            line-height: 19px;
+            &.list_item-info{
+              .info-title{
+                font-size: 16px;
                 line-height: 19px;
               }
             }
-          }
-          .chip_row-items{
-            .item_vis-l{
-              div{
-                figure{
-                  width: 160px;
-                  height: 130px;
-                }
-              }
-            }
-            td{
-              .chip_item-title{
-                font-size: 15px;
-                width: 90%;
-              }
-            }
-            .quantity{
+            &.list_item-actions{
               .quantity_inner{
-                padding: 12px;
                 input{
-                  font-size: 16px;
+                  font-size: 14px;
                   line-height: 19px;
                 }
               }
-            }
-            .chip_item-desc{
-              padding: 0 25px;
-              font-size: 16px;
-              line-height: 19px;
             }
           }
         }
@@ -382,45 +248,30 @@
         line-height: 41px;
         margin: 15px 0 45px 0;
       }
-      .chip_basket-table{
-        tbody{
-          .chip_row-head{
-            padding: 0 0 5px 0;
-            .head_title{
-              &.t-large{
-                font-size: 18px;
-                line-height: 21px;
-              }
+    }
+  }
+}
+@media only screen and (max-width: 1024px){
+  .tut-posuda_chip{
+    .chip_inner{
+      width:95%;
+      .shopping_cart-list{
+        .shopping_cart-head{
+          .head_item{
+            &.t-large{
+              font-size: 20px;
+            }
+            &.t-small{
+              font-size: 15px;
             }
           }
-          .chip_row-items{
-            .item_vis-l{
-              div{
-                figure{
-                  width: 140px;
-                  height: 110px;
-                }
-              }
-            }
-            .chip_item-desc{
-              padding: 0 20px;
-            }
-            .quantity{
-              .quantity_inner{
-                padding: 10px;
-                input{
-                  font-size: 15px;
-                }
-                span{
-                  font-size: 18px;
-                  line-height: 21px;
-                }
-              }
-            }
-            td{
-              .chip_item-title{
-                font-size: 14px;
-                width: 100%;
+        }
+        .shopping_list{
+          .list_item{
+            &.list_item-info{
+              width: 250px;
+              .info-title{
+                font-size:15px ;
               }
             }
           }
@@ -429,52 +280,27 @@
     }
   }
 }
-
-@media only screen and (max-width: 945px){
+@media only screen and (max-width: 880px){
   .tut-posuda_chip{
     .chip_inner{
-      width:95%;
-      .chip_basket-table{
-        tbody{
-          .chip_row-head{
-            .head_title{
-              &.t-small{
-                font-size: 14px;
-                line-height: 17px;
-              }
-              &.t-large{
-                font-size: 16px;
-                line-height: 19px;
-              }
-            }
+      .shopping_cart-list{
+        .shopping_list{
+          .list_item-img{
+            width: 100px;
+            height: 90px;
           }
-          .chip_row-items{
-            .item_vis-l{
-              div{
-                margin: 15px 0;
-                figure{
-                  width: 100px;
-                  height: 100px;
-                }
+          .list_item{
+            width: 100px;
+            max-width: 100px;
+            &.list_item-info{
+              max-width: 250px;
+              .info-title{
+                font-size: 14px;
               }
             }
-            .chip_item-desc{
-              padding: 0 10px;
-              font-size: 12px;
-            }
-            td{
-              .chip_item-title{
-                font-size: 12px;
-              }
-            }
-            .quantity{
-              .quantity_inner{
-                span{
-                  font-size: 14px;
-                }
-                input{
-                }
-              }
+            &.list_item-remove{
+              padding: 0 0 0 15px;
+              width: 35px;
             }
           }
         }
@@ -490,53 +316,39 @@
         font-size: 32px;
         line-height: 39px;
       }
-      .chip_basket-table{
-        tbody{
-          .chip_row-head{
-            .head_title{
-              &.vendor, &.in_all{
-                display: none;
-              }
+      .shopping_cart-list{
+        .shopping_cart-head{
+          .head_item{
+            &.t-large{
+              font-size: 18px;
+            }
+            &.t-small{
+              font-size: 14px;
             }
           }
-          .chip_row-items{
-            .item_vis-l{
-              div{
-                margin: 10px 0;
-                figure{
-                  width: 90px;
-                  height: 90px;
-                }
-              }
-            }
-            .chip_item-desc{
-              padding: 0 8px;
-              &.vendor, &.desc-gr{
-                display: none;
-              }
-            }
-            .remove{
-              svg{
-                width: 30px;
-                height: 10px;
-              }
-            }
-            td{
-              .chip_item-title{
-                //width: 60%;
-              }
-            }
-            .quantity{
+        }
+        .shopping_list{
+          .list_item-img{
+            width: 90px;
+            height: 80px;
+          }
+          .list_item{
+            font-size: 14px;
+            &.list_item-actions{
+              width: 90px;
               .quantity_inner{
-                width: 70px;
-                padding: 0;
-                input{
-                  font-size: 12px;
-                  margin: 0;
-                }
-                span{
-                  padding: 4px;
-                }
+                padding: 8px;
+              }
+            }
+            &.list_item-info{
+              max-width: 180px;
+              .info-title{
+                font-size: 12px;
+              }
+            }
+            &.item_total-count{
+              p{
+                font-size: 15px;
               }
             }
           }
@@ -557,18 +369,56 @@
   }
 }
 
+@media only screen and (max-width: 680px){
+  .tut-posuda_chip{
+    .chip_inner{
+      .shopping_cart-list{
+        .shopping_cart-head{
+          .head_item{
+            &.vendor{
+              display: none;
+            }
+            &.total{
+              display: none;
+            }
+          }
+        }
+        .shopping_list{
+          .list_item{
+            &.list_item-vendor{
+              display: none;
+            }
+            &.item_total-count{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
 @media only screen and (max-width: 530px){
   .tut-posuda_chip{
     .chip_inner{
-      .chip_basket-table{
-        tbody{
-          .chip_row-items{
-            .item_vis-l{
-              div{
-                figure{
-                  width: 70px;
-                  height: 80px;
-                }
+      .chip_title{
+        margin: 15px 0 20px 0;
+        font-size: 28px;
+        line-height: 31px;
+      }
+      .shopping_cart-list{
+        .shopping_list{
+          .list_item{
+            font-size: 12px;
+            &.list_item-actions{
+              width: 110px;
+            }
+            &.list_item-price{
+              padding: 0 10px 0 0;
+            }
+            &.list_item-info{
+              .info-title{
+                font-size: 10px;
+                white-space: initial;
               }
             }
           }
@@ -580,12 +430,33 @@
 @media only screen and (max-width: 425px){
   .tut-posuda_chip{
     .chip_inner{
-      .chip_basket-table{
-        tbody{
-          .chip_row-items{
-            td{
-              .chip_item-title{
+      .shopping_cart-list{
+        .shopping_cart-head{
+          .head_item{
+            &.t-large{
+
+            }
+          }
+        }
+        .shopping_list{
+          .list_item-img{
+
+          }
+          .list_item{
+            &.list_item-actions{
+              .quantity_inner{
+                //width: 120px;
+                input{
+                  font-size: 12px;
+                }
               }
+            }
+            &.list_item-info{
+              padding-left: 12px;
+            }
+            &.list_item-remove{
+              padding: 0 0 0 10px;
+              width: 20px;
             }
           }
         }
@@ -602,15 +473,54 @@
   }
 }
 
-@media only screen and (max-width: 375px){
+@media only screen and (max-width: 390px){
   .tut-posuda_chip{
     .chip_inner{
-      .chip_basket-table{
-        tbody{
-          .chip_row-items{
-            td{
-              .chip_item-title{
-                font-size: 10px;
+      .shopping_cart-list{
+        border-spacing: 0 15px;
+        .shopping_cart-head{
+          .head_item{
+            padding: 0!important;
+            &.t-large{
+              font-size: 16px;
+              line-height: 19px;
+            }
+            &.t-small{
+              font-size: 12px;
+              line-height: 15px;
+            }
+          }
+        }
+        .shopping_list{
+          .list_item-img{
+            width: 70px;
+            height: 80px;
+          }
+          .list_item{
+            &.list_item-info{
+              .info-title{
+                line-height: 17px;
+              }
+            }
+            &.list_item-price{
+              line-height: 13px;
+              padding: 0 5px 0 5px;
+            }
+            &.list_item-actions{
+              .quantity_inner{
+                padding: 0;
+                input{
+                  margin: 0;
+                }
+                span{
+                  margin: 5px;
+                }
+              }
+            }
+            &.list_item-remove{
+              svg{
+                width: 15px;
+                height: 10px;
               }
             }
           }
