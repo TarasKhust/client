@@ -9,12 +9,17 @@ import ListProduct from "@master/containers/ListProduct/ListProduct";
 import Filter from "./img/filter.svg";
 
 import useVisible from "modules/useVisible";
+import { useQueryBrands } from "api/brands.api";
 
 const Content = () => {
     const [activeEventKey, setActiveEventKey] = useState(0);
     const [checkedItems, setCheckedItems] = useState({});
     const [sorted, setSorted] = useState([]);
     const { ref, isVisible, setIsVisible } = useVisible(false);
+    const { loading, data } = useQueryBrands();
+
+
+    const itemsBrand = !loading ? data?.getAllBrands : [];
 
     const items = [
         {
@@ -516,24 +521,17 @@ const Content = () => {
 							Производители:
 						</h2>
 						<ul className="manufacture_list">
-							<li>
-								<label className="label_container">
-									<Checkbox mode="yellow" />
-									<span>Bormioli Rocco</span>
-								</label>
-							</li>
-							<li>
-								<label className="label_container">
-									<Checkbox mode="yellow" />
-									<span>Luminarc</span>
-								</label>
-							</li>
-							<li>
-								<label className="label_container">
-									<Checkbox mode="yellow" />
-									<span>Peterhof</span>
-								</label>
-							</li>
+
+							{itemsBrand.map(({ id, name }) => {
+                    return (
+                          <li key={id} >
+                            <label className="label_container">
+                              <Checkbox mode="yellow" />
+                              <span>{name}</span>
+                            </label>
+                          </li>
+                    );
+                })}
 						</ul>
 						<div className="more_row">
 							<span className="btn_more" >
