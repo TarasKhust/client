@@ -36,7 +36,6 @@ const Pagination = ({ data, RenderComponent, pageLimit, dataLimit }) => {
     const pages = [];
 
     for (let i = 1; i < Math.floor(data.length / pageLimit); i++){
-        console.log(i, "i");
         pages.push(i);
     }
 
