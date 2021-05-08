@@ -9,6 +9,7 @@ import ListProduct from "@master/containers/ListProduct/ListProduct";
 import Filter from "./img/filter.svg";
 
 import useVisible from "modules/useVisible";
+import { useQueryBrands } from "api/brands.api";
 import Pagination from "components/Pagination/Pagination";
 
 const Content = () => {
@@ -16,6 +17,10 @@ const Content = () => {
     const [checkedItems, setCheckedItems] = useState({});
     const [sorted, setSorted] = useState([]);
     const { ref, isVisible, setIsVisible } = useVisible(false);
+    const { loading, data } = useQueryBrands();
+
+
+    const itemsBrand = !loading ? data?.getAllBrands : [];
 
     const items = [
         {
@@ -483,13 +488,15 @@ const Content = () => {
 									<Accordion.Collapse eventKey={index} element={Card.Body}>
 										{categoryItems.map((item, index) => {
                                                 return (
-	<Checkbox
-		mode="yellow"
-		key={index}
-		name={item}
-		checked={checkedItems[item]}
-		onChange={handleCheckedChange}
-	/>
+	<label htmlFor={item} key={index} className="label_container">
+		<Checkbox
+			mode="yellow"
+			name={item}
+			checked={checkedItems[item]}
+			onChange={handleCheckedChange}
+		/>
+		<span>{item}</span>
+	</label>
                                                 );
                                             })}
 										<div className="more_row">
@@ -500,7 +507,10 @@ const Content = () => {
                                 ))}
 						</Accordion>
 						<div className="in_stock">
-							<Checkbox mode="green" name="Тільки в наявності" />
+							<label className="label_container">
+								<Checkbox mode="green" />
+								<span>Тільки в наявності</span>
+							</label>
 						</div>
 					</div>
 					<div className="price_filter">
@@ -512,15 +522,14 @@ const Content = () => {
 							Производители:
 						</h2>
 						<ul className="manufacture_list">
-							<li>
-								<Checkbox mode="yellow" name="Bormioli Rocco" />
-							</li>
-							<li>
-								<Checkbox mode="yellow" name="Luminarc" />
-							</li>
-							<li>
-								<Checkbox mode="yellow" name="Peterhof" />
-							</li>
+
+							{itemsBrand.map(({ id, name }) => {
+                    return (
+                          <li key={id} >
+                              <Checkbox mode="yellow" name={name} />
+                          </li>
+                    );
+                })}
 						</ul>
 						<div className="more_row">
 							<span className="btn_more" >
