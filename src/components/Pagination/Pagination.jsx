@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
+import ArrowR from "./img/arrowRight.svg";
+import ArrorL from "./img/arrowLeft.svg";
+import Circle from "./img/circle.svg";
 import "./PaginationStyle.scss";
 
 const Pagination = ({ data, RenderComponent, pageLimit, dataLimit }) => {
-    // const [pages] = useState(Math.ceil(data.length / dataLimit));
     const [currentPage, setCurrentPage] = useState(1);
 
     useEffect(() => {
@@ -51,16 +53,8 @@ const Pagination = ({ data, RenderComponent, pageLimit, dataLimit }) => {
         );
     });
 
-/*
- *     const getPaginationGroup = () => {
- *         const start = Math.floor((currentPage - 1) / pageLimit) * pageLimit;
- *         return new Array(pageLimit).fill()
- * .map((_, idx) => start + idx + 1);
- *     };
- */
-
     return (
-	<div>
+	<div className="tut_posuda-pagination">
 		<ul className="products_list">
 			{getPaginatedData().map(({ _id, packaging, image, description, vendor, name, price, overview }) => (
 				<RenderComponent
@@ -76,31 +70,31 @@ const Pagination = ({ data, RenderComponent, pageLimit, dataLimit }) => {
 				/>
                 ))}
 		</ul>
-		<div>
+		<div className="pagination_items">
+			<div className="watch_more-column">
 
-			<button onClick={goToNextPage}>goToNextPage</button>
+				<button
+					onClick={goToNextPage}
+					className={`btn_next-page ${currentPage === pages.length ? "disabled" : ""}`}
+				>
+					<Circle />
+					<span>Показати ще</span>
+				</button>
+			</div>
+
 			<div className="pagination">
 				<button
 					onClick={goToPreviousPage}
 					className={`prev ${currentPage === 1 ? "disabled" : ""}`}
 				>
-					prev
+					<ArrorL />
 				</button>
-				{/*{getPaginationGroup().map((item, index) => (*/}
-				{/*	<button*/}
-				{/*		key={index}*/}
-				{/*		onClick={changePage}*/}
-				{/*		className={`pagination_item ${currentPage === item ? "active" : null}`}*/}
-				{/*	>*/}
-				{/*		<span>{item}</span>*/}
-				{/*	</button>*/}
-				{/*))}*/}
-				{renderPageNumber}
+				    {renderPageNumber}
 				<button
 					onClick={goToNextPage}
 					className={`next ${currentPage === pages.length ? "disabled" : ""}`}
 				>
-					next
+					<ArrowR />
 				</button>
 			</div>
 

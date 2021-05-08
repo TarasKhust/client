@@ -7,7 +7,6 @@ import Arrow from "./img/arrow.svg";
 import RangeSlider from "components/RangeSlider/RangeSlider";
 import ListProduct from "@master/containers/ListProduct/ListProduct";
 import Filter from "./img/filter.svg";
-
 import useVisible from "modules/useVisible";
 import { useQueryBrands } from "api/brands.api";
 import Pagination from "components/Pagination/Pagination";
@@ -18,7 +17,6 @@ const Content = () => {
     const [sorted, setSorted] = useState([]);
     const { ref, isVisible, setIsVisible } = useVisible(false);
     const { loading, data } = useQueryBrands();
-
 
     const itemsBrand = !loading ? data?.getAllBrands : [];
 
@@ -488,15 +486,13 @@ const Content = () => {
 									<Accordion.Collapse eventKey={index} element={Card.Body}>
 										{categoryItems.map((item, index) => {
                                                 return (
-	<label htmlFor={item} key={index} className="label_container">
-		<Checkbox
-			mode="yellow"
-			name={item}
-			checked={checkedItems[item]}
-			onChange={handleCheckedChange}
-		/>
-		<span>{item}</span>
-	</label>
+	<Checkbox
+		mode="yellow"
+		key={index}
+		name={item}
+		checked={checkedItems[item]}
+		onChange={handleCheckedChange}
+	/>
                                                 );
                                             })}
 										<div className="more_row">
@@ -525,9 +521,9 @@ const Content = () => {
 
 							{itemsBrand.map(({ id, name }) => {
                     return (
-                          <li key={id} >
-                              <Checkbox mode="yellow" name={name} />
-                          </li>
+	<li key={id} >
+		<Checkbox mode="yellow" name={name} />
+	</li>
                     );
                 })}
 						</ul>

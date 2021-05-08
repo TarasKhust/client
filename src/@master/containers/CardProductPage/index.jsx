@@ -18,7 +18,7 @@ const router = () => {
     return (
 	<Portal node={container}>
 		<Suspense fallback={null}>
-			<Route path="/card_product">
+			<Route path="/card_product/:slug">
 				<CardProduct>
 					<Content />
 				</CardProduct>

@@ -1,8 +1,79 @@
-.pagination {
+
+@keyframes rotate{
+  from{ transform: rotate(-360deg); }
+  to{ transform: rotate(360deg); }
+}
+.tut_posuda-pagination{
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  .pagination_items{
+    .watch_more-column{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0 0 45px 0;
+      .btn_next-page{
+        outline: none;
+        border: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        span{
+          font-family: "Montserrat", "sans-serif";
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
+          color: #595959;
+          margin: 15px 0 0 0;
+        }
+        &:hover{
+          svg{
+            animation-name: rotate;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+          }
+        }
+        &.disabled{
+          opacity: 0.5;
+          &:hover{
+            svg{
+              animation: none;
+            }
+          }
+        }
+      }
+    }
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .prev,
+      .next {
+        border: none;
+        padding: 10px;
+        margin: 0 20px;
+        cursor: pointer;
+        background: transparent;
+        &.disabled{
+          pointer-events: none;
+          svg{
+            path{
+              fill: rgb(177 177 177);
+            }
+          }
+        }
+      }
+    }
+  }
 }
+
 
 .pagination_item {
   background: transparent;
@@ -26,16 +97,7 @@
   color: #747474;
 }
 
-.prev,
-.next {
-  background: #fff;
-  border: none;
-  padding: 10px;
-  color: blue;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.4);
-  margin: 0 10px;
-  cursor: pointer;
-}
+
 
 .pagination_item.active {
   background: #F9E547;
@@ -45,9 +107,3 @@
   }
 }
 
-.prev.disabled,
-.next.disabled {
-  pointer-events: none;
-  box-shadow: none;
-  color: #999;
-}
