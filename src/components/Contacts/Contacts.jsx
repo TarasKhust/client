@@ -14,27 +14,29 @@ const Contacts = () => {
 	<div className="tut_posuda-contacts" id="contacts">
 		<div className="contacts_inner">
 			<h2 className="contacts_title">Контакти</h2>
-			<ul className="view_contacts">
-				<li>
-					<Phone />
-					<a href="tel:+38 (068) 675 89 87">+ 38 (068) 675 89 87</a>
-				</li>
-				<li>
-					<Mail />
-					<a href="mailto:tut_posuda@gmail.com">tut_posuda@gmail.com</a>
-				</li>
-				<li>
-					<Location />
-					<span>Україна, Київ</span>
-				</li>
-				<li>
-					<Clock />
-					<span> с 10:00 до 20:00, без выходных</span>
-				</li>
+			<div>
+				<ul className="view_contacts">
+					<li>
+						<Phone />
+						<a href="tel:+38 (068) 675 89 87">+ 38 (068) 675 89 87</a>
+					</li>
+					<li>
+						<Mail />
+						<a href="mailto:tut_posuda@gmail.com">tut_posuda@gmail.com</a>
+					</li>
+					<li>
+						<Location />
+						<span>Україна, Київ</span>
+					</li>
+					<li>
+						<Clock />
+						<span> с 10:00 до 20:00, без выходных</span>
+					</li>
+				</ul>
 				<div className="social_contacts">
-					<a href="" target="_blank">
-						<Pinterest />
-					</a>
+					{/*<a href="" target="_blank">*/}
+					{/*	<Pinterest />*/}
+					{/*</a>*/}
 					<a href="https://m.facebook.com/Tut-Posuda-100766448739248/" target="_blank">
 						<Facebook />
 					</a>
@@ -42,7 +44,7 @@ const Contacts = () => {
 						<Instagram />
 					</a>
 				</div>
-			</ul>
+			</div>
 		</div>
 	</div>
     );
