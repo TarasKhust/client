@@ -87,6 +87,10 @@ module.exports = {
 			filename: process.env.NODE_ENV === "development" ? "card_product" : "card_product.html",
 			template: path.resolve(__dirname, "./src/assets/card_product.html"),
 		}),
+		new HtmlWebpackPlugin({
+			filename: process.env.NODE_ENV === "development" ? "about" : "about.html",
+			template: path.resolve(__dirname, "./src/assets/about.html"),
+		}),
 	],
 
 	resolveLoader: {

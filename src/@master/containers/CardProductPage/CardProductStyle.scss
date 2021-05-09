@@ -305,6 +305,19 @@
 }
 
 @media only screen and (max-width: 945px){
+  body{
+    &.nav_open{
+      overflow-y: hidden;
+      &:before{
+        background-color: rgba(0,0,0,.5);
+        content: '';
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+      }
+    }
+  }
   .tut_posuda-product{
     .product_inner{
       width: 95%;
@@ -377,19 +390,6 @@
 }
 
 @media only screen and (max-width: 768px){
-  body{
-    &.nav_open{
-      overflow-y: hidden;
-      &:before{
-        background-color: rgba(0,0,0,.5);
-        content: '';
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        z-index: 999;
-      }
-    }
-  }
   .tut_posuda-product{
     .product_inner{
       .product_visible{

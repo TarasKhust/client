@@ -43,6 +43,10 @@ app.get("/card_product", (req, res) => {
   res.sendFile(path.join(publicPath, "card_product.html"));
 });
 
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(publicPath, "about.html"));
+});
+
 app.listen(port, () => {
   console.log(`Hello World I run on PORT ${ port}`);
 });
