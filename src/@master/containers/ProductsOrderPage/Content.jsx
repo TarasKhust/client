@@ -60,20 +60,30 @@ const Content = () => {
         },
     ];
 
-	const [inputValue, setInputValue] = useState({
-		name: "",
-		phone: "",
-		email: "",
-		city: "",
-		post_office: "",
-		street: "",
-		house_number: "",
-		apartment_number: "",
-	});
-
+	/*
+	 * const [inputValue, setInputValue] = useState({
+	 * 	name: "",
+	 * 	phone: "",
+	 * 	email: "",
+	 * 	city: "",
+	 * 	post_office: "",
+	 * 	street: "",
+	 * 	house_number: "",
+	 * 	apartment_number: "",
+	 * });
+	 */
+	const [delivery, setDelivery] = useState("");
 	const [toggleSummary, setToggleSummary] = useState(false);
 	const [buttonText, setButtonText] = useState("Детальніше про замовлення");
-	const { handleSubmit, setError, formState: { errors }, register } = useForm();
+	const { handleSubmit, formState: { errors }, register } = useForm();
+	const express = delivery === "express";
+	const postOffice = delivery === "postOffice";
+
+	const deliveryChange = (evt) => {
+		const target = evt.currentTarget.name;
+		setDelivery(target);
+	};
+
 	const onSubmit = data => console.log({ data }, "data");
 
 	const handleToggleSummary = () => {
@@ -86,24 +96,10 @@ const Content = () => {
 		}
 	};
 
-	const deliveryType = [
-        "Доставка у відділення НП",
-        "Доставка кур'єром",
-    ];
-
     const paymentType = [
         "Повна оплата на карту",
         "Накладеним платежем",
     ];
-
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-
-		setInputValue((prev) => ({
-			...prev,
-			[name]: value,
-		}));
-	};
 
     return (
 	<div className="tut-posuda_order">
@@ -115,7 +111,8 @@ const Content = () => {
 					<form autoComplete="off" className="submit_form" onSubmit={handleSubmit(onSubmit)} >
 						<div className="form_input-row">
 							<InputField
-								onChange={handleChange}
+
+								// onChange={handleChange}
 								placeholder=" "
 								type="text"
 								name="name"
@@ -125,7 +122,8 @@ const Content = () => {
 									required: "Поле ПІБ обов'язкове  для заповнення",
 									pattern: {
 										message: "Ім'я та прізвище будьте ласкаві",
-										value: /^[A-Z][a-z]+\s[A-Z][a-z]+$/,
+
+										// value: /^[A-Z][a-z]+\s[A-Z][a-z]+$/,
 									},
 								})}
 							/>
@@ -133,7 +131,8 @@ const Content = () => {
 						</div>
 						<div className="form_input-row">
 							<InputField
-								onChange={handleChange}
+
+								// onChange={handleChange}
 								placeholder=" "
 								type="text"
 								name="phone"
@@ -152,7 +151,8 @@ const Content = () => {
 						</div>
 						<div className="form_input-row">
 							<InputField
-								onChange={handleChange}
+
+								// onChange={handleChange}
 								placeholder=" "
 								type="text"
 								label="Email"
@@ -168,41 +168,53 @@ const Content = () => {
 							{errors.email && <p>{errors.email.message}</p>}
 						</div>
 						<div className="flex_checked-list">
-							{deliveryType.map((item, index) => {
-                                return (
-	<Checkbox key={index} mode="yellow" name={item} />
-                                );
-                            })}
+							<Checkbox
+								mode="yellow"
+								name="postOffice"
+								label="Доставка у відділення НП"
+								checked={postOffice}
+								onChange={deliveryChange}
+							/>
+							<Checkbox
+								mode="yellow"
+								name="express"
+								label="Доставка кур'єром"
+								checked={express}
+								onChange={deliveryChange}
+							/>
 						</div>
-						<div className="checked_visible">
-							<div className="form_input-row">
-								<InputField
-									onChange={handleChange}
-									placeholder=" "
-									type="text"
-									name="city"
-									label="Місто*"
-									errors={errors}
-									register={register("city", {
+						{postOffice
+							&&						<div className="checked_visible">
+								<div className="form_input-row">
+									<InputField
+
+									// onChange={handleChange}
+										placeholder=" "
+										type="text"
+										name="city"
+										label="Місто*"
+										errors={errors}
+										register={register("city", {
 										required: "Поле Місто обов'язкове  для заповнення",
 										minLength: {
 											value: 3,
 											message: "Це поле повинне містити більше 3 символів",
 										},
 									})}
-								/>
-								{errors.city && <p>{errors.city.message}</p>}
-							</div>
+									/>
+									{errors.city && <p>{errors.city.message}</p>}
+								</div>
 
-							<div className="form_input-row">
-								<InputField
-									onChange={handleChange}
-									placeholder=" "
-									type="text"
-									name="post_office"
-									label="Відділення Нова Пошта №*"
-									errors={errors}
-									register={register("post_office", {
+								<div className="form_input-row">
+									<InputField
+
+									// onChange={handleChange}
+										placeholder=" "
+										type="text"
+										name="post_office"
+										label="Відділення Нова Пошта №*"
+										errors={errors}
+										register={register("post_office", {
 										required: "Поле відділення Нова Пошта № обов'язкове  для заповнення",
 										pattern: {
 											value: /[1-9]+/,
@@ -213,15 +225,17 @@ const Content = () => {
 											message: "Це поле повинне містити більше 1 символа",
 										},
 									})}
-								/>
-								{errors.post_office && <p>{errors.post_office.message}</p>}
-							</div>
+									/>
+									{errors.post_office && <p>{errors.post_office.message}</p>}
+								</div>
 
-						</div>
-						<div className="checked_visible">
+               </div>}
+						{express
+						&& <div className="checked_visible">
 							<div className="form_input-row">
 								<InputField
-									onChange={handleChange}
+
+									// onChange={handleChange}
 									placeholder=" "
 									type="text"
 									name="city"
@@ -239,7 +253,8 @@ const Content = () => {
 							</div>
 							<div className="form_input-row">
 								<InputField
-									onChange={handleChange}
+
+									// onChange={handleChange}
 									placeholder=" "
 									type="text"
 									name="street"
@@ -258,7 +273,8 @@ const Content = () => {
 							<div className="checked_row">
 								<div className="form_input-row">
 									<InputField
-										onChange={handleChange}
+
+										// onChange={handleChange}
 										placeholder=" "
 										type="text"
 										name="house_number"
@@ -280,7 +296,8 @@ const Content = () => {
 								</div>
 								<div className="form_input-row">
 									<InputField
-										onChange={handleChange}
+
+										// onChange={handleChange}
 										placeholder=" "
 										type="text"
 										name="apartment_number"
@@ -300,7 +317,7 @@ const Content = () => {
 									{errors.apartment_number && <p>{errors.apartment_number.message}</p>}
 								</div>
 							</div>
-						</div>
+         </div>}
 						<div className="checked_payment-type">
 							<h3 className="payment_title">
 								Спосіб оплати
@@ -312,6 +329,7 @@ const Content = () => {
 		mode="yellow"
 		key={index}
 		name={item}
+		label={item}
 	/>
                                     );
                                 })}

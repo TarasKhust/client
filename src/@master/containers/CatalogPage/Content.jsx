@@ -457,6 +457,8 @@ const Content = () => {
             ...checkedItems,
             [event.target.name]: event.target.checked,
         });
+
+        console.log("checkedItems: ", checkedItems);
     };
 
     const handleChange = (event) => {
@@ -492,6 +494,7 @@ const Content = () => {
 		name={item}
 		checked={checkedItems[item]}
 		onChange={handleCheckedChange}
+		label={item}
 	/>
                                                 );
                                             })}
@@ -503,10 +506,7 @@ const Content = () => {
                                 ))}
 						</Accordion>
 						<div className="in_stock">
-							<label className="label_container">
-								<Checkbox mode="green" />
-								<span>Тільки в наявності</span>
-							</label>
+							<Checkbox mode="green" label="Тільки в наявності" name="Тільки в наявності" />
 						</div>
 					</div>
 					<div className="price_filter">
@@ -522,7 +522,7 @@ const Content = () => {
 							{itemsBrand.map(({ id, name }) => {
                     return (
 	<li key={id} >
-		<Checkbox mode="yellow" name={name} />
+		<Checkbox mode="yellow" name={name} label={name} />
 	</li>
                     );
                 })}

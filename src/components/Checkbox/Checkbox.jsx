@@ -2,9 +2,8 @@ import React from "react";
 import "./CheckboxStyle.scss";
 import classnames from "classnames";
 import PropTypes from "prop-types";
-import { ShoppingCardContext } from "store/ShoppingCard";
 
-const Checkbox = ({ mode, checked, onChange, name, disabled }) => {
+const Checkbox = ({ mode, checked = false, onChange, name, disabled, label }) => {
 	const classNames = classnames(
         "styled_checkbox",
         {
@@ -22,7 +21,7 @@ const Checkbox = ({ mode, checked, onChange, name, disabled }) => {
 				id={name}
 				type="checkbox"
 				name={name}
-				checked={checked}
+				defaultChecked={checked}
 				onChange={onChange}
 				disabled={disabled}
 			/>
@@ -32,28 +31,18 @@ const Checkbox = ({ mode, checked, onChange, name, disabled }) => {
 				</svg>
 			</div>
 		</div>
-		<span className={`${!checked ? "" : "name_checked"}`}>{name}</span>
+		<span className={`${!checked ? "" : "name_checked"}`}>{label}</span>
 	</label>
 
     );
 };
 
-/*
- * <label
- * 	className="label_container"
- * 	htmlFor={item}
- * >
- * 	<Checkbox
- * 		mode="yellow"
- * 		name={item}
- * 	/>
- * 	<span>{item}</span>
- * </label>
- */
 Checkbox.propTypes = {
     mode: PropTypes.oneOf(["yellow", "green"]),
     onChange: PropTypes.func,
 	disabled: PropTypes.bool,
+	name: PropTypes.string,
+	checked: PropTypes.bool,
 };
 
 export default Checkbox;

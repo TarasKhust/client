@@ -31,7 +31,7 @@ InputField.propTypes = {
     placeholder: PropTypes.string.isRequired,
     type: PropTypes.oneOf(["text", "number", "password", "email", "phone"]),
     value: PropTypes.any,
-    onChange: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
 };
 
 export default InputField;
