@@ -25,8 +25,6 @@ const Content = () => {
 
     const categoryAll = !loadingCategory ? dataCategory?.categoryFindAll : [];
 
-    console.log(categoryAll);
-
     const items = [
         {
             _id: "1",
@@ -417,8 +415,6 @@ const Content = () => {
             ...checkedItems,
             [event.target.name]: event.target.checked,
         });
-
-        console.log("checkedItems: ", checkedItems);
     };
 
     const handleChange = (event) => {

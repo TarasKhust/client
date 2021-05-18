@@ -37,7 +37,7 @@
     "graphql": "15.5.0",
     "history": "4.10.1",
     "immutable": "4.0.0-rc.12",
-    "node": "^12.13.1",
+    "node": "12.13.1",
     "parcel-bundler": "1.12.4",
     "postcss-loader": "5.2.0",
     "postcss-url": "10.1.1",
