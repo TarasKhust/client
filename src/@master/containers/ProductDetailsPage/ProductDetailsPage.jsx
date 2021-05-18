@@ -3,7 +3,7 @@ import React, { Fragment } from "react";
 import Header from "components/HeaderGroup/Header";
 import Footer from "components/Footer/Footer";
 
-const CardProductPage = ({ children }) => {
+const ProductDetailsPage = ({ children }) => {
     return (
 	<Fragment>
 		<Header />
@@ -13,8 +13,8 @@ const CardProductPage = ({ children }) => {
     );
 };
 
-export default CardProductPage;
+export default ProductDetailsPage;
 
-CardProductPage.propTypes = {
+ProductDetailsPage.propTypes = {
     children: PropTypes.node,
 };

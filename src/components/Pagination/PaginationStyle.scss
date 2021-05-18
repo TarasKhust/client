@@ -1,0 +1,109 @@
+
+@keyframes rotate{
+  from{ transform: rotate(-360deg); }
+  to{ transform: rotate(360deg); }
+}
+.tut_posuda-pagination{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .pagination_items{
+    .watch_more-column{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0 0 45px 0;
+      .btn_next-page{
+        outline: none;
+        border: none;
+        background: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        cursor: pointer;
+        span{
+          font-family: "Montserrat", "sans-serif";
+          font-weight: 600;
+          font-size: 18px;
+          line-height: 22px;
+          color: #595959;
+          margin: 15px 0 0 0;
+        }
+        &:hover{
+          svg{
+            animation-name: rotate;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+          }
+        }
+        &.disabled{
+          opacity: 0.5;
+          &:hover{
+            svg{
+              animation: none;
+            }
+          }
+        }
+      }
+    }
+    .pagination {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .prev,
+      .next {
+        border: none;
+        padding: 10px;
+        margin: 0 20px;
+        cursor: pointer;
+        background: transparent;
+        &.disabled{
+          pointer-events: none;
+          svg{
+            path{
+              fill: rgb(177 177 177);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+
+.pagination_item {
+  background: transparent;
+  border-radius: 50%;
+  width: 32px;
+  height: 30px;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+}
+
+.pagination_item span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  color: #747474;
+}
+
+
+
+.pagination_item.active {
+  background: #F9E547;
+  span{
+    font-weight: 600;
+    color: #424242;
+  }
+}
+

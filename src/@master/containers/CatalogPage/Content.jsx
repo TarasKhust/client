@@ -7,19 +7,23 @@ import Arrow from "./img/arrow.svg";
 import RangeSlider from "components/RangeSlider/RangeSlider";
 import ListProduct from "@master/containers/ListProduct/ListProduct";
 import Filter from "./img/filter.svg";
-
 import useVisible from "modules/useVisible";
 import { useQueryBrands } from "api/brands.api";
+import { useQueryCategory } from "api/category.api";
+import Pagination from "components/Pagination/Pagination";
 
 const Content = () => {
     const [activeEventKey, setActiveEventKey] = useState(0);
     const [checkedItems, setCheckedItems] = useState({});
     const [sorted, setSorted] = useState([]);
     const { ref, isVisible, setIsVisible } = useVisible(false);
-    const { loading, data } = useQueryBrands();
 
+    const { loading, data } = useQueryBrands();
+    const { loading: loadingCategory, data: dataCategory } = useQueryCategory();
 
     const itemsBrand = !loading ? data?.getAllBrands : [];
+
+    const categoryAll = !loadingCategory ? dataCategory?.categoryFindAll : [];
 
     const items = [
         {
@@ -404,53 +408,6 @@ const Content = () => {
         "Від дорогих до дешевих",
     ];
 
-    const content = [
-        {
-            category: "Столовая посуда",
-            categoryItems: [
-                    "Столовые сервизы",
-                    "Тарелки",
-                    "Блюда",
-                    "Салатники",
-                    "Бокалы",
-                    "Стаканы",
-            ],
-        },
-        {
-            category: "Кухонная Посуда",
-            categoryItems: [
-                "Столовые сервизы",
-                "Тарелки",
-                "Блюда",
-                "Салатники",
-                "Бокалы",
-                "Стаканы",
-            ],
-        },
-        {
-            category: "Кухонная техника",
-            categoryItems: [
-                "Столовые сервизы",
-                "Тарелки",
-                "Блюда",
-                "Салатники",
-                "Бокалы",
-                "Стаканы",
-            ],
-        },
-        {
-            category: "Хозяйственные товары",
-            categoryItems: [
-                "Столовые сервизы",
-                "Тарелки",
-                "Блюда",
-                "Салатники",
-                "Бокалы",
-                "Стаканы",
-            ],
-        },
-    ];
-
     const handleCheckedChange = event => {
         event.preventDefault();
 
@@ -477,39 +434,35 @@ const Content = () => {
 					<div className="category_filter">
 						<h2 className="title">Категории</h2>
 						<Accordion activeEventKey={activeEventKey} onToggle={setActiveEventKey}>
-							{content.map(({ category, categoryItems }, index) => (
-								<Card key={index}>
+							{categoryAll.map(({ id, title, children }, index) => (
+								<Card key={id}>
 									<Accordion.Toggle element={Card.Header} eventKey={index}>
-										{category}
+										{title}
 										{activeEventKey !== index && <div className="arrow arrow_down"><Arrow /></div>}
 										{activeEventKey === index && <div className="arrow arrow_up"><Arrow /></div>}
 									</Accordion.Toggle>
 									<Accordion.Collapse eventKey={index} element={Card.Body}>
-										{categoryItems.map((item, index) => {
-                                                return (
-	<label htmlFor={item} key={index} className="label_container">
-		<Checkbox
-			mode="yellow"
-			name={item}
-			checked={checkedItems[item]}
-			onChange={handleCheckedChange}
-		/>
-		<span>{item}</span>
-	</label>
-                                                );
-                                            })}
+										{children.map(({ id, title }) => {
+						                        return (
+							<Checkbox
+								mode="yellow"
+								key={id}
+								name={title}
+								checked={checkedItems[title]}
+								onChange={handleCheckedChange}
+								label={title}
+							/>
+						                        );
+						                    })}
 										<div className="more_row">
 											<span className="btn_more" >Дивитись більше</span>
 										</div>
 									</Accordion.Collapse>
 								</Card>
-                                ))}
+						        ))}
 						</Accordion>
 						<div className="in_stock">
-							<label className="label_container">
-								<Checkbox mode="green" />
-								<span>Тільки в наявності</span>
-							</label>
+							<Checkbox mode="green" label="Тільки в наявності" name="Тільки в наявності" />
 						</div>
 					</div>
 					<div className="price_filter">
@@ -523,15 +476,12 @@ const Content = () => {
 						<ul className="manufacture_list">
 
 							{itemsBrand.map(({ id, name }) => {
-                    return (
-                          <li key={id} >
-                            <label className="label_container">
-                              <Checkbox mode="yellow" />
-                              <span>{name}</span>
-                            </label>
-                          </li>
-                    );
-                })}
+						                return (
+							<li key={id} >
+								<Checkbox mode="yellow" name={name} label={name} />
+							</li>
+						                );
+						            })}
 						</ul>
 						<div className="more_row">
 							<span className="btn_more" >
@@ -575,23 +525,12 @@ const Content = () => {
 							</select>
 						</div>
 					</div>
-					<ul className="products_list">
-						{items.map(({ _id, packaging, image, description, vendor, name, price, overview }) => {
-                            return (
-	                            <ListProduct
-		overview={overview}
-		packaging={packaging}
-		key={_id}
-		_id={_id}
-		image={image}
-		description={description}
-		vendor={vendor}
-		name={name}
-		price={price}
-	                            />
-                            );
-                        })}
-					</ul>
+					<Pagination
+						data={items}
+						RenderComponent={ListProduct}
+						pageLimit={5}
+						dataLimit={10}
+					/>
 				</div>
 			</div>
 		</div>

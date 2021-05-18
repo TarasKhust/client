@@ -1,4 +1,4 @@
-.arrivals_content{
+.arrivals_inner{
   margin: 0 0 80px 0;
   .arrivals_title{
     text-align: center;
@@ -154,10 +154,11 @@
     justify-content: center;
     align-items: center;
     margin: 50px 0 0 0;
+    text-decoration: none;
   }
 }
 @media only screen and (max-width: 1600px){
-  .arrivals_content{
+  .arrivals_inner{
     .arrivals_title{
       font-size: 42px;
       line-height: 51px;
@@ -197,7 +198,7 @@
   }
 }
 @media only screen and (max-width: 1440px){
-  .arrivals_content{
+  .arrivals_inner{
     .arrivals_title{
       font-size: 38px;
       line-height: 49px;
@@ -241,7 +242,7 @@
 }
 
 @media only screen and (max-width: 1280px){
-  .arrivals_content{
+  .arrivals_inner{
     .arrivals_title{
     }
     .content_inner{
@@ -287,7 +288,7 @@
 }
 
 @media only screen and (max-width: 1024px){
-  .arrivals_content{
+  .arrivals_inner{
     .content_inner{
       width: 85%;
       .swiper-container{
@@ -314,12 +315,12 @@
 }
 
 @media only screen and (max-width: 1024px){
-  .arrivals_content{
+  .arrivals_inner{
     margin: 0 0 60px 0;
   }
 }
 @media only screen and (max-width: 945px){
-  .arrivals_content{
+  .arrivals_inner{
     .arrivals_title{
       font-size: 36px;
       line-height: 41px;
@@ -327,7 +328,7 @@
   }
 }
 @media only screen and (max-width: 768px){
-  .arrivals_content{
+  .arrivals_inner{
     .arrivals_title{
       font-size: 34px;
       line-height: 39px;
@@ -335,6 +336,10 @@
     .content_inner{
       width: 78%;
       .swiper-container{
+        .swiper-button-prev, .swiper-button-next{
+          width: 30px;
+          height: 30px;
+        }
         .swiper-button-prev{
           left: -8%;
         }
@@ -347,7 +352,7 @@
 }
 
 @media only screen and (max-width: 650px){
-  .arrivals_content{
+  .arrivals_inner{
     .content_inner{
       .swiper-container{
         .swiper-wrapper{
@@ -371,7 +376,7 @@
 }
 
 @media only screen and (max-width: 530px){
-  .arrivals_content{
+  .arrivals_inner{
     .content_inner{
       width: 75%;
       .swiper-container{
@@ -400,7 +405,7 @@
   }
 }
 @media only screen and (max-width: 480px){
-  .arrivals_content{
+  .arrivals_inner{
     .arrivals_title{
       font-size: 32px;
       margin: 0 0 15px 0;
@@ -409,7 +414,7 @@
 }
 
 @media only screen and (max-width: 475px){
-  .arrivals_content{
+  .arrivals_inner{
     .arrivals_title{
       font-size: 28px;
     }
@@ -417,7 +422,7 @@
 }
 
 @media only screen and (max-width: 320px){
-  .arrivals_content{
+  .arrivals_inner{
   padding: 0 15px;
     .content_inner{
       width: 100%;

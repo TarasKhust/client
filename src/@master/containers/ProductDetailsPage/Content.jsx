@@ -1,11 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Controller, Thumbs, Navigation, Lazy } from "swiper";
 import "swiper/swiper-bundle.css";
-import "./CardProductStyle.scss";
+import "./ProductDetailsStyle.scss";
 import Checkbox from "components/Checkbox/Checkbox";
 import Chip from "components/Chip/Chip";
-import ListProduct from "@master/containers/ListProduct/ListProduct";
+import Arrivals from "components/NewArrivals/Arrivals";
+import Button from "components/BtnGroup/Button";
 
 SwiperCore.use([Pagination, Navigation, Controller, Thumbs, Lazy]);
 
@@ -429,6 +430,8 @@ const Content = () => {
         thumbs: { swiper: thumbsSwiper },
         controller: { control: controlledSwiper },
         pagination: true,
+        navigation: true,
+
     };
 
     return (
@@ -474,16 +477,18 @@ const Content = () => {
 			<h2 className="product_name">{description}</h2>
 			<div className="product_brand-name">{name}</div>
 			<div className="in_stock">
-				<label className="label_container">
-					<Checkbox mode="green" disabled />
-					<span>В наявності</span>
-				</label>
+				<Checkbox mode="green" disabled name="В наявності" label="В наявності" />
 			</div>
 			<div className="price">{`${price} грн`}</div>
 			<div className="chopping_card-update">
 				<Chip
-					btn_text="В кошик"
+					inputShow
 					item={{ _id, name, image, description, price, vendor }}
+				/>
+				<Button
+					item={{ _id, name, image, description, price, vendor }}
+					text="В кошик"
+					showSvg
 				/>
 			</div>
 			<div className="product_details-list">
@@ -530,26 +535,7 @@ const Content = () => {
             })}
 
 			<div className="products_choice-category">
-				<div className="choice_inner">
-					<h2 className="category_title">Товари з цієї категорії</h2>
-					<ul className="category_list">
-						{catagoryItems.slice(0, 3).map(({ _id, packaging, image, description, vendor, name, price, overview }) => {
-                            return (
-	<ListProduct
-		overview={overview}
-		packaging={packaging}
-		key={_id}
-		_id={_id}
-		image={image}
-		description={description}
-		vendor={vendor}
-		name={name}
-		price={price}
-	/>
-                            );
-                        })}
-					</ul>
-				</div>
+				<Arrivals title="Товари з цієї категорії" />
 			</div>
 		</div>
 

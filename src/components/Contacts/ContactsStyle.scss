@@ -17,42 +17,42 @@
       text-align: center;
       margin: 0 0 80px 0;
     }
-    .view_contacts{
-      background: #595959;
-      padding: 60px 170px 60px 60px ;
-      position: relative;
-      li{
-        display: flex;
-        align-items: center;
-        margin: 0 0 40px 0 ;
-        &:last-child{
-          margin: 0;
-        }
-        svg{
-          margin: 0 34px 0 0;
-          width: 35px;
-          height: 35px;
-        }
-        span, a{
-          font-weight: normal;
-          font-size: 22px;
-          line-height: 27px;
-          color: #FFFFFF;
-          text-decoration: none;
+    div{
+      display: flex;
+      .view_contacts{
+        background: #595959;
+        padding: 60px 170px 60px 60px ;
+        position: relative;
+        right: -129px;
+        margin: 60px 0;
+        li{
+          display: flex;
+          align-items: center;
+          margin: 0 0 40px 0 ;
+          &:last-child{
+            margin: 0;
+          }
+          svg{
+            margin: 0 34px 0 0;
+            width: 35px;
+            height: 35px;
+          }
+          span, a{
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 27px;
+            color: #FFFFFF;
+            text-decoration: none;
+          }
         }
       }
       .social_contacts{
-        padding: 0 0 25px 0;
-        position: absolute;
+        padding: 0 0 15px 0;
         background: #F9E547;
-        height: calc(100% /5*7);
-        top: -70px;
-        right: -80px;
         display: flex;
         justify-content: space-evenly;
         align-items: flex-end;
-        width: 30%;
-        z-index: -1;
+        width: 100%;
         a{
           width: 25px;
           height:25px;
@@ -62,6 +62,7 @@
           }
         }
       }
+
     }
 
   }
@@ -74,9 +75,11 @@
         font-size: 38px;
         line-height: 49px;
       }
-      .view_contacts{
-        li{
-          margin: 0 0 25px 0;
+      div{
+        .view_contacts{
+          li{
+            margin: 0 0 25px 0;
+          }
         }
       }
     }
@@ -85,16 +88,19 @@
 @media only screen and (max-width: 1280px){
   .tut_posuda-contacts{
     .contacts_inner{
-      .view_contacts{
-        padding: 50px 150px 50px 50px;
-        li{
-          svg{
-            width: 30px;
-            height: 30px;
-          }
-          a, span{
-            font-size: 18px;
-            line-height: 21px;
+      div{
+        .view_contacts{
+          right: -114px;
+          padding: 50px 150px 50px 50px;
+          li{
+            svg{
+              width: 30px;
+              height: 30px;
+            }
+            a, span{
+              font-size: 18px;
+              line-height: 21px;
+            }
           }
         }
       }
@@ -108,14 +114,6 @@
       width: 85%;
       margin: 0 auto;
       padding: 0;
-      .view_contacts{
-        li{
-          svg{
-          }
-          a, span{
-          }
-        }
-      }
     }
   }
 }
@@ -139,24 +137,25 @@
         font-size: 34px;
         line-height: 39px;
       }
-      .view_contacts{
-        padding: 35px 95px 35px 45px;
-        li{
-          svg{
-            width: 25px;
-            height: 25px;
-          }
-          a, span{
-            font-size: 16px;
+      div{
+        .view_contacts{
+          //padding: 35px 95px 35px 45px;
+          right: -108px;
+          li{
+            svg{
+              width: 25px;
+              height: 25px;
+            }
+            a, span{
+              font-size: 16px;
+            }
           }
         }
         .social_contacts{
-          top: -55px;
           a{
-            width: 20px;
-            height: 20px;
           }
         }
+
       }
     }
   }
@@ -165,20 +164,20 @@
 @media only screen and (max-width: 650px){
   .tut_posuda-contacts{
     .contacts_inner{
-      .view_contacts{
-        padding: 35px 45px 35px 45px;
-        li{
-          margin: 0 0 20px 0;
-          svg{
-            width: 25px;
-            height: 25px;
-          }
-          a, span{
-            font-size: 16px;
+      div{
+        .view_contacts{
+          li{
+            margin: 0 0 20px 0;
+            svg{
+              width: 25px;
+              height: 25px;
+            }
+            a, span{
+              font-size: 16px;
+            }
           }
         }
         .social_contacts{
-          right: -35px;
           a{
           }
         }
@@ -193,25 +192,23 @@
       width: 95%;
       .contacts_title{
         font-size: 32px;
+        margin: 0 0 40px 0;
       }
-      .view_contacts{
-        padding: 25px 35px 25px 35px;
-        li{
-          //margin: 0 0 15px 0;
-          svg{
-            width: 20px;
-            height: 20px;
-            margin: 0 15px 0 0;
-          }
-          a, span{
-            font-size: 16px;
+      div{
+        .view_contacts{
+          li{
+            //margin: 0 0 15px 0;
+            svg{
+              width: 20px;
+              height: 20px;
+              margin: 0 15px 0 0;
+            }
+            a, span{
+              font-size: 16px;
+            }
           }
         }
         .social_contacts{
-          width: 50%;
-          top: -45px;
-          a{
-          }
         }
       }
     }
@@ -220,23 +217,42 @@
 
 @media only screen and (max-width: 435px){
   .tut_posuda-contacts{
+    margin: 25px 0 60px 0;
     .contacts_inner{
       width: 95%;
-      .view_contacts{
-        //padding: 25px 35px 25px 35px;
-        li{
-          flex-direction: column;
-          margin: 0 0 15px 0;
-          svg{
+      div{
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+        .view_contacts{
+          right: auto;
+          width: 90%;
+          margin: 0 auto;
+          padding: 20px 0;
+          li{
+            width: 100%;
+            justify-content: center;
             margin: 0 0 15px 0;
-          }
-          a, span{
-            font-size: 15px;
+            flex-direction: column;
+            svg{
+              margin: 0 0 20px 0;
+              width: 30px;
+              height: 30px;
+            }
+            a, span{
+              font-size: 15px;
+            }
           }
         }
         .social_contacts{
-          top: -60px;
+          flex-direction: initial;
+          margin: 0;
+          width: 100%;
+          padding: 20px 0;
+          right: auto;
           a{
+            margin: 0 20px;
           }
         }
       }

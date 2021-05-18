@@ -65,6 +65,7 @@ const Chip = ({ item, inputShow, btn_text }) => {
 Chip.propTypes = {
     item: PropTypes.object,
     inputShow: PropTypes.bool,
+    btn_text: PropTypes.string,
 };
 
 export default Chip;

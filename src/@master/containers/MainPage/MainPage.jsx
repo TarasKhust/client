@@ -17,7 +17,9 @@ import Contacts from "components/Contacts/Contacts";
 		<Catalog />
 		{/*<Privilege />*/}
 		{/*<TradeMarks />*/}
-		<Arrivals />
+		<section className="arrivals_content">
+			<Arrivals title="Нові надходження" />
+		</section>
 		<Contacts />
 		<Footer />
 	</div>

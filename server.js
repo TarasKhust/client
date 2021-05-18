@@ -39,8 +39,12 @@ app.get("/order", (req, res) => {
   res.sendFile(path.join(publicPath, "order.html"));
 });
 
-app.get("/card_product", (req, res) => {
-  res.sendFile(path.join(publicPath, "card_product.html"));
+app.get("/product_details", (req, res) => {
+  res.sendFile(path.join(publicPath, "product_details.html"));
+});
+
+app.get("/about", (req, res) => {
+  res.sendFile(path.join(publicPath, "about.html"));
 });
 
 app.listen(port, () => {

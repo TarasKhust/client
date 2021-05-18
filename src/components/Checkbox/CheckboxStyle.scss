@@ -1,62 +1,79 @@
-.checkbox_container{
-  display: inline-block;
-  vertical-align: middle;
-  width: 15px;
-  height: 15px;
-  overflow: hidden;
-  position: relative;
-  input{
-    border: 0;
-    clip: rect(0 0 0 0);
-    clippath: inset(50%);
-    height: 1px;
-    margin: -1px;
+.label_container{
+  display: flex;
+  align-items: center;
+  .checkbox_container{
+    display: inline-block;
+    vertical-align: middle;
+    width: 15px;
+    height: 15px;
     overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-  }
-  .styled_checkbox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    border-radius: 3px;
-    transition: all 150ms;
-    background: #FFFFFF;
-    border: 1px solid #E5E5E5;
-    svg{
-      fill: none;
-      &.visible{
-        visibility: visible;
-        stroke-width: 1px;
-      }
-      &.not_visible{
-        visibility: hidden;
-      }
+    position: relative;
+    input{
+      border: 0;
+      clip: rect(0 0 0 0);
+      clippath: inset(50%);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      white-space: nowrap;
+      width: 1px;
     }
-    &.styled_green{
-      &.styled_true{
-        background: #06813F;
-        svg{
-          &.visible{
-            stroke: #FFFFFF;
+    .styled_checkbox{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border-radius: 3px;
+      transition: all 150ms;
+      background: #FFFFFF;
+      border: 1px solid #E5E5E5;
+      svg{
+        fill: none;
+        width: 13px;
+        height: 13px;
+        &.visible{
+          visibility: visible;
+          stroke-width: 1px;
+        }
+        &.not_visible{
+          visibility: hidden;
+        }
+      }
+      &.styled_green{
+        &.styled_true{
+          background: #06813F;
+          svg{
+            &.visible{
+              stroke: #FFFFFF;
+            }
+          }
+        }
+      }
+      &.styled_yellow{
+        &.styled_true{
+          background: #F9E547;
+          svg{
+            &.visible{
+              stroke: #5A5C5E;
+            }
           }
         }
       }
     }
-    &.styled_yellow{
-      &.styled_true{
-        background: #F9E547;
-        svg{
-          &.visible{
-            stroke: #5A5C5E;
-          }
-        }
-      }
-    }
   }
+  span{
+    font-family: "Montserrat", "sans-serif";
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    margin: 0 0 0 8px;
+    color: #97999B;
+    &.name_checked{
+      color: #222223;
+    }
+    }
 }
 

@@ -124,6 +124,7 @@
               font-size: 18px;
               line-height: 22px;
               color: #000000;
+              background: transparent;
               option{
                 font-weight: 500;
                 font-size: 18px;
@@ -538,6 +539,16 @@
           .products_list{
             .product_item{
               width: 100%;
+              .content_description{
+                .shop_link{
+                  .shopping_bag{
+                    svg{
+                      width: 30px;
+                      height: 30px;
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -550,10 +561,51 @@
     .catalog_inner{
       width: 90%;
       .catalog_filter{
-        width: 80%;
+        width: 100%;
+        .filter_inner{
+          .category_filter{
+            .title{
+              font-size: 28px;
+              line-height: 35px;
+            }
+            div{
+              .Card{
+                .CardHeader{
+                  font-size: 20px;
+                  line-height: 29px;
+                }
+                .CardBody{
+                  .label_container{
+                    .checkbox_container{
+
+                    }
+                    span{
+                      font-size: 18px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+          .manufacture_filter{
+            .manufacture_title{
+              font-size: 22px;
+            }
+            .manufacture_list{
+              li{
+                .label_container{
+                  span{
+                    font-size: 18px;
+                    line-height: 21px;
+                  }
+                }
+              }
+            }
+          }
+        }
       }
       .close_filter-row{
-        width: 80%;
+        width: 100%;
       }
       .catalog_products-list{
         .products_list-inner{
@@ -598,6 +650,25 @@
           .products_list{
             .product_item{
               margin: 0 0 15px 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 320px){
+  .tut_posuda-catalog{
+    .catalog_inner{
+      .catalog_filter{
+        .filter_inner{
+          .category_filter{
+            div{
+              .Card{
+                .CardHeader{
+                  font-size: 18px;
+                }
+              }
             }
           }
         }

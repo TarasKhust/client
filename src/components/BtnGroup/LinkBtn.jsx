@@ -1,13 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./ButtonStyle.scss";
-import { ShoppingCardContext } from "store/ShoppingCard";
-import BagSvg from "./img/shopping_bag.svg";
+import { Link } from "react-router-dom";
 
-const Button = ({ showSvg, item, animation, text, mode, size, className, disabled, onClick, ...props }) => {
-    const { actions, selectors } = useContext(ShoppingCardContext);
-
+const LinkBtn = ({ animation, text, mode, size, className, disabled, onClick, ...props }) => {
     const classNames = classnames(
         "btn",
         {
@@ -18,27 +15,19 @@ const Button = ({ showSvg, item, animation, text, mode, size, className, disable
         className
     );
 
-    /*
-     * const addToCart = () => {
-     *     actions.addToCart(item);
-     * };
-     */
-
     return (
-	<button
+	<Link to="/catalog"
 		className={classNames}
-
-		// onClick={addToCart}
+		onClick={onClick}
 		disabled={disabled}
 		{...props}
 	>
 		{text}
-		<BagSvg className={`${!showSvg ? "" : "visible"}`} />
-	</button>
+	</Link>
     );
 };
 
-Button.defaultProps = {
+LinkBtn.defaultProps = {
     mode: "yellow",
     size: "normal",
     className: "",
@@ -46,7 +35,7 @@ Button.defaultProps = {
     disabled: false,
 };
 
-Button.propTypes = {
+LinkBtn.propTypes = {
     mode: PropTypes.oneOf(["yellow"]),
     size: PropTypes.oneOf(["normal"]),
     animation: PropTypes.oneOf(["draw-outline"]),
@@ -54,7 +43,6 @@ Button.propTypes = {
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired,
-    showSvg: PropTypes.string,
 };
 
 /**
@@ -70,4 +58,4 @@ Button.propTypes = {
  * @returns {JSX.Element}
  * @constructor
  */
-export default Button;
+export default LinkBtn;

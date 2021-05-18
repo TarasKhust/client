@@ -1,0 +1,477 @@
+.tut_posuda-about{
+  font-family: "Forum", "sans-serif";
+  .about_inner{
+    padding: 0  160px;
+    position: relative;
+    .about_overlay{
+      position: absolute;
+      z-index: 1;
+      width: 500px;
+      height: 500px;
+      max-width: 500px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      &.vis_r{
+        right: -13%;
+        top: 40%;
+      }
+      &.vis_l{
+        left: -13%;
+        top: 20%;
+      }
+      .overlay_inner{
+        width: 100%;
+        height: 100%;
+        &:before{
+          content: '';
+          position: absolute;
+          z-index: -1;
+          background: #F9E547;
+          width: 100%;
+          height: 100%;
+        }
+        &.img_r{
+          right: 0;
+          background-image: url("./img/overlay2.png");
+          &:before{
+            left: -50px;
+            top: -35px;
+          }
+        }
+        &.img_l{
+          left: 0;
+          background-image: url("./img/overlay.png");
+          &:before{
+            left: 50px;
+            top: -35px;
+          }
+        }
+      }
+    }
+    .about_title{
+      font-family: "Montserrat", "sans-serif";
+      font-weight: normal;
+      font-size: 48px;
+      line-height: 59px;
+      color: #222223;
+      text-align: center;
+      margin: 30px 0 50px 0;
+    }
+    .about_content{
+      width: 55%;
+      margin: 0 auto;
+      .content-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 0 50px 0;
+        filter: drop-shadow(16px 15px 11px #97999B);
+        svg{
+          width: 100%;
+          height: 100%;
+        }
+      }
+      .content_title{
+        font-weight: normal;
+        font-size: 52px;
+        line-height: 57px;
+        color: #272525;
+        margin: 60px 0 40px 0;
+        text-align: center;
+      }
+      .content_description{
+        font-weight: normal;
+        font-size: 20px;
+        line-height: 30px;
+        color: #424242;
+        margin: 30px 0;
+      }
+      .content_list{
+        padding: 0;
+        margin: 0;
+        li{
+          position: relative;
+          list-style: none;
+          font-weight: normal;
+          font-size: 22px;
+          line-height: 31px;
+          color: #424242;
+          padding: 0 0 0 20px;
+          margin: 0 0 5px 0;
+          &:last-child{
+            margin: 0;
+          }
+          &:before{
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background: #F9E547 ;
+            top: 35%;
+            border-radius: 50%;
+          }
+        }
+      }
+      ol{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin: 20px 0 ;
+        li{
+          width: 16%;
+          &:before{
+            background: #97999b!important;
+          }
+        }
+      }
+      .content_title{
+
+      }
+      .row_center{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 30px 0 0 0;
+        h4{
+          font-family: "Montserrat", "sans-serif";
+          font-weight: 500;
+          font-size: 21px;
+          line-height: 26px;
+          color: #424242;
+          margin: 35px 0;
+          text-align: center;
+        }
+        span{
+          font-family: "Montserrat", "sans-serif";
+          font-weight: normal;
+          font-size: 48px;
+          line-height: 59px;
+          text-transform: uppercase;
+          color: #F9E547;
+          text-shadow: -6px 3px 13px #4a4b21;
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1680px){
+  .tut_posuda-about{
+    .about_inner{
+      padding: 0;
+      width: 80%;
+      margin: 0 auto;
+      .about_overlay{
+        width: 350px;
+        height: 350px;
+        z-index: -1;
+        &.vis_l{
+          left: -29%;
+        }
+        &.vis_r{
+          top: 38%;
+        }
+      }
+      .about_content{
+        width: 90%;
+        .content-img{
+          height: 400px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1440px){
+  .tut_posuda-about{
+    .about_inner{
+      .about_overlay{
+        .overlay_inner{
+          &.img_l{
+            &:before{
+              left: 30px;
+            }
+          }
+          &.img_r{
+            &:before{
+              left: -30px;
+            }
+          }
+        }
+        &.vis_l{
+          left: -34%;
+        }
+        &.vis_r{
+          right: -28%;
+        }
+      }
+      .about_content{
+        .content-img{
+          height: 350px;
+        }
+        .content_title{
+          font-size: 38px;
+          line-height: 45px;
+        }
+        .content_description{
+          font-size: 18px;
+          line-height: 29px;
+          margin: 35px 0 35px 0;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 1024px){
+  .tut_posuda-about{
+    .about_inner{
+      .about_overlay{
+        height: 260px;
+        .overlay_inner{
+          &.img_l{
+            &:before{
+            }
+          }
+          &.img_r{
+            &:before{
+            }
+          }
+        }
+        &.vis_l{
+          top: 22%;
+          left: -40%;
+        }
+        &.vis_r{
+          right: -35%;
+        }
+      }
+      .about_content{
+        width: 100%;
+        ol{
+          padding: 0;
+          li{
+            width: 30%;
+          }
+        }
+        .content-img{
+        }
+        .content_title{
+          font-size: 32px;
+          line-height: 39px;
+        }
+        .content_description{
+          width: 85%;
+          margin: 30px auto 30px auto;
+        }
+        .content_list{
+          &.limit_w{
+            width: 85%;
+            margin: 0 auto;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 830px){
+  body{
+    &.nav_open{
+      overflow-y: hidden;
+      &:before{
+        background-color: rgba(0,0,0,.5);
+        content: '';
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 999;
+      }
+    }
+  }
+  .tut_posuda-about{
+    .about_inner{
+      .about_overlay{
+        height: 250px;
+        width: 250px;
+        .overlay_inner{
+          &.img_l{
+            &:before{
+            }
+          }
+          &.img_r{
+            &:before{
+            }
+          }
+        }
+        &.vis_l{
+        }
+        &.vis_r{
+        }
+      }
+      .about_content{
+        ol{
+          li{
+          }
+        }
+        .content-img{
+        }
+        .content_title{
+        }
+        .content_description{
+        }
+        .content_list{
+          &.limit_w{
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 600px){
+  .tut_posuda-about{
+    .about_inner{
+      width: 95%;
+      .about_title{
+        font-size: 32px;
+        line-height: 41px;
+        margin: 20px 0 30px 0;
+      }
+      .about_overlay{
+        display: none;
+      }
+      .about_content{
+        ol{
+          li{
+            width: 25%;
+          }
+        }
+        .content-img{
+          height: 300px;
+        }
+        .content_title{
+          margin: 30px 0 25px 0;
+          font-size: 28px;
+          line-height: 31px;
+        }
+        .content_description{
+          width: 100%;
+          margin: 20px auto 15px auto;
+        }
+        .content_list{
+          &.limit_w{
+            width: 100%;
+          }
+          li{
+            font-size: 16px;
+            line-height: 21px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 480px){
+  .tut_posuda-about{
+    .about_inner{
+      .about_content{
+        .content_description{
+          line-height: 21px;
+        }
+        .content_list{
+          li{
+            font-size: 14px;
+            line-height: 19px;
+          }
+        }
+        .row_center{
+          h4{
+            font-size: 18px;
+            line-height: 21px;
+          }
+          span{
+            font-size: 36px;
+            line-height: 41px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 425px){
+  .tut_posuda-about{
+    .about_inner{
+      .about_content{
+        .content_description{
+        }
+        ol{
+          li{
+
+          }
+        }
+        .content_list{
+          li{
+            padding: 0 0 0 15px;
+            &:before{
+              width: 8px;
+              height: 8px;
+            }
+          }
+        }
+        .row_center{
+          h4{
+            font-size: 18px;
+            line-height: 21px;
+          }
+          span{
+            font-size: 36px;
+            line-height: 41px;
+          }
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: 375px){
+  .tut_posuda-about{
+    .about_inner{
+      .about_title{
+        margin: 15px 0 20px 0;
+        font-size: 28px;
+        line-height: 39px;
+      }
+      .about_content{
+        .content_description{
+          text-align: center;
+          font-size: 16px;
+        }
+        ol{
+          li{
+
+          }
+        }
+        .content_list{
+          li{
+            padding: 0 0 0 15px;
+            &:before{
+              width: 8px;
+              height: 8px;
+            }
+          }
+        }
+        .row_center{
+          h4{
+            font-size: 16px;
+          }
+          span{
+            font-size: 32px;
+            line-height: 39px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@ import "./ProductsOrderStyle.scss";
 import Checkbox from "components/Checkbox/Checkbox";
 import { Link } from "react-router-dom";
 import InputField from "components/InputField/InputField";
+import { useForm } from "react-hook-form";
 
 const Content = () => {
     const items = [
@@ -59,19 +60,31 @@ const Content = () => {
         },
     ];
 
-	const [inputValue, setInputValue] = useState({
-		name: "",
-		phone: "",
-		email: "",
-		city: "",
-		post_office: "",
-		street: "",
-		house_number: "",
-		apartment_number: "",
-	});
-
+	/*
+	 * const [inputValue, setInputValue] = useState({
+	 * 	name: "",
+	 * 	phone: "",
+	 * 	email: "",
+	 * 	city: "",
+	 * 	post_office: "",
+	 * 	street: "",
+	 * 	house_number: "",
+	 * 	apartment_number: "",
+	 * });
+	 */
+	const [delivery, setDelivery] = useState("");
 	const [toggleSummary, setToggleSummary] = useState(false);
 	const [buttonText, setButtonText] = useState("Детальніше про замовлення");
+	const { handleSubmit, formState: { errors }, register } = useForm();
+	const express = delivery === "express";
+	const postOffice = delivery === "postOffice";
+
+	const deliveryChange = (evt) => {
+		const target = evt.currentTarget.name;
+		setDelivery(target);
+	};
+
+	const onSubmit = data => console.log({ data }, "data");
 
 	const handleToggleSummary = () => {
 		setToggleSummary(!toggleSummary);
@@ -83,26 +96,10 @@ const Content = () => {
 		}
 	};
 
-	const deliveryType = [
-        "Доставка у відділення НП",
-        "Доставка кур'єром",
-    ];
-
     const paymentType = [
         "Повна оплата на карту",
         "Накладеним платежем",
     ];
-
-	const handleChange = (e) => {
-		const { name, value } = e.target;
-
-		setInputValue((prev) => ({
-			...prev,
-			[name]: value,
-		}));
-
-		console.log(inputValue);
-	};
 
     return (
 	<div className="tut-posuda_order">
@@ -111,93 +108,216 @@ const Content = () => {
 			<div className="order_content">
 				<div className="order_form-submit">
 					<h3 className="form_title">Адреса доставки</h3>
-					<form action="" className="submit_form">
-						<InputField
-							onChange={handleChange}
-							placeholder=" "
-							type="text"
-							name="name"
-							label="ФИО*"
-						/>
-						<InputField
-							onChange={handleChange}
-							placeholder=" "
-							type="phone"
-							name="phone"
-							label="Телефон*"
-						/>
-						<InputField
-							onChange={handleChange}
-							placeholder=" "
-							type="email"
-							name="email"
-							label="Email"
-						/>
+					<form autoComplete="off" className="submit_form" onSubmit={handleSubmit(onSubmit)} >
+						<div className="form_input-row">
+							<InputField
+
+								// onChange={handleChange}
+								placeholder=" "
+								type="text"
+								name="name"
+								label="ПІБ*"
+								errors={errors}
+								register={register("name", {
+									required: "Поле ПІБ обов'язкове  для заповнення",
+									pattern: {
+										message: "Ім'я та прізвище будьте ласкаві",
+
+										// value: /^[A-Z][a-z]+\s[A-Z][a-z]+$/,
+									},
+								})}
+							/>
+							{errors.name && <p>{errors.name.message}</p>}
+						</div>
+						<div className="form_input-row">
+							<InputField
+
+								// onChange={handleChange}
+								placeholder=" "
+								type="text"
+								name="phone"
+								label="Телефон*"
+								errors={errors}
+								defaultValue="+380"
+								register={register("phone", {
+									required: "Поле Телефон обов'язкове  для заповнення",
+									pattern: {
+										message: "Введіть коректний номер телефону",
+										value: /^[0-9]{10}$/,
+									},
+								})}
+							/>
+							{errors.phone && <p>{errors.phone.message}</p>}
+						</div>
+						<div className="form_input-row">
+							<InputField
+
+								// onChange={handleChange}
+								placeholder=" "
+								type="text"
+								label="Email"
+								name="email"
+								errors={errors}
+								register={register("email", {
+									pattern: {
+										value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+										message: "Невірна адреса електронної пошти",
+									},
+								})}
+							/>
+							{errors.email && <p>{errors.email.message}</p>}
+						</div>
 						<div className="flex_checked-list">
-							{deliveryType.map((item, index) => {
-                                return (
-	<label
-		key={index}
-		className="label_container"
-		htmlFor={item}
-	>
-		<Checkbox
-			mode="yellow"
-			name={item}
-		/>
-		<span>{item}</span>
-	</label>
-                                );
-                            })}
-						</div>
-						<div className="checked_visible">
-							<InputField
-								onChange={handleChange}
-								placeholder=" "
-								type="text"
-								name="city"
-								label="Город*"
+							<Checkbox
+								mode="yellow"
+								name="postOffice"
+								label="Доставка у відділення НП"
+								checked={postOffice}
+								onChange={deliveryChange}
 							/>
-							<InputField
-								onChange={handleChange}
-								placeholder=" "
-								type="text"
-								name="post_office"
-								label="Відділення Нова Пошта №*"
+							<Checkbox
+								mode="yellow"
+								name="express"
+								label="Доставка кур'єром"
+								checked={express}
+								onChange={deliveryChange}
 							/>
 						</div>
-						<div className="checked_visible">
-							<InputField
-								onChange={handleChange}
-								placeholder=" "
-								type="text"
-								name="city"
-								label="Город*"
-							/>
-							<InputField
-								onChange={handleChange}
-								placeholder=" "
-								type="text"
-								name="street"
-								label="Вулиця*"
-							/>
-							<div className="checked_row">
+						{postOffice
+							&&						<div className="checked_visible">
+								<div className="form_input-row">
+									<InputField
+
+									// onChange={handleChange}
+										placeholder=" "
+										type="text"
+										name="city"
+										label="Місто*"
+										errors={errors}
+										register={register("city", {
+										required: "Поле Місто обов'язкове  для заповнення",
+										minLength: {
+											value: 3,
+											message: "Це поле повинне містити більше 3 символів",
+										},
+									})}
+									/>
+									{errors.city && <p>{errors.city.message}</p>}
+								</div>
+
+								<div className="form_input-row">
+									<InputField
+
+									// onChange={handleChange}
+										placeholder=" "
+										type="text"
+										name="post_office"
+										label="Відділення Нова Пошта №*"
+										errors={errors}
+										register={register("post_office", {
+										required: "Поле відділення Нова Пошта № обов'язкове  для заповнення",
+										pattern: {
+											value: /[1-9]+/,
+											message: "Це поле повинне містити тільки числа",
+										},
+										minLength: {
+											value: 1,
+											message: "Це поле повинне містити більше 1 символа",
+										},
+									})}
+									/>
+									{errors.post_office && <p>{errors.post_office.message}</p>}
+								</div>
+
+               </div>}
+						{express
+						&& <div className="checked_visible">
+							<div className="form_input-row">
 								<InputField
-									onChange={handleChange}
+
+									// onChange={handleChange}
 									placeholder=" "
 									type="text"
-									name="house_number"
-									label="№ дома*"
+									name="city"
+									label="Місто*"
+									errors={errors}
+									register={register("city", {
+										required: "Поле Місто обов'язкове  для заповнення",
+										minLength: {
+											value: 3,
+											message: "Це поле повинне містити більше 3 символів",
+										},
+									})}
 								/>
-								<InputField
-									onChange={handleChange}
-									placeholder=" "
-									type="text"
-									name="apartment_number"
-									label="№ квартиры"
-								/>
+								{errors.city && <p>{errors.city.message}</p>}
 							</div>
-						</div>
+							<div className="form_input-row">
+								<InputField
+
+									// onChange={handleChange}
+									placeholder=" "
+									type="text"
+									name="street"
+									label="Вулиця*"
+									errors={errors}
+									register={register("street", {
+										required: "Поле Вулиця обов'язкове  для заповнення",
+										minLength: {
+											value: 3,
+											message: "Це поле повинне містити більше 3 символів",
+										},
+									})}
+								/>
+								{errors.street && <p>{errors.street.message}</p>}
+							</div>
+							<div className="checked_row">
+								<div className="form_input-row">
+									<InputField
+
+										// onChange={handleChange}
+										placeholder=" "
+										type="text"
+										name="house_number"
+										label="№ будинку*"
+										errors={errors}
+										register={register("house_number", {
+											required: "Поле № будинку обов'язкове  для заповнення",
+											pattern: {
+												value: /[1-9]+/,
+												message: "Це поле повинне містити тільки числа",
+											},
+											minLength: {
+												value: 1,
+												message: "Це поле повинне містити більше 1 символа",
+											},
+										})}
+									/>
+									{errors.house_number && <p>{errors.house_number.message}</p>}
+								</div>
+								<div className="form_input-row">
+									<InputField
+
+										// onChange={handleChange}
+										placeholder=" "
+										type="text"
+										name="apartment_number"
+										label="№ квартири"
+										errors={errors}
+										register={register("apartment_number", {
+											pattern: {
+												value: /\d+/,
+												message: "Це поле повинне містити тільки числа",
+											},
+											minLength: {
+												value: 1,
+												message: "Це поле повинне містити більше 1 символа",
+											},
+										})}
+									/>
+									{errors.apartment_number && <p>{errors.apartment_number.message}</p>}
+								</div>
+							</div>
+         </div>}
 						<div className="checked_payment-type">
 							<h3 className="payment_title">
 								Спосіб оплати
@@ -205,17 +325,12 @@ const Content = () => {
 							<div className="flex_checked-list">
 								{paymentType.map((item, index) => {
                                     return (
-	<label
+	<Checkbox
+		mode="yellow"
 		key={index}
-		className="label_container"
-		htmlFor={item}
-	>
-		<Checkbox
-			mode="yellow"
-			name={item}
-		/>
-		<span>{item}</span>
-	</label>
+		name={item}
+		label={item}
+	/>
                                     );
                                 })}
 							</div>
@@ -224,6 +339,7 @@ const Content = () => {
 							<Link to="/catalog" >Продовжити покупки</Link>
 							<button type="submit">Оформити замовлення</button>
 						</div>
+
 					</form>
 				</div>
 				<div className="order_line"></div>
