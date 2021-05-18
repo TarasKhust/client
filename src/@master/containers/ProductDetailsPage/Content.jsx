@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import SwiperCore, { Pagination, Controller, Thumbs, Navigation, Lazy } from "swiper";
 import "swiper/swiper-bundle.css";
-import "./CardProductStyle.scss";
+import "./ProductDetailsStyle.scss";
 import Checkbox from "components/Checkbox/Checkbox";
 import Chip from "components/Chip/Chip";
 import Arrivals from "components/NewArrivals/Arrivals";
@@ -477,7 +477,7 @@ const Content = () => {
 			<h2 className="product_name">{description}</h2>
 			<div className="product_brand-name">{name}</div>
 			<div className="in_stock">
-				<Checkbox mode="green" disabled name="В наявності" />
+				<Checkbox mode="green" disabled name="В наявності" label="В наявності" />
 			</div>
 			<div className="price">{`${price} грн`}</div>
 			<div className="chopping_card-update">

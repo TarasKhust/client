@@ -43,6 +43,7 @@ Checkbox.propTypes = {
 	disabled: PropTypes.bool,
 	name: PropTypes.string,
 	checked: PropTypes.bool,
+	label: PropTypes.string,
 };
 
 export default Checkbox;

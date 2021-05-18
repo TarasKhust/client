@@ -9,6 +9,7 @@ import ListProduct from "@master/containers/ListProduct/ListProduct";
 import Filter from "./img/filter.svg";
 import useVisible from "modules/useVisible";
 import { useQueryBrands } from "api/brands.api";
+import { useQueryCategory } from "api/category.api";
 import Pagination from "components/Pagination/Pagination";
 
 const Content = () => {
@@ -16,9 +17,15 @@ const Content = () => {
     const [checkedItems, setCheckedItems] = useState({});
     const [sorted, setSorted] = useState([]);
     const { ref, isVisible, setIsVisible } = useVisible(false);
+
     const { loading, data } = useQueryBrands();
+    const { loading: loadingCategory, data: dataCategory } = useQueryCategory();
 
     const itemsBrand = !loading ? data?.getAllBrands : [];
+
+    const categoryAll = !loadingCategory ? dataCategory?.categoryFindAll : [];
+
+    console.log(categoryAll);
 
     const items = [
         {
@@ -403,53 +410,6 @@ const Content = () => {
         "Від дорогих до дешевих",
     ];
 
-    const content = [
-        {
-            category: "Столовая посуда",
-            categoryItems: [
-                    "Столовые сервизы",
-                    "Тарелки",
-                    "Блюда",
-                    "Салатники",
-                    "Бокалы",
-                    "Стаканы",
-            ],
-        },
-        {
-            category: "Кухонная Посуда",
-            categoryItems: [
-                "Столовые сервизы",
-                "Тарелки",
-                "Блюда",
-                "Салатники",
-                "Бокалы",
-                "Стаканы",
-            ],
-        },
-        {
-            category: "Кухонная техника",
-            categoryItems: [
-                "Столовые сервизы",
-                "Тарелки",
-                "Блюда",
-                "Салатники",
-                "Бокалы",
-                "Стаканы",
-            ],
-        },
-        {
-            category: "Хозяйственные товары",
-            categoryItems: [
-                "Столовые сервизы",
-                "Тарелки",
-                "Блюда",
-                "Салатники",
-                "Бокалы",
-                "Стаканы",
-            ],
-        },
-    ];
-
     const handleCheckedChange = event => {
         event.preventDefault();
 
@@ -478,32 +438,32 @@ const Content = () => {
 					<div className="category_filter">
 						<h2 className="title">Категории</h2>
 						<Accordion activeEventKey={activeEventKey} onToggle={setActiveEventKey}>
-							{content.map(({ category, categoryItems }, index) => (
-								<Card key={index}>
+							{categoryAll.map(({ id, title, children }, index) => (
+								<Card key={id}>
 									<Accordion.Toggle element={Card.Header} eventKey={index}>
-										{category}
+										{title}
 										{activeEventKey !== index && <div className="arrow arrow_down"><Arrow /></div>}
 										{activeEventKey === index && <div className="arrow arrow_up"><Arrow /></div>}
 									</Accordion.Toggle>
 									<Accordion.Collapse eventKey={index} element={Card.Body}>
-										{categoryItems.map((item, index) => {
-                                                return (
-	<Checkbox
-		mode="yellow"
-		key={index}
-		name={item}
-		checked={checkedItems[item]}
-		onChange={handleCheckedChange}
-		label={item}
-	/>
-                                                );
-                                            })}
+										{children.map(({ id, title }) => {
+						                        return (
+							<Checkbox
+								mode="yellow"
+								key={id}
+								name={title}
+								checked={checkedItems[title]}
+								onChange={handleCheckedChange}
+								label={title}
+							/>
+						                        );
+						                    })}
 										<div className="more_row">
 											<span className="btn_more" >Дивитись більше</span>
 										</div>
 									</Accordion.Collapse>
 								</Card>
-                                ))}
+						        ))}
 						</Accordion>
 						<div className="in_stock">
 							<Checkbox mode="green" label="Тільки в наявності" name="Тільки в наявності" />
@@ -520,12 +480,12 @@ const Content = () => {
 						<ul className="manufacture_list">
 
 							{itemsBrand.map(({ id, name }) => {
-                    return (
-	<li key={id} >
-		<Checkbox mode="yellow" name={name} label={name} />
-	</li>
-                    );
-                })}
+						                return (
+							<li key={id} >
+								<Checkbox mode="yellow" name={name} label={name} />
+							</li>
+						                );
+						            })}
 						</ul>
 						<div className="more_row">
 							<span className="btn_more" >

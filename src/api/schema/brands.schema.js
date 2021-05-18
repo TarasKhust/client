@@ -10,4 +10,3 @@ const GET_BRANDS = gql`
 `;
 
 export default GET_BRANDS;
-
