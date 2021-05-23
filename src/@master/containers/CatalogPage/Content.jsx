@@ -10,7 +10,10 @@ import Filter from "./img/filter.svg";
 import useVisible from "modules/useVisible";
 import { useQueryBrands } from "api/brands.api";
 import { useQueryCategory } from "api/category.api";
+import { useQueryAttributeAll } from "api/attributeAll.api";
+import { useQueryProducts } from "api/productsAll.api";
 import Pagination from "components/Pagination/Pagination";
+import ItemViewer from "components/ItemViewer/ItemViewer";
 
 const Content = () => {
     const [activeEventKey, setActiveEventKey] = useState(0);
@@ -18,12 +21,29 @@ const Content = () => {
     const [sorted, setSorted] = useState([]);
     const { ref, isVisible, setIsVisible } = useVisible(false);
 
+    ////getBrandId
+    const [brandId, setBrandId] = useState([]);
+
+    /// end getBrandId
+
     const { loading, data } = useQueryBrands();
     const { loading: loadingCategory, data: dataCategory } = useQueryCategory();
+    const { loading: loadingAttribute, data: dataAttribute } = useQueryAttributeAll();
+    const { loading: loadingProducts, data: dataProducts } = useQueryProducts();
 
     const itemsBrand = !loading ? data?.getAllBrands : [];
-
     const categoryAll = !loadingCategory ? dataCategory?.categoryFindAll : [];
+    const attributeAll = !loadingAttribute ? dataAttribute?.attributeGroupFindAll : [];
+    const productsAll = !loadingProducts ? dataProducts?.getAllProducts : [];
+
+    const priceArr = [];
+
+    productsAll.forEach(el => {
+        priceArr.push(el.price);
+    });
+
+    const minP = Math.min(...priceArr);
+    const maxP = Math.max(...priceArr);
 
     const items = [
         {
@@ -408,14 +428,16 @@ const Content = () => {
         "Від дорогих до дешевих",
     ];
 
-    const handleCheckedChange = event => {
-        event.preventDefault();
-
-        setCheckedItems({
-            ...checkedItems,
-            [event.target.name]: event.target.checked,
-        });
-    };
+    /*
+     * const handleCheckedChange = event => {
+     *     event.preventDefault();
+     *
+     *     setCheckedItems({
+     *         ...checkedItems,
+     *         [event.target.name]: event.target.checked,
+     *     });
+     * };
+     */
 
     const handleChange = (event) => {
         const ID = event.target.value;
@@ -424,7 +446,16 @@ const Content = () => {
 
     useEffect(() => {
         document.body.classList.toggle("nav_open", isVisible);
-    });
+    }, [brandId]);
+
+    const handleBrands = (e) => {
+        if (e.target.checked) {
+            console.log(e.target.value);
+            setBrandId([...brandId, e.target.value]);
+        } else {
+            setBrandId(brandId.filter((id) => id !== e.target.value));
+        }
+    };
 
     return (
 	<div className="tut_posuda-catalog" ref={ref}>
@@ -442,21 +473,22 @@ const Content = () => {
 										{activeEventKey === index && <div className="arrow arrow_up"><Arrow /></div>}
 									</Accordion.Toggle>
 									<Accordion.Collapse eventKey={index} element={Card.Body}>
-										{children.map(({ id, title }) => {
-						                        return (
-							<Checkbox
-								mode="yellow"
-								key={id}
-								name={title}
-								checked={checkedItems[title]}
-								onChange={handleCheckedChange}
-								label={title}
-							/>
-						                        );
-						                    })}
-										<div className="more_row">
-											<span className="btn_more" >Дивитись більше</span>
-										</div>
+										<ItemViewer index={index} item={children} show="6" itemData={children} />
+										{/*{children.map(({ id, title }) => {*/}
+										{/*                    return (*/}
+										{/*	<Checkbox*/}
+										{/*		mode="yellow"*/}
+										{/*		key={id}*/}
+										{/*		name={title}*/}
+										{/*		checked={checkedItems[title]}*/}
+										{/*		onChange={handleCheckedChange}*/}
+										{/*		label={title}*/}
+										{/*	/>*/}
+										{/*                    );*/}
+										{/*                })}*/}
+										{/*<div className="more_row">*/}
+										{/*	<span className="btn_more" >Дивитись більше</span>*/}
+										{/*</div>*/}
 									</Accordion.Collapse>
 								</Card>
 						        ))}
@@ -467,7 +499,7 @@ const Content = () => {
 					</div>
 					<div className="price_filter">
 						<h2 className="price_title">Фільтр</h2>
-						<RangeSlider />
+						<RangeSlider minP={minP} maxP={maxP} />
 					</div>
 					<div className="manufacture_filter">
 						<h2 className="manufacture_title">
@@ -478,7 +510,7 @@ const Content = () => {
 							{itemsBrand.map(({ id, name }) => {
 						                return (
 							<li key={id} >
-								<Checkbox mode="yellow" name={name} label={name} />
+								<Checkbox value={id} mode="yellow" name={name} label={name} onChange={handleBrands} />
 							</li>
 						                );
 						            })}
@@ -489,7 +521,28 @@ const Content = () => {
 							</span>
 						</div>
 					</div>
+					<div className="manufacture_filter">
+						{attributeAll.map(({ id, name, attribute }) => {
+						    return (
+							<React.Fragment key={id}>
+								<h2 className="manufacture_title">
+									{name}
+									:
+								</h2>
+								<ul className="manufacture_list" >
 
+									{attribute.map(({ id, name }) => {
+                                    return (
+	<li key={id} >
+		<Checkbox mode="yellow" name={name} label={name} />
+	</li>
+                                    );
+                                })}
+								</ul>
+							</React.Fragment>
+                            );
+                        })}
+					</div>
 				</div>
 			</div>
 			<div className={`close_filter-row ${!isVisible ? "" : "show_filter-row"}`}>

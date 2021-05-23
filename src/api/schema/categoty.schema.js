@@ -5,6 +5,9 @@ const GET_CATEGORY = gql`
         categoryFindAll{
             id
             title
+            disabled
+            label
+            value
             children {id title}
         }
     }

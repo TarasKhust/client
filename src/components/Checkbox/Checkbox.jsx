@@ -3,7 +3,7 @@ import "./CheckboxStyle.scss";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const Checkbox = ({ mode, checked = false, onChange, name, disabled, label }) => {
+const Checkbox = ({ value, mode, checked = false, onChange, name, disabled, label }) => {
 	const classNames = classnames(
         "styled_checkbox",
         {
@@ -21,6 +21,7 @@ const Checkbox = ({ mode, checked = false, onChange, name, disabled, label }) =>
 				id={name}
 				type="checkbox"
 				name={name}
+				value={value}
 				defaultChecked={checked}
 				onChange={onChange}
 				disabled={disabled}
@@ -44,6 +45,7 @@ Checkbox.propTypes = {
 	name: PropTypes.string,
 	checked: PropTypes.bool,
 	label: PropTypes.string,
+	value: PropTypes.string,
 };
 
 export default Checkbox;
