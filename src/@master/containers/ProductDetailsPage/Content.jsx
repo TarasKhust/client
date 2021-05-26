@@ -12,14 +12,13 @@ import { useQueryDetails } from "api/details.api";
 
 SwiperCore.use([Pagination, Navigation, Controller, Thumbs, Lazy]);
 
-const Content = () => {
-    // const { id } = useParams();
+const Content = (props) => {
     const url = location.pathname;
     const slashIndex = url.lastIndexOf("/");
     const itemId = url.substr(slashIndex + 1);
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [controlledSwiper, setControlledSwiper] = useState(null);
-    const { loading, data } = useQueryDetails();
+    const { loading, data } = useQueryDetails(null, itemId);
 
     const dataDetails = !loading ? data?.getProductById : [];
 
@@ -68,11 +67,11 @@ const Content = () => {
 
     const { count, description, image, name, price, productAttribute, id, vendor, brand, status } = dataDetails;
 
-      let array = [];
+        let array = [];
 
-      if (image){
-           array = Object.values(image); // convert image object to array
-      }
+        if (image){
+             array = Object.values(image); // convert image object to array
+        }
 
     return (
 	<div className="tut_posuda-product">
@@ -152,7 +151,6 @@ const Content = () => {
 				<Arrivals title="Товари з цієї категорії" />
 			</div>
 		</div>
-
 	</div>
     );
 };

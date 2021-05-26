@@ -1,8 +1,8 @@
 import { gql } from "@apollo/client";
 
 const GET_DETAILS = gql`
-    query {
-     getProductById(id: "f438bb2b-b6d5-435f-a8f5-cb321edcc5c3"){
+    query($id: String!) {
+     getProductById(id: $id){
             id
             image
             name

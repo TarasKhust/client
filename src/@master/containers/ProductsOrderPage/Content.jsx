@@ -61,8 +61,7 @@ const Content = () => {
 									required: "Поле ПІБ обов'язкове  для заповнення",
 									pattern: {
 										message: "Ім'я та прізвище будьте ласкаві",
-
-										// value: /^[A-Z][a-z]+\s[A-Z][a-z]+$/,
+										value: /^[A-Z][a-z]+\s[A-Z][a-z]+$/,
 									},
 								})}
 							/>
@@ -113,7 +112,6 @@ const Content = () => {
 								label="Доставка у відділення НП"
 								checked={postOffice}
 								onChange={deliveryChange}
-
 							/>
 							<Checkbox
 								mode="yellow"
