@@ -21,12 +21,12 @@ const Catalog = () => {
 						<figure className="cat_image">
 							<img src={services} alt="" />
 						</figure>
-						<span className="cat_title">Столовые сервизы</span>
+						<span className="cat_title">Столові сервізи</span>
 					</div>
 				</a>
 				<a href="#" className="catalog_list-item column_small">
 					<div className="cat_item">
-						<span className="cat_title">Стаканы</span>
+						<span className="cat_title">Склянки</span>
 						<figure className="cat_image">
 							<img src={stakan} alt="stakan" />
 						</figure>
@@ -34,7 +34,7 @@ const Catalog = () => {
 				</a>
 				<a href="#" className="catalog_list-item column_small">
 					<div className="cat_item">
-						<span className="cat_title">Бокалы</span>
+						<span className="cat_title">Келихи</span>
 						<figure className="cat_image">
 							<img src={bokal} alt="" />
 						</figure>
@@ -44,7 +44,7 @@ const Catalog = () => {
 			<div className="catalog_list">
 				<a href="#" className="catalog_list-item column_small">
 					<div className="cat_item">
-						<span className="cat_title">Кувшины</span>
+						<span className="cat_title">Глечики</span>
 						<figure className="cat_image">
 							<img src={jug} alt="" />
 						</figure>
@@ -52,7 +52,7 @@ const Catalog = () => {
 				</a>
 				<a href="#" className="catalog_list-item column_small">
 					<div className="cat_item">
-						<span className="cat_title">Тарелки</span>
+						<span className="cat_title">Тарілки</span>
 						<figure className="cat_image">
 							<img src={plates} alt="" />
 						</figure>
@@ -63,7 +63,7 @@ const Catalog = () => {
 						<figure className="cat_image">
 							<img src={cutlery} alt="" />
 						</figure>
-						<span className="cat_title">Столовые приборы</span>
+						<span className="cat_title">Столові прибори</span>
 					</div>
 				</a>
 			</div>

@@ -80,7 +80,7 @@ export default (state = initState, { type, ...props } = {}) => {
 		return (
 			state.setIn(["cartItems", props.cartItems.index, "count"],
 				state.get("cartItems").toJS()
-				.find((item) => item._id === props.cartItems._id)["count"] + 1
+					.find((item) => item.id === props.cartItems.id)["count"] + 1
 			)
 		);
 
@@ -88,7 +88,7 @@ export default (state = initState, { type, ...props } = {}) => {
 		return (
 			state.setIn(["cartItems", props.cartItems.index, "count"],
 				state.get("cartItems").toJS()
-				.find((item) => item._id === props.cartItems._id)["count"] - 1
+					.find((item) => item.id === props.cartItems.id)["count"] - 1
 			)
 		);
 

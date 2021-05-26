@@ -65,7 +65,7 @@ export const getShoppingCartPrice = createSelector(
 export const getCurrentValue = (id) => createSelector(
 	[getShoppingCart],
 	(items) => {
-	  const value = items.find(item => item._id === id);
+	  const value = items.find(item => item.id === id);
 	  return value?.count;
 	}
 

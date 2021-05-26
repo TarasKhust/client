@@ -1,77 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "./ProductsOrderStyle.scss";
 import Checkbox from "components/Checkbox/Checkbox";
 import { Link } from "react-router-dom";
 import InputField from "components/InputField/InputField";
 import { useForm } from "react-hook-form";
+import { ShoppingCardContext } from "store/ShoppingCard";
 
 const Content = () => {
-    const items = [
-        {
-            _id: "1",
-            vendor: "44688",
-            name: "PAŞABAHÇE Enoteca ",
-            description: "Келих для  шампанського",
-            packaging: "6 х 170мл",
-            image: "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
-            price: 440,
-            overview: [
-                {
-                    title: "Келих для шампанського високий",
-                    material: "Скло ударостійке",
-                    size: "170 мл",
-                    features: "",
-                },
-            ],
-        },
-        {
-            _id: "2",
-            vendor: "44728",
-            name: "PAŞABAHÇE Enoteca ",
-            description: "Келих для вина",
-            packaging: "6 х 420мл",
-            image: "https://images.ua.prom.st/1064918125_w640_h640_nabor-bokalov-dlya.jpg",
-            price: 471,
-            overview: [
-                {
-                    title: "Келих для вина",
-                    material: "Скло ударостійке",
-                    size: "420 мл",
-                    features: "",
-                },
-            ],
-        },
-        {
-            _id: "3",
-            vendor: "44228",
-            name: "PAŞABAHÇE Enoteca",
-            description: "Келих для вина ",
-            packaging: "6 х 545мл",
-            image: "https://i1.rozetka.ua/goods/1682570/pasabahce_44819_set_barocco_images_1682570621.jpg",
-            price: 536,
-            overview: [
-                {
-                    title: "Келих для вина",
-                    material: "Скло ударостійке",
-                    size: "545 мл",
-                    features: "",
-                },
-            ],
-        },
-    ];
+	const { actions, selectors } = useContext(ShoppingCardContext);
+	const items = selectors.getShoppingCart();
+	const sum = selectors.getShoppingCartPrice();
 
-	/*
-	 * const [inputValue, setInputValue] = useState({
-	 * 	name: "",
-	 * 	phone: "",
-	 * 	email: "",
-	 * 	city: "",
-	 * 	post_office: "",
-	 * 	street: "",
-	 * 	house_number: "",
-	 * 	apartment_number: "",
-	 * });
-	 */
 	const [delivery, setDelivery] = useState("");
 	const [toggleSummary, setToggleSummary] = useState(false);
 	const [buttonText, setButtonText] = useState("Детальніше про замовлення");
@@ -174,6 +113,7 @@ const Content = () => {
 								label="Доставка у відділення НП"
 								checked={postOffice}
 								onChange={deliveryChange}
+
 							/>
 							<Checkbox
 								mode="yellow"
@@ -347,16 +287,19 @@ const Content = () => {
 					<ul
 						className={`repeat_items ${!toggleSummary ? "" : "set_toggle-repeat_items"}`}
 					>
-						{items.map(({ price, image, description, name, _id }) => {
+						{items.map(({ price, image, description, name, id, count }) => {
                             return (
-	<li className="repeat_item" key={_id}>
+	<li className="repeat_item" key={id}>
 		<figure>
-			<div className="count">{_id}</div>
-			<img src={image} alt={name} />
+			<div className="count">{count}</div>
+			<img
+				src={`https://servercrm.herokuapp.com/api/files/images/200X200/${image[0]}`}
+				alt={name}
+			/>
 		</figure>
 		<div className="description">
 			<p>{name}</p>
-			<p>{description}</p>
+			{/*<p>{description}</p>*/}
 		</div>
 		<span className="price">{`${price} грн`}</span>
 	</li>
@@ -377,7 +320,7 @@ const Content = () => {
 						</div>
 						<div className="order_summary">
 							<h2>Всього:</h2>
-							<span>123123 грн</span>
+							<span>{`${sum} грн`}</span>
 						</div>
 					</div>
 				</div>

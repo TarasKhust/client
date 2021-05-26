@@ -39,7 +39,7 @@ app.get("/order", (req, res) => {
   res.sendFile(path.join(publicPath, "order.html"));
 });
 
-app.get("/product_details", (req, res) => {
+app.get("/product_details/:id", (req, res) => {
   res.sendFile(path.join(publicPath, "product_details.html"));
 });
 

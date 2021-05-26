@@ -56,49 +56,46 @@ const Pagination = ({ data, RenderComponent, pageLimit, dataLimit }) => {
     return (
 	<div className="tut_posuda-pagination">
 		<ul className="products_list">
-			{getPaginatedData().map(({ _id, packaging, image, description, vendor, name, price, overview }) => (
+			{getPaginatedData().map(({ id, image, vendor, name, price, count }) => (
 				<RenderComponent
-					overview={overview}
-					packaging={packaging}
-					key={_id}
-					_id={_id}
+					key={id}
+					id={id}
 					image={image}
-					description={description}
 					vendor={vendor}
 					name={name}
 					price={price}
+					count={count}
 				/>
                 ))}
 		</ul>
-		<div className="pagination_items">
-			<div className="watch_more-column">
+		{data.length > 10
+        && <div className="pagination_items">
+	<div className="watch_more-column">
 
-				<button
-					onClick={goToNextPage}
-					className={`btn_next-page ${currentPage === pages.length ? "disabled" : ""}`}
-				>
-					<Circle />
-					<span>Показати ще</span>
-				</button>
-			</div>
-
-			<div className="pagination">
-				<button
-					onClick={goToPreviousPage}
-					className={`prev ${currentPage === 1 ? "disabled" : ""}`}
-				>
-					<ArrorL />
-				</button>
-				    {renderPageNumber}
-				<button
-					onClick={goToNextPage}
-					className={`next ${currentPage === pages.length ? "disabled" : ""}`}
-				>
-					<ArrowR />
-				</button>
-			</div>
-
-		</div>
+		<button
+			onClick={goToNextPage}
+			className={`btn_next-page ${currentPage === pages.length ? "disabled" : ""}`}
+		>
+			<Circle />
+			<span>Показати ще</span>
+		</button>
+	</div>
+	<div className="pagination">
+		<button
+			onClick={goToPreviousPage}
+			className={`prev ${currentPage === 1 ? "disabled" : ""}`}
+		>
+			<ArrorL />
+		</button>
+		{renderPageNumber}
+		<button
+			onClick={goToNextPage}
+			className={`next ${currentPage === pages.length ? "disabled" : ""}`}
+		>
+			<ArrowR />
+		</button>
+	</div>
+           </div>}
 	</div>
     );
 };

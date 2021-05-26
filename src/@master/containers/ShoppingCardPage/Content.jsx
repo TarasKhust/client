@@ -14,9 +14,15 @@ const Content = () => {
 
     const isEmpty = selectors.getIsEmpty();
 
-    if (!isEmpty || !items){
+    if (!isEmpty || !items.length){
     	return (
-	<h2>Корзина пустая</h2>
+	<div className="tut-posuda_chip is_empty-chip">
+		<div className="chip_inner">
+			<h2 className="chip_title">
+				Ваш кошик порожній
+			</h2>
+		</div>
+	</div>
 		);
 	}
 
@@ -36,14 +42,16 @@ const Content = () => {
 					<span className="head_item end_row t-small total">Всього</span>
 					<span className="head_item"></span>
 				</div>
-				{isEmpty && items.map(({ _id, name, vendor, description, image, price, count }) => {
+				{isEmpty && items.map(({ id, name, vendor, description, image, price, count }) => {
 					return (
-						<div className="shopping_list" key={_id}>
+						<div className="shopping_list" key={id}>
 							<div className="list_item-img">
-								<img src={image} alt={description} />
+								<img
+									src={`https://servercrm.herokuapp.com/api/files/images/200X200/${image[0]}`}
+									alt={description}
+								/>
 							</div>
 							<div className="list_item list_item-info">
-								<p className="info-title">{description}</p>
 								<p className="info-title">{name}</p>
 							</div>
 							<div className="list_item list_item-vendor">{vendor}</div>
@@ -51,7 +59,7 @@ const Content = () => {
 							<div className="list_item list_item-actions">
 								<Chip
 									inputShow
-									item={{ _id, name, image, description, price, vendor }}
+									item={{ id, name, image, description, price, vendor, count }}
 								/>
 							</div>
 							<div className="list_item item_total-count">
@@ -59,7 +67,7 @@ const Content = () => {
 							</div>
 							<div
 								className="list_item list_item-remove"
-								onClick={() => actions.removeFromCart(_id)}
+								onClick={() => actions.removeFromCart(id)}
 							>
 								<Remove />
 							</div>

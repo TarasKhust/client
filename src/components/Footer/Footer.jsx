@@ -6,12 +6,6 @@ import Inst from "./img/insta_logo.svg";
 import Pint from "./img/pinterest_logo.svg";
 import { Link } from "react-router-dom";
 
-// <
-// a
-// className = "ma-link"
-// href = "mailto:order@miracle.net" > order
-// @miracle.net<
-// /a>
 const Footer = () => {
     return (
 	<footer className="footer_content">
@@ -47,9 +41,9 @@ const Footer = () => {
 			</div>
 			<div className="inner_vis-r">
 				<div className="social_links">
-					<a target="_blank" href="#">
-						<Pint />
-					</a>
+					{/*<a target="_blank" href="#">*/}
+					{/*	<Pint />*/}
+					{/*</a>*/}
 					<a target="_blank" href="https://m.facebook.com/Tut-Posuda-100766448739248/">
 						<Fb />
 					</a>
@@ -58,7 +52,7 @@ const Footer = () => {
 					</a>
 				</div>
 				{/*<a href="#">Политика возврата</a>*/}
-				{/*<a href="#">Доставка и оплата</a>*/}
+				{/*<Link to="/delivery">Доставка и оплата</Link>*/}
 				{/*<a href="#">Cookies</a>*/}
 			</div>
 		</div>

@@ -54,7 +54,7 @@ Button.propTypes = {
     onClick: PropTypes.func,
     disabled: PropTypes.bool,
     text: PropTypes.string.isRequired,
-    showSvg: PropTypes.string,
+    showSvg: PropTypes.bool,
 };
 
 /**

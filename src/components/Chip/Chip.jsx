@@ -9,7 +9,7 @@ const Chip = ({ item, inputShow, btn_text }) => {
     const { actions, selectors } = useContext(ShoppingCardContext);
 
 	const { cartItems } = selectors.getState();
-    const value = cartItems.find(items => items._id === item._id)?.count;
+    const value = cartItems.find(items => items.id === item.id)?.count;
     const [isCount, setCount] = useState(false);
 
     const addToCart = () => {
@@ -33,7 +33,7 @@ const Chip = ({ item, inputShow, btn_text }) => {
   };
 
   const increment = () => {
-    actions.incrementAddToCart(item._id);
+    actions.incrementAddToCart(item.id);
   };
 
   const decrement = () => {
@@ -41,7 +41,7 @@ const Chip = ({ item, inputShow, btn_text }) => {
 	  return;
     }
 
-    actions.decrementAddToCart(item._id);
+    actions.decrementAddToCart(item.id);
   };
 
     if (isCount || inputShow) {

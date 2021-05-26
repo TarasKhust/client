@@ -32,7 +32,7 @@ export const toDefault = () => ({
 export const addToCart = (product) => (dispatch, getState) => {
   const state = getState.toJS();
 
-  const index = state.cartItems.findIndex((item) => item._id === product._id);
+  const index = state.cartItems.findIndex((item) => item.id === product.id);
 
   if (index >= 0) {
     return;
@@ -50,10 +50,10 @@ export const addToCart = (product) => (dispatch, getState) => {
  * @param _id
  * @param count
  */
-export const updateCart = (_id, count = 1) => (dispatch, getState) => {
+export const updateCart = (id, count = 1) => (dispatch, getState) => {
   const state = getState.toJS();
 
-  const index = state.cartItems.findIndex((item) => item._id === _id);
+  const index = state.cartItems.findIndex((item) => item.id === id);
 
   dispatch({
       type: UPDATE_CART,
@@ -86,14 +86,14 @@ export const editCart = (productId) => ({
  * @param _id
  * @return {{cartItems: {count, _id}, type: string}}
  */
-export const incrementAddToCart = (_id) => (dispatch, getState) => {
+export const incrementAddToCart = (id) => (dispatch, getState) => {
   const state = getState.toJS();
 
-  const index = state.cartItems.findIndex((item) => item._id === _id);
+  const index = state.cartItems.findIndex((item) => item.id === id);
 
   dispatch({
     type: INCREMENT,
-    cartItems: { _id, index },
+    cartItems: { id, index },
 });
 };
 
@@ -102,13 +102,13 @@ export const incrementAddToCart = (_id) => (dispatch, getState) => {
  * @param _id
  * @return {{cartItems: {count: number, _id}, type: string}}
  */
-export const decrementAddToCart = (_id) => (dispatch, getState) => {
+export const decrementAddToCart = (id) => (dispatch, getState) => {
   const state = getState.toJS();
 
-  const index = state.cartItems.findIndex((item) => item._id === _id);
+  const index = state.cartItems.findIndex((item) => item.id === id);
 
   dispatch({
     type: DECREMENT,
-    cartItems: { _id, index },
+    cartItems: { id, index },
   });
 };

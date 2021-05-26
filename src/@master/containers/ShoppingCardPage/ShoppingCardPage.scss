@@ -1,4 +1,14 @@
 .tut-posuda_chip{
+  &.is_empty-chip{
+    height: 100vh;
+    .chip_inner{
+      display: flex;
+      justify-content: center;
+      .chip_title{
+        margin: 15px 0 60px 0;
+      }
+    }
+  }
   .chip_inner{
     padding: 0 160px;
 

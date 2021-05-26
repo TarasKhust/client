@@ -1,6 +1,6 @@
 import React from "react";
 import { Provider } from "react-redux";
-import { Router } from "react-router-dom";
+import { Router, Route } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import { store } from "store";
 import MainPage from "@master/containers/MainPage";
@@ -11,7 +11,7 @@ import Contacts from "@master/containers/Contacts";
 import ShoppingCard from "@master/containers/ShoppingCardPage";
 import CatalogPage from "@master/containers/CatalogPage";
 import ProductsOrderPage from "@master/containers/ProductsOrderPage";
-import CardProductPage from "@master/containers/ProductDetailsPage";
+import ProductDetails from "@master/containers/ProductDetailsPage";
 import AboutPage from "@master/containers/AboutPage";
 import { ApolloProvider } from "@apollo/client";
 import client from "@master/router/apolloClientConfig";
@@ -30,8 +30,8 @@ export default () => (
 					<ShoppingCard />
 					<CatalogPage />
 					<ProductsOrderPage />
-					<CardProductPage />
 					<AboutPage />
+					<ProductDetails />
 				</Router>
 			</ShoppingCardProvider>
 		</Provider>
