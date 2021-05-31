@@ -12,40 +12,14 @@ import { useQueryDetails } from "api/details.api";
 
 SwiperCore.use([Pagination, Navigation, Controller, Thumbs, Lazy]);
 
-const Content = (props) => {
+const Content = () => {
     const url = location.pathname;
     const slashIndex = url.lastIndexOf("/");
     const itemId = url.substr(slashIndex + 1);
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
     const [controlledSwiper, setControlledSwiper] = useState(null);
     const { loading, data } = useQueryDetails(null, itemId);
-
     const dataDetails = !loading ? data?.getProductById : [];
-
-    const items = [
-        {
-            _id: "1",
-            vendor: "44688",
-            name: "PAŞABAHÇE Enoteca ",
-            description: "Келих для  шампанського",
-            packaging: "6 х 170мл",
-            image: [
-                "https://image.galacentre.ru/size/1000/68WHRAD-2.jpg",
-                "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
-                "https://images.ua.prom.st/1064918125_w640_h640_nabor-bokalov-dlya.jpg",
-                "https://irecommend.ru/sites/default/files/product-images/692175/QNnpaVBQYVkM08mgxUt8A.jpg",
-            ],
-            price: 440,
-            overview: [
-                {
-                    title: "Келих для шампанського високий",
-                    material: "Скло ударостійке",
-                    size: "170 мл",
-                    features: "",
-                },
-            ],
-        },
-    ];
 
     const thumbsConfig = {
         tag: "section",
@@ -92,21 +66,22 @@ const Content = (props) => {
 						                        );
 						                    })}
 					</Swiper>
-					<Swiper
-						{...thumbsConfig}
-					>
-						{array.map((item, index) => {
-						                        return (
-							<SwiperSlide key={`thumb-${index}`} tag="li" style={{ listStyle: "none" }}>
-								<img
-									src={`https://servercrm.herokuapp.com/api/files/images/200X200/${item}`}
-									alt={`Міні фото ${index }`}
-								>
-								</img>
-							</SwiperSlide>
-						                        );
-						                    })}
-					</Swiper>
+					{array.length > 1
+                    && <Swiper
+	{...thumbsConfig}
+                       >
+	{array.map((item, index) => {
+                            return (
+	<SwiperSlide key={`thumb-${index}`} tag="li" style={{ listStyle: "none" }}>
+		<img
+			src={`https://servercrm.herokuapp.com/api/files/images/200X200/${item}`}
+			alt={`Міні фото ${index }`}
+		>
+		</img>
+	</SwiperSlide>
+                            );
+                        })}
+                       </Swiper>}
 				</div>
 				<div className="product_overview">
 					<h2 className="product_name">{name}</h2>

@@ -48,7 +48,6 @@ export const getShoppingCartCount = createSelector(
 export const getShoppingCartPrice = createSelector(
 	[getShoppingCart],
 	(items) => {
-	  console.log(items);
 	  return items.reduce((prev, cur) => {
 		return prev + cur.price * cur.count;
 	  }, 0);

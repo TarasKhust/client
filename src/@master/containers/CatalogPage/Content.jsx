@@ -14,15 +14,19 @@ import { useQueryAttributeAll } from "api/attributeAll.api";
 import { useQueryProducts } from "api/productsAll.api";
 import Pagination from "components/Pagination/Pagination";
 import ItemViewer from "components/ItemViewer/ItemViewer";
+import { useQueryBrandId } from "api/brandById.api";
 
 const Content = () => {
     const [activeEventKey, setActiveEventKey] = useState(0);
-    const [checkedItems, setCheckedItems] = useState({});
-    const [sorted, setSorted] = useState([]);
     const { ref, isVisible, setIsVisible } = useVisible(false);
 
+	/*
+	 * const [minPrice, setMinPrice] = useState(null);
+	 * const [maxPrice, setMaxPrice] = useState(null);
+	 */
+
     ////getBrandId
-    const [brandId, setBrandId] = useState([]);
+    const [brandId, setBrandId] = useState(new Map());
 
     /// end getBrandId
 
@@ -30,49 +34,74 @@ const Content = () => {
     const { loading: loadingCategory, data: dataCategory } = useQueryCategory();
     const { loading: loadingAttribute, data: dataAttribute } = useQueryAttributeAll();
     const { loading: loadingProducts, data: dataProducts } = useQueryProducts();
-
+    const { loading: loadingBrandId, data: dataBrandId } = useQueryBrandId(null, brandId);
     const itemsBrand = !loading ? data?.getAllBrands : [];
     const categoryAll = !loadingCategory ? dataCategory?.categoryFindAll : [];
     const attributeAll = !loadingAttribute ? dataAttribute?.attributeGroupFindAll : [];
     const productsAll = !loadingProducts ? dataProducts?.getAllProducts : [];
+    const brandById = !loadingBrandId ? dataBrandId?.getBrandById : [];
+	const [productsData, setProductsData] = useState([]);
+
+	useEffect(() => {
+		if (productsAll){
+			setProductsData(productsAll);
+		}
+	}, [productsAll]);
 
     const sortedBy = [
-        "За замовчуванням",
-        "Від дешевих до дорогих",
-        "Від дорогих до дешевих",
-    ];
+		{
+			id: "1",
+			name: "За замовчуванням",
+			type_name: "default",
+		},
+		{
+			id: "2",
+			name: "Від дешевих до дорогих",
+			type_name: "ascending",
+		},
+		{
+			id: "3",
+			name: "Від дорогих до дешевих",
+			type_name: "descending",
+		},
+	];
 
-    /*
-     * const handleCheckedChange = event => {
-     *     event.preventDefault();
-     *
-     *     setCheckedItems({
-     *         ...checkedItems,
-     *         [event.target.name]: event.target.checked,
-     *     });
-     * };
-     */
+	const sortAscDesc = key => {
+		const cloneArray = productsAll;
 
-    const handleChange = (event) => {
-        const ID = event.target.value;
-        setSorted(ID);
-    };
+		switch (key){
+			case "ascending":
+				return setProductsData(cloneArray.slice().sort((a, b) => a.price - b.price));
 
-    const [minPrice, setMinPrice] = useState(null);
-    const [maxPrice, setMaxPrice] = useState(null);
+				// break;
+			case "descending":
+				return setProductsData(cloneArray.slice().sort((a, b) => b.price - a.price));
+
+				// break;
+			default:
+				return setProductsData(cloneArray);
+		}
+	};
 
     useEffect(() => {
         document.body.classList.toggle("nav_open", isVisible);
 
-        if (productsAll){
-            const newArr = productsAll.map(({ price }) => price);
-            setMinPrice(Math.min.apply(Math, newArr));
-            setMaxPrice(Math.max.apply(Math, newArr));
-        }
+        /*
+         * if (productsAll){
+         *     const newArr = productsAll.map(({ price }) => price);
+         *     setMinPrice(Math.min.apply(Math, newArr));
+         *     setMaxPrice(Math.max.apply(Math, newArr));
+         * }
+         */
     }, [brandId, productsAll]);
 
     const handleBrands = (e) => {
-        setBrandId({ ...brandId, [e.target.value]: e.target.checked });
+        /*
+         * setBrandId({ ...brandId, [e.target.value]: e.target.checked });
+         *
+         * setBrandId(...brandId, e.target.value);
+         */
+		setBrandId(brandId => new Map(brandId.set(e.target.value, e.target.checked)));
     };
 
     return (
@@ -117,7 +146,7 @@ const Content = () => {
 					</div>
 					<div className="price_filter">
 						<h2 className="price_title">Фільтр</h2>
-						<RangeSlider minP={minPrice} maxP={maxPrice} />
+						<RangeSlider productsAll={productsAll} />
 					</div>
 					<div className="manufacture_filter">
 						<h2 className="manufacture_title">
@@ -128,7 +157,7 @@ const Content = () => {
 							{itemsBrand.map(({ id, name }) => {
 						                return (
 							<li key={id} >
-								<Checkbox checked={brandId[id]} value={id} mode="yellow" name={name} label={name} onChange={handleBrands} />
+								<Checkbox checked={brandId.has(id) ? brandId.get(id) : false} value={id} mode="yellow" name={name} label={name} onChange={handleBrands} />
 							</li>
 						                );
 						            })}
@@ -187,17 +216,17 @@ const Content = () => {
 						</div>
 						<div className="sort_inner">
 							<span>Сортувати:</span>
-							<select onChange={handleChange} className="select-sort">
-								{sortedBy.map((sortBy, index) => {
+							<select onChange={(e) => sortAscDesc(e.target.value)} className="select-sort">
+								{sortedBy.map(({ type_name, name, id }) => {
                                     return (
-	                                    <option key={index}>{sortBy}</option>
+	                                    <option value={type_name} key={id}>{name}</option>
                                     );
                                 })}
 							</select>
 						</div>
 					</div>
 					<Pagination
-						data={productsAll}
+						data={productsData}
 						RenderComponent={ListProduct}
 						pageLimit={5}
 						dataLimit={10}
