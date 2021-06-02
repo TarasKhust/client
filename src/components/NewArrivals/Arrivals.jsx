@@ -6,6 +6,7 @@ import "swiper/components/navigation/navigation.scss";
 import "./ArrivalsStyle.scss";
 import LinkBtn from "components/BtnGroup/LinkBtn";
 import Chip from "components/Chip/Chip";
+import { Link } from "react-router-dom";
 
 // install Swiper's Controller component
 SwiperCore.use([Navigation]);
@@ -13,7 +14,7 @@ SwiperCore.use([Navigation]);
 const Arrivals = ({ title }) => {
     const items = [
       {
-	    _id: "1",
+	    id: "1",
         vendor: "AA111BB",
 	    name: "Paşabahçe Aquatic",
 	    description: "Стопка для водки набор 6Х60мл",
@@ -21,7 +22,7 @@ const Arrivals = ({ title }) => {
 	    price: 65.00,
       },
       {
-	    _id: "2",
+	    id: "2",
         vendor: "AA111BB",
 	    name: "Paşabahçe",
 	    description: "Стопка для водки набор 6Х60мл",
@@ -29,7 +30,7 @@ const Arrivals = ({ title }) => {
 	    price: 75.00,
       },
       {
-	    _id: "3",
+	    id: "3",
         vendor: "AA111BB",
 	    name: "Paşabahçe Aquatic",
 	    description: "Стопка для водки набор 6Х60мл",
@@ -37,7 +38,7 @@ const Arrivals = ({ title }) => {
 	    price: 85.00,
       },
       {
-	    _id: "4",
+	    id: "4",
         vendor: "AA111BB",
 	    name: "Paşabahçe Aquatic",
 	    description: "Стопка для водки набор 6Х60мл",
@@ -67,19 +68,23 @@ const Arrivals = ({ title }) => {
 				{...swiperConfig}
 			>
 
-				{items.map(({ _id, name, image, description, price, vendor }) => {
+				{items.map(({ id, name, image, description, price, vendor }) => {
 			    return (
-				    <SwiperSlide key={_id}>
+				    <SwiperSlide key={id}>
 					<div className="arrival_item">
-						<figure className="arrival_image">
+						<Link to={{
+							pathname: `/product_details/${id}`,
+						}}
+							  className="arrival_image"
+						>
 							<img src={image} alt="" />
-						</figure>
+						</Link>
 						<div className="arrival_description">
 							<div className="arrival_name">{name}</div>
 							<h2 className="arrival_desc">{description}</h2>
 							<div className="desc_row">
 								<span className="price">{`${price} грн`}</span>
-								<Chip inputShow={false} item={{ _id, name, image, description, price, vendor }} />
+								<Chip inputShow={false} item={{ id, name, image, description, price, vendor }} />
 							</div>
 						</div>
 					</div>

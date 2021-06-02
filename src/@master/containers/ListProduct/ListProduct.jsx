@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React from "react";
 import "./ListProduct.scss";
 import Chip from "components/Chip/Chip";
 import { Link } from "react-router-dom";

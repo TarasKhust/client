@@ -4,8 +4,23 @@
     .chip_inner{
       display: flex;
       justify-content: center;
+      flex-direction: column;
+      align-items: center;
       .chip_title{
         margin: 15px 0 60px 0;
+      }
+      .is_empty-img{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        svg{
+          width: 70%;
+
+        }
+      }
+      a{
+        margin: 35px 0 0 0;
       }
     }
   }
@@ -409,6 +424,21 @@
 }
 @media only screen and (max-width: 530px){
   .tut-posuda_chip{
+    &.is_empty-chip{
+      .chip_inner{
+        .chip_title{
+          margin: 15px 0 25px 0;
+          font-size: 24px;
+          line-height: 29px;
+        }
+        .is_empty-img{
+          width: 65%;
+          svg{
+            height: 150px;
+          }
+        }
+      }
+    }
     .chip_inner{
       .chip_title{
         margin: 15px 0 20px 0;

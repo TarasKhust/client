@@ -6,7 +6,7 @@ const Slider = require("rc-slider");
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 
-const RangeSlider = ({ minP, maxP, productsAll }) => {
+const RangeSlider = ({ productsAll }) => {
     const [priceValue, setPriceValue] = useState({
         min: 0,
         max: 0,
@@ -22,19 +22,15 @@ const RangeSlider = ({ minP, maxP, productsAll }) => {
             setPriceValue({ min: Math.min.apply(Math, newArr), max: Math.max.apply(Math, newArr) });
             setStaticValue({ sMin: Math.min.apply(Math, newArr), sMax: Math.max.apply(Math, newArr) });
         }
-    }, [minP, maxP, productsAll]);
+    }, [productsAll]);
 
         const onSliderChange = value => {
             setPriceValue({ min: value[0], max: value[1] });
     };
 
-   const onInputChange = (value, index) => {
+   const onInputChange = (value) => {
        setKey(Date.now());
         setPriceValue({ min: value.min, max: value.max });
-
-          if (value >= priceValue.min && value <= priceValue.max) {
-              console.log("xm");
-          }
     };
 
     const rangeConfig = {
@@ -53,7 +49,6 @@ const RangeSlider = ({ minP, maxP, productsAll }) => {
                                 </span>),
     };
 
-    // console.log("Value in State on render:", value);
     return (
 	<div className="range_slider-content">
 		<div className="range_input">
@@ -82,7 +77,5 @@ const RangeSlider = ({ minP, maxP, productsAll }) => {
 export default RangeSlider;
 
 RangeSlider.propTypes = {
-    minP: PropTypes.number,
-    maxP: PropTypes.number,
     productsAll: PropTypes.array,
 };

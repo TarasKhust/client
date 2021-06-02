@@ -26,7 +26,7 @@ const Content = () => {
 	 */
 
     ////getBrandId
-    const [brandId, setBrandId] = useState(new Map());
+    const [brandId, setBrandId] = useState([]);
 
     /// end getBrandId
 
@@ -41,6 +41,32 @@ const Content = () => {
     const productsAll = !loadingProducts ? dataProducts?.getAllProducts : [];
     const brandById = !loadingBrandId ? dataBrandId?.getBrandById : [];
 	const [productsData, setProductsData] = useState([]);
+
+	const [checkedState, setCheckedState] = useState(
+		new Array(itemsBrand.length).fill(false)
+	);
+	console.log(checkedState)
+	const [total, setTotal] = useState([]);
+
+	const handleOnChange = (position) => {
+		const updatedCheckedState = checkedState.map((item, index) =>
+			index === position ? !item : item
+		);
+
+		setCheckedState(updatedCheckedState);
+
+		const totalPrice = updatedCheckedState.reduce(
+			(sum, currentState, index) => {
+				if (currentState === true) {
+					// return sum + itemsBrand[index].price;
+				}
+				// return sum;
+			},
+			0
+		);
+
+		setTotal(totalPrice);
+	};
 
 	useEffect(() => {
 		if (productsAll){
@@ -85,23 +111,14 @@ const Content = () => {
 
     useEffect(() => {
         document.body.classList.toggle("nav_open", isVisible);
-
-        /*
-         * if (productsAll){
-         *     const newArr = productsAll.map(({ price }) => price);
-         *     setMinPrice(Math.min.apply(Math, newArr));
-         *     setMaxPrice(Math.max.apply(Math, newArr));
-         * }
-         */
     }, [brandId, productsAll]);
 
     const handleBrands = (e) => {
-        /*
-         * setBrandId({ ...brandId, [e.target.value]: e.target.checked });
-         *
-         * setBrandId(...brandId, e.target.value);
-         */
-		setBrandId(brandId => new Map(brandId.set(e.target.value, e.target.checked)));
+          // setBrandId({ ...brandId, [e.target.value]: e.target.name });
+
+         setBrandId(...brandId, e.target.value);
+
+		// setBrandId(brandId => new Map(brandId.set(e.target.value, e.target.checked)));
     };
 
     return (
@@ -154,10 +171,17 @@ const Content = () => {
 						</h2>
 						<ul className="manufacture_list">
 
-							{itemsBrand.map(({ id, name }) => {
+							{itemsBrand.map(({ id, name }, index) => {
 						                return (
 							<li key={id} >
-								<Checkbox checked={brandId.has(id) ? brandId.get(id) : false} value={id} mode="yellow" name={name} label={name} onChange={handleBrands} />
+								<Checkbox
+									checked={checkedState[index]}
+									value={id}
+									mode="yellow"
+									name={name}
+									label={name}
+									onChange={() => handleOnChange(index)}
+								/>
 							</li>
 						                );
 						            })}

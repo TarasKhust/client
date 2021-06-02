@@ -2,8 +2,10 @@ import React, { useContext } from "react";
 import "./ShoppingCardPage.scss";
 import Remove from "./img/cancel.svg";
 import Chip from "components/Chip/Chip";
+import IsEmpty from "./img/isEmpty.svg";
 import { ShoppingCardContext } from "store/ShoppingCard";
 import { Link } from "react-router-dom";
+import LinkBtn from "components/BtnGroup/LinkBtn";
 
 const Content = () => {
     const { actions, selectors } = useContext(ShoppingCardContext);
@@ -21,6 +23,10 @@ const Content = () => {
 			<h2 className="chip_title">
 				Ваш кошик порожній
 			</h2>
+			<div className="is_empty-img">
+				<IsEmpty />
+			</div>
+			<LinkBtn animation="draw-outline" text="Повернутись до каталогу" />
 		</div>
 	</div>
 		);
