@@ -3,7 +3,7 @@ import "./CheckboxStyle.scss";
 import classnames from "classnames";
 import PropTypes from "prop-types";
 
-const Checkbox = ({ value, mode, checked, onChange, name, disabled, label }) => {
+const Checkbox = ({ data_set, value, mode, checked, onChange, name, disabled, label }) => {
 	const classNames = classnames(
         "styled_checkbox",
         {

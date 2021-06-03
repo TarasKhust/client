@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import "./CatalogStyle.scss";
 import Accordion from "components/AccordeonGroup";
 import Card from "components/AccordeonGroup/Card";
@@ -20,15 +20,12 @@ const Content = () => {
     const [activeEventKey, setActiveEventKey] = useState(0);
     const { ref, isVisible, setIsVisible } = useVisible(false);
 
-	/*
-	 * const [minPrice, setMinPrice] = useState(null);
-	 * const [maxPrice, setMaxPrice] = useState(null);
-	 */
+    ///for checked brand
+	const [brandId, setBrandId] = useState("");
+	const [Checked, setChecked] = useState([]);
+	const [testArr, setTestArr] = useState([]);
 
-    ////getBrandId
-    const [brandId, setBrandId] = useState([]);
-
-    /// end getBrandId
+	///end checked brand
 
     const { loading, data } = useQueryBrands();
     const { loading: loadingCategory, data: dataCategory } = useQueryCategory();
@@ -41,38 +38,6 @@ const Content = () => {
     const productsAll = !loadingProducts ? dataProducts?.getAllProducts : [];
     const brandById = !loadingBrandId ? dataBrandId?.getBrandById : [];
 	const [productsData, setProductsData] = useState([]);
-
-	const [checkedState, setCheckedState] = useState(
-		new Array(itemsBrand.length).fill(false)
-	);
-	console.log(checkedState)
-	const [total, setTotal] = useState([]);
-
-	const handleOnChange = (position) => {
-		const updatedCheckedState = checkedState.map((item, index) =>
-			index === position ? !item : item
-		);
-
-		setCheckedState(updatedCheckedState);
-
-		const totalPrice = updatedCheckedState.reduce(
-			(sum, currentState, index) => {
-				if (currentState === true) {
-					// return sum + itemsBrand[index].price;
-				}
-				// return sum;
-			},
-			0
-		);
-
-		setTotal(totalPrice);
-	};
-
-	useEffect(() => {
-		if (productsAll){
-			setProductsData(productsAll);
-		}
-	}, [productsAll]);
 
     const sortedBy = [
 		{
@@ -109,17 +74,28 @@ const Content = () => {
 		}
 	};
 
-    useEffect(() => {
-        document.body.classList.toggle("nav_open", isVisible);
-    }, [brandId, productsAll]);
+	const handleToggle = (value) => {
+		const current = Checked.indexOf(value);
+		const newChecked = [...Checked];
 
-    const handleBrands = (e) => {
-          // setBrandId({ ...brandId, [e.target.value]: e.target.name });
+		if (current === -1){
+			newChecked.push(value);
+			setBrandId(value);
+			setTestArr(prevState => [...prevState, brandById]);
+		} else {
+			newChecked.splice(current, 1);
+		}
 
-         setBrandId(...brandId, e.target.value);
+		setChecked(newChecked);
+	};
 
-		// setBrandId(brandId => new Map(brandId.set(e.target.value, e.target.checked)));
-    };
+	useEffect(() => {
+		document.body.classList.toggle("nav_open", isVisible);
+
+		if (productsAll){
+			setProductsData(productsAll);
+		}
+	}, [productsAll, brandById, brandId]);
 
     return (
 	<div className="tut_posuda-catalog" ref={ref}>
@@ -171,16 +147,16 @@ const Content = () => {
 						</h2>
 						<ul className="manufacture_list">
 
-							{itemsBrand.map(({ id, name }, index) => {
+							{itemsBrand.map(({ id, name }) => {
 						                return (
 							<li key={id} >
 								<Checkbox
-									checked={checkedState[index]}
+									checked={Checked.indexOf(id) === -1 ? false : true}
 									value={id}
 									mode="yellow"
 									name={name}
 									label={name}
-									onChange={() => handleOnChange(index)}
+									onChange={() => handleToggle(id)}
 								/>
 							</li>
 						                );

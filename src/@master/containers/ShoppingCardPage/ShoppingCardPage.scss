@@ -16,7 +16,7 @@
         margin: 0 auto;
         svg{
           width: 70%;
-
+          height: 360px;
         }
       }
       a{
@@ -425,6 +425,7 @@
 @media only screen and (max-width: 530px){
   .tut-posuda_chip{
     &.is_empty-chip{
+      height: auto;
       .chip_inner{
         .chip_title{
           margin: 15px 0 25px 0;
