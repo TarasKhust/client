@@ -138,11 +138,6 @@ module.exports = {
 				],
 			},
 			{
-				test: /\.sprite\.json$/,
-				type: "javascript/auto",
-				use: "@ds/svg-static-sprite-loader",
-			},
-			{
 
 				//...
 				parser: {
